@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FluentValidation, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.10.3.6\lib\netstandard2.0\FluentValidation.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,7 +44,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants\Messages.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ValidationRules\FluentValidation\AdviserApprovalValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\CatalogCourseValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\DepartmentValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\EnrolledCourseValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\InstructorValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\OfficerValidator.cs" />
+    <Compile Include="ValidationRules\FluentValidation\StudentValidator.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentManagementSystem.Entities\StudentManagementSystem.Entities.csproj">
+      <Project>{381993B4-E31A-4C47-A91F-076194971108}</Project>
+      <Name>StudentManagementSystem.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
