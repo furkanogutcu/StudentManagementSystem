@@ -10,8 +10,18 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementSystem.Core", "StudentManagementSystem.Core\StudentManagementSystem.Core.csproj", "{67024470-02BC-45C2-B766-5DEE3591E457}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementSystem.Business", "StudentManagementSystem.Business\StudentManagementSystem.Business.csproj", "{15267BFE-367F-4BFA-8D48-53B9FDA0450E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67024470-02BC-45C2-B766-5DEE3591E457} = {67024470-02BC-45C2-B766-5DEE3591E457}
+		{58A8038C-5917-4697-948D-3DB83C0997E1} = {58A8038C-5917-4697-948D-3DB83C0997E1}
+		{381993B4-E31A-4C47-A91F-076194971108} = {381993B4-E31A-4C47-A91F-076194971108}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentManagementSystem.Application", "StudentManagementSystem.Application\StudentManagementSystem.Application.csproj", "{B7084DDD-2029-49BC-9D19-B17B1E2CDEB2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67024470-02BC-45C2-B766-5DEE3591E457} = {67024470-02BC-45C2-B766-5DEE3591E457}
+		{381993B4-E31A-4C47-A91F-076194971108} = {381993B4-E31A-4C47-A91F-076194971108}
+		{15267BFE-367F-4BFA-8D48-53B9FDA0450E} = {15267BFE-367F-4BFA-8D48-53B9FDA0450E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
