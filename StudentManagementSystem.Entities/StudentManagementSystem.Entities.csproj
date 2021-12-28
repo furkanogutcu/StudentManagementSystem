@@ -41,7 +41,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\AdviserApproval.cs" />
+    <Compile Include="Concrete\CatalogCourse.cs" />
+    <Compile Include="Concrete\Department.cs" />
+    <Compile Include="Concrete\EnrolledCourse.cs" />
+    <Compile Include="Concrete\Instructor.cs" />
+    <Compile Include="Concrete\Officer.cs" />
+    <Compile Include="Concrete\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentManagementSystem.Core\StudentManagementSystem.Core.csproj">
+      <Project>{67024470-02BC-45C2-B766-5DEE3591E457}</Project>
+      <Name>StudentManagementSystem.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
