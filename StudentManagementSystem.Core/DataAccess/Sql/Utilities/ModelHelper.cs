@@ -36,6 +36,10 @@ namespace StudentManagementSystem.Core.DataAccess.Sql.Utilities
                         {
                             entity.GetType().GetProperties()[i].SetValue(entity, Convert.ToInt32(data));
                         }
+                        else if (data is short) //For the 'Year' data type in databases
+                        {
+                            entity.GetType().GetProperties()[i].SetValue(entity, short.Parse(data.ToString()));
+                        }
                         else if (data is double)
                         {
                             entity.GetType().GetProperties()[i].SetValue(entity, Convert.ToDouble(data));

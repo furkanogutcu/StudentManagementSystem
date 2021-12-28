@@ -14,7 +14,7 @@ namespace StudentManagementSystem.Entities.Concrete
         public string LastName { get; set; }
         public string Phone { get; set; }
         public int Semester { get; set; }
-        public DateTime EnrollmentDate { get; set; }
+        public short EnrollmentDate { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }
         public DateTime? DeletedAt { get; set; }
