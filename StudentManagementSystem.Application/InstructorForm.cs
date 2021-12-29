@@ -10,26 +10,11 @@ using System.Windows.Forms;
 
 namespace StudentManagementSystem.Application
 {
-    public partial class LoginForm : Form
+    public partial class InstructorForm : Form
     {
-        public LoginForm()
+        public InstructorForm()
         {
             InitializeComponent();
-        }
-
-        private void LoginForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
