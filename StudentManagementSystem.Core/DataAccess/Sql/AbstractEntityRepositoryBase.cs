@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using MySql.Data.MySqlClient;
 using StudentManagementSystem.Core.DataAccess.Sql.Utilities;
 using StudentManagementSystem.Core.Entities;
@@ -12,16 +13,36 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
         public abstract string GetTableName();
 
         //Virtual because it can be overridden in subclasses.
-        public virtual List<TEntity> GetAll(string? condition)
+        public virtual List<TEntity> GetAll(Dictionary<string, dynamic>? conditions)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
             {
-                MySqlCommand command = new MySqlCommand(
-                    condition == null
-                        ? $"SELECT * FROM {GetTableName()}"
-                        : $"SELECT * FROM {GetTableName()} WHERE {condition}",
-                    connection);
+                string commandText = $"SELECT * FROM {GetTableName()}";
+
+                if (conditions != null)
+                {
+                    commandText += " WHERE ";
+                    for (int i = 0; i < conditions.Count; i++)
+                    {
+                        commandText += $"{conditions.ElementAt(i).Key}=@{conditions.ElementAt(i).Key}";
+                        if (i != conditions.Count - 1)
+                        {
+                            commandText += " AND ";
+                        }
+                    }
+                }
+
+                MySqlCommand command = new MySqlCommand(commandText, connection);
+
+                if (conditions != null)
+                {
+                    foreach (var condition in conditions)
+                    {
+                        command.Parameters.AddWithValue($"@{condition.Key}", condition.Value);
+                    }
+                }
+
                 MySqlDataReader reader = command.ExecuteReader();
                 var result = ModelHelper<TEntity>.GetInstanceListFromReader(reader);
                 ConnectionHelper.CloseConnection(connection);
@@ -35,12 +56,29 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
         }
 
         //Virtual because it can be overridden in subclasses.
-        public virtual TEntity Get(string condition)
+        public virtual TEntity Get(Dictionary<string, dynamic> conditions)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
             {
-                MySqlCommand command = new MySqlCommand($"SELECT * FROM {GetTableName()} WHERE {condition}", connection);
+                string commandText = $"SELECT * FROM {GetTableName()} WHERE ";
+
+                for (int i = 0; i < conditions.Count; i++)
+                {
+                    commandText += $"{conditions.ElementAt(i).Key}=@{conditions.ElementAt(i).Key}";
+                    if (i != conditions.Count - 1)
+                    {
+                        commandText += " AND ";
+                    }
+                }
+
+                MySqlCommand command = new MySqlCommand(commandText, connection);
+
+                foreach (var condition in conditions)
+                {
+                    command.Parameters.AddWithValue($"@{condition.Key}", condition.Value);
+                }
+
                 MySqlDataReader reader = command.ExecuteReader();
                 var result = ModelHelper<TEntity>.GetInstanceListFromReader(reader)[0];
                 ConnectionHelper.CloseConnection(connection);
