@@ -4,6 +4,7 @@ using System.Linq;
 using MySql.Data.MySqlClient;
 using StudentManagementSystem.Core.DataAccess.Sql.Utilities;
 using StudentManagementSystem.Core.Entities;
+using StudentManagementSystem.Core.Utilities.Results;
 
 namespace StudentManagementSystem.Core.DataAccess.Sql
 {
@@ -13,7 +14,7 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
         public abstract string GetTableName();
 
         //Virtual because it can be overridden in subclasses.
-        public virtual List<TEntity> GetAll(Dictionary<string, dynamic>? conditions)
+        public virtual IDataResult<List<TEntity>> GetAll(Dictionary<string, dynamic>? conditions)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -46,17 +47,17 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
                 MySqlDataReader reader = command.ExecuteReader();
                 var result = ModelHelper<TEntity>.GetInstanceListFromReader(reader);
                 ConnectionHelper.CloseConnection(connection);
-                return result;
+                return new SuccessDataResult<List<TEntity>>(result);
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorDataResult<List<TEntity>>(e.Message);
             }
         }
 
         //Virtual because it can be overridden in subclasses.
-        public virtual TEntity Get(Dictionary<string, dynamic> conditions)
+        public virtual IDataResult<TEntity> Get(Dictionary<string, dynamic> conditions)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -82,19 +83,19 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
                 MySqlDataReader reader = command.ExecuteReader();
                 var result = ModelHelper<TEntity>.GetInstanceListFromReader(reader)[0];
                 ConnectionHelper.CloseConnection(connection);
-                return result;
+                return new SuccessDataResult<TEntity>(result);
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorDataResult<TEntity>(e.Message);
             }
         }
 
-        public abstract void Add(TEntity entity);
+        public abstract IResult Add(TEntity entity);
 
-        public abstract void Update(TEntity entity);
+        public abstract IResult Update(TEntity entity);
 
-        public abstract void Delete(TEntity entity);
+        public abstract IResult Delete(TEntity entity);
     }
 }

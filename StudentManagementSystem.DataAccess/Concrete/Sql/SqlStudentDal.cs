@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using StudentManagementSystem.Core.DataAccess.Sql;
 using StudentManagementSystem.Core.DataAccess.Sql.Utilities;
+using StudentManagementSystem.Core.Utilities.Results;
 using StudentManagementSystem.DataAccess.Abstract;
 using StudentManagementSystem.Entities.Concrete;
 
@@ -14,7 +15,7 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             return "tblogrenci";
         }
 
-        public override void Add(Student entity)
+        public override IResult Add(Student entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -31,15 +32,16 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@kayit_yili", entity.EnrollmentDate);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Update(Student entity)
+        public override IResult Update(Student entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -58,15 +60,16 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@ogrenci_no", entity.StudentNo);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Delete(Student entity)
+        public override IResult Delete(Student entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -76,11 +79,12 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@ogrenci_no", entity.StudentNo);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
     }

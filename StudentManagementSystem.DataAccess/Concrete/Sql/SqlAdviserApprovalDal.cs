@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using StudentManagementSystem.Core.DataAccess.Sql;
 using StudentManagementSystem.Core.DataAccess.Sql.Utilities;
+using StudentManagementSystem.Core.Utilities.Results;
 using StudentManagementSystem.DataAccess.Abstract;
 using StudentManagementSystem.Entities.Concrete;
 
@@ -14,7 +15,7 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             return "tbldanismanonay";
         }
 
-        public override void Add(AdviserApproval entity)
+        public override IResult Add(AdviserApproval entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -24,15 +25,16 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@katalog_ders_kodu", entity.CatalogCourseCode);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Update(AdviserApproval entity)
+        public override IResult Update(AdviserApproval entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -44,15 +46,16 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@id", entity.Id);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Delete(AdviserApproval entity)
+        public override IResult Delete(AdviserApproval entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -62,11 +65,12 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@id", entity.Id);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
     }

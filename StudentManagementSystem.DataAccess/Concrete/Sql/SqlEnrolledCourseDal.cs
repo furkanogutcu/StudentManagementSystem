@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using StudentManagementSystem.Core.DataAccess.Sql;
 using StudentManagementSystem.Core.DataAccess.Sql.Utilities;
+using StudentManagementSystem.Core.Utilities.Results;
 using StudentManagementSystem.DataAccess.Abstract;
 using StudentManagementSystem.Entities.Concrete;
 
@@ -14,7 +15,7 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             return "tblalinanders";
         }
 
-        public override void Add(EnrolledCourse entity)
+        public override IResult Add(EnrolledCourse entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -28,15 +29,16 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@butunleme_sonuc", entity.ButunlemeResult);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Update(EnrolledCourse entity)
+        public override IResult Update(EnrolledCourse entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -52,15 +54,16 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@id", entity.Id);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Delete(EnrolledCourse entity)
+        public override IResult Delete(EnrolledCourse entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -70,11 +73,12 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@id", entity.Id);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
     }

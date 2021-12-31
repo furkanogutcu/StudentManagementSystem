@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
 using StudentManagementSystem.Core.Entities;
+using StudentManagementSystem.Core.Utilities.Results;
 
 namespace StudentManagementSystem.Core.DataAccess.Sql
 {
     public interface IEntityRepository<T> where T : class, IEntity, new()
     {
-        List<T> GetAll(Dictionary<string,dynamic>? conditions);
-        T Get(Dictionary<string, dynamic> conditions);
-        void Add(T entity);
-        void Update(T entity);
-        void Delete(T entity);
+        IDataResult<List<T>> GetAll(Dictionary<string,dynamic>? conditions);
+        IDataResult<T> Get(Dictionary<string, dynamic> conditions);
+        IResult Add(T entity);
+        IResult Update(T entity);
+        IResult Delete(T entity);
     }
 }

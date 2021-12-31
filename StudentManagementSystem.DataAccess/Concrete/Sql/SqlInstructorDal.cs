@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using StudentManagementSystem.Core.DataAccess.Sql;
 using StudentManagementSystem.Core.DataAccess.Sql.Utilities;
+using StudentManagementSystem.Core.Utilities.Results;
 using StudentManagementSystem.DataAccess.Abstract;
 using StudentManagementSystem.Entities.Concrete;
 
@@ -14,7 +15,7 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             return "tblogretimuyesi";
         }
 
-        public override void Add(Instructor entity)
+        public override IResult Add(Instructor entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -28,20 +29,23 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@telefon", entity.Phone);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Update(Instructor entity)
+        public override IResult Update(Instructor entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
             {
-                MySqlCommand command = new MySqlCommand($"UPDATE {GetTableName()} SET bolum_no = @bolum_no, email = @email, sifre = @sifre, ad = @ad, soyad = @soyad, telefon = @telefon, modified_at = @modified_at WHERE ogretim_uye_no = @ogretim_uye_no", connection);
+                MySqlCommand command = new MySqlCommand(
+                    $"UPDATE {GetTableName()} SET bolum_no = @bolum_no, email = @email, sifre = @sifre, ad = @ad, soyad = @soyad, telefon = @telefon, modified_at = @modified_at WHERE ogretim_uye_no = @ogretim_uye_no",
+                    connection);
                 command.Parameters.AddWithValue("@bolum_no", entity.DepartmentNo);
                 command.Parameters.AddWithValue("@email", entity.Email);
                 command.Parameters.AddWithValue("@sifre", entity.Password);
@@ -52,15 +56,16 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@ogretim_uye_no", entity.InstructorNo);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Delete(Instructor entity)
+        public override IResult Delete(Instructor entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -70,11 +75,12 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@ogretim_uye_no", entity.InstructorNo);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
     }

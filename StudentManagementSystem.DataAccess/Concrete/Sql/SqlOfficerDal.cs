@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using StudentManagementSystem.Core.DataAccess.Sql;
 using StudentManagementSystem.Core.DataAccess.Sql.Utilities;
+using StudentManagementSystem.Core.Utilities.Results;
 using StudentManagementSystem.DataAccess.Abstract;
 using StudentManagementSystem.Entities.Concrete;
 
@@ -14,7 +15,7 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             return "tblmemur";
         }
 
-        public override void Add(Officer entity)
+        public override IResult Add(Officer entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -27,15 +28,16 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@telefon", entity.Phone);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Update(Officer entity)
+        public override IResult Update(Officer entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -50,15 +52,16 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@memur_no", entity.OfficerNo);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
 
-        public override void Delete(Officer entity)
+        public override IResult Delete(Officer entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
@@ -68,11 +71,12 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@memur_no", entity.OfficerNo);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
+                return new SuccessResult();
             }
             catch (Exception e)
             {
                 ConnectionHelper.CloseConnection(connection);
-                throw e;
+                return new ErrorResult(e.Message);
             }
         }
     }
