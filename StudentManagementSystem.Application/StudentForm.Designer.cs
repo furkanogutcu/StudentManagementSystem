@@ -28,43 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
             this.pnlBottomBar = new System.Windows.Forms.Panel();
             this.pnlLeftBar = new System.Windows.Forms.Panel();
-            this.btnProfilBilgileri = new System.Windows.Forms.Button();
+            this.btnGlobalProfile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnTranskriptAl = new System.Windows.Forms.Button();
-            this.btnDersKayitIsmleri = new System.Windows.Forms.Button();
-            this.btnNotGoruntuleme = new System.Windows.Forms.Button();
+            this.btnGlobalTranscript = new System.Windows.Forms.Button();
+            this.btnGlobalCourseRegister = new System.Windows.Forms.Button();
+            this.btnGlobalNoteView = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlNotGoruntuleme = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.pnlGlobalNotView = new System.Windows.Forms.Panel();
+            this.dataGridViewNotViewNotes = new System.Windows.Forms.DataGridView();
+            this.cmbNotViewSelectSemester = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.pnlDersKayitIslemleri = new System.Windows.Forms.Panel();
+            this.pnlGlobalCourseRegister = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridViewCourseRegisterAvailableCourses = new System.Windows.Forms.DataGridView();
             this.label26 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCourseRegisterSendToDraft = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label25 = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.dataGridViewCourseRegisterSelectedCourses = new System.Windows.Forms.DataGridView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnCourseRegisterSubmitForAdviserApproval = new System.Windows.Forms.Button();
+            this.btnCourseRegisterDeleteToDraft = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridViewCourseRegisterApprovedCourses = new System.Windows.Forms.DataGridView();
             this.label23 = new System.Windows.Forms.Label();
-            this.listView3 = new System.Windows.Forms.ListView();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlTranskriptAl = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -78,45 +68,65 @@
             this.label27 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pnlProfilBilgilerim = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.pnlGlobalProfile = new System.Windows.Forms.Panel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtProfileInfoAdviser = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtProfileInfoDepartment = new System.Windows.Forms.TextBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.txtProfileInfoSemester = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtProfileInfoEnrollmentDate = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtProfileInfoPhone = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.txtProfileInfoLastName = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.txtProfileInfoFirstName = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtProfileInfoEmail = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblProfileLastProfileUpdate = new System.Windows.Forms.Label();
+            this.txtProfileStudentNo = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnProfileChangePassword = new System.Windows.Forms.Button();
+            this.txtProfileOldPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.txtProfileReNewPassword = new System.Windows.Forms.TextBox();
+            this.txtProfileNewPassword = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnProfileUpdate = new System.Windows.Forms.Button();
+            this.txtProfilePhone = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtProfileLastName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtProfileFirstName = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtProfileEmail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlNotGoruntuleme.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.pnlDersKayitIslemleri.SuspendLayout();
+            this.pnlGlobalNotView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotViewNotes)).BeginInit();
+            this.pnlGlobalCourseRegister.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterAvailableCourses)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterSelectedCourses)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterApprovedCourses)).BeginInit();
             this.pnlTranskriptAl.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            this.pnlProfilBilgilerim.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pnlGlobalProfile.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlBottomBar
@@ -130,25 +140,26 @@
             // pnlLeftBar
             // 
             this.pnlLeftBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pnlLeftBar.Controls.Add(this.btnProfilBilgileri);
+            this.pnlLeftBar.Controls.Add(this.btnGlobalProfile);
             this.pnlLeftBar.Controls.Add(this.label1);
-            this.pnlLeftBar.Controls.Add(this.btnTranskriptAl);
-            this.pnlLeftBar.Controls.Add(this.btnDersKayitIsmleri);
-            this.pnlLeftBar.Controls.Add(this.btnNotGoruntuleme);
+            this.pnlLeftBar.Controls.Add(this.btnGlobalTranscript);
+            this.pnlLeftBar.Controls.Add(this.btnGlobalCourseRegister);
+            this.pnlLeftBar.Controls.Add(this.btnGlobalNoteView);
             this.pnlLeftBar.Controls.Add(this.pictureBox1);
             this.pnlLeftBar.Location = new System.Drawing.Point(0, 0);
             this.pnlLeftBar.Name = "pnlLeftBar";
             this.pnlLeftBar.Size = new System.Drawing.Size(210, 493);
             this.pnlLeftBar.TabIndex = 1;
             // 
-            // btnProfilBilgileri
+            // btnGlobalProfile
             // 
-            this.btnProfilBilgileri.Location = new System.Drawing.Point(12, 256);
-            this.btnProfilBilgileri.Name = "btnProfilBilgileri";
-            this.btnProfilBilgileri.Size = new System.Drawing.Size(186, 41);
-            this.btnProfilBilgileri.TabIndex = 6;
-            this.btnProfilBilgileri.Text = "Profil bilgilerim";
-            this.btnProfilBilgileri.UseVisualStyleBackColor = true;
+            this.btnGlobalProfile.Font = new System.Drawing.Font("Roboto", 11.25F);
+            this.btnGlobalProfile.Location = new System.Drawing.Point(12, 256);
+            this.btnGlobalProfile.Name = "btnGlobalProfile";
+            this.btnGlobalProfile.Size = new System.Drawing.Size(186, 41);
+            this.btnGlobalProfile.TabIndex = 6;
+            this.btnGlobalProfile.Text = "Profil bilgilerim";
+            this.btnGlobalProfile.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -163,32 +174,35 @@
             this.label1.Text = "Öğrenci Otomasyonu";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnTranskriptAl
+            // btnGlobalTranscript
             // 
-            this.btnTranskriptAl.Location = new System.Drawing.Point(12, 397);
-            this.btnTranskriptAl.Name = "btnTranskriptAl";
-            this.btnTranskriptAl.Size = new System.Drawing.Size(186, 41);
-            this.btnTranskriptAl.TabIndex = 4;
-            this.btnTranskriptAl.Text = "Transkript al";
-            this.btnTranskriptAl.UseVisualStyleBackColor = true;
+            this.btnGlobalTranscript.Font = new System.Drawing.Font("Roboto", 11.25F);
+            this.btnGlobalTranscript.Location = new System.Drawing.Point(12, 397);
+            this.btnGlobalTranscript.Name = "btnGlobalTranscript";
+            this.btnGlobalTranscript.Size = new System.Drawing.Size(186, 41);
+            this.btnGlobalTranscript.TabIndex = 4;
+            this.btnGlobalTranscript.Text = "Transkript al";
+            this.btnGlobalTranscript.UseVisualStyleBackColor = true;
             // 
-            // btnDersKayitIsmleri
+            // btnGlobalCourseRegister
             // 
-            this.btnDersKayitIsmleri.Location = new System.Drawing.Point(12, 350);
-            this.btnDersKayitIsmleri.Name = "btnDersKayitIsmleri";
-            this.btnDersKayitIsmleri.Size = new System.Drawing.Size(186, 41);
-            this.btnDersKayitIsmleri.TabIndex = 2;
-            this.btnDersKayitIsmleri.Text = "Ders kayıt işlemleri";
-            this.btnDersKayitIsmleri.UseVisualStyleBackColor = true;
+            this.btnGlobalCourseRegister.Font = new System.Drawing.Font("Roboto", 11.25F);
+            this.btnGlobalCourseRegister.Location = new System.Drawing.Point(12, 350);
+            this.btnGlobalCourseRegister.Name = "btnGlobalCourseRegister";
+            this.btnGlobalCourseRegister.Size = new System.Drawing.Size(186, 41);
+            this.btnGlobalCourseRegister.TabIndex = 2;
+            this.btnGlobalCourseRegister.Text = "Ders kayıt işlemleri";
+            this.btnGlobalCourseRegister.UseVisualStyleBackColor = true;
             // 
-            // btnNotGoruntuleme
+            // btnGlobalNoteView
             // 
-            this.btnNotGoruntuleme.Location = new System.Drawing.Point(12, 303);
-            this.btnNotGoruntuleme.Name = "btnNotGoruntuleme";
-            this.btnNotGoruntuleme.Size = new System.Drawing.Size(186, 41);
-            this.btnNotGoruntuleme.TabIndex = 1;
-            this.btnNotGoruntuleme.Text = "Not görüntüleme";
-            this.btnNotGoruntuleme.UseVisualStyleBackColor = true;
+            this.btnGlobalNoteView.Font = new System.Drawing.Font("Roboto", 11.25F);
+            this.btnGlobalNoteView.Location = new System.Drawing.Point(12, 303);
+            this.btnGlobalNoteView.Name = "btnGlobalNoteView";
+            this.btnGlobalNoteView.Size = new System.Drawing.Size(186, 41);
+            this.btnGlobalNoteView.TabIndex = 1;
+            this.btnGlobalNoteView.Text = "Not görüntüleme";
+            this.btnGlobalNoteView.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -198,106 +212,35 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // pnlNotGoruntuleme
+            // pnlGlobalNotView
             // 
-            this.pnlNotGoruntuleme.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlNotGoruntuleme.Controls.Add(this.tableLayoutPanel1);
-            this.pnlNotGoruntuleme.Controls.Add(this.comboBox1);
-            this.pnlNotGoruntuleme.Controls.Add(this.label16);
-            this.pnlNotGoruntuleme.Controls.Add(this.label2);
-            this.pnlNotGoruntuleme.Location = new System.Drawing.Point(210, 0);
-            this.pnlNotGoruntuleme.Name = "pnlNotGoruntuleme";
-            this.pnlNotGoruntuleme.Size = new System.Drawing.Size(878, 493);
-            this.pnlNotGoruntuleme.TabIndex = 2;
+            this.pnlGlobalNotView.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGlobalNotView.Controls.Add(this.dataGridViewNotViewNotes);
+            this.pnlGlobalNotView.Controls.Add(this.cmbNotViewSelectSemester);
+            this.pnlGlobalNotView.Controls.Add(this.label16);
+            this.pnlGlobalNotView.Controls.Add(this.label2);
+            this.pnlGlobalNotView.Location = new System.Drawing.Point(210, 0);
+            this.pnlGlobalNotView.Name = "pnlGlobalNotView";
+            this.pnlGlobalNotView.Size = new System.Drawing.Size(878, 493);
+            this.pnlGlobalNotView.TabIndex = 2;
             // 
-            // tableLayoutPanel1
+            // dataGridViewNotViewNotes
             // 
-            this.tableLayoutPanel1.ColumnCount = 6;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.66666F));
-            this.tableLayoutPanel1.Controls.Add(this.label22, 5, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label21, 4, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label20, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label19, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label18, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label17, 0, 0);
-            this.tableLayoutPanel1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(7, 45);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 1;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 445F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 445F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(855, 445);
-            this.tableLayoutPanel1.TabIndex = 4;
-            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            this.dataGridViewNotViewNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewNotViewNotes.Location = new System.Drawing.Point(10, 60);
+            this.dataGridViewNotViewNotes.Name = "dataGridViewNotViewNotes";
+            this.dataGridViewNotViewNotes.Size = new System.Drawing.Size(855, 422);
+            this.dataGridViewNotViewNotes.TabIndex = 4;
             // 
-            // label22
+            // cmbNotViewSelectSemester
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(713, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(61, 19);
-            this.label22.TabIndex = 5;
-            this.label22.Text = "Durum:";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(571, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(79, 19);
-            this.label21.TabIndex = 4;
-            this.label21.Text = "Ortalama:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(429, 0);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(89, 19);
-            this.label20.TabIndex = 3;
-            this.label20.Text = "Bütünleme:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(287, 0);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(48, 19);
-            this.label19.TabIndex = 2;
-            this.label19.Text = "Final:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(145, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(43, 19);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "Vize:";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(3, 0);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(45, 19);
-            this.label17.TabIndex = 0;
-            this.label17.Text = "Ders:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(707, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(158, 27);
-            this.comboBox1.TabIndex = 3;
+            this.cmbNotViewSelectSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbNotViewSelectSemester.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbNotViewSelectSemester.FormattingEnabled = true;
+            this.cmbNotViewSelectSemester.Location = new System.Drawing.Point(707, 12);
+            this.cmbNotViewSelectSemester.Name = "cmbNotViewSelectSemester";
+            this.cmbNotViewSelectSemester.Size = new System.Drawing.Size(158, 27);
+            this.cmbNotViewSelectSemester.TabIndex = 3;
             // 
             // label16
             // 
@@ -319,15 +262,15 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "NOT GÖRÜNTÜLEME";
             // 
-            // pnlDersKayitIslemleri
+            // pnlGlobalCourseRegister
             // 
-            this.pnlDersKayitIslemleri.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlDersKayitIslemleri.Controls.Add(this.tabControl1);
-            this.pnlDersKayitIslemleri.Controls.Add(this.label3);
-            this.pnlDersKayitIslemleri.Location = new System.Drawing.Point(204, 0);
-            this.pnlDersKayitIslemleri.Name = "pnlDersKayitIslemleri";
-            this.pnlDersKayitIslemleri.Size = new System.Drawing.Size(884, 493);
-            this.pnlDersKayitIslemleri.TabIndex = 3;
+            this.pnlGlobalCourseRegister.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGlobalCourseRegister.Controls.Add(this.tabControl1);
+            this.pnlGlobalCourseRegister.Controls.Add(this.label3);
+            this.pnlGlobalCourseRegister.Location = new System.Drawing.Point(204, 0);
+            this.pnlGlobalCourseRegister.Name = "pnlGlobalCourseRegister";
+            this.pnlGlobalCourseRegister.Size = new System.Drawing.Size(884, 493);
+            this.pnlGlobalCourseRegister.TabIndex = 3;
             // 
             // tabControl1
             // 
@@ -335,133 +278,124 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tabControl1.Location = new System.Drawing.Point(3, 36);
+            this.tabControl1.Location = new System.Drawing.Point(16, 36);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(875, 457);
+            this.tabControl1.Size = new System.Drawing.Size(855, 457);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage1.Controls.Add(this.dataGridViewCourseRegisterAvailableCourses);
             this.tabPage1.Controls.Add(this.label26);
-            this.tabPage1.Controls.Add(this.listView1);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.btnCourseRegisterSendToDraft);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(867, 428);
+            this.tabPage1.Size = new System.Drawing.Size(847, 428);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Kayıt İşlemleri";
+            // 
+            // dataGridViewCourseRegisterAvailableCourses
+            // 
+            this.dataGridViewCourseRegisterAvailableCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCourseRegisterAvailableCourses.Location = new System.Drawing.Point(18, 34);
+            this.dataGridViewCourseRegisterAvailableCourses.Name = "dataGridViewCourseRegisterAvailableCourses";
+            this.dataGridViewCourseRegisterAvailableCourses.Size = new System.Drawing.Size(728, 388);
+            this.dataGridViewCourseRegisterAvailableCourses.TabIndex = 6;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label26.Location = new System.Drawing.Point(14, 12);
+            this.label26.Location = new System.Drawing.Point(14, 10);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(140, 19);
+            this.label26.Size = new System.Drawing.Size(108, 19);
             this.label26.TabIndex = 5;
-            this.label26.Text = "Seçilebilen dersler:";
+            this.label26.Text = "Açılan dersler:";
             // 
-            // listView1
+            // btnCourseRegisterSendToDraft
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(13, 34);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(746, 388);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(766, 120);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(95, 75);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Sil";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(766, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(98, 75);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Ekle";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCourseRegisterSendToDraft.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCourseRegisterSendToDraft.Location = new System.Drawing.Point(754, 348);
+            this.btnCourseRegisterSendToDraft.Name = "btnCourseRegisterSendToDraft";
+            this.btnCourseRegisterSendToDraft.Size = new System.Drawing.Size(87, 75);
+            this.btnCourseRegisterSendToDraft.TabIndex = 0;
+            this.btnCourseRegisterSendToDraft.Text = "Seçilenleri taslağa gönder";
+            this.btnCourseRegisterSendToDraft.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.button5);
-            this.tabPage2.Controls.Add(this.button4);
-            this.tabPage2.Controls.Add(this.label25);
-            this.tabPage2.Controls.Add(this.listView2);
+            this.tabPage2.Controls.Add(this.dataGridViewCourseRegisterSelectedCourses);
+            this.tabPage2.Controls.Add(this.label7);
+            this.tabPage2.Controls.Add(this.btnCourseRegisterSubmitForAdviserApproval);
+            this.tabPage2.Controls.Add(this.btnCourseRegisterDeleteToDraft);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(867, 428);
+            this.tabPage2.Size = new System.Drawing.Size(847, 428);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Taslaktaki Dersler";
             // 
-            // button5
+            // dataGridViewCourseRegisterSelectedCourses
             // 
-            this.button5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.Location = new System.Drawing.Point(766, 346);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(95, 75);
-            this.button5.TabIndex = 7;
-            this.button5.Text = "Onaya Gönder";
-            this.button5.UseVisualStyleBackColor = true;
+            this.dataGridViewCourseRegisterSelectedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCourseRegisterSelectedCourses.Location = new System.Drawing.Point(18, 34);
+            this.dataGridViewCourseRegisterSelectedCourses.Name = "dataGridViewCourseRegisterSelectedCourses";
+            this.dataGridViewCourseRegisterSelectedCourses.Size = new System.Drawing.Size(728, 388);
+            this.dataGridViewCourseRegisterSelectedCourses.TabIndex = 9;
             // 
-            // button4
+            // label7
             // 
-            this.button4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button4.Location = new System.Drawing.Point(766, 34);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 75);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Değişiklik\r\nYap";
-            this.button4.UseVisualStyleBackColor = true;
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(14, 10);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(115, 19);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Seçilen dersler:";
             // 
-            // label25
+            // btnCourseRegisterSubmitForAdviserApproval
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label25.Location = new System.Drawing.Point(14, 12);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(115, 19);
-            this.label25.TabIndex = 5;
-            this.label25.Text = "Seçilen dersler:";
+            this.btnCourseRegisterSubmitForAdviserApproval.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCourseRegisterSubmitForAdviserApproval.Location = new System.Drawing.Point(752, 346);
+            this.btnCourseRegisterSubmitForAdviserApproval.Name = "btnCourseRegisterSubmitForAdviserApproval";
+            this.btnCourseRegisterSubmitForAdviserApproval.Size = new System.Drawing.Size(89, 75);
+            this.btnCourseRegisterSubmitForAdviserApproval.TabIndex = 7;
+            this.btnCourseRegisterSubmitForAdviserApproval.Text = "Onaya Gönder";
+            this.btnCourseRegisterSubmitForAdviserApproval.UseVisualStyleBackColor = true;
             // 
-            // listView2
+            // btnCourseRegisterDeleteToDraft
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.listView2.Location = new System.Drawing.Point(13, 34);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(746, 388);
-            this.listView2.TabIndex = 4;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.btnCourseRegisterDeleteToDraft.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCourseRegisterDeleteToDraft.Location = new System.Drawing.Point(752, 34);
+            this.btnCourseRegisterDeleteToDraft.Name = "btnCourseRegisterDeleteToDraft";
+            this.btnCourseRegisterDeleteToDraft.Size = new System.Drawing.Size(89, 75);
+            this.btnCourseRegisterDeleteToDraft.TabIndex = 6;
+            this.btnCourseRegisterDeleteToDraft.Text = "Seçilenleri taslaktan çıkar";
+            this.btnCourseRegisterDeleteToDraft.UseVisualStyleBackColor = true;
             // 
             // tabPage3
             // 
             this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage3.Controls.Add(this.dataGridViewCourseRegisterApprovedCourses);
             this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Controls.Add(this.listView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(867, 428);
+            this.tabPage3.Size = new System.Drawing.Size(847, 428);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Onaylanan Dersler";
+            // 
+            // dataGridViewCourseRegisterApprovedCourses
+            // 
+            this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCourseRegisterApprovedCourses.Location = new System.Drawing.Point(18, 34);
+            this.dataGridViewCourseRegisterApprovedCourses.Name = "dataGridViewCourseRegisterApprovedCourses";
+            this.dataGridViewCourseRegisterApprovedCourses.Size = new System.Drawing.Size(810, 388);
+            this.dataGridViewCourseRegisterApprovedCourses.TabIndex = 8;
             // 
             // label23
             // 
@@ -472,18 +406,6 @@
             this.label23.Size = new System.Drawing.Size(141, 19);
             this.label23.TabIndex = 7;
             this.label23.Text = "Onaylanan dersler:";
-            this.label23.Click += new System.EventHandler(this.label23_Click);
-            // 
-            // listView3
-            // 
-            this.listView3.HideSelection = false;
-            this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3});
-            this.listView3.Location = new System.Drawing.Point(13, 34);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(848, 388);
-            this.listView3.TabIndex = 6;
-            this.listView3.UseCompatibleStateImageBehavior = false;
             // 
             // label3
             // 
@@ -628,251 +550,393 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "TRANSKRİPT AL";
             // 
-            // pnlProfilBilgilerim
+            // pnlGlobalProfile
             // 
-            this.pnlProfilBilgilerim.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlProfilBilgilerim.Controls.Add(this.panel1);
-            this.pnlProfilBilgilerim.Controls.Add(this.label5);
-            this.pnlProfilBilgilerim.Controls.Add(this.panel2);
-            this.pnlProfilBilgilerim.Location = new System.Drawing.Point(210, 0);
-            this.pnlProfilBilgilerim.Name = "pnlProfilBilgilerim";
-            this.pnlProfilBilgilerim.Size = new System.Drawing.Size(878, 493);
-            this.pnlProfilBilgilerim.TabIndex = 5;
-            this.pnlProfilBilgilerim.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlProfilBilgilerim_Paint);
+            this.pnlGlobalProfile.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGlobalProfile.Controls.Add(this.groupBox3);
+            this.pnlGlobalProfile.Controls.Add(this.lblProfileLastProfileUpdate);
+            this.pnlGlobalProfile.Controls.Add(this.txtProfileStudentNo);
+            this.pnlGlobalProfile.Controls.Add(this.label8);
+            this.pnlGlobalProfile.Controls.Add(this.groupBox2);
+            this.pnlGlobalProfile.Controls.Add(this.groupBox1);
+            this.pnlGlobalProfile.Controls.Add(this.label6);
+            this.pnlGlobalProfile.Location = new System.Drawing.Point(210, 0);
+            this.pnlGlobalProfile.Name = "pnlGlobalProfile";
+            this.pnlGlobalProfile.Size = new System.Drawing.Size(878, 493);
+            this.pnlGlobalProfile.TabIndex = 5;
             // 
-            // panel1
+            // groupBox3
             // 
-            this.panel1.Controls.Add(this.textBox5);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox3);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Controls.Add(this.label12);
-            this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.label6);
-            this.panel1.Location = new System.Drawing.Point(456, 119);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(307, 272);
-            this.panel1.TabIndex = 9;
+            this.groupBox3.Controls.Add(this.txtProfileInfoAdviser);
+            this.groupBox3.Controls.Add(this.label22);
+            this.groupBox3.Controls.Add(this.txtProfileInfoDepartment);
+            this.groupBox3.Controls.Add(this.label25);
+            this.groupBox3.Controls.Add(this.txtProfileInfoSemester);
+            this.groupBox3.Controls.Add(this.label20);
+            this.groupBox3.Controls.Add(this.txtProfileInfoEnrollmentDate);
+            this.groupBox3.Controls.Add(this.label21);
+            this.groupBox3.Controls.Add(this.txtProfileInfoPhone);
+            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.txtProfileInfoLastName);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.txtProfileInfoFirstName);
+            this.groupBox3.Controls.Add(this.label18);
+            this.groupBox3.Controls.Add(this.txtProfileInfoEmail);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox3.Location = new System.Drawing.Point(46, 52);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(786, 164);
+            this.groupBox3.TabIndex = 12;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Bilgilerim";
             // 
-            // textBox5
+            // txtProfileInfoAdviser
             // 
-            this.textBox5.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox5.Location = new System.Drawing.Point(136, 29);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.ReadOnly = true;
-            this.textBox5.Size = new System.Drawing.Size(151, 27);
-            this.textBox5.TabIndex = 13;
+            this.txtProfileInfoAdviser.Location = new System.Drawing.Point(491, 128);
+            this.txtProfileInfoAdviser.Name = "txtProfileInfoAdviser";
+            this.txtProfileInfoAdviser.ReadOnly = true;
+            this.txtProfileInfoAdviser.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoAdviser.TabIndex = 15;
             // 
-            // textBox4
+            // label22
             // 
-            this.textBox4.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox4.Location = new System.Drawing.Point(136, 62);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(151, 27);
-            this.textBox4.TabIndex = 12;
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(395, 133);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(90, 19);
+            this.label22.TabIndex = 14;
+            this.label22.Text = "Danışmanı:";
             // 
-            // textBox2
+            // txtProfileInfoDepartment
             // 
-            this.textBox2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(136, 128);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(151, 27);
-            this.textBox2.TabIndex = 10;
+            this.txtProfileInfoDepartment.Location = new System.Drawing.Point(103, 125);
+            this.txtProfileInfoDepartment.Name = "txtProfileInfoDepartment";
+            this.txtProfileInfoDepartment.ReadOnly = true;
+            this.txtProfileInfoDepartment.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoDepartment.TabIndex = 13;
             // 
-            // textBox3
+            // label25
             // 
-            this.textBox3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox3.Location = new System.Drawing.Point(136, 161);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(151, 27);
-            this.textBox3.TabIndex = 11;
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(29, 131);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(68, 19);
+            this.label25.TabIndex = 12;
+            this.label25.Text = "Bölümü:";
             // 
-            // textBox1
+            // txtProfileInfoSemester
             // 
-            this.textBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(136, 95);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(151, 27);
-            this.textBox1.TabIndex = 9;
+            this.txtProfileInfoSemester.Location = new System.Drawing.Point(491, 95);
+            this.txtProfileInfoSemester.Name = "txtProfileInfoSemester";
+            this.txtProfileInfoSemester.ReadOnly = true;
+            this.txtProfileInfoSemester.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoSemester.TabIndex = 11;
             // 
-            // label8
+            // label20
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(23, 161);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 19);
-            this.label8.TabIndex = 8;
-            this.label8.Text = "Şifre";
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(417, 98);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(68, 19);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "Dönemi:";
             // 
-            // label12
+            // txtProfileInfoEnrollmentDate
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(23, 128);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(58, 19);
-            this.label12.TabIndex = 7;
-            this.label12.Text = "Eposta";
+            this.txtProfileInfoEnrollmentDate.Location = new System.Drawing.Point(103, 92);
+            this.txtProfileInfoEnrollmentDate.Name = "txtProfileInfoEnrollmentDate";
+            this.txtProfileInfoEnrollmentDate.ReadOnly = true;
+            this.txtProfileInfoEnrollmentDate.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoEnrollmentDate.TabIndex = 9;
             // 
-            // label9
+            // label21
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(23, 62);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 19);
-            this.label9.TabIndex = 4;
-            this.label9.Text = "Bölüm:";
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(24, 98);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(73, 19);
+            this.label21.TabIndex = 8;
+            this.label21.Text = "Kayıt yılı:";
             // 
-            // label7
+            // txtProfileInfoPhone
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(23, 95);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(86, 19);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Danışman:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(23, 29);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 19);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Öğrenci No:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(6, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(198, 24);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "PROFİL BİLGİLERİM";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.textBox6);
-            this.panel2.Controls.Add(this.textBox7);
-            this.panel2.Controls.Add(this.textBox8);
-            this.panel2.Controls.Add(this.textBox9);
-            this.panel2.Controls.Add(this.textBox10);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.label15);
-            this.panel2.Location = new System.Drawing.Point(68, 119);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(307, 272);
-            this.panel2.TabIndex = 14;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox6.Location = new System.Drawing.Point(136, 29);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.ReadOnly = true;
-            this.textBox6.Size = new System.Drawing.Size(151, 27);
-            this.textBox6.TabIndex = 13;
-            // 
-            // textBox7
-            // 
-            this.textBox7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox7.Location = new System.Drawing.Point(136, 62);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.ReadOnly = true;
-            this.textBox7.Size = new System.Drawing.Size(151, 27);
-            this.textBox7.TabIndex = 12;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox8.Location = new System.Drawing.Point(136, 128);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.ReadOnly = true;
-            this.textBox8.Size = new System.Drawing.Size(151, 27);
-            this.textBox8.TabIndex = 10;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox9.Location = new System.Drawing.Point(136, 161);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(151, 27);
-            this.textBox9.TabIndex = 11;
-            // 
-            // textBox10
-            // 
-            this.textBox10.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox10.Location = new System.Drawing.Point(136, 95);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.ReadOnly = true;
-            this.textBox10.Size = new System.Drawing.Size(151, 27);
-            this.textBox10.TabIndex = 9;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(23, 164);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 19);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Kayıt Tarihi:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(23, 131);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(64, 19);
-            this.label11.TabIndex = 7;
-            this.label11.Text = "Dönem:";
+            this.txtProfileInfoPhone.Location = new System.Drawing.Point(491, 62);
+            this.txtProfileInfoPhone.Name = "txtProfileInfoPhone";
+            this.txtProfileInfoPhone.ReadOnly = true;
+            this.txtProfileInfoPhone.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoPhone.TabIndex = 7;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(23, 62);
+            this.label13.Location = new System.Drawing.Point(419, 65);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(70, 19);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Soyisim:";
+            this.label13.Size = new System.Drawing.Size(66, 19);
+            this.label13.TabIndex = 6;
+            this.label13.Text = "Telefon:";
             // 
-            // label14
+            // txtProfileInfoLastName
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(23, 95);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(66, 19);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Telefon:";
+            this.txtProfileInfoLastName.Location = new System.Drawing.Point(491, 29);
+            this.txtProfileInfoLastName.Name = "txtProfileInfoLastName";
+            this.txtProfileInfoLastName.ReadOnly = true;
+            this.txtProfileInfoLastName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoLastName.TabIndex = 5;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(427, 32);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 19);
+            this.label17.TabIndex = 4;
+            this.label17.Text = "Soyad:";
+            // 
+            // txtProfileInfoFirstName
+            // 
+            this.txtProfileInfoFirstName.Location = new System.Drawing.Point(103, 26);
+            this.txtProfileInfoFirstName.Name = "txtProfileInfoFirstName";
+            this.txtProfileInfoFirstName.ReadOnly = true;
+            this.txtProfileInfoFirstName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoFirstName.TabIndex = 3;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(65, 29);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(32, 19);
+            this.label18.TabIndex = 2;
+            this.label18.Text = "Ad:";
+            // 
+            // txtProfileInfoEmail
+            // 
+            this.txtProfileInfoEmail.Location = new System.Drawing.Point(103, 59);
+            this.txtProfileInfoEmail.Name = "txtProfileInfoEmail";
+            this.txtProfileInfoEmail.ReadOnly = true;
+            this.txtProfileInfoEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoEmail.TabIndex = 1;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(44, 62);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 19);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Email:";
+            // 
+            // lblProfileLastProfileUpdate
+            // 
+            this.lblProfileLastProfileUpdate.AutoSize = true;
+            this.lblProfileLastProfileUpdate.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(631, 471);
+            this.lblProfileLastProfileUpdate.Name = "lblProfileLastProfileUpdate";
+            this.lblProfileLastProfileUpdate.Size = new System.Drawing.Size(241, 15);
+            this.lblProfileLastProfileUpdate.TabIndex = 15;
+            this.lblProfileLastProfileUpdate.Text = "Son profil güncellemesi: 29.12.2021 19:40";
+            // 
+            // txtProfileStudentNo
+            // 
+            this.txtProfileStudentNo.Enabled = false;
+            this.txtProfileStudentNo.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtProfileStudentNo.Location = new System.Drawing.Point(731, 12);
+            this.txtProfileStudentNo.Name = "txtProfileStudentNo";
+            this.txtProfileStudentNo.ReadOnly = true;
+            this.txtProfileStudentNo.Size = new System.Drawing.Size(101, 23);
+            this.txtProfileStudentNo.TabIndex = 14;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(631, 15);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 19);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Öğrenci no:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.btnProfileChangePassword);
+            this.groupBox2.Controls.Add(this.txtProfileOldPassword);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.txtProfileReNewPassword);
+            this.groupBox2.Controls.Add(this.txtProfileNewPassword);
+            this.groupBox2.Controls.Add(this.label14);
+            this.groupBox2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox2.Location = new System.Drawing.Point(417, 222);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(415, 238);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Şifre Değiştirme";
+            // 
+            // btnProfileChangePassword
+            // 
+            this.btnProfileChangePassword.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnProfileChangePassword.Location = new System.Drawing.Point(149, 155);
+            this.btnProfileChangePassword.Name = "btnProfileChangePassword";
+            this.btnProfileChangePassword.Size = new System.Drawing.Size(235, 43);
+            this.btnProfileChangePassword.TabIndex = 18;
+            this.btnProfileChangePassword.Text = "Şifremi değiştir";
+            this.btnProfileChangePassword.UseVisualStyleBackColor = true;
+            // 
+            // txtProfileOldPassword
+            // 
+            this.txtProfileOldPassword.Location = new System.Drawing.Point(149, 56);
+            this.txtProfileOldPassword.Name = "txtProfileOldPassword";
+            this.txtProfileOldPassword.PasswordChar = '*';
+            this.txtProfileOldPassword.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileOldPassword.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(46, 59);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(97, 19);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Güncel şifre:";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.Location = new System.Drawing.Point(23, 29);
+            this.label15.Location = new System.Drawing.Point(65, 92);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(43, 19);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "İsim:";
+            this.label15.Size = new System.Drawing.Size(78, 19);
+            this.label15.TabIndex = 12;
+            this.label15.Text = "Yeni şifre:";
+            // 
+            // txtProfileReNewPassword
+            // 
+            this.txtProfileReNewPassword.Location = new System.Drawing.Point(149, 122);
+            this.txtProfileReNewPassword.Name = "txtProfileReNewPassword";
+            this.txtProfileReNewPassword.PasswordChar = '*';
+            this.txtProfileReNewPassword.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileReNewPassword.TabIndex = 15;
+            // 
+            // txtProfileNewPassword
+            // 
+            this.txtProfileNewPassword.Location = new System.Drawing.Point(149, 89);
+            this.txtProfileNewPassword.Name = "txtProfileNewPassword";
+            this.txtProfileNewPassword.PasswordChar = '*';
+            this.txtProfileNewPassword.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileNewPassword.TabIndex = 13;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(21, 125);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(122, 19);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "Yeni şifre tekrar:";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnProfileUpdate);
+            this.groupBox1.Controls.Add(this.txtProfilePhone);
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.txtProfileLastName);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtProfileFirstName);
+            this.groupBox1.Controls.Add(this.label10);
+            this.groupBox1.Controls.Add(this.txtProfileEmail);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox1.Location = new System.Drawing.Point(46, 222);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(365, 238);
+            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Profil Bilgisi Güncelleme";
+            // 
+            // btnProfileUpdate
+            // 
+            this.btnProfileUpdate.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnProfileUpdate.Location = new System.Drawing.Point(103, 173);
+            this.btnProfileUpdate.Name = "btnProfileUpdate";
+            this.btnProfileUpdate.Size = new System.Drawing.Size(235, 43);
+            this.btnProfileUpdate.TabIndex = 8;
+            this.btnProfileUpdate.Text = "Güncelle";
+            this.btnProfileUpdate.UseVisualStyleBackColor = true;
+            // 
+            // txtProfilePhone
+            // 
+            this.txtProfilePhone.Location = new System.Drawing.Point(103, 140);
+            this.txtProfilePhone.Name = "txtProfilePhone";
+            this.txtProfilePhone.Size = new System.Drawing.Size(235, 27);
+            this.txtProfilePhone.TabIndex = 7;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(31, 143);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(66, 19);
+            this.label12.TabIndex = 6;
+            this.label12.Text = "Telefon:";
+            // 
+            // txtProfileLastName
+            // 
+            this.txtProfileLastName.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileLastName.Name = "txtProfileLastName";
+            this.txtProfileLastName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileLastName.TabIndex = 5;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(39, 110);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(58, 19);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Soyad:";
+            // 
+            // txtProfileFirstName
+            // 
+            this.txtProfileFirstName.Location = new System.Drawing.Point(103, 74);
+            this.txtProfileFirstName.Name = "txtProfileFirstName";
+            this.txtProfileFirstName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileFirstName.TabIndex = 3;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(65, 77);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(32, 19);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Ad:";
+            // 
+            // txtProfileEmail
+            // 
+            this.txtProfileEmail.Location = new System.Drawing.Point(103, 41);
+            this.txtProfileEmail.Name = "txtProfileEmail";
+            this.txtProfileEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileEmail.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(44, 44);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 19);
+            this.label9.TabIndex = 0;
+            this.label9.Text = "Email:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(10, 9);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(180, 23);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "PROFİL BİLGİLERİM";
             // 
             // StudentForm
             // 
@@ -882,10 +946,10 @@
             this.ClientSize = new System.Drawing.Size(1087, 518);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
-            this.Controls.Add(this.pnlDersKayitIslemleri);
+            this.Controls.Add(this.pnlGlobalProfile);
+            this.Controls.Add(this.pnlGlobalNotView);
+            this.Controls.Add(this.pnlGlobalCourseRegister);
             this.Controls.Add(this.pnlTranskriptAl);
-            this.Controls.Add(this.pnlProfilBilgilerim);
-            this.Controls.Add(this.pnlNotGoruntuleme);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 557);
             this.MinimumSize = new System.Drawing.Size(1103, 557);
@@ -894,31 +958,35 @@
             this.Text = "Öğrenci Paneli";
             this.pnlLeftBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlNotGoruntuleme.ResumeLayout(false);
-            this.pnlNotGoruntuleme.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.pnlDersKayitIslemleri.ResumeLayout(false);
-            this.pnlDersKayitIslemleri.PerformLayout();
+            this.pnlGlobalNotView.ResumeLayout(false);
+            this.pnlGlobalNotView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotViewNotes)).EndInit();
+            this.pnlGlobalCourseRegister.ResumeLayout(false);
+            this.pnlGlobalCourseRegister.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterAvailableCourses)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterSelectedCourses)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterApprovedCourses)).EndInit();
             this.pnlTranskriptAl.ResumeLayout(false);
             this.pnlTranskriptAl.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            this.pnlProfilBilgilerim.ResumeLayout(false);
-            this.pnlProfilBilgilerim.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pnlGlobalProfile.ResumeLayout(false);
+            this.pnlGlobalProfile.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -927,64 +995,27 @@
 
         private System.Windows.Forms.Panel pnlBottomBar;
         private System.Windows.Forms.Panel pnlLeftBar;
-        private System.Windows.Forms.Button btnTranskriptAl;
-        private System.Windows.Forms.Button btnDersKayitIsmleri;
-        private System.Windows.Forms.Button btnNotGoruntuleme;
+        private System.Windows.Forms.Button btnGlobalTranscript;
+        private System.Windows.Forms.Button btnGlobalCourseRegister;
+        private System.Windows.Forms.Button btnGlobalNoteView;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlNotGoruntuleme;
+        private System.Windows.Forms.Panel pnlGlobalNotView;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel pnlDersKayitIslemleri;
+        private System.Windows.Forms.Panel pnlGlobalCourseRegister;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel pnlTranskriptAl;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnProfilBilgileri;
-        private System.Windows.Forms.Panel pnlProfilBilgilerim;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnGlobalProfile;
+        private System.Windows.Forms.Panel pnlGlobalProfile;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCourseRegisterSendToDraft;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.ListView listView2;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ListView listView3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnCourseRegisterDeleteToDraft;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label31;
@@ -995,6 +1026,52 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCourseRegisterSubmitForAdviserApproval;
+        private System.Windows.Forms.Label lblProfileLastProfileUpdate;
+        private System.Windows.Forms.TextBox txtProfileStudentNo;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button btnProfileChangePassword;
+        private System.Windows.Forms.TextBox txtProfileOldPassword;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.TextBox txtProfileReNewPassword;
+        private System.Windows.Forms.TextBox txtProfileNewPassword;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnProfileUpdate;
+        private System.Windows.Forms.TextBox txtProfilePhone;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtProfileLastName;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtProfileFirstName;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtProfileEmail;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cmbNotViewSelectSemester;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.DataGridView dataGridViewNotViewNotes;
+        private System.Windows.Forms.DataGridView dataGridViewCourseRegisterAvailableCourses;
+        private System.Windows.Forms.DataGridView dataGridViewCourseRegisterSelectedCourses;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dataGridViewCourseRegisterApprovedCourses;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.TextBox txtProfileInfoPhone;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtProfileInfoLastName;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox txtProfileInfoFirstName;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox txtProfileInfoEmail;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox txtProfileInfoSemester;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox txtProfileInfoEnrollmentDate;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox txtProfileInfoAdviser;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtProfileInfoDepartment;
+        private System.Windows.Forms.Label label25;
     }
 }

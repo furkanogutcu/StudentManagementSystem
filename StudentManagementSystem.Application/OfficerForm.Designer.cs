@@ -64,6 +64,7 @@
             this.pnlGlobalDepartmentOperations = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.label95 = new System.Windows.Forms.Label();
             this.btnDepartmentOperationsSearch = new System.Windows.Forms.Button();
             this.txtDepartmentOperationsSearchByDepartmentName = new System.Windows.Forms.TextBox();
             this.txtDepartmentOperationsSearchByDepartmentNo = new System.Windows.Forms.TextBox();
@@ -114,9 +115,10 @@
             this.label33 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.btnCourseOperationsSearch = new System.Windows.Forms.Button();
             this.txtCourseOperationsCourseInfoSearchByCourseName = new System.Windows.Forms.TextBox();
             this.txtCourseOperationsCourseInfoSearchByCourseNo = new System.Windows.Forms.TextBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.btnCourseOperationsSearch = new System.Windows.Forms.Button();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
@@ -170,11 +172,12 @@
             this.label42 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.label37 = new System.Windows.Forms.Label();
             this.txtInstructorOperationsSearchByInstructorName = new System.Windows.Forms.TextBox();
+            this.txtInstructorOperationsSearchByInstructorNo = new System.Windows.Forms.TextBox();
+            this.label93 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
             this.btnInstructorOperationsSearch = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
-            this.txtInstructorOperationsSearchByInstructorNo = new System.Windows.Forms.TextBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.rdbtnInstructorOperationsFilterByDepartment = new System.Windows.Forms.RadioButton();
             this.btnInstructorOperationsFilter = new System.Windows.Forms.Button();
@@ -224,11 +227,12 @@
             this.txtStudentOperationsInfoStudentNo = new System.Windows.Forms.TextBox();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.label49 = new System.Windows.Forms.Label();
             this.txtStudentOperationsSearchByStudentName = new System.Windows.Forms.TextBox();
+            this.txtStudentOperationsSearchByStudentNo = new System.Windows.Forms.TextBox();
+            this.label92 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
             this.btnStudentOperationsSearch = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
-            this.txtStudentOperationsSearchByStudentNo = new System.Windows.Forms.TextBox();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.btnStudentOperationsFilter = new System.Windows.Forms.Button();
             this.radBtnStudentOperationsFilterByAdviser = new System.Windows.Forms.RadioButton();
@@ -287,10 +291,6 @@
             this.chckListBoxAssignAdviserBatchCourses = new System.Windows.Forms.CheckedListBox();
             this.chckListBoxAssignAdviserBatchDepartments = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label92 = new System.Windows.Forms.Label();
-            this.label93 = new System.Windows.Forms.Label();
-            this.label94 = new System.Windows.Forms.Label();
-            this.label95 = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalProfile.SuspendLayout();
@@ -696,6 +696,15 @@
             this.groupBox16.TabIndex = 21;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Bölüm Arama";
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(232, 57);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(38, 18);
+            this.label95.TabIndex = 22;
+            this.label95.Text = "veya";
             // 
             // btnDepartmentOperationsSearch
             // 
@@ -1206,15 +1215,6 @@
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Ders Arama";
             // 
-            // btnCourseOperationsSearch
-            // 
-            this.btnCourseOperationsSearch.Location = new System.Drawing.Point(288, 18);
-            this.btnCourseOperationsSearch.Name = "btnCourseOperationsSearch";
-            this.btnCourseOperationsSearch.Size = new System.Drawing.Size(123, 71);
-            this.btnCourseOperationsSearch.TabIndex = 25;
-            this.btnCourseOperationsSearch.Text = "Ara";
-            this.btnCourseOperationsSearch.UseVisualStyleBackColor = true;
-            // 
             // txtCourseOperationsCourseInfoSearchByCourseName
             // 
             this.txtCourseOperationsCourseInfoSearchByCourseName.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -1230,6 +1230,24 @@
             this.txtCourseOperationsCourseInfoSearchByCourseNo.Name = "txtCourseOperationsCourseInfoSearchByCourseNo";
             this.txtCourseOperationsCourseInfoSearchByCourseNo.Size = new System.Drawing.Size(170, 26);
             this.txtCourseOperationsCourseInfoSearchByCourseNo.TabIndex = 22;
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(175, 44);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(33, 15);
+            this.label94.TabIndex = 16;
+            this.label94.Text = "veya";
+            // 
+            // btnCourseOperationsSearch
+            // 
+            this.btnCourseOperationsSearch.Location = new System.Drawing.Point(288, 18);
+            this.btnCourseOperationsSearch.Name = "btnCourseOperationsSearch";
+            this.btnCourseOperationsSearch.Size = new System.Drawing.Size(123, 71);
+            this.btnCourseOperationsSearch.TabIndex = 25;
+            this.btnCourseOperationsSearch.Text = "Ara";
+            this.btnCourseOperationsSearch.UseVisualStyleBackColor = true;
             // 
             // label38
             // 
@@ -1767,6 +1785,31 @@
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "Öğretim Görevlisi Arama";
             // 
+            // txtInstructorOperationsSearchByInstructorName
+            // 
+            this.txtInstructorOperationsSearchByInstructorName.Font = new System.Drawing.Font("Roboto", 11.25F);
+            this.txtInstructorOperationsSearchByInstructorName.Location = new System.Drawing.Point(146, 70);
+            this.txtInstructorOperationsSearchByInstructorName.Name = "txtInstructorOperationsSearchByInstructorName";
+            this.txtInstructorOperationsSearchByInstructorName.Size = new System.Drawing.Size(236, 26);
+            this.txtInstructorOperationsSearchByInstructorName.TabIndex = 3;
+            // 
+            // txtInstructorOperationsSearchByInstructorNo
+            // 
+            this.txtInstructorOperationsSearchByInstructorNo.Font = new System.Drawing.Font("Roboto", 11.25F);
+            this.txtInstructorOperationsSearchByInstructorNo.Location = new System.Drawing.Point(146, 29);
+            this.txtInstructorOperationsSearchByInstructorNo.Name = "txtInstructorOperationsSearchByInstructorNo";
+            this.txtInstructorOperationsSearchByInstructorNo.Size = new System.Drawing.Size(236, 26);
+            this.txtInstructorOperationsSearchByInstructorNo.TabIndex = 0;
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(243, 55);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(33, 15);
+            this.label93.TabIndex = 6;
+            this.label93.Text = "veya";
+            // 
             // label37
             // 
             this.label37.AutoSize = true;
@@ -1775,14 +1818,6 @@
             this.label37.Size = new System.Drawing.Size(128, 15);
             this.label37.TabIndex = 4;
             this.label37.Text = "Öğretim Görevlisi Adı:";
-            // 
-            // txtInstructorOperationsSearchByInstructorName
-            // 
-            this.txtInstructorOperationsSearchByInstructorName.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.txtInstructorOperationsSearchByInstructorName.Location = new System.Drawing.Point(146, 70);
-            this.txtInstructorOperationsSearchByInstructorName.Name = "txtInstructorOperationsSearchByInstructorName";
-            this.txtInstructorOperationsSearchByInstructorName.Size = new System.Drawing.Size(236, 26);
-            this.txtInstructorOperationsSearchByInstructorName.TabIndex = 3;
             // 
             // btnInstructorOperationsSearch
             // 
@@ -1801,14 +1836,6 @@
             this.label36.Size = new System.Drawing.Size(126, 15);
             this.label36.TabIndex = 1;
             this.label36.Text = "Öğretim Görevlisi No:";
-            // 
-            // txtInstructorOperationsSearchByInstructorNo
-            // 
-            this.txtInstructorOperationsSearchByInstructorNo.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.txtInstructorOperationsSearchByInstructorNo.Location = new System.Drawing.Point(146, 29);
-            this.txtInstructorOperationsSearchByInstructorNo.Name = "txtInstructorOperationsSearchByInstructorNo";
-            this.txtInstructorOperationsSearchByInstructorNo.Size = new System.Drawing.Size(236, 26);
-            this.txtInstructorOperationsSearchByInstructorNo.TabIndex = 0;
             // 
             // groupBox12
             // 
@@ -2310,6 +2337,31 @@
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "Öğrenci Arama";
             // 
+            // txtStudentOperationsSearchByStudentName
+            // 
+            this.txtStudentOperationsSearchByStudentName.Font = new System.Drawing.Font("Roboto", 11.25F);
+            this.txtStudentOperationsSearchByStudentName.Location = new System.Drawing.Point(121, 70);
+            this.txtStudentOperationsSearchByStudentName.Name = "txtStudentOperationsSearchByStudentName";
+            this.txtStudentOperationsSearchByStudentName.Size = new System.Drawing.Size(261, 26);
+            this.txtStudentOperationsSearchByStudentName.TabIndex = 3;
+            // 
+            // txtStudentOperationsSearchByStudentNo
+            // 
+            this.txtStudentOperationsSearchByStudentNo.Font = new System.Drawing.Font("Roboto", 11.25F);
+            this.txtStudentOperationsSearchByStudentNo.Location = new System.Drawing.Point(121, 29);
+            this.txtStudentOperationsSearchByStudentNo.Name = "txtStudentOperationsSearchByStudentNo";
+            this.txtStudentOperationsSearchByStudentNo.Size = new System.Drawing.Size(261, 26);
+            this.txtStudentOperationsSearchByStudentNo.TabIndex = 0;
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(228, 55);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(33, 15);
+            this.label92.TabIndex = 5;
+            this.label92.Text = "veya";
+            // 
             // label49
             // 
             this.label49.AutoSize = true;
@@ -2318,14 +2370,6 @@
             this.label49.Size = new System.Drawing.Size(75, 15);
             this.label49.TabIndex = 4;
             this.label49.Text = "Öğrenci Adı:";
-            // 
-            // txtStudentOperationsSearchByStudentName
-            // 
-            this.txtStudentOperationsSearchByStudentName.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.txtStudentOperationsSearchByStudentName.Location = new System.Drawing.Point(121, 70);
-            this.txtStudentOperationsSearchByStudentName.Name = "txtStudentOperationsSearchByStudentName";
-            this.txtStudentOperationsSearchByStudentName.Size = new System.Drawing.Size(261, 26);
-            this.txtStudentOperationsSearchByStudentName.TabIndex = 3;
             // 
             // btnStudentOperationsSearch
             // 
@@ -2344,14 +2388,6 @@
             this.label50.Size = new System.Drawing.Size(73, 15);
             this.label50.TabIndex = 1;
             this.label50.Text = "Öğrenci No:";
-            // 
-            // txtStudentOperationsSearchByStudentNo
-            // 
-            this.txtStudentOperationsSearchByStudentNo.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.txtStudentOperationsSearchByStudentNo.Location = new System.Drawing.Point(121, 29);
-            this.txtStudentOperationsSearchByStudentNo.Name = "txtStudentOperationsSearchByStudentNo";
-            this.txtStudentOperationsSearchByStudentNo.Size = new System.Drawing.Size(261, 26);
-            this.txtStudentOperationsSearchByStudentNo.TabIndex = 0;
             // 
             // groupBox20
             // 
@@ -2933,42 +2969,6 @@
             this.label7.Size = new System.Drawing.Size(164, 24);
             this.label7.TabIndex = 0;
             this.label7.Text = "DANIŞMAN ATA";
-            // 
-            // label92
-            // 
-            this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(228, 55);
-            this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(33, 15);
-            this.label92.TabIndex = 5;
-            this.label92.Text = "veya";
-            // 
-            // label93
-            // 
-            this.label93.AutoSize = true;
-            this.label93.Location = new System.Drawing.Point(243, 55);
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(33, 15);
-            this.label93.TabIndex = 6;
-            this.label93.Text = "veya";
-            // 
-            // label94
-            // 
-            this.label94.AutoSize = true;
-            this.label94.Location = new System.Drawing.Point(175, 44);
-            this.label94.Name = "label94";
-            this.label94.Size = new System.Drawing.Size(33, 15);
-            this.label94.TabIndex = 16;
-            this.label94.Text = "veya";
-            // 
-            // label95
-            // 
-            this.label95.AutoSize = true;
-            this.label95.Location = new System.Drawing.Point(232, 57);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(38, 18);
-            this.label95.TabIndex = 22;
-            this.label95.Text = "veya";
             // 
             // OfficerForm
             // 
