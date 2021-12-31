@@ -1,5 +1,6 @@
 ﻿using System;
 using FluentValidation;
+using StudentManagementSystem.Business.Constants;
 using StudentManagementSystem.Entities.Concrete;
 
 namespace StudentManagementSystem.Business.ValidationRules.FluentValidation
@@ -8,49 +9,62 @@ namespace StudentManagementSystem.Business.ValidationRules.FluentValidation
     {
         public StudentValidator()
         {
-            RuleFor(s => s.StudentNo).NotEmpty();
-            RuleFor(s => s.StudentNo).NotNull();
-            RuleFor(s => s.StudentNo).GreaterThan(0);
+            RuleFor(s => s.StudentNo).NotEmpty().WithName("Öğrenci no");
+            RuleFor(s => s.StudentNo).NotNull().WithName("Öğrenci no");
+            RuleFor(s => s.StudentNo).GreaterThan(0).WithName("Öğrenci no");
 
-            RuleFor(s => s.DepartmentNo).NotEmpty();
-            RuleFor(s => s.DepartmentNo).NotNull();
-            RuleFor(s => s.DepartmentNo).GreaterThan(0);
+            RuleFor(s => s.DepartmentNo).NotEmpty().WithName("Bölüm kodu");
+            RuleFor(s => s.DepartmentNo).NotNull().WithName("Bölüm kodu");
+            RuleFor(s => s.DepartmentNo).GreaterThan(0).WithName("Bölüm kodu");
 
-            RuleFor(s => s.AdviserNo).NotEmpty();
-            RuleFor(s => s.AdviserNo).NotNull();
-            RuleFor(s => s.AdviserNo).GreaterThan(0);
+            RuleFor(s => s.AdviserNo).NotEmpty().WithName("Danışman no");
+            RuleFor(s => s.AdviserNo).NotNull().WithName("Danışman no");
+            RuleFor(s => s.AdviserNo).GreaterThan(0).WithName("Danışman no");
 
             RuleFor(s => s.Email).NotEmpty();
             RuleFor(s => s.Email).NotNull();
             RuleFor(s => s.Email).EmailAddress();
 
-            RuleFor(s => s.Password).NotEmpty();
-            RuleFor(s => s.Password).NotNull();
-            RuleFor(s => s.Password).MinimumLength(8);
-            RuleFor(s => s.Password).MaximumLength(50);
+            RuleFor(s => s.Password).NotEmpty().WithName("Şifre");
+            RuleFor(s => s.Password).NotNull().WithName("Şifre");
+            RuleFor(s => s.Password).MinimumLength(8).WithName("Şifre");
+            RuleFor(s => s.Password).MaximumLength(50).WithName("Şifre");
 
-            RuleFor(s => s.FirstName).NotEmpty();
-            RuleFor(s => s.FirstName).NotNull();
-            RuleFor(s => s.FirstName).MinimumLength(2);
-            RuleFor(s => s.FirstName).MaximumLength(50);
+            RuleFor(s => s.FirstName).NotEmpty().WithName("Ad"); ;
+            RuleFor(s => s.FirstName).NotNull().WithName("Ad");
+            RuleFor(s => s.FirstName).MinimumLength(2).WithName("Ad");
+            RuleFor(s => s.FirstName).MaximumLength(50).WithName("Ad");
 
-            RuleFor(s => s.LastName).NotEmpty();
-            RuleFor(s => s.LastName).NotNull();
-            RuleFor(s => s.LastName).MinimumLength(2);
-            RuleFor(s => s.LastName).MaximumLength(50);
+            RuleFor(s => s.LastName).NotEmpty().WithName("Soyad");
+            RuleFor(s => s.LastName).NotNull().WithName("Soyad");
+            RuleFor(s => s.LastName).MinimumLength(2).WithName("Soyad");
+            RuleFor(s => s.LastName).MaximumLength(50).WithName("Soyad");
 
-            RuleFor(s => s.Phone).NotEmpty();
-            RuleFor(s => s.Phone).NotNull();
-            RuleFor(s => s.Phone).MinimumLength(10);
-            RuleFor(s => s.Phone).MaximumLength(15);
+            RuleFor(s => s.Phone).NotEmpty().WithName("Telefon");
+            RuleFor(s => s.Phone).NotNull().WithName("Telefon");
+            RuleFor(s => s.Phone).MinimumLength(10).WithName("Telefon");
+            RuleFor(s => s.Phone).MaximumLength(15).WithName("Telefon");
 
-            RuleFor(s => s.Semester).NotEmpty();
-            RuleFor(s => s.Semester).NotNull();
-            RuleFor(s => s.Semester).GreaterThan(0);
+            RuleFor(s => s.Semester).NotEmpty().WithName("Dönem");
+            RuleFor(s => s.Semester).NotNull().WithName("Dönem");
+            RuleFor(s => s.Semester).GreaterThan(0).WithName("Dönem");
+            RuleFor(s => s.Phone).Must(NumberString).WithMessage(Messages.OnlyNumberForPhone).WithName("Dönem");
 
-            RuleFor(s => s.EnrollmentDate).NotEmpty();
-            RuleFor(s => s.EnrollmentDate).NotNull();
-            RuleFor(s => s.EnrollmentDate).LessThanOrEqualTo(short.Parse(DateTime.Now.Year.ToString()));
+            RuleFor(s => s.EnrollmentDate).NotEmpty().WithName("Kayıt tarihi");
+            RuleFor(s => s.EnrollmentDate).NotNull().WithName("Kayıt tarihi");
+            RuleFor(s => s.EnrollmentDate).LessThanOrEqualTo(short.Parse(DateTime.Now.Year.ToString())).WithName("Kayıt tarihi");
+        }
+        private bool NumberString(string input)
+        {
+            foreach (var chr in input)
+            {
+                if (!Char.IsNumber(chr))
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }

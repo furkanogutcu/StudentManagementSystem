@@ -11,13 +11,13 @@ namespace StudentManagementSystem.Business.ValidationRules.FluentValidation
             RuleFor(aa => aa.Id).NotNull();
             RuleFor(aa => aa.Id).GreaterThan(0);
 
-            RuleFor(aa => aa.StudentNo).NotEmpty();
-            RuleFor(aa => aa.StudentNo).NotNull();
-            RuleFor(aa => aa.StudentNo).GreaterThan(0);
+            RuleFor(aa => aa.StudentNo).NotEmpty().WithName("Öğrenci no");
+            RuleFor(aa => aa.StudentNo).NotNull().WithName("Öğrenci no");
+            RuleFor(aa => aa.StudentNo).GreaterThan(0).WithName("Öğrenci no");
 
-            RuleFor(aa => aa.CatalogCourseCode).NotEmpty();
-            RuleFor(aa => aa.CatalogCourseCode).NotNull();
-            RuleFor(aa => aa.CatalogCourseCode).GreaterThan(0);
+            RuleFor(aa => aa.CatalogCourseCode).NotEmpty().WithName("Ders kodu");
+            RuleFor(aa => aa.CatalogCourseCode).NotNull().WithName("Ders kodu");
+            RuleFor(aa => aa.CatalogCourseCode).GreaterThan(0).WithName("Ders kodu");
         }
     }
 }

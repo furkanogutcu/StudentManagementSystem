@@ -8,34 +8,34 @@ namespace StudentManagementSystem.Business.ValidationRules.FluentValidation
     {
         public CatalogCourseValidator()
         {
-            RuleFor(cc => cc.CourseNo).NotEmpty();
-            RuleFor(cc => cc.CourseNo).NotNull();
-            RuleFor(cc => cc.CourseNo).GreaterThan(0);
+            RuleFor(cc => cc.CourseNo).NotEmpty().WithName("Ders kodu");
+            RuleFor(cc => cc.CourseNo).NotNull().WithName("Ders kodu");
+            RuleFor(cc => cc.CourseNo).GreaterThan(0).WithName("Ders kodu");
 
-            RuleFor(cc => cc.DepartmentNo).NotEmpty();
-            RuleFor(cc => cc.DepartmentNo).NotNull();
-            RuleFor(cc => cc.DepartmentNo).GreaterThan(0);
+            RuleFor(cc => cc.DepartmentNo).NotEmpty().WithName("Bölüm kodu");
+            RuleFor(cc => cc.DepartmentNo).NotNull().WithName("Bölüm kodu");
+            RuleFor(cc => cc.DepartmentNo).GreaterThan(0).WithName("Bölüm kodu");
 
-            RuleFor(cc => cc.InstructorNo).NotEmpty();
-            RuleFor(cc => cc.InstructorNo).NotNull();
-            RuleFor(cc => cc.InstructorNo).GreaterThan(0);
+            RuleFor(cc => cc.InstructorNo).NotEmpty().WithName("Öğretim görevlisi no");
+            RuleFor(cc => cc.InstructorNo).NotNull().WithName("Öğretim görevlisi no");
+            RuleFor(cc => cc.InstructorNo).GreaterThan(0).WithName("Öğretim görevlisi no");
 
-            RuleFor(cc => cc.CourseName).NotEmpty();
-            RuleFor(cc => cc.CourseName).NotNull();
-            RuleFor(cc => cc.CourseName).MinimumLength(2);
-            RuleFor(cc => cc.CourseName).MaximumLength(100);
+            RuleFor(cc => cc.CourseName).NotEmpty().WithName("Ders adı");
+            RuleFor(cc => cc.CourseName).NotNull().WithName("Ders adı");
+            RuleFor(cc => cc.CourseName).MinimumLength(2).WithName("Ders adı");
+            RuleFor(cc => cc.CourseName).MaximumLength(100).WithName("Ders adı");
 
-            RuleFor(cc => cc.Credit).NotEmpty();
-            RuleFor(cc => cc.Credit).NotNull();
-            RuleFor(cc => cc.Credit).GreaterThan(0);
+            RuleFor(cc => cc.Credit).NotEmpty().WithName("Kredi");
+            RuleFor(cc => cc.Credit).NotNull().WithName("Kredi");
+            RuleFor(cc => cc.Credit).GreaterThan(0).WithName("Kredi");
 
-            RuleFor(cc => cc.CourseYear).NotEmpty();
-            RuleFor(cc => cc.CourseYear).NotNull();
-            RuleFor(cc => cc.CourseYear).GreaterThanOrEqualTo(short.Parse(DateTime.Now.Year.ToString()));
+            RuleFor(cc => cc.CourseYear).NotEmpty().WithName("Ders yılı");
+            RuleFor(cc => cc.CourseYear).NotNull().WithName("Ders yılı");
+            RuleFor(cc => cc.CourseYear).GreaterThanOrEqualTo(short.Parse(DateTime.Now.Year.ToString())).WithName("Ders yılı");
 
-            RuleFor(cc => cc.CourseSemester).NotEmpty();
-            RuleFor(cc => cc.CourseSemester).NotNull();
-            RuleFor(cc => cc.CourseSemester).GreaterThan(0);
+            RuleFor(cc => cc.CourseSemester).NotEmpty().WithName("Ders dönemi");
+            RuleFor(cc => cc.CourseSemester).NotNull().WithName("Ders dönemi");
+            RuleFor(cc => cc.CourseSemester).GreaterThan(0).WithName("Ders dönemi");
         }
     }
 }
