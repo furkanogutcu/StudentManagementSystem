@@ -16,7 +16,7 @@ namespace StudentManagementSystem.Application
         {
             System.Windows.Forms.Application.EnableVisualStyles();
             System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
-            System.Windows.Forms.Application.Run(new InstructorForm());
+            System.Windows.Forms.Application.Run(new LoginForm());
         }
     }
 }

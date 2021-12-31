@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -31,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -72,6 +74,8 @@
     <Compile Include="StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\PanelCleaner.cs" />
+    <Compile Include="Utilities\PanelSwitcher.cs" />
     <EmbeddedResource Include="InstructorForm.resx">
       <DependentUpon>InstructorForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,5 +110,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudentManagementSystem.Business\StudentManagementSystem.Business.csproj">
+      <Project>{15267BFE-367F-4BFA-8D48-53B9FDA0450E}</Project>
+      <Name>StudentManagementSystem.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentManagementSystem.Core\StudentManagementSystem.Core.csproj">
+      <Project>{67024470-02BC-45C2-B766-5DEE3591E457}</Project>
+      <Name>StudentManagementSystem.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentManagementSystem.DataAccess\StudentManagementSystem.DataAccess.csproj">
+      <Project>{58A8038C-5917-4697-948D-3DB83C0997E1}</Project>
+      <Name>StudentManagementSystem.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StudentManagementSystem.Entities\StudentManagementSystem.Entities.csproj">
+      <Project>{381993B4-E31A-4C47-A91F-076194971108}</Project>
+      <Name>StudentManagementSystem.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
