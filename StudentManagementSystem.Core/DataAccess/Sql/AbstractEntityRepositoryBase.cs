@@ -33,7 +33,7 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
                         }
                     }
                 }
-
+                commandText += conditions != null ? " AND deleted_at IS NULL" : " WHERE deleted_at IS NULL";
                 MySqlCommand command = new MySqlCommand(commandText, connection);
 
                 if (conditions != null)
@@ -72,7 +72,7 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
                         commandText += " AND ";
                     }
                 }
-
+                commandText += " AND deleted_at IS NULL";
                 MySqlCommand command = new MySqlCommand(commandText, connection);
 
                 foreach (var condition in conditions)
