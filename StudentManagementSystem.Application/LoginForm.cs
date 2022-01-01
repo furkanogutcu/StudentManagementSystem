@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using StudentManagementSystem.Business.Concrete;
+using StudentManagementSystem.Business.Constants;
 using StudentManagementSystem.DataAccess.Concrete.Sql;
 using StudentManagementSystem.Entities.Concrete;
 
@@ -13,7 +14,7 @@ namespace StudentManagementSystem.Application
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             var manager = new AuthenticationManager();
             var result = manager.Login(txtGlobalUsername.Text, txtGlobalPassword.Text);
@@ -23,7 +24,7 @@ namespace StudentManagementSystem.Application
                 {
                     StudentForm studentForm = new StudentForm();
                     var student = (Student)result.Data;
-                    MessageBox.Show($@"Hoşgeldiniz {student.FirstName} {student.LastName}.", "Öğrenci Girişi");
+                    MessageBox.Show($@"Hoşgeldiniz {student.FirstName} {student.LastName}.", Messages.StudentLogin);
                     this.Hide();
                     studentForm.Show();
                 }
@@ -31,24 +32,29 @@ namespace StudentManagementSystem.Application
                 {
                     InstructorForm instructorForm = new InstructorForm();
                     var instructor = (Instructor)result.Data;
-                    MessageBox.Show($@"Hoşgeldiniz {instructor.FirstName} {instructor.LastName}.", "Öğretim Görevlisi Girişi");
+                    MessageBox.Show($@"Hoşgeldiniz {instructor.FirstName} {instructor.LastName}.", Messages.InstructorLogin);
                     this.Hide();
                     instructorForm.Show();
                 }
                 else if (result.Data.GetType() == typeof(Officer))
                 {
                     var officer = (Officer)result.Data;
-                    MessageBox.Show($@"Hoşgeldiniz {officer.FirstName} {officer.LastName}.", "Memur Girişi");
-                    OfficerForm officerForm = new OfficerForm(officer, new OfficerManager(new SqlOfficerDal()));
+                    MessageBox.Show($@"Hoşgeldiniz {officer.FirstName} {officer.LastName}.", Messages.OfficerLogin);
+                    OfficerForm officerForm = new OfficerForm(
+                        officer,
+                        new OfficerManager(new SqlOfficerDal()),
+                        new DepartmentManager(new SqlDepartmentDal()),
+                        new InstructorManager(new SqlInstructorDal()),
+                        new StudentManager(new SqlStudentDal())
+                    );
                     this.Hide();
                     officerForm.Show();
                 }
             }
             else
             {
-                MessageBox.Show(result.Message);
+                MessageBox.Show(result.Message, Messages.Error);
             }
-
         }
     }
 }

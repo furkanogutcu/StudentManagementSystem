@@ -39,8 +39,17 @@
             this.btnGlobalAssignAdvisor = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlGlobalProfile = new System.Windows.Forms.Panel();
+            this.groupBox28 = new System.Windows.Forms.GroupBox();
+            this.txtProfileInfoPhone = new System.Windows.Forms.TextBox();
+            this.label100 = new System.Windows.Forms.Label();
+            this.txtProfileInfoLastName = new System.Windows.Forms.TextBox();
+            this.label101 = new System.Windows.Forms.Label();
+            this.txtProfileInfoFirstName = new System.Windows.Forms.TextBox();
+            this.label102 = new System.Windows.Forms.Label();
+            this.txtProfileInfoEmail = new System.Windows.Forms.TextBox();
+            this.label103 = new System.Windows.Forms.Label();
             this.lblProfileLastProfileUpdate = new System.Windows.Forms.Label();
-            this.txtProfileInstructorNo = new System.Windows.Forms.TextBox();
+            this.txtProfileOfficerNo = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.btnProfileChangePassword = new System.Windows.Forms.Button();
@@ -52,18 +61,19 @@
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnProfileUpdate = new System.Windows.Forms.Button();
-            this.txtProfilePhone = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdatePhone = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtProfileLastName = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdateLastName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtProfileFirstName = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdateFirstName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtProfileEmail = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlGlobalDepartmentOperations = new System.Windows.Forms.Panel();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.grbxDepartmentOperationsCurrentDepartments = new System.Windows.Forms.GroupBox();
             this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.btnDepartmentOperationsSearchReset = new System.Windows.Forms.Button();
             this.label95 = new System.Windows.Forms.Label();
             this.btnDepartmentOperationsSearch = new System.Windows.Forms.Button();
             this.txtDepartmentOperationsSearchByDepartmentName = new System.Windows.Forms.TextBox();
@@ -241,7 +251,7 @@
             this.cmbStudentOperationsFilterDepartmentList = new System.Windows.Forms.ComboBox();
             this.listBoxStudentOperationsStudentList = new System.Windows.Forms.ListBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.pnlDanismanAta = new System.Windows.Forms.Panel();
+            this.pnlGlobalAssignAdviser = new System.Windows.Forms.Panel();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.btnAssignAdviserChangeSave = new System.Windows.Forms.Button();
             this.cmbAssignAdviserChangeNewAdviser = new System.Windows.Forms.ComboBox();
@@ -294,10 +304,11 @@
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalProfile.SuspendLayout();
+            this.groupBox28.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.pnlGlobalDepartmentOperations.SuspendLayout();
-            this.groupBox4.SuspendLayout();
+            this.grbxDepartmentOperationsCurrentDepartments.SuspendLayout();
             this.groupBox16.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox6.SuspendLayout();
@@ -321,7 +332,7 @@
             this.groupBox18.SuspendLayout();
             this.groupBox19.SuspendLayout();
             this.groupBox20.SuspendLayout();
-            this.pnlDanismanAta.SuspendLayout();
+            this.pnlGlobalAssignAdviser.SuspendLayout();
             this.groupBox27.SuspendLayout();
             this.groupBox25.SuspendLayout();
             this.groupBox26.SuspendLayout();
@@ -361,6 +372,7 @@
             this.btnGlobalStudentOperations.TabIndex = 8;
             this.btnGlobalStudentOperations.Text = "Öğrenci işlemleri";
             this.btnGlobalStudentOperations.UseVisualStyleBackColor = true;
+            this.btnGlobalStudentOperations.Click += new System.EventHandler(this.btnGlobalStudentOperations_Click);
             // 
             // btnGlobalInstructorOperations
             // 
@@ -371,6 +383,7 @@
             this.btnGlobalInstructorOperations.TabIndex = 7;
             this.btnGlobalInstructorOperations.Text = "Öğretim görevlisi işlemleri";
             this.btnGlobalInstructorOperations.UseVisualStyleBackColor = true;
+            this.btnGlobalInstructorOperations.Click += new System.EventHandler(this.btnGlobalInstructorOperations_Click);
             // 
             // btnGlobalProfileOperations
             // 
@@ -378,9 +391,10 @@
             this.btnGlobalProfileOperations.Location = new System.Drawing.Point(12, 256);
             this.btnGlobalProfileOperations.Name = "btnGlobalProfileOperations";
             this.btnGlobalProfileOperations.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalProfileOperations.TabIndex = 6;
+            this.btnGlobalProfileOperations.TabIndex = 1;
             this.btnGlobalProfileOperations.Text = "Profil bilgilerim";
             this.btnGlobalProfileOperations.UseVisualStyleBackColor = true;
+            this.btnGlobalProfileOperations.Click += new System.EventHandler(this.btnGlobalProfileOperations_Click);
             // 
             // label1
             // 
@@ -404,6 +418,7 @@
             this.btnGlobalCourseOperations.TabIndex = 4;
             this.btnGlobalCourseOperations.Text = "Ders işlemleri";
             this.btnGlobalCourseOperations.UseVisualStyleBackColor = true;
+            this.btnGlobalCourseOperations.Click += new System.EventHandler(this.btnGlobalCourseOperations_Click);
             // 
             // btnGlobalDepartmentOperations
             // 
@@ -414,6 +429,7 @@
             this.btnGlobalDepartmentOperations.TabIndex = 2;
             this.btnGlobalDepartmentOperations.Text = "Bölüm işlemleri";
             this.btnGlobalDepartmentOperations.UseVisualStyleBackColor = true;
+            this.btnGlobalDepartmentOperations.Click += new System.EventHandler(this.btnGlobalDepartmentOperations_Click);
             // 
             // btnGlobalAssignAdvisor
             // 
@@ -421,9 +437,10 @@
             this.btnGlobalAssignAdvisor.Location = new System.Drawing.Point(12, 491);
             this.btnGlobalAssignAdvisor.Name = "btnGlobalAssignAdvisor";
             this.btnGlobalAssignAdvisor.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalAssignAdvisor.TabIndex = 1;
+            this.btnGlobalAssignAdvisor.TabIndex = 6;
             this.btnGlobalAssignAdvisor.Text = "Danışman ata";
             this.btnGlobalAssignAdvisor.UseVisualStyleBackColor = true;
+            this.btnGlobalAssignAdvisor.Click += new System.EventHandler(this.btnGlobalAssignAdvisor_Click);
             // 
             // pictureBox1
             // 
@@ -436,8 +453,9 @@
             // pnlGlobalProfile
             // 
             this.pnlGlobalProfile.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGlobalProfile.Controls.Add(this.groupBox28);
             this.pnlGlobalProfile.Controls.Add(this.lblProfileLastProfileUpdate);
-            this.pnlGlobalProfile.Controls.Add(this.txtProfileInstructorNo);
+            this.pnlGlobalProfile.Controls.Add(this.txtProfileOfficerNo);
             this.pnlGlobalProfile.Controls.Add(this.label8);
             this.pnlGlobalProfile.Controls.Add(this.groupBox2);
             this.pnlGlobalProfile.Controls.Add(this.groupBox1);
@@ -446,25 +464,112 @@
             this.pnlGlobalProfile.Name = "pnlGlobalProfile";
             this.pnlGlobalProfile.Size = new System.Drawing.Size(878, 549);
             this.pnlGlobalProfile.TabIndex = 2;
+            this.pnlGlobalProfile.Visible = false;
+            // 
+            // groupBox28
+            // 
+            this.groupBox28.Controls.Add(this.txtProfileInfoPhone);
+            this.groupBox28.Controls.Add(this.label100);
+            this.groupBox28.Controls.Add(this.txtProfileInfoLastName);
+            this.groupBox28.Controls.Add(this.label101);
+            this.groupBox28.Controls.Add(this.txtProfileInfoFirstName);
+            this.groupBox28.Controls.Add(this.label102);
+            this.groupBox28.Controls.Add(this.txtProfileInfoEmail);
+            this.groupBox28.Controls.Add(this.label103);
+            this.groupBox28.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox28.Location = new System.Drawing.Point(42, 85);
+            this.groupBox28.Name = "groupBox28";
+            this.groupBox28.Size = new System.Drawing.Size(786, 108);
+            this.groupBox28.TabIndex = 13;
+            this.groupBox28.TabStop = false;
+            this.groupBox28.Text = "Bilgilerim";
+            // 
+            // txtProfileInfoPhone
+            // 
+            this.txtProfileInfoPhone.Location = new System.Drawing.Point(491, 62);
+            this.txtProfileInfoPhone.Name = "txtProfileInfoPhone";
+            this.txtProfileInfoPhone.ReadOnly = true;
+            this.txtProfileInfoPhone.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoPhone.TabIndex = 7;
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Location = new System.Drawing.Point(419, 65);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(66, 19);
+            this.label100.TabIndex = 6;
+            this.label100.Text = "Telefon:";
+            // 
+            // txtProfileInfoLastName
+            // 
+            this.txtProfileInfoLastName.Location = new System.Drawing.Point(491, 29);
+            this.txtProfileInfoLastName.Name = "txtProfileInfoLastName";
+            this.txtProfileInfoLastName.ReadOnly = true;
+            this.txtProfileInfoLastName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoLastName.TabIndex = 5;
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(427, 32);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(58, 19);
+            this.label101.TabIndex = 4;
+            this.label101.Text = "Soyad:";
+            // 
+            // txtProfileInfoFirstName
+            // 
+            this.txtProfileInfoFirstName.Location = new System.Drawing.Point(103, 26);
+            this.txtProfileInfoFirstName.Name = "txtProfileInfoFirstName";
+            this.txtProfileInfoFirstName.ReadOnly = true;
+            this.txtProfileInfoFirstName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoFirstName.TabIndex = 3;
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(65, 29);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(32, 19);
+            this.label102.TabIndex = 2;
+            this.label102.Text = "Ad:";
+            // 
+            // txtProfileInfoEmail
+            // 
+            this.txtProfileInfoEmail.Location = new System.Drawing.Point(103, 59);
+            this.txtProfileInfoEmail.Name = "txtProfileInfoEmail";
+            this.txtProfileInfoEmail.ReadOnly = true;
+            this.txtProfileInfoEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileInfoEmail.TabIndex = 1;
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(44, 62);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(53, 19);
+            this.label103.TabIndex = 0;
+            this.label103.Text = "Email:";
             // 
             // lblProfileLastProfileUpdate
             // 
-            this.lblProfileLastProfileUpdate.AutoSize = true;
             this.lblProfileLastProfileUpdate.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(624, 528);
+            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(585, 529);
             this.lblProfileLastProfileUpdate.Name = "lblProfileLastProfileUpdate";
-            this.lblProfileLastProfileUpdate.Size = new System.Drawing.Size(241, 15);
+            this.lblProfileLastProfileUpdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblProfileLastProfileUpdate.Size = new System.Drawing.Size(290, 14);
             this.lblProfileLastProfileUpdate.TabIndex = 9;
-            this.lblProfileLastProfileUpdate.Text = "Son profil güncellemesi: 29.12.2021 19:40";
             // 
-            // txtProfileInstructorNo
+            // txtProfileOfficerNo
             // 
-            this.txtProfileInstructorNo.Enabled = false;
-            this.txtProfileInstructorNo.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtProfileInstructorNo.Location = new System.Drawing.Point(764, 12);
-            this.txtProfileInstructorNo.Name = "txtProfileInstructorNo";
-            this.txtProfileInstructorNo.Size = new System.Drawing.Size(101, 23);
-            this.txtProfileInstructorNo.TabIndex = 4;
+            this.txtProfileOfficerNo.Enabled = false;
+            this.txtProfileOfficerNo.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtProfileOfficerNo.Location = new System.Drawing.Point(764, 12);
+            this.txtProfileOfficerNo.Name = "txtProfileOfficerNo";
+            this.txtProfileOfficerNo.Size = new System.Drawing.Size(101, 23);
+            this.txtProfileOfficerNo.TabIndex = 4;
+            this.txtProfileOfficerNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -486,7 +591,7 @@
             this.groupBox2.Controls.Add(this.txtProfileNewPassword);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(413, 181);
+            this.groupBox2.Location = new System.Drawing.Point(413, 267);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(415, 238);
             this.groupBox2.TabIndex = 2;
@@ -502,6 +607,7 @@
             this.btnProfileChangePassword.TabIndex = 18;
             this.btnProfileChangePassword.Text = "Şifremi değiştir";
             this.btnProfileChangePassword.UseVisualStyleBackColor = true;
+            this.btnProfileChangePassword.Click += new System.EventHandler(this.btnProfileChangePassword_Click);
             // 
             // txtProfileOldPassword
             // 
@@ -557,16 +663,16 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnProfileUpdate);
-            this.groupBox1.Controls.Add(this.txtProfilePhone);
+            this.groupBox1.Controls.Add(this.txtProfileUpdatePhone);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtProfileLastName);
+            this.groupBox1.Controls.Add(this.txtProfileUpdateLastName);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtProfileFirstName);
+            this.groupBox1.Controls.Add(this.txtProfileUpdateFirstName);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtProfileEmail);
+            this.groupBox1.Controls.Add(this.txtProfileUpdateEmail);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(42, 181);
+            this.groupBox1.Location = new System.Drawing.Point(42, 267);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(365, 238);
             this.groupBox1.TabIndex = 1;
@@ -582,13 +688,14 @@
             this.btnProfileUpdate.TabIndex = 8;
             this.btnProfileUpdate.Text = "Güncelle";
             this.btnProfileUpdate.UseVisualStyleBackColor = true;
+            this.btnProfileUpdate.Click += new System.EventHandler(this.btnProfileUpdate_Click);
             // 
-            // txtProfilePhone
+            // txtProfileUpdatePhone
             // 
-            this.txtProfilePhone.Location = new System.Drawing.Point(103, 140);
-            this.txtProfilePhone.Name = "txtProfilePhone";
-            this.txtProfilePhone.Size = new System.Drawing.Size(235, 27);
-            this.txtProfilePhone.TabIndex = 7;
+            this.txtProfileUpdatePhone.Location = new System.Drawing.Point(103, 140);
+            this.txtProfileUpdatePhone.Name = "txtProfileUpdatePhone";
+            this.txtProfileUpdatePhone.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdatePhone.TabIndex = 7;
             // 
             // label12
             // 
@@ -599,12 +706,12 @@
             this.label12.TabIndex = 6;
             this.label12.Text = "Telefon:";
             // 
-            // txtProfileLastName
+            // txtProfileUpdateLastName
             // 
-            this.txtProfileLastName.Location = new System.Drawing.Point(103, 107);
-            this.txtProfileLastName.Name = "txtProfileLastName";
-            this.txtProfileLastName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileLastName.TabIndex = 5;
+            this.txtProfileUpdateLastName.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateLastName.Name = "txtProfileUpdateLastName";
+            this.txtProfileUpdateLastName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateLastName.TabIndex = 5;
             // 
             // label11
             // 
@@ -615,12 +722,12 @@
             this.label11.TabIndex = 4;
             this.label11.Text = "Soyad:";
             // 
-            // txtProfileFirstName
+            // txtProfileUpdateFirstName
             // 
-            this.txtProfileFirstName.Location = new System.Drawing.Point(103, 74);
-            this.txtProfileFirstName.Name = "txtProfileFirstName";
-            this.txtProfileFirstName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileFirstName.TabIndex = 3;
+            this.txtProfileUpdateFirstName.Location = new System.Drawing.Point(103, 74);
+            this.txtProfileUpdateFirstName.Name = "txtProfileUpdateFirstName";
+            this.txtProfileUpdateFirstName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateFirstName.TabIndex = 3;
             // 
             // label10
             // 
@@ -631,12 +738,12 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Ad:";
             // 
-            // txtProfileEmail
+            // txtProfileUpdateEmail
             // 
-            this.txtProfileEmail.Location = new System.Drawing.Point(103, 41);
-            this.txtProfileEmail.Name = "txtProfileEmail";
-            this.txtProfileEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileEmail.TabIndex = 1;
+            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 41);
+            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
+            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateEmail.TabIndex = 1;
             // 
             // label9
             // 
@@ -660,30 +767,32 @@
             // pnlGlobalDepartmentOperations
             // 
             this.pnlGlobalDepartmentOperations.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlGlobalDepartmentOperations.Controls.Add(this.groupBox4);
+            this.pnlGlobalDepartmentOperations.Controls.Add(this.grbxDepartmentOperationsCurrentDepartments);
             this.pnlGlobalDepartmentOperations.Controls.Add(this.label3);
             this.pnlGlobalDepartmentOperations.Location = new System.Drawing.Point(210, 0);
             this.pnlGlobalDepartmentOperations.Name = "pnlGlobalDepartmentOperations";
             this.pnlGlobalDepartmentOperations.Size = new System.Drawing.Size(878, 549);
             this.pnlGlobalDepartmentOperations.TabIndex = 3;
+            this.pnlGlobalDepartmentOperations.Visible = false;
             // 
-            // groupBox4
+            // grbxDepartmentOperationsCurrentDepartments
             // 
-            this.groupBox4.Controls.Add(this.groupBox16);
-            this.groupBox4.Controls.Add(this.groupBox3);
-            this.groupBox4.Controls.Add(this.groupBox6);
-            this.groupBox4.Controls.Add(this.groupBox5);
-            this.groupBox4.Controls.Add(this.listBoxDepartmentOperationsCurrentDepartments);
-            this.groupBox4.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox4.Location = new System.Drawing.Point(10, 50);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(855, 482);
-            this.groupBox4.TabIndex = 2;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Mevcut bölümler";
+            this.grbxDepartmentOperationsCurrentDepartments.Controls.Add(this.groupBox16);
+            this.grbxDepartmentOperationsCurrentDepartments.Controls.Add(this.groupBox3);
+            this.grbxDepartmentOperationsCurrentDepartments.Controls.Add(this.groupBox6);
+            this.grbxDepartmentOperationsCurrentDepartments.Controls.Add(this.groupBox5);
+            this.grbxDepartmentOperationsCurrentDepartments.Controls.Add(this.listBoxDepartmentOperationsCurrentDepartments);
+            this.grbxDepartmentOperationsCurrentDepartments.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.grbxDepartmentOperationsCurrentDepartments.Location = new System.Drawing.Point(10, 50);
+            this.grbxDepartmentOperationsCurrentDepartments.Name = "grbxDepartmentOperationsCurrentDepartments";
+            this.grbxDepartmentOperationsCurrentDepartments.Size = new System.Drawing.Size(855, 482);
+            this.grbxDepartmentOperationsCurrentDepartments.TabIndex = 2;
+            this.grbxDepartmentOperationsCurrentDepartments.TabStop = false;
+            this.grbxDepartmentOperationsCurrentDepartments.Text = "Mevcut bölümler";
             // 
             // groupBox16
             // 
+            this.groupBox16.Controls.Add(this.btnDepartmentOperationsSearchReset);
             this.groupBox16.Controls.Add(this.label95);
             this.groupBox16.Controls.Add(this.btnDepartmentOperationsSearch);
             this.groupBox16.Controls.Add(this.txtDepartmentOperationsSearchByDepartmentName);
@@ -697,6 +806,17 @@
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "Bölüm Arama";
             // 
+            // btnDepartmentOperationsSearchReset
+            // 
+            this.btnDepartmentOperationsSearchReset.ForeColor = System.Drawing.Color.Black;
+            this.btnDepartmentOperationsSearchReset.Location = new System.Drawing.Point(111, 110);
+            this.btnDepartmentOperationsSearchReset.Name = "btnDepartmentOperationsSearchReset";
+            this.btnDepartmentOperationsSearchReset.Size = new System.Drawing.Size(142, 26);
+            this.btnDepartmentOperationsSearchReset.TabIndex = 23;
+            this.btnDepartmentOperationsSearchReset.Text = "Sıfırla";
+            this.btnDepartmentOperationsSearchReset.UseVisualStyleBackColor = true;
+            this.btnDepartmentOperationsSearchReset.Click += new System.EventHandler(this.btnDepartmentOperationsSearchReset_Click);
+            // 
             // label95
             // 
             this.label95.AutoSize = true;
@@ -709,12 +829,13 @@
             // btnDepartmentOperationsSearch
             // 
             this.btnDepartmentOperationsSearch.ForeColor = System.Drawing.Color.Black;
-            this.btnDepartmentOperationsSearch.Location = new System.Drawing.Point(111, 109);
+            this.btnDepartmentOperationsSearch.Location = new System.Drawing.Point(254, 109);
             this.btnDepartmentOperationsSearch.Name = "btnDepartmentOperationsSearch";
-            this.btnDepartmentOperationsSearch.Size = new System.Drawing.Size(285, 26);
+            this.btnDepartmentOperationsSearch.Size = new System.Drawing.Size(142, 26);
             this.btnDepartmentOperationsSearch.TabIndex = 20;
             this.btnDepartmentOperationsSearch.Text = "Ara";
             this.btnDepartmentOperationsSearch.UseVisualStyleBackColor = true;
+            this.btnDepartmentOperationsSearch.Click += new System.EventHandler(this.btnDepartmentOperationsSearch_Click);
             // 
             // txtDepartmentOperationsSearchByDepartmentName
             // 
@@ -772,6 +893,7 @@
             this.btnDepartmentOperationsAddDepartment.TabIndex = 19;
             this.btnDepartmentOperationsAddDepartment.Text = "Ekle";
             this.btnDepartmentOperationsAddDepartment.UseVisualStyleBackColor = true;
+            this.btnDepartmentOperationsAddDepartment.Click += new System.EventHandler(this.btnDepartmentOperationsAddDepartment_Click);
             // 
             // txtDepartmentOperationsAddDepartmentName
             // 
@@ -812,6 +934,7 @@
             this.btnDepartmentOperationsUpdateDepartmentName.TabIndex = 19;
             this.btnDepartmentOperationsUpdateDepartmentName.Text = "Güncelle";
             this.btnDepartmentOperationsUpdateDepartmentName.UseVisualStyleBackColor = true;
+            this.btnDepartmentOperationsUpdateDepartmentName.Click += new System.EventHandler(this.btnDepartmentOperationsUpdateDepartmentName_Click);
             // 
             // txtDepartmentOperationsUpdateDepartmentName
             // 
@@ -858,6 +981,7 @@
             this.btnDepartmentOperationsDeleteDepartment.TabIndex = 20;
             this.btnDepartmentOperationsDeleteDepartment.Text = "Bölümü sil";
             this.btnDepartmentOperationsDeleteDepartment.UseVisualStyleBackColor = true;
+            this.btnDepartmentOperationsDeleteDepartment.Click += new System.EventHandler(this.btnDepartmentOperationsDeleteDepartment_Click);
             // 
             // txtDepartmentOperationsTotalInstructor
             // 
@@ -941,6 +1065,7 @@
             this.listBoxDepartmentOperationsCurrentDepartments.Name = "listBoxDepartmentOperationsCurrentDepartments";
             this.listBoxDepartmentOperationsCurrentDepartments.Size = new System.Drawing.Size(411, 274);
             this.listBoxDepartmentOperationsCurrentDepartments.TabIndex = 0;
+            this.listBoxDepartmentOperationsCurrentDepartments.SelectedIndexChanged += new System.EventHandler(this.listBoxDepartmentOperationsCurrentDepartments_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -963,6 +1088,7 @@
             this.pnlGlobalCourseOperations.Name = "pnlGlobalCourseOperations";
             this.pnlGlobalCourseOperations.Size = new System.Drawing.Size(878, 549);
             this.pnlGlobalCourseOperations.TabIndex = 4;
+            this.pnlGlobalCourseOperations.Visible = false;
             // 
             // groupBox9
             // 
@@ -1499,6 +1625,7 @@
             this.pnlGlobalInstructorOperations.Name = "pnlGlobalInstructorOperations";
             this.pnlGlobalInstructorOperations.Size = new System.Drawing.Size(878, 549);
             this.pnlGlobalInstructorOperations.TabIndex = 5;
+            this.pnlGlobalInstructorOperations.Visible = false;
             // 
             // groupBox22
             // 
@@ -1971,6 +2098,7 @@
             this.pnlGlobalStudentOperations.Name = "pnlGlobalStudentOperations";
             this.pnlGlobalStudentOperations.Size = new System.Drawing.Size(878, 549);
             this.pnlGlobalStudentOperations.TabIndex = 6;
+            this.pnlGlobalStudentOperations.Visible = false;
             // 
             // groupBox23
             // 
@@ -2473,17 +2601,18 @@
             this.label6.TabIndex = 0;
             this.label6.Text = "ÖĞRENCİ İŞLEMLERİ";
             // 
-            // pnlDanismanAta
+            // pnlGlobalAssignAdviser
             // 
-            this.pnlDanismanAta.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlDanismanAta.Controls.Add(this.groupBox27);
-            this.pnlDanismanAta.Controls.Add(this.groupBox25);
-            this.pnlDanismanAta.Controls.Add(this.groupBox24);
-            this.pnlDanismanAta.Controls.Add(this.label7);
-            this.pnlDanismanAta.Location = new System.Drawing.Point(210, 0);
-            this.pnlDanismanAta.Name = "pnlDanismanAta";
-            this.pnlDanismanAta.Size = new System.Drawing.Size(878, 549);
-            this.pnlDanismanAta.TabIndex = 7;
+            this.pnlGlobalAssignAdviser.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGlobalAssignAdviser.Controls.Add(this.groupBox27);
+            this.pnlGlobalAssignAdviser.Controls.Add(this.groupBox25);
+            this.pnlGlobalAssignAdviser.Controls.Add(this.groupBox24);
+            this.pnlGlobalAssignAdviser.Controls.Add(this.label7);
+            this.pnlGlobalAssignAdviser.Location = new System.Drawing.Point(210, 0);
+            this.pnlGlobalAssignAdviser.Name = "pnlGlobalAssignAdviser";
+            this.pnlGlobalAssignAdviser.Size = new System.Drawing.Size(878, 549);
+            this.pnlGlobalAssignAdviser.TabIndex = 7;
+            this.pnlGlobalAssignAdviser.Visible = false;
             // 
             // groupBox27
             // 
@@ -2974,16 +3103,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1087, 572);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
-            this.Controls.Add(this.pnlDanismanAta);
+            this.Controls.Add(this.pnlGlobalDepartmentOperations);
+            this.Controls.Add(this.pnlGlobalAssignAdviser);
             this.Controls.Add(this.pnlGlobalStudentOperations);
             this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Controls.Add(this.pnlGlobalCourseOperations);
             this.Controls.Add(this.pnlGlobalProfile);
-            this.Controls.Add(this.pnlGlobalDepartmentOperations);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
@@ -2994,13 +3123,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlGlobalProfile.ResumeLayout(false);
             this.pnlGlobalProfile.PerformLayout();
+            this.groupBox28.ResumeLayout(false);
+            this.groupBox28.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.pnlGlobalDepartmentOperations.ResumeLayout(false);
             this.pnlGlobalDepartmentOperations.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
+            this.grbxDepartmentOperationsCurrentDepartments.ResumeLayout(false);
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -3044,8 +3175,8 @@
             this.groupBox19.PerformLayout();
             this.groupBox20.ResumeLayout(false);
             this.groupBox20.PerformLayout();
-            this.pnlDanismanAta.ResumeLayout(false);
-            this.pnlDanismanAta.PerformLayout();
+            this.pnlGlobalAssignAdviser.ResumeLayout(false);
+            this.pnlGlobalAssignAdviser.PerformLayout();
             this.groupBox27.ResumeLayout(false);
             this.groupBox27.PerformLayout();
             this.groupBox25.ResumeLayout(false);
@@ -3080,15 +3211,15 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlGlobalStudentOperations;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel pnlDanismanAta;
+        private System.Windows.Forms.Panel pnlGlobalAssignAdviser;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtProfileInstructorNo;
+        private System.Windows.Forms.TextBox txtProfileOfficerNo;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtProfileFirstName;
+        private System.Windows.Forms.TextBox txtProfileUpdateFirstName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtProfileEmail;
+        private System.Windows.Forms.TextBox txtProfileUpdateEmail;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblProfileLastProfileUpdate;
         private System.Windows.Forms.Button btnProfileChangePassword;
@@ -3099,11 +3230,11 @@
         private System.Windows.Forms.TextBox txtProfileNewPassword;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnProfileUpdate;
-        private System.Windows.Forms.TextBox txtProfilePhone;
+        private System.Windows.Forms.TextBox txtProfileUpdatePhone;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtProfileLastName;
+        private System.Windows.Forms.TextBox txtProfileUpdateLastName;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.GroupBox grbxDepartmentOperationsCurrentDepartments;
         private System.Windows.Forms.ListBox listBoxDepartmentOperationsCurrentDepartments;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnDepartmentOperationsAddDepartment;
@@ -3323,5 +3454,15 @@
         private System.Windows.Forms.Label label92;
         private System.Windows.Forms.Label label95;
         private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.GroupBox groupBox28;
+        private System.Windows.Forms.TextBox txtProfileInfoPhone;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.TextBox txtProfileInfoLastName;
+        private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.TextBox txtProfileInfoFirstName;
+        private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.TextBox txtProfileInfoEmail;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.Button btnDepartmentOperationsSearchReset;
     }
 }

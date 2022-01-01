@@ -5,5 +5,55 @@
         public static string IncorrectLoginInformation = "Kullanici adiniz veya sifreniz hatali. Kontrol edip tekrar deneyiniz";
         public static string UsernameIsIncorrect = "Kullanici adiniz hatali. Kontrol edip tekrar deneyiniz";
         public static string OnlyNumberForPhone = "'Telefon', alanına yalnızca rakam girebilirsiniz";
+
+        public static string ServerError = "Sunucu hatası";
+        public static string Error = "Hata";
+        public static string Warning = "Uyarı";
+        public static string Successful = "Başarılı";
+        public static string Information = "Bilgilendirme";
+
+        private static readonly string _errorStatement = "bir şeyler ters gitti";
+
+        public static string SomethingWentWrongWhileGettingCurrentDepartments = $@"Mevcut bölümleri alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileGettingDepartmentDetails = $@"Bölüm detayları alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileGettingNewProfileInfos = $@"Yeni profil bilgilerini alırken {_errorStatement}";
+        public static string SomethingWentWrongWhilePasswordChange = $@"Şifre değişikliği sırasında {_errorStatement}";
+        public static string SomethingWentWrongWhileCheckPassword = $@"Şifrenizi kontrol ederken {_errorStatement}";
+        public static string SomethingWentWrongWhileUpdate = $@"Güncelleme işlemi sırasında {_errorStatement}";
+        public static string SomethingWentWrongWhileAddition = $@"Ekleme işlemi sırasında {_errorStatement}";
+        public static string SomethingWentWrongWhileDeletion = $@"Silme işlemi sırasında {_errorStatement}";
+        public static string SomethingWentWrongWhileSearching = $@"Arama yapılırken {_errorStatement}";
+
+        public static string ProfileHasBeenUpdated = "Profil başarıyla güncellendi";
+        public static string DeletionComplete = "Silme işlemi başarıyla tamamlandı";
+        public static string AdditionComplete = "Ekleme işlemi başarıyla tamamlandı";
+        public static string UpdateComplete = "Güncelleme işlemi başarıyla tamamlandı";
+
+        public static string DeleteConfirmation = "Silme onayı";
+        public static string AddConfirmation = "Ekleme onayı";
+        public static string UpdateConfirmation = "Güncelleme onayı";
+
+        public static string MustFillInTheFieldsWantToUpdate = "Tüm alanlar boş olamaz.Güncellemek istediğiniz alanları doldurmalısınız";
+        public static string MakeSureFillInAllFields = "Tüm alanları doldurduğunuzdan emin olunuz";
+        public static string NotAllSearchCriteriaCanBeFilledAtOnce = "Tüm arama kriterleri aynı anda doldurulamaz";
+        public static string ApplicationIsRestarting = "Uygulama yeniden başlatılıyor";
+        
+        public static string NewPasswordsDoNotMatch = "Yeni şifreler eşleşmiyor";
+        public static string NewPasswordCannotBeSameAsOldPassword = "Yeni şifre, eski şifre ile aynı olamaz";
+        public static string PasswordHasBeenChanged = "Şifreniz başarıyla değiştirildi";
+        public static string LoginAgainWithNewPassword = "Yeni şifrenizle tekrar giriş yapınız";
+        public static string OldPasswordEnteredDoesNotMatchCurrentPassword = "Girilen eski şifre, mevcut şifreyle eşleşmiyor";
+
+        public static string DepartmentNameCannotBeEmpty = "Bölüm adı boş olamaz";
+        public static string DepartmentNumberMustConsistOfNumbersOnly= "Bölüm numarası yalnızca rakamlardan oluşmalıdır";
+
+        public static string OfficerLogin = "Memur girişi";
+        public static string StudentLogin = "Öğrenci girişi";
+        public static string InstructorLogin = "Öğretim görevlisi girişi";
+
+        public static string CreateSearchResultMessage(int recordFoundInSearch)
+        {
+            return $@"Arama sonucunda {recordFoundInSearch} adet kayıt bulundu";
+        }
     }
 }

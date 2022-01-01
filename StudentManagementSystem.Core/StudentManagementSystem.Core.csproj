@@ -105,6 +105,7 @@
     <Compile Include="Utilities\Results\Result.cs" />
     <Compile Include="Utilities\Results\SuccessDataResult.cs" />
     <Compile Include="Utilities\Results\SuccessResult.cs" />
+    <Compile Include="Utilities\Validation\ErrorMessageBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
