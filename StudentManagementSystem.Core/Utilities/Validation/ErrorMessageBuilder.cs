@@ -15,5 +15,19 @@ namespace StudentManagementSystem.Core.Utilities.Validation
 
             return errorMessage;
         }
+
+        public static string CreateErrorMessageFromStringList(List<string> errorList)
+        {
+            var errorMessage = "";
+            foreach (var error in errorList)
+            {
+                if (error != string.Empty)
+                {
+                    errorMessage += $"-{error}\n\n";
+                }
+            }
+
+            return errorMessage;
+        }
     }
 }

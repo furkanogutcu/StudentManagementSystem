@@ -16,7 +16,7 @@ namespace StudentManagementSystem.Application.Utilities
             foreach (var panel in panelList.FindAll(p => p.Name != panelToShow.Name))
             {
                 panel.Visible = false;
-                PanelCleaner.Clear(panel);
+                PanelCleaner.Clean(panel);
             }
         }
     }

@@ -7,5 +7,6 @@ namespace StudentManagementSystem.Business.Abstract
     public interface IInstructorService : IEntityCrudService<Instructor>
     {
         IDataResult<List<Instructor>> GetAllByDepartmentNo(int departmentNo);
+        IDataResult<Instructor> GetByInstructorNo(int instructorNo);
     }
 }

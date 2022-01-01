@@ -5,6 +5,7 @@ using StudentManagementSystem.Application.Utilities;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.Constants;
 using StudentManagementSystem.Core.Entities;
+using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.Entities.Concrete;
 
 namespace StudentManagementSystem.Application
@@ -17,14 +18,16 @@ namespace StudentManagementSystem.Application
         private readonly IDepartmentService _departmentService;
         private readonly IInstructorService _instructorService;
         private readonly IStudentService _studentService;
+        private readonly ICatalogCourseService _catalogCourseService;
 
-        public OfficerForm(Officer officer, IOfficerService officerService, IDepartmentService departmentService, IInstructorService instructorService, IStudentService studentService)
+        public OfficerForm(Officer officer, IOfficerService officerService, IDepartmentService departmentService, IInstructorService instructorService, IStudentService studentService, ICatalogCourseService catalogCourseService)
         {
             _officer = officer;
             _officerService = officerService;
             _departmentService = departmentService;
             _instructorService = instructorService;
             _studentService = studentService;
+            _catalogCourseService = catalogCourseService;
             InitializeComponent();
             _panels.Add(pnlGlobalProfile);
             _panels.Add(pnlGlobalDepartmentOperations);
@@ -45,7 +48,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildProfilePanel()
         {
-            PanelCleaner.Clear(pnlGlobalProfile);
+            PanelCleaner.Clean(pnlGlobalProfile);
             txtProfileOfficerNo.Text = _officer.OfficerNo.ToString();
             txtProfileInfoFirstName.Text = _officer.FirstName;
             txtProfileInfoLastName.Text = _officer.LastName;
@@ -71,7 +74,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildDepartmentPanel()
         {
-            PanelCleaner.Clear(pnlGlobalDepartmentOperations);
+            PanelCleaner.Clean(pnlGlobalDepartmentOperations);
             var departmentResult = _departmentService.GetAll();
             if (departmentResult.Success)
             {
@@ -80,7 +83,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCurrentDepartments}\n\n{departmentResult.Message}", Messages.ServerError);
+                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCurrentDepartments}:\n\n{departmentResult.Message}", Messages.ServerError);
                 return;
             }
         }
@@ -89,6 +92,22 @@ namespace StudentManagementSystem.Application
         private void btnGlobalCourseOperations_Click(object sender, System.EventArgs e)
         {
             PanelSwitcher.ShowPanel(pnlGlobalCourseOperations, _panels);
+            ReBuildCoursePanel();
+        }
+
+        private void ReBuildCoursePanel()
+        {
+            PanelCleaner.Clean(pnlGlobalCourseOperations);
+            var courseResult = _catalogCourseService.GetAll();
+            if (courseResult.Success)
+            {
+                SetDataToListBox<CatalogCourse>(listBoxCourseOperationsListCourses, courseResult.Data);
+                grbxCourseOperationsCurrentCourses.Text = $@"Dersleri listele (Toplam kayıtlı ders sayısı: {courseResult.Data.Count}";
+            }
+            else
+            {
+                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCurrentCourses}:\n\n{courseResult.Message}", Messages.ServerError);
+            }
         }
 
         //Instructor
@@ -120,28 +139,51 @@ namespace StudentManagementSystem.Application
                     listBox.ValueMember = nameof(Department.DepartmentNo);
                     break;
                 case nameof(Student):
-                    listBox.DisplayMember = $"{nameof(Student.FirstName)} + {nameof(Student.LastName)}";    //CHECK
+                    listBox.DisplayMember = nameof(Student.FirstName);
                     listBox.ValueMember = nameof(Student.StudentNo);
                     break;
                 case nameof(Officer):
-                    listBox.DisplayMember = $"{nameof(Officer.FirstName)} + {nameof(Officer.LastName)}";    //CHECK
+                    listBox.DisplayMember = nameof(Officer.FirstName);
                     listBox.ValueMember = nameof(Officer.OfficerNo);
                     break;
                 case nameof(Instructor):
-                    listBox.DisplayMember = $"{nameof(Instructor.FirstName)} + {nameof(Instructor.LastName)}";
+                    listBox.DisplayMember = nameof(Instructor.FirstName);
                     listBox.ValueMember = nameof(Instructor.InstructorNo);
-                    break;
-                case nameof(EnrolledCourse):
-                    listBox.DisplayMember = "TEST";     //CHECK
-                    listBox.ValueMember = nameof(EnrolledCourse.Id);
                     break;
                 case nameof(CatalogCourse):
                     listBox.DisplayMember = nameof(CatalogCourse.CourseName);
                     listBox.ValueMember = nameof(CatalogCourse.CourseNo);
                     break;
-                case nameof(AdviserApproval):
-                    listBox.DisplayMember = "TEST2";    //CHECK
-                    listBox.ValueMember = nameof(AdviserApproval.Id);
+                default:
+                    throw new Exception("Tip eşleme hatası");
+            }
+        }
+
+        private void SetDataToComboBox<T>(ComboBox comboBox, List<T> data)
+            where T : class, IEntity, new()
+        {
+            comboBox.DataSource = data;
+            switch (typeof(T).Name)
+            {
+                case nameof(Department):
+                    comboBox.DisplayMember = nameof(Department.DepartmentName);
+                    comboBox.ValueMember = nameof(Department.DepartmentNo);
+                    break;
+                case nameof(Student):
+                    comboBox.DisplayMember = nameof(Student.FirstName);
+                    comboBox.ValueMember = nameof(Student.StudentNo);
+                    break;
+                case nameof(Officer):
+                    comboBox.DisplayMember = nameof(Officer.FirstName);
+                    comboBox.ValueMember = nameof(Officer.OfficerNo);
+                    break;
+                case nameof(Instructor):
+                    comboBox.DisplayMember = nameof(Instructor.FirstName);
+                    comboBox.ValueMember = nameof(Instructor.InstructorNo);
+                    break;
+                case nameof(CatalogCourse):
+                    comboBox.DisplayMember = nameof(CatalogCourse.CourseName);
+                    comboBox.ValueMember = nameof(CatalogCourse.CourseNo);
                     break;
                 default:
                     throw new Exception("Tip eşleme hatası");
@@ -243,7 +285,7 @@ namespace StudentManagementSystem.Application
             return true;
         }
 
-        // Event Methods
+        // Profile Methods
 
         private void btnProfileUpdate_Click(object sender, System.EventArgs e)
         {
@@ -363,6 +405,8 @@ namespace StudentManagementSystem.Application
             }
         }
 
+        // Department Operations Methods
+
         private void listBoxDepartmentOperationsCurrentDepartments_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxDepartmentOperationsCurrentDepartments.SelectedItem == null)
@@ -384,10 +428,10 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}:\n\n{selectedDepartmentResult.Message}", Messages.ServerError);
+                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(
+                    new List<string> { selectedDepartmentResult.Message, instructorListInDepartmentResult.Message, studentListInDepartmentResult.Message })}", Messages.ServerError);
                 return;
             }
-
         }
 
         private void btnDepartmentOperationsDeleteDepartment_Click(object sender, EventArgs e)
@@ -438,8 +482,8 @@ namespace StudentManagementSystem.Application
                 return;
             }
 
-            var addedDepartment = new Department 
-            {   
+            var addedDepartment = new Department
+            {
                 DepartmentName = txtDepartmentOperationsAddDepartmentName.Text,
                 DepartmentNo = 1, //Insignificant
             };
@@ -515,6 +559,60 @@ namespace StudentManagementSystem.Application
         private void btnDepartmentOperationsSearchReset_Click(object sender, EventArgs e)
         {
             ReBuildDepartmentPanel();
+        }
+
+        // Course Operations Methods
+
+        private void listBoxCourseOperationsListCourses_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxCourseOperationsListCourses.SelectedItem == null)
+            {
+                return;
+            }
+
+            int selectedCourseNo = GetUniqueValueOfSelectedItemInListbox<CatalogCourse>(listBoxCourseOperationsListCourses);
+
+            var selectedCourseResult = _catalogCourseService.GetByCourseNo(selectedCourseNo);
+            var departmentListForUpdateResult = _departmentService.GetAll();
+            var instructorListForUpdateResult = _instructorService.GetAll();
+
+            if (selectedCourseResult.Success && departmentListForUpdateResult.Success && instructorListForUpdateResult.Success)
+            {
+                var departmentResult = _departmentService.GetByDepartmentNo(selectedCourseResult.Data.DepartmentNo);
+                var instructorResult = _instructorService.GetByInstructorNo(selectedCourseResult.Data.InstructorNo);
+
+                if (departmentResult.Success && instructorResult.Success)
+                {
+                    txtCourseOperationsCourseInfoCourseNo.Text = selectedCourseResult.Data.CourseNo.ToString();
+                    txtCourseOperationsCourseInfoCourseName.Text = selectedCourseResult.Data.CourseName;
+
+                    SetDataToComboBox(cmbCourseOperationsCourseInfoDepartment, departmentListForUpdateResult.Data);
+                    cmbCourseOperationsCourseInfoDepartment.SelectedItem = departmentResult.Data;
+
+                    SetDataToComboBox(cmbCourseOperationsCourseInfoInstructor, instructorListForUpdateResult.Data);
+                    cmbCourseOperationsCourseInfoInstructor.SelectedItem = instructorResult.Data;
+
+                    txtCourseOperationsCourseInfoCredit.Text = selectedCourseResult.Data.Credit.ToString();
+                    txtCourseOperationsCourseInfoCourseYear.Text = selectedCourseResult.Data.CourseYear.ToString();
+                    txtCourseOperationsCourseInfoSemester.Text = selectedCourseResult.Data.CourseSemester.ToString();
+                }
+                else
+                {
+                    MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCourseDetails}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(
+                        new List<string> { departmentResult.Message, instructorResult.Message })}", Messages.ServerError);
+                }
+            }
+            else
+            {
+                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(
+                    new List<string> { selectedCourseResult.Message, departmentListForUpdateResult.Message, instructorListForUpdateResult.Message })}", Messages.ServerError);
+                return;
+            }
+        }
+
+        private void cmbCourseOperationsCourseInfoInstructor_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
         }
     }
 }

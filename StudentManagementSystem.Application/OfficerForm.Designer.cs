@@ -123,7 +123,7 @@
             this.txtCourseOperationsCourseInfoCourseName = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.grbxCourseOperationsCurrentCourses = new System.Windows.Forms.GroupBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.txtCourseOperationsCourseInfoSearchByCourseName = new System.Windows.Forms.TextBox();
             this.txtCourseOperationsCourseInfoSearchByCourseNo = new System.Windows.Forms.TextBox();
@@ -315,7 +315,7 @@
             this.groupBox5.SuspendLayout();
             this.pnlGlobalCourseOperations.SuspendLayout();
             this.groupBox9.SuspendLayout();
-            this.groupBox8.SuspendLayout();
+            this.grbxCourseOperationsCurrentCourses.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.groupBox14.SuspendLayout();
             this.groupBox7.SuspendLayout();
@@ -1081,7 +1081,7 @@
             // 
             this.pnlGlobalCourseOperations.BackColor = System.Drawing.SystemColors.Control;
             this.pnlGlobalCourseOperations.Controls.Add(this.groupBox9);
-            this.pnlGlobalCourseOperations.Controls.Add(this.groupBox8);
+            this.pnlGlobalCourseOperations.Controls.Add(this.grbxCourseOperationsCurrentCourses);
             this.pnlGlobalCourseOperations.Controls.Add(this.groupBox7);
             this.pnlGlobalCourseOperations.Controls.Add(this.label4);
             this.pnlGlobalCourseOperations.Location = new System.Drawing.Point(210, 0);
@@ -1119,7 +1119,7 @@
             this.groupBox9.Size = new System.Drawing.Size(392, 246);
             this.groupBox9.TabIndex = 15;
             this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Ders Bilgi Görüntüleme / Güncellee";
+            this.groupBox9.Text = "Ders Bilgi Görüntüleme / Güncelleme";
             // 
             // label43
             // 
@@ -1197,16 +1197,19 @@
             // cmbCourseOperationsCourseInfoInstructor
             // 
             this.cmbCourseOperationsCourseInfoInstructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourseOperationsCourseInfoInstructor.Enabled = false;
             this.cmbCourseOperationsCourseInfoInstructor.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbCourseOperationsCourseInfoInstructor.FormattingEnabled = true;
             this.cmbCourseOperationsCourseInfoInstructor.Location = new System.Drawing.Point(116, 127);
             this.cmbCourseOperationsCourseInfoInstructor.Name = "cmbCourseOperationsCourseInfoInstructor";
             this.cmbCourseOperationsCourseInfoInstructor.Size = new System.Drawing.Size(195, 26);
             this.cmbCourseOperationsCourseInfoInstructor.TabIndex = 14;
+            this.cmbCourseOperationsCourseInfoInstructor.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbCourseOperationsCourseInfoInstructor_Format);
             // 
             // cmbCourseOperationsCourseInfoDepartment
             // 
             this.cmbCourseOperationsCourseInfoDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourseOperationsCourseInfoDepartment.Enabled = false;
             this.cmbCourseOperationsCourseInfoDepartment.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbCourseOperationsCourseInfoDepartment.FormattingEnabled = true;
             this.cmbCourseOperationsCourseInfoDepartment.Location = new System.Drawing.Point(116, 94);
@@ -1313,18 +1316,18 @@
             this.label33.TabIndex = 1;
             this.label33.Text = "Bölüm:";
             // 
-            // groupBox8
+            // grbxCourseOperationsCurrentCourses
             // 
-            this.groupBox8.Controls.Add(this.groupBox15);
-            this.groupBox8.Controls.Add(this.groupBox14);
-            this.groupBox8.Controls.Add(this.listBoxCourseOperationsListCourses);
-            this.groupBox8.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox8.Location = new System.Drawing.Point(10, 54);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(453, 486);
-            this.groupBox8.TabIndex = 2;
-            this.groupBox8.TabStop = false;
-            this.groupBox8.Text = "Dersleri Listele";
+            this.grbxCourseOperationsCurrentCourses.Controls.Add(this.groupBox15);
+            this.grbxCourseOperationsCurrentCourses.Controls.Add(this.groupBox14);
+            this.grbxCourseOperationsCurrentCourses.Controls.Add(this.listBoxCourseOperationsListCourses);
+            this.grbxCourseOperationsCurrentCourses.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.grbxCourseOperationsCurrentCourses.Location = new System.Drawing.Point(10, 54);
+            this.grbxCourseOperationsCurrentCourses.Name = "grbxCourseOperationsCurrentCourses";
+            this.grbxCourseOperationsCurrentCourses.Size = new System.Drawing.Size(453, 486);
+            this.grbxCourseOperationsCurrentCourses.TabIndex = 2;
+            this.grbxCourseOperationsCurrentCourses.TabStop = false;
+            this.grbxCourseOperationsCurrentCourses.Text = "Dersleri Listele";
             // 
             // groupBox15
             // 
@@ -1464,6 +1467,7 @@
             this.listBoxCourseOperationsListCourses.Name = "listBoxCourseOperationsListCourses";
             this.listBoxCourseOperationsListCourses.Size = new System.Drawing.Size(420, 244);
             this.listBoxCourseOperationsListCourses.TabIndex = 0;
+            this.listBoxCourseOperationsListCourses.SelectedIndexChanged += new System.EventHandler(this.listBoxCourseOperationsListCourses_SelectedIndexChanged);
             // 
             // groupBox7
             // 
@@ -3107,12 +3111,12 @@
             this.ClientSize = new System.Drawing.Size(1087, 572);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
+            this.Controls.Add(this.pnlGlobalCourseOperations);
+            this.Controls.Add(this.pnlGlobalProfile);
             this.Controls.Add(this.pnlGlobalDepartmentOperations);
             this.Controls.Add(this.pnlGlobalAssignAdviser);
             this.Controls.Add(this.pnlGlobalStudentOperations);
             this.Controls.Add(this.pnlGlobalInstructorOperations);
-            this.Controls.Add(this.pnlGlobalCourseOperations);
-            this.Controls.Add(this.pnlGlobalProfile);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
@@ -3144,7 +3148,7 @@
             this.pnlGlobalCourseOperations.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
+            this.grbxCourseOperationsCurrentCourses.ResumeLayout(false);
             this.groupBox15.ResumeLayout(false);
             this.groupBox15.PerformLayout();
             this.groupBox14.ResumeLayout(false);
@@ -3274,7 +3278,7 @@
         private System.Windows.Forms.TextBox txtCourseOperationsCourseInfoCourseName;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.GroupBox grbxCourseOperationsCurrentCourses;
         private System.Windows.Forms.Button btnCourseOperationsFilter;
         private System.Windows.Forms.RadioButton radBtnCourseOperationsListBySemester;
         private System.Windows.Forms.ComboBox comboBox2;

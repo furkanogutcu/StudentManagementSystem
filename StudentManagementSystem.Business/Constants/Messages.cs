@@ -15,7 +15,9 @@
         private static readonly string _errorStatement = "bir şeyler ters gitti";
 
         public static string SomethingWentWrongWhileGettingCurrentDepartments = $@"Mevcut bölümleri alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileGettingCurrentCourses = $@"Mevcut dersleri alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingDepartmentDetails = $@"Bölüm detayları alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileGettingCourseDetails = $@"Ders detayları alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingNewProfileInfos = $@"Yeni profil bilgilerini alırken {_errorStatement}";
         public static string SomethingWentWrongWhilePasswordChange = $@"Şifre değişikliği sırasında {_errorStatement}";
         public static string SomethingWentWrongWhileCheckPassword = $@"Şifrenizi kontrol ederken {_errorStatement}";

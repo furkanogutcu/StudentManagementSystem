@@ -4,19 +4,19 @@ namespace StudentManagementSystem.Application.Utilities
 {
     public static class PanelCleaner
     {
-        public static void Clear(Panel panel)
+        public static void Clean(Panel panel)
         {
             foreach (Control panelControl in panel.Controls)
             {
-                ClearControl(panelControl);
+                CleanControl(panelControl);
             }   
         }
 
-        private static void ClearControl(Control control)
+        private static void CleanControl(Control control)
         {
             foreach (Control subControl in control.Controls)
             {
-                ClearControl(subControl);
+                CleanControl(subControl);
             }
 
             switch (control)

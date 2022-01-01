@@ -22,7 +22,12 @@ namespace StudentManagementSystem.Business.Concrete
 
         public IDataResult<List<Instructor>> GetAllByDepartmentNo(int departmentNo)
         {
-            return _instructorDal.GetAll(new Dictionary<string, dynamic>() {{"bolum_no", departmentNo}});
+            return _instructorDal.GetAll(new Dictionary<string, dynamic>() { { "bolum_no", departmentNo } });
+        }
+
+        public IDataResult<Instructor> GetByInstructorNo(int instructorNo)
+        {
+            return _instructorDal.Get(new Dictionary<string, dynamic>() { { "ogretim_uye_no", instructorNo } });
         }
 
         public IResult Add(Instructor entity)
