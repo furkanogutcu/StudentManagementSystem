@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using StudentManagementSystem.Application.Utilities;
 using StudentManagementSystem.Business.Abstract;
@@ -84,7 +85,6 @@ namespace StudentManagementSystem.Application
             else
             {
                 MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCurrentDepartments}:\n\n{departmentResult.Message}", Messages.ServerError);
-                return;
             }
         }
 
@@ -99,14 +99,22 @@ namespace StudentManagementSystem.Application
         {
             PanelCleaner.Clean(pnlGlobalCourseOperations);
             var courseResult = _catalogCourseService.GetAll();
-            if (courseResult.Success)
+            var departmentListForUpdateResult = _departmentService.GetAll();
+            var instructorListForUpdateResult = _instructorService.GetAll();
+            if (courseResult.Success && departmentListForUpdateResult.Success && instructorListForUpdateResult.Success)
             {
                 SetDataToListBox<CatalogCourse>(listBoxCourseOperationsListCourses, courseResult.Data);
-                grbxCourseOperationsCurrentCourses.Text = $@"Dersleri listele (Toplam kayıtlı ders sayısı: {courseResult.Data.Count}";
+                grbxCourseOperationsCurrentCourses.Text = $@"Dersleri listele (Toplam kayıtlı ders sayısı: {courseResult.Data.Count})";
+                SetDataToComboBox(cmbCourseOperationsCourseInfoDepartment, departmentListForUpdateResult.Data);
+                SetDataToComboBox(cmbCourseOperationsCourseInfoInstructor, instructorListForUpdateResult.Data);
+                SetDataToComboBox(cmbCourseOperationsAddCourseDepartment, departmentListForUpdateResult.Data);
+                SetDataToComboBox(cmbCourseOperationsAddCourseInstructor, instructorListForUpdateResult.Data);
+                SetDataToComboBox(cmbCourseOperationsFilterCourseDepartment, departmentListForUpdateResult.Data);
             }
             else
             {
-                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCurrentCourses}:\n\n{courseResult.Message}", Messages.ServerError);
+                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCurrentCourses}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(
+                    new List<string> { courseResult.Message, departmentListForUpdateResult.Message, instructorListForUpdateResult.Message })}", Messages.ServerError);
             }
         }
 
@@ -114,6 +122,22 @@ namespace StudentManagementSystem.Application
         private void btnGlobalInstructorOperations_Click(object sender, System.EventArgs e)
         {
             PanelSwitcher.ShowPanel(pnlGlobalInstructorOperations, _panels);
+            ReBuildInstructorPanel();
+        }
+
+        private void ReBuildInstructorPanel()
+        {
+            PanelCleaner.Clean(pnlGlobalInstructorOperations);
+            var instructorResult = _instructorService.GetAll();
+            if (instructorResult.Success)
+            {
+                SetDataToListBox<Instructor>(listBoxInstructorOperationsInstructorList, instructorResult.Data);
+                grbxInstructorOperationsCurrentInstructors.Text = $@"Öğretim Görevlisi Listesi (Toplam kayıtlı öğretim görevlisi sayısı: {instructorResult.Data.Count})";
+            }
+            else
+            {
+                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCurrentInstructors}:\n\n{instructorResult.Message}", Messages.ServerError);
+            }
         }
 
         //Student
@@ -159,10 +183,16 @@ namespace StudentManagementSystem.Application
             }
         }
 
-        private void SetDataToComboBox<T>(ComboBox comboBox, List<T> data)
+        private void SetDataToComboBox<T>(ComboBox comboBox, List<T> dataList)
             where T : class, IEntity, new()
         {
-            comboBox.DataSource = data;
+            var finalData = new List<T>();
+            foreach (var data in dataList)
+            {
+                finalData.Add(data);
+            }
+
+            comboBox.DataSource = finalData;
             switch (typeof(T).Name)
             {
                 case nameof(Department):
@@ -272,6 +302,45 @@ namespace StudentManagementSystem.Application
             }
         }
 
+        private void SwitchUpdateTextBoxEnabled(CheckBox controlCheckBox, TextBox targetTextBox)
+        {
+            targetTextBox.Enabled = true;
+            targetTextBox.ReadOnly = !controlCheckBox.Checked;
+        }
+        private void SwitchUpdateComboBoxEnabled(CheckBox controlCheckBox, ComboBox controlComboBox)
+        {
+            controlComboBox.Enabled = controlCheckBox.Checked;
+        }
+
+        private Dictionary<string, bool> FindEntityDifferent<T>(T firstEntity, T secondEntity)
+            where T : class, IEntity, new()
+        {
+            var entitiesProperties = firstEntity.GetType().GetProperties();
+
+            Dictionary<string, bool> returnDictionary = new Dictionary<string, bool>();
+
+            foreach (var propertyInfo in entitiesProperties)
+            {
+                if (propertyInfo.PropertyType == typeof(DateTime?))
+                {
+                    if (propertyInfo.GetValue(firstEntity) == null && propertyInfo.GetValue(secondEntity) == null)
+                    {
+                        returnDictionary.Add(propertyInfo.Name, false);
+                    }
+                    else
+                    {
+                        returnDictionary.Add(propertyInfo.Name, ((DateTime)propertyInfo.GetValue(firstEntity)).Date != ((DateTime)propertyInfo.GetValue(secondEntity)).Date);
+                    }
+                }
+                else
+                {
+                    returnDictionary.Add(propertyInfo.Name, !propertyInfo.GetValue(firstEntity).Equals(propertyInfo.GetValue(secondEntity)));
+                }
+            }
+
+            return returnDictionary;
+        }
+
         private bool NumberString(string input)
         {
             foreach (var chr in input)
@@ -293,7 +362,6 @@ namespace StudentManagementSystem.Application
                 txtProfileUpdateLastName.Text == string.Empty && txtProfileUpdatePhone.Text == string.Empty)
             {
                 MessageBox.Show(Messages.MustFillInTheFieldsWantToUpdate, Messages.Warning);
-                return;
             }
             else
             {
@@ -356,7 +424,6 @@ namespace StudentManagementSystem.Application
                 if (txtProfileNewPassword.Text == txtProfileOldPassword.Text)
                 {
                     MessageBox.Show(Messages.NewPasswordCannotBeSameAsOldPassword, Messages.Warning);
-                    return;
                 }
                 else
                 {
@@ -388,20 +455,17 @@ namespace StudentManagementSystem.Application
                         else
                         {
                             MessageBox.Show(Messages.OldPasswordEnteredDoesNotMatchCurrentPassword, Messages.Error);
-                            return;
                         }
                     }
                     else
                     {
                         MessageBox.Show($@"{Messages.SomethingWentWrongWhileCheckPassword}:\n\n{officerResult.Message}", Messages.ServerError);
-                        return;
                     }
                 }
             }
             else
             {
                 MessageBox.Show(Messages.MakeSureFillInAllFields, Messages.Warning);
-                return;
             }
         }
 
@@ -425,12 +489,12 @@ namespace StudentManagementSystem.Application
                 txtDepartmentOperationsDepartmentName.Text = selectedDepartmentResult.Data.DepartmentName;
                 txtDepartmentOperationsTotalInstructor.Text = instructorListInDepartmentResult.Data.Count.ToString();
                 txtDepartmentOperationsTotalStudents.Text = studentListInDepartmentResult.Data.Count.ToString();
+                txtDepartmentOperationsNumberOfSemester.Text = selectedDepartmentResult.Data.NumberOfSemester.ToString();
             }
             else
             {
                 MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(
                     new List<string> { selectedDepartmentResult.Message, instructorListInDepartmentResult.Message, studentListInDepartmentResult.Message })}", Messages.ServerError);
-                return;
             }
         }
 
@@ -448,12 +512,17 @@ namespace StudentManagementSystem.Application
                 DeleteOperationForDeleteButtons<Department>(_departmentService, deletedDepartment.Data, ReBuildDepartmentPanel);
             }
         }
-
         private void btnDepartmentOperationsUpdateDepartmentName_Click(object sender, EventArgs e)
         {
-            if (txtDepartmentOperationsUpdateDepartmentName.Text == string.Empty)
+            if (txtDepartmentOperationsUpdateDepartmentName.Text == string.Empty && txtDepartmentOperationsUpdateNumberOfSemester.Text == string.Empty)
             {
-                MessageBox.Show(Messages.DepartmentNameCannotBeEmpty, Messages.Warning);
+                MessageBox.Show(Messages.MustFillInTheFieldsWantToUpdate, Messages.Warning);
+                return;
+            }
+
+            if (!NumberString(txtDepartmentOperationsUpdateNumberOfSemester.Text))
+            {
+                MessageBox.Show(Messages.DepartmentNumberOfSemesterMustConsistOfNumbersOnly, Messages.Warning);
                 return;
             }
 
@@ -466,25 +535,49 @@ namespace StudentManagementSystem.Application
                 return;
             }
 
-            var messageDialogResult = MessageBox.Show($@"{updatedDepartmentDetailsResult.Data.DepartmentName} isimli bölüm güncellenecek. Onaylıyor musunuz?", Messages.UpdateConfirmation, MessageBoxButtons.YesNo);
-            if (messageDialogResult == DialogResult.Yes)
+            var updateDepartment = new Department
             {
-                updatedDepartmentDetailsResult.Data.DepartmentName = txtDepartmentOperationsUpdateDepartmentName.Text;
-                UpdateOperationForUpdateButtons<Department>(_departmentService, updatedDepartmentDetailsResult.Data, ReBuildDepartmentPanel);
+                DepartmentNo = updatedDepartmentDetailsResult.Data.DepartmentNo,
+                DepartmentName = txtDepartmentOperationsUpdateDepartmentName.Text == string.Empty ? updatedDepartmentDetailsResult.Data.DepartmentName : txtDepartmentOperationsUpdateDepartmentName.Text,
+                NumberOfSemester = txtDepartmentOperationsUpdateNumberOfSemester.Text == string.Empty ? updatedDepartmentDetailsResult.Data.NumberOfSemester : Convert.ToInt32(txtDepartmentOperationsUpdateNumberOfSemester.Text),
+                ModifiedAt = updatedDepartmentDetailsResult.Data.ModifiedAt,
+                CreatedAt = updatedDepartmentDetailsResult.Data.CreatedAt,
+                DeletedAt = updatedDepartmentDetailsResult.Data.DeletedAt,
+            };
+
+            if (FindEntityDifferent(updateDepartment, updatedDepartmentDetailsResult.Data).Values.Contains(true))
+            {
+                var messageDialogResult = MessageBox.Show($@"{updatedDepartmentDetailsResult.Data.DepartmentName} isimli bölüm güncellenecek. Onaylıyor musunuz?", Messages.UpdateConfirmation, MessageBoxButtons.YesNo);
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    updatedDepartmentDetailsResult.Data.DepartmentName = txtDepartmentOperationsUpdateDepartmentName.Text;
+                    UpdateOperationForUpdateButtons<Department>(_departmentService, updateDepartment, ReBuildDepartmentPanel);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Messages.TheDataToBeUpdatedIsTheSameAsTheOldData, Messages.Warning);
             }
         }
 
         private void btnDepartmentOperationsAddDepartment_Click(object sender, EventArgs e)
         {
-            if (txtDepartmentOperationsAddDepartmentName.Text == string.Empty)
+            if (txtDepartmentOperationsAddDepartmentName.Text == string.Empty || txtDepartmentOperationsAddNumberOfSemester.Text == string.Empty)
             {
-                MessageBox.Show(Messages.DepartmentNameCannotBeEmpty, Messages.Warning);
+                MessageBox.Show(Messages.MakeSureFillInAllFields, Messages.Warning);
+                return;
+            }
+
+            if (!NumberString(txtDepartmentOperationsAddNumberOfSemester.Text))
+            {
+                MessageBox.Show(Messages.DepartmentNumberOfSemesterMustConsistOfNumbersOnly, Messages.Warning);
                 return;
             }
 
             var addedDepartment = new Department
             {
                 DepartmentName = txtDepartmentOperationsAddDepartmentName.Text,
+                NumberOfSemester = Convert.ToInt32(txtDepartmentOperationsAddNumberOfSemester.Text),
                 DepartmentNo = 1, //Insignificant
             };
             var messageDialogResult = MessageBox.Show($@"{addedDepartment.DepartmentName} isimli yeni bir bölüm eklenecek. Onaylıyor musunuz?", Messages.AddConfirmation, MessageBoxButtons.YesNo);
@@ -500,7 +593,6 @@ namespace StudentManagementSystem.Application
                 txtDepartmentOperationsSearchByDepartmentName.Text != string.Empty)
             {
                 MessageBox.Show(Messages.NotAllSearchCriteriaCanBeFilledAtOnce, Messages.Warning);
-                return;
             }
             else if (txtDepartmentOperationsSearchByDepartmentNo.Text != string.Empty &&
                      txtDepartmentOperationsSearchByDepartmentName.Text == string.Empty)
@@ -519,12 +611,10 @@ namespace StudentManagementSystem.Application
                     txtDepartmentOperationsTotalStudents.Text = string.Empty;
                     SetDataToListBox<Department>(listBoxDepartmentOperationsCurrentDepartments, departmentResult.Data);
                     MessageBox.Show(Messages.CreateSearchResultMessage(departmentResult.Data.Count), Messages.Information);
-                    return;
                 }
                 else
                 {
                     MessageBox.Show($@"{Messages.SomethingWentWrongWhileSearching}:\n\n{departmentResult.Message}", Messages.ServerError);
-                    return;
                 }
 
             }
@@ -540,18 +630,15 @@ namespace StudentManagementSystem.Application
                     txtDepartmentOperationsTotalStudents.Text = string.Empty;
                     SetDataToListBox<Department>(listBoxDepartmentOperationsCurrentDepartments, departmentResult.Data);
                     MessageBox.Show(Messages.CreateSearchResultMessage(departmentResult.Data.Count), Messages.Information);
-                    return;
                 }
                 else
                 {
                     MessageBox.Show($@"{Messages.SomethingWentWrongWhileSearching}:\n\n{departmentResult.Message}", Messages.ServerError);
-                    return;
                 }
             }
             else
             {
                 MessageBox.Show(Messages.NotAllSearchCriteriaCanBeFilledAtOnce, Messages.Warning);
-                return;
             }
 
         }
@@ -573,10 +660,8 @@ namespace StudentManagementSystem.Application
             int selectedCourseNo = GetUniqueValueOfSelectedItemInListbox<CatalogCourse>(listBoxCourseOperationsListCourses);
 
             var selectedCourseResult = _catalogCourseService.GetByCourseNo(selectedCourseNo);
-            var departmentListForUpdateResult = _departmentService.GetAll();
-            var instructorListForUpdateResult = _instructorService.GetAll();
 
-            if (selectedCourseResult.Success && departmentListForUpdateResult.Success && instructorListForUpdateResult.Success)
+            if (selectedCourseResult.Success)
             {
                 var departmentResult = _departmentService.GetByDepartmentNo(selectedCourseResult.Data.DepartmentNo);
                 var instructorResult = _instructorService.GetByInstructorNo(selectedCourseResult.Data.InstructorNo);
@@ -586,10 +671,8 @@ namespace StudentManagementSystem.Application
                     txtCourseOperationsCourseInfoCourseNo.Text = selectedCourseResult.Data.CourseNo.ToString();
                     txtCourseOperationsCourseInfoCourseName.Text = selectedCourseResult.Data.CourseName;
 
-                    SetDataToComboBox(cmbCourseOperationsCourseInfoDepartment, departmentListForUpdateResult.Data);
-                    cmbCourseOperationsCourseInfoDepartment.SelectedItem = departmentResult.Data;
 
-                    SetDataToComboBox(cmbCourseOperationsCourseInfoInstructor, instructorListForUpdateResult.Data);
+                    cmbCourseOperationsCourseInfoDepartment.SelectedItem = departmentResult.Data;
                     cmbCourseOperationsCourseInfoInstructor.SelectedItem = instructorResult.Data;
 
                     txtCourseOperationsCourseInfoCredit.Text = selectedCourseResult.Data.Credit.ToString();
@@ -604,15 +687,132 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(
-                    new List<string> { selectedCourseResult.Message, departmentListForUpdateResult.Message, instructorListForUpdateResult.Message })}", Messages.ServerError);
-                return;
+                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}:\n\n{selectedCourseResult.Message})", Messages.ServerError);
             }
         }
 
         private void cmbCourseOperationsCourseInfoInstructor_Format(object sender, ListControlConvertEventArgs e)
         {
             e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
+        }
+
+        private void chbxCourseOperationsCourseInfoCourseNameEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCourseNameEnabled, txtCourseOperationsCourseInfoCourseName);
+        }
+
+        private void chbxCourseOperationsCourseInfoDepartmentEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            SwitchUpdateComboBoxEnabled(chbxCourseOperationsCourseInfoDepartmentEnabled, cmbCourseOperationsCourseInfoDepartment);
+        }
+
+        private void chbxCourseOperationsCourseInfoInstructorEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            SwitchUpdateComboBoxEnabled(chbxCourseOperationsCourseInfoInstructorEnabled, cmbCourseOperationsCourseInfoInstructor);
+        }
+
+        private void chbxCourseOperationsCourseInfoCreditEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCreditEnabled, txtCourseOperationsCourseInfoCredit);
+        }
+
+        private void chbxCourseOperationsCourseInfoCourseYearEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCourseYearEnabled, txtCourseOperationsCourseInfoCourseYear);
+        }
+
+        private void chbxCourseOperationsCourseInfoSemesterEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoSemesterEnabled, txtCourseOperationsCourseInfoSemester);
+        }
+
+        // Instructor Operations Methods
+
+        private void listBoxInstructorOperationsInstructorList_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
+        }
+
+        private void btnCourseOperationsUpdate_Click(object sender, EventArgs e)
+        {
+            if (!NumberString(txtCourseOperationsCourseInfoCredit.Text))
+            {
+                MessageBox.Show($@"{Messages.CourseCreditMustConsistOfNumbersOnly}", Messages.Warning);
+                return;
+            }
+
+            if (!NumberString(txtCourseOperationsCourseInfoCourseYear.Text))
+            {
+                MessageBox.Show($@"{Messages.CourseYearMustConsistOfNumbersOnly}", Messages.Warning);
+                return;
+            }
+
+            if (!NumberString(txtCourseOperationsCourseInfoSemester.Text))
+            {
+                MessageBox.Show($@"{Messages.CourseSemesterMustConsistOfNumbersOnly}", Messages.Warning);
+                return;
+            }
+
+            int selectedCourseNo = GetUniqueValueOfSelectedItemInListbox<CatalogCourse>(listBoxCourseOperationsListCourses);
+            var updatedCourseDetailsResult = _catalogCourseService.GetByCourseNo(selectedCourseNo);
+
+            if (!updatedCourseDetailsResult.Success)
+            {
+                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCourseDetails}:\n\n{updatedCourseDetailsResult.Message}", Messages.ServerError);
+                return;
+            }
+
+            updatedCourseDetailsResult.Data.CourseName =
+                updatedCourseDetailsResult.Data.CourseName == txtCourseOperationsCourseInfoCourseName.Text
+                    ? updatedCourseDetailsResult.Data.CourseName
+                    : txtCourseOperationsCourseInfoCourseName.Text;
+
+            updatedCourseDetailsResult.Data.Credit =
+                updatedCourseDetailsResult.Data.Credit.ToString() == txtCourseOperationsCourseInfoCredit.Text
+                    ? updatedCourseDetailsResult.Data.Credit
+                    : Convert.ToInt32(txtCourseOperationsCourseInfoCredit.Text);
+
+            updatedCourseDetailsResult.Data.CourseYear =
+                updatedCourseDetailsResult.Data.CourseYear.ToString() == txtCourseOperationsCourseInfoCourseYear.Text
+                    ? updatedCourseDetailsResult.Data.CourseYear
+                    : short.Parse(txtCourseOperationsCourseInfoCourseYear.Text);
+
+            updatedCourseDetailsResult.Data.CourseSemester =
+                updatedCourseDetailsResult.Data.CourseSemester.ToString() == txtCourseOperationsCourseInfoSemester.Text
+                    ? updatedCourseDetailsResult.Data.CourseSemester
+                    : Convert.ToInt32(txtCourseOperationsCourseInfoSemester.Text);
+
+            var selectedDepartmentNo = ((Department)cmbCourseOperationsCourseInfoDepartment.SelectedItem).DepartmentNo;
+
+            updatedCourseDetailsResult.Data.DepartmentNo =
+                updatedCourseDetailsResult.Data.DepartmentNo == selectedDepartmentNo
+                    ? updatedCourseDetailsResult.Data.DepartmentNo
+                    : selectedDepartmentNo;
+
+            var selectedInstructorNo = ((Instructor)cmbCourseOperationsCourseInfoInstructor.SelectedItem).InstructorNo;
+
+            updatedCourseDetailsResult.Data.InstructorNo =
+                updatedCourseDetailsResult.Data.InstructorNo == selectedInstructorNo
+                ? updatedCourseDetailsResult.Data.InstructorNo
+                : selectedInstructorNo;
+
+            var updatedDepartmentName = _departmentService.GetByDepartmentNo(updatedCourseDetailsResult.Data.DepartmentNo).Data.DepartmentName;
+            var updatedInstructor = _instructorService.GetByInstructorNo(updatedCourseDetailsResult.Data.InstructorNo).Data;
+            var updatedInstructorFullName = $"{updatedInstructor.FirstName} {updatedInstructor.LastName}";
+
+            var message = $"{updatedCourseDetailsResult.Data.CourseName} isimli ders aşağıdaki gibi güncellenecek. Onaylıyor musunuz?\n";
+            message += $"\n- Ders adı: {updatedCourseDetailsResult.Data.CourseName}";
+            message += $"\n- Bölüm: {updatedDepartmentName}";
+            message += $"\n- Öğretim görevlisi {updatedInstructorFullName}";
+            message += $"\n- Kredi: {updatedCourseDetailsResult.Data.Credit}";
+            message += $"\n- Ders yılı: {updatedCourseDetailsResult.Data.CourseYear}";
+            message += $"\n- Ders dönemi: {updatedCourseDetailsResult.Data.CourseSemester}";
+
+            var messageDialogResult = MessageBox.Show(message, Messages.UpdateConfirmation, MessageBoxButtons.YesNo);
+            if (messageDialogResult == DialogResult.Yes)
+            {
+                UpdateOperationForUpdateButtons<CatalogCourse>(_catalogCourseService, updatedCourseDetailsResult.Data, ReBuildCoursePanel);
+            }
         }
     }
 }

@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using StudentManagementSystem.Business.Abstract;
+using StudentManagementSystem.Business.ValidationRules.FluentValidation;
+using StudentManagementSystem.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using StudentManagementSystem.Core.Utilities.Results;
+using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.DataAccess.Abstract;
 using StudentManagementSystem.Entities.Concrete;
 
@@ -9,6 +12,7 @@ namespace StudentManagementSystem.Business.Concrete
     public class CatalogCourseManager : ICatalogCourseService
     {
         private readonly ICatalogCourseDal _catalogCourseDal;
+        private readonly CatalogCourseValidator _catalogCourseValidator = new CatalogCourseValidator();
 
         public CatalogCourseManager(ICatalogCourseDal catalogCourseDal)
         {
@@ -32,7 +36,13 @@ namespace StudentManagementSystem.Business.Concrete
 
         public IResult Update(CatalogCourse entity)
         {
-            throw new System.NotImplementedException();
+            var validatorResult = ValidationTool.Validate(_catalogCourseValidator, entity);
+            if (validatorResult.Success)
+            {
+                return _catalogCourseDal.Update(entity);
+            }
+
+            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
         }
 
         public IResult Delete(CatalogCourse entity)

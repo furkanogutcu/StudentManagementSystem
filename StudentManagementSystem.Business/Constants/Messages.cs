@@ -16,8 +16,9 @@
 
         public static string SomethingWentWrongWhileGettingCurrentDepartments = $@"Mevcut bölümleri alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingCurrentCourses = $@"Mevcut dersleri alırken {_errorStatement}";
-        public static string SomethingWentWrongWhileGettingDepartmentDetails = $@"Bölüm detayları alırken {_errorStatement}";
-        public static string SomethingWentWrongWhileGettingCourseDetails = $@"Ders detayları alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileGettingCurrentInstructors = $@"Mevcut öğretim görevlisi listesini alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileGettingDepartmentDetails = $@"Bölüm detaylarını alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileGettingCourseDetails = $@"Ders detaylarını alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingNewProfileInfos = $@"Yeni profil bilgilerini alırken {_errorStatement}";
         public static string SomethingWentWrongWhilePasswordChange = $@"Şifre değişikliği sırasında {_errorStatement}";
         public static string SomethingWentWrongWhileCheckPassword = $@"Şifrenizi kontrol ederken {_errorStatement}";
@@ -36,6 +37,7 @@
         public static string UpdateConfirmation = "Güncelleme onayı";
 
         public static string MustFillInTheFieldsWantToUpdate = "Tüm alanlar boş olamaz.Güncellemek istediğiniz alanları doldurmalısınız";
+        public static string TheDataToBeUpdatedIsTheSameAsTheOldData = "Güncellemek istediğiniz veriler eski veriler ile aynı";
         public static string MakeSureFillInAllFields = "Tüm alanları doldurduğunuzdan emin olunuz";
         public static string NotAllSearchCriteriaCanBeFilledAtOnce = "Tüm arama kriterleri aynı anda doldurulamaz";
         public static string ApplicationIsRestarting = "Uygulama yeniden başlatılıyor";
@@ -48,6 +50,10 @@
 
         public static string DepartmentNameCannotBeEmpty = "Bölüm adı boş olamaz";
         public static string DepartmentNumberMustConsistOfNumbersOnly= "Bölüm numarası yalnızca rakamlardan oluşmalıdır";
+        public static string DepartmentNumberOfSemesterMustConsistOfNumbersOnly= "Bölüm dönemi yalnızca rakamlardan oluşmalıdır";
+        public static string CourseCreditMustConsistOfNumbersOnly= "Ders kredisi yalnızca rakamlardan oluşmalıdır";
+        public static string CourseYearMustConsistOfNumbersOnly= "Ders yılı yalnızca rakamlardan oluşmalıdır";
+        public static string CourseSemesterMustConsistOfNumbersOnly= "Ders dönemi yalnızca rakamlardan oluşmalıdır";
 
         public static string OfficerLogin = "Memur girişi";
         public static string StudentLogin = "Öğrenci girişi";
