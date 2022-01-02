@@ -311,6 +311,7 @@
             this.btnInstructorOperationsSearchReset = new System.Windows.Forms.Button();
             this.btnInstructorOperationsFilterReset = new System.Windows.Forms.Button();
             this.label99 = new System.Windows.Forms.Label();
+            this.btnCourseOperationsFilterReset = new System.Windows.Forms.Button();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalProfile.SuspendLayout();
@@ -1486,6 +1487,7 @@
             // 
             // groupBox14
             // 
+            this.groupBox14.Controls.Add(this.btnCourseOperationsFilterReset);
             this.groupBox14.Controls.Add(this.chbxCourseOperationsFilterBySemester);
             this.groupBox14.Controls.Add(this.chbxCourseOperationsFilterByDepartment);
             this.groupBox14.Controls.Add(this.btnCourseOperationsFilter);
@@ -1522,9 +1524,9 @@
             // 
             // btnCourseOperationsFilter
             // 
-            this.btnCourseOperationsFilter.Location = new System.Drawing.Point(313, 33);
+            this.btnCourseOperationsFilter.Location = new System.Drawing.Point(313, 48);
             this.btnCourseOperationsFilter.Name = "btnCourseOperationsFilter";
-            this.btnCourseOperationsFilter.Size = new System.Drawing.Size(98, 45);
+            this.btnCourseOperationsFilter.Size = new System.Drawing.Size(98, 30);
             this.btnCourseOperationsFilter.TabIndex = 5;
             this.btnCourseOperationsFilter.Text = "Filtrele";
             this.btnCourseOperationsFilter.UseVisualStyleBackColor = true;
@@ -3234,6 +3236,16 @@
             this.label99.TabIndex = 12;
             this.label99.Text = "Bölüme göre filtrele:";
             // 
+            // btnCourseOperationsFilterReset
+            // 
+            this.btnCourseOperationsFilterReset.Location = new System.Drawing.Point(313, 16);
+            this.btnCourseOperationsFilterReset.Name = "btnCourseOperationsFilterReset";
+            this.btnCourseOperationsFilterReset.Size = new System.Drawing.Size(98, 30);
+            this.btnCourseOperationsFilterReset.TabIndex = 8;
+            this.btnCourseOperationsFilterReset.Text = "Sıfırla";
+            this.btnCourseOperationsFilterReset.UseVisualStyleBackColor = true;
+            this.btnCourseOperationsFilterReset.Click += new System.EventHandler(this.btnCourseOperationsFilterReset_Click);
+            // 
             // OfficerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3242,12 +3254,12 @@
             this.ClientSize = new System.Drawing.Size(1087, 572);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
-            this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Controls.Add(this.pnlGlobalCourseOperations);
             this.Controls.Add(this.pnlGlobalProfile);
             this.Controls.Add(this.pnlGlobalDepartmentOperations);
             this.Controls.Add(this.pnlGlobalAssignAdviser);
             this.Controls.Add(this.pnlGlobalStudentOperations);
+            this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
@@ -3609,5 +3621,6 @@
         private System.Windows.Forms.Button btnInstructorOperationsSearchReset;
         private System.Windows.Forms.Button btnInstructorOperationsFilterReset;
         private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Button btnCourseOperationsFilterReset;
     }
 }

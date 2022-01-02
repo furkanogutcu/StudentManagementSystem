@@ -7,6 +7,7 @@ using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.Constants;
 using StudentManagementSystem.Core.Entities;
 using StudentManagementSystem.Core.Utilities.Others;
+using StudentManagementSystem.Core.Utilities.Results;
 using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.Entities.Concrete;
 
@@ -244,6 +245,24 @@ namespace StudentManagementSystem.Application
                     comboBox.SelectedItem = cmbCourseOperationsCourseInfoDepartment.Items[i];
                     break;
                 }
+            }
+        }
+
+        private void ApplySearchToListbox<T>(ListBox targetListbox, IDataResult<List<T>> searchResult, List<TextBox> textBoxesToClearAfterProcess)
+            where T : class, IEntity, new()
+        {
+            if (searchResult.Success)
+            {
+                foreach (var textBox in textBoxesToClearAfterProcess)
+                {
+                    textBox.Text = string.Empty;
+                }
+                DataSetterToBoxes.SetDataToListBox<T>(targetListbox, searchResult.Data);
+                MessageBox.Show(Messages.CreateSearchResultMessage(searchResult.Data.Count), Messages.Information);
+            }
+            else
+            {
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileSearching}:\n\n{searchResult.Message}", Messages.ServerError);
             }
         }
 
@@ -497,6 +516,14 @@ namespace StudentManagementSystem.Application
 
         private void btnDepartmentOperationsSearch_Click(object sender, EventArgs e)
         {
+            var textBoxesToClearAfterProcess = new List<TextBox>
+            {
+                txtDepartmentOperationsDepartmentName,
+                txtDepartmentOperationsDepartmentNo,
+                txtDepartmentOperationsTotalInstructor,
+                txtDepartmentOperationsTotalStudents
+            };
+
             if (txtDepartmentOperationsSearchByDepartmentNo.Text != string.Empty &&
                 txtDepartmentOperationsSearchByDepartmentName.Text != string.Empty)
             {
@@ -511,38 +538,14 @@ namespace StudentManagementSystem.Application
                     return;
                 }
                 var departmentResult = _departmentService.GetAllByDepartmentNo(Convert.ToInt32(txtDepartmentOperationsSearchByDepartmentNo.Text));
-                if (departmentResult.Success)
-                {
-                    txtDepartmentOperationsDepartmentName.Text = string.Empty;
-                    txtDepartmentOperationsDepartmentNo.Text = string.Empty;
-                    txtDepartmentOperationsTotalInstructor.Text = string.Empty;
-                    txtDepartmentOperationsTotalStudents.Text = string.Empty;
-                    DataSetterToBoxes.SetDataToListBox<Department>(listBoxDepartmentOperationsCurrentDepartments, departmentResult.Data);
-                    MessageBox.Show(Messages.CreateSearchResultMessage(departmentResult.Data.Count), Messages.Information);
-                }
-                else
-                {
-                    MessageBox.Show($@"{Messages.SomethingWentWrongWhileSearching}:\n\n{departmentResult.Message}", Messages.ServerError);
-                }
 
+                ApplySearchToListbox(listBoxDepartmentOperationsCurrentDepartments, departmentResult, textBoxesToClearAfterProcess);
             }
             else if (txtDepartmentOperationsSearchByDepartmentNo.Text == string.Empty &&
                      txtDepartmentOperationsSearchByDepartmentName.Text != string.Empty)
             {
                 var departmentResult = _departmentService.GetAllContainDepartmentName(txtDepartmentOperationsSearchByDepartmentName.Text);
-                if (departmentResult.Success)
-                {
-                    txtDepartmentOperationsDepartmentName.Text = string.Empty;
-                    txtDepartmentOperationsDepartmentNo.Text = string.Empty;
-                    txtDepartmentOperationsTotalInstructor.Text = string.Empty;
-                    txtDepartmentOperationsTotalStudents.Text = string.Empty;
-                    DataSetterToBoxes.SetDataToListBox<Department>(listBoxDepartmentOperationsCurrentDepartments, departmentResult.Data);
-                    MessageBox.Show(Messages.CreateSearchResultMessage(departmentResult.Data.Count), Messages.Information);
-                }
-                else
-                {
-                    MessageBox.Show($@"{Messages.SomethingWentWrongWhileSearching}:\n\n{departmentResult.Message}", Messages.ServerError);
-                }
+                ApplySearchToListbox(listBoxDepartmentOperationsCurrentDepartments, departmentResult, textBoxesToClearAfterProcess);
             }
             else
             {
@@ -793,6 +796,15 @@ namespace StudentManagementSystem.Application
 
         private void btnCourseOperationsSearch_Click(object sender, EventArgs e)
         {
+            var textBoxesToClearAfterProcess = new List<TextBox>
+            {
+                txtCourseOperationsCourseInfoCourseNo,
+                txtCourseOperationsCourseInfoCourseName,
+                txtCourseOperationsCourseInfoCredit,
+                txtCourseOperationsCourseInfoCourseYear,
+                txtCourseOperationsCourseInfoSemester
+            };
+
             if (txtCourseOperationsCourseInfoSearchByCourseNo.Text != string.Empty && txtCourseOperationsCourseInfoSearchByCourseName.Text != string.Empty)
             {
                 MessageBox.Show(Messages.NotAllSearchCriteriaCanBeFilledAtOnce, Messages.Warning);
@@ -806,40 +818,14 @@ namespace StudentManagementSystem.Application
                     return;
                 }
                 var courseResult = _catalogCourseService.GetAllByCourseNo(Convert.ToInt32(txtCourseOperationsCourseInfoSearchByCourseNo.Text));
-                if (courseResult.Success)
-                {
-                    txtCourseOperationsCourseInfoCourseNo.Text = string.Empty;
-                    txtCourseOperationsCourseInfoCourseName.Text = string.Empty;
-                    txtCourseOperationsCourseInfoCredit.Text = string.Empty;
-                    txtCourseOperationsCourseInfoCourseYear.Text = string.Empty;
-                    txtCourseOperationsCourseInfoSemester.Text = string.Empty;
-                    DataSetterToBoxes.SetDataToListBox<CatalogCourse>(listBoxCourseOperationsListCourses, courseResult.Data);
-                    MessageBox.Show(Messages.CreateSearchResultMessage(courseResult.Data.Count), Messages.Information);
-                }
-                else
-                {
-                    MessageBox.Show($@"{Messages.SomethingWentWrongWhileSearching}:\n\n{courseResult.Message}", Messages.ServerError);
-                }
+                ApplySearchToListbox(listBoxCourseOperationsListCourses, courseResult, textBoxesToClearAfterProcess);
 
             }
             else if (txtCourseOperationsCourseInfoSearchByCourseNo.Text == string.Empty &&
                      txtCourseOperationsCourseInfoSearchByCourseName.Text != string.Empty)
             {
                 var courseResult = _catalogCourseService.GetAllContainCourseName(txtCourseOperationsCourseInfoSearchByCourseName.Text);
-                if (courseResult.Success)
-                {
-                    txtCourseOperationsCourseInfoCourseNo.Text = string.Empty;
-                    txtCourseOperationsCourseInfoCourseName.Text = string.Empty;
-                    txtCourseOperationsCourseInfoCredit.Text = string.Empty;
-                    txtCourseOperationsCourseInfoCourseYear.Text = string.Empty;
-                    txtCourseOperationsCourseInfoSemester.Text = string.Empty;
-                    DataSetterToBoxes.SetDataToListBox<CatalogCourse>(listBoxCourseOperationsListCourses, courseResult.Data);
-                    MessageBox.Show(Messages.CreateSearchResultMessage(courseResult.Data.Count), Messages.Information);
-                }
-                else
-                {
-                    MessageBox.Show($@"{Messages.SomethingWentWrongWhileSearching}:\n\n{courseResult.Message}", Messages.ServerError);
-                }
+                ApplySearchToListbox(listBoxCourseOperationsListCourses, courseResult, textBoxesToClearAfterProcess);
             }
             else
             {
@@ -859,26 +845,26 @@ namespace StudentManagementSystem.Application
                 MessageBox.Show(Messages.AtLeastOneFilterMustBeOn, Messages.Warning);
                 return;
             }
-            var courseListResult = _catalogCourseService.GetAll();
-            if (courseListResult.Success)
-            {
-                List<CatalogCourse> filteredList = courseListResult.Data;
-                if (chbxCourseOperationsFilterByDepartment.Checked)
-                {
-                    filteredList = filteredList.Where(c => c.DepartmentNo == Convert.ToInt32(cmbCourseOperationsFilterCourseDepartment.SelectedValue)).ToList();
-                }
 
-                if (chbxCourseOperationsFilterBySemester.Checked)
-                {
-                    filteredList = filteredList.Where(c => c.CourseSemester == Convert.ToInt32(cmbCourseOperationsFilterCourseSemester.SelectedValue)).ToList();
-                }
-                DataSetterToBoxes.SetDataToListBox(listBoxCourseOperationsListCourses, filteredList);
-                MessageBox.Show(Messages.CreateFilterResultMessage(filteredList.Count), Messages.Information);
-            }
-            else
+            var conditions = new List<Func<CatalogCourse, bool>>();
+
+            if (chbxCourseOperationsFilterByDepartment.Checked)
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingCurrentCourses, Messages.ServerError);
+                conditions.Add(c => c.DepartmentNo == Convert.ToInt32(cmbCourseOperationsFilterCourseDepartment.SelectedValue));
             }
+
+            if (chbxCourseOperationsFilterBySemester.Checked)
+            {
+                conditions.Add(c => c.CourseSemester == Convert.ToInt32(cmbCourseOperationsFilterCourseSemester.SelectedValue));
+            }
+
+            FilteringTool.FilterListBox<CatalogCourse>(listBoxCourseOperationsListCourses, _catalogCourseService, conditions, Messages.SomethingWentWrongWhileGettingCurrentCourses);
+
+        }
+
+        private void btnCourseOperationsFilterReset_Click(object sender, EventArgs e)
+        {
+            ReBuildCoursePanel();
         }
 
         private void chbxCourseOperationsFilterByDepartment_CheckedChanged(object sender, EventArgs e)
@@ -1028,6 +1014,16 @@ namespace StudentManagementSystem.Application
 
         private void btnInstructorOperationsSearch_Click(object sender, EventArgs e)
         {
+            var textBoxesToClearAfterProcess = new List<TextBox>
+            {
+                txtInstructorOperationsInfoInstructorNo,
+                txtInstructorOperationsInfoDepartmentName,
+                txtInstructorOperationsInfoEmail,
+                txtInstructorOperationsInfoPhone,
+                txtInstructorOperationsInfoFirstName,
+                txtInstructorOperationsInfoLastName
+        };
+
             if (txtInstructorOperationsSearchByInstructorNo.Text != string.Empty && txtInstructorOperationsSearchByInstructorName.Text != string.Empty)
             {
                 MessageBox.Show(Messages.NotAllSearchCriteriaCanBeFilledAtOnce, Messages.Warning);
@@ -1041,42 +1037,13 @@ namespace StudentManagementSystem.Application
                     return;
                 }
                 var instructorResult = _instructorService.GetAllByInstructorNo(Convert.ToInt32(txtInstructorOperationsSearchByInstructorNo.Text));
-                if (instructorResult.Success)
-                {
-                    txtInstructorOperationsInfoInstructorNo.Text = string.Empty;
-                    txtInstructorOperationsInfoDepartmentName.Text = string.Empty;
-                    txtInstructorOperationsInfoEmail.Text = string.Empty;
-                    txtInstructorOperationsInfoPhone.Text = string.Empty;
-                    txtInstructorOperationsInfoFirstName.Text = string.Empty;
-                    txtInstructorOperationsInfoLastName.Text = string.Empty;
-                    DataSetterToBoxes.SetDataToListBox<Instructor>(listBoxInstructorOperationsInstructorList, instructorResult.Data);
-                    MessageBox.Show(Messages.CreateSearchResultMessage(instructorResult.Data.Count), Messages.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"{Messages.SomethingWentWrongWhileSearching}:\n\n{instructorResult.Message}", Messages.ServerError);
-                }
-
+                ApplySearchToListbox(listBoxInstructorOperationsInstructorList, instructorResult, textBoxesToClearAfterProcess);
             }
             else if (txtInstructorOperationsSearchByInstructorNo.Text == string.Empty &&
                      txtInstructorOperationsSearchByInstructorName.Text != string.Empty)
             {
                 var instructorResult = _instructorService.GetAllContainInstructorName(txtInstructorOperationsSearchByInstructorName.Text);
-                if (instructorResult.Success)
-                {
-                    txtInstructorOperationsInfoInstructorNo.Text = string.Empty;
-                    txtInstructorOperationsInfoDepartmentName.Text = string.Empty;
-                    txtInstructorOperationsInfoEmail.Text = string.Empty;
-                    txtInstructorOperationsInfoPhone.Text = string.Empty;
-                    txtInstructorOperationsInfoFirstName.Text = string.Empty;
-                    txtInstructorOperationsInfoLastName.Text = string.Empty;
-                    DataSetterToBoxes.SetDataToListBox<Instructor>(listBoxInstructorOperationsInstructorList, instructorResult.Data);
-                    MessageBox.Show(Messages.CreateSearchResultMessage(instructorResult.Data.Count), Messages.Information);
-                }
-                else
-                {
-                    MessageBox.Show($"{Messages.SomethingWentWrongWhileSearching}:\n\n{instructorResult.Message}", Messages.ServerError);
-                }
+                ApplySearchToListbox(listBoxInstructorOperationsInstructorList, instructorResult, textBoxesToClearAfterProcess);
             }
             else
             {
@@ -1091,24 +1058,16 @@ namespace StudentManagementSystem.Application
 
         private void btnInstructorOperationsFilter_Click(object sender, EventArgs e)
         {
-            if (cmbInstructorOperationsFilterByDepartment.SelectedItem == null)
+            if (listBoxInstructorOperationsInstructorList.SelectedItem == null)
             {
                 MessageBox.Show(Messages.MustSelectADepartmentToBeAbleToFilter, Messages.Warning);
                 return;
             }
-            var instructorListResult = _instructorService.GetAll();
-            if (instructorListResult.Success)
-            {
-                List<Instructor> filteredList = instructorListResult.Data;
-                filteredList = filteredList.Where(i => i.DepartmentNo == Convert.ToInt32(cmbInstructorOperationsFilterByDepartment.SelectedValue)).ToList();
 
-                DataSetterToBoxes.SetDataToListBox(listBoxInstructorOperationsInstructorList, filteredList);
-                MessageBox.Show(Messages.CreateFilterResultMessage(filteredList.Count), Messages.Information);
-            }
-            else
+            FilteringTool.FilterListBox<Instructor>(listBoxInstructorOperationsInstructorList, _instructorService, new List<Func<Instructor, bool>>
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingCurrentCourses, Messages.ServerError);
-            }
+                i => i.DepartmentNo == Convert.ToInt32(cmbInstructorOperationsFilterByDepartment.SelectedValue)
+            }, Messages.SomethingWentWrongWhileGettingCurrentCourses);
         }
 
         private void btnInstructorOperationsFilterReset_Click(object sender, EventArgs e)
