@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.ValidationRules.FluentValidation;
 using StudentManagementSystem.Core.CrossCuttingConcerns.Validation.FluentValidation;
@@ -13,10 +14,12 @@ namespace StudentManagementSystem.Business.Concrete
     {
         private readonly IStudentDal _studentDal;
         private readonly StudentValidator _studentValidator = new StudentValidator();
+        private readonly IEnrolledCourseService _enrolledCourseService;
 
-        public StudentManager(IStudentDal studentDal)
+        public StudentManager(IStudentDal studentDal, IEnrolledCourseService enrolledCourseService)
         {
             _studentDal = studentDal;
+            _enrolledCourseService = enrolledCourseService;
         }
 
         public IDataResult<List<Student>> GetAll()
@@ -39,6 +42,16 @@ namespace StudentManagementSystem.Business.Concrete
             return new ErrorDataResult<List<Student>>("Öğrenci no 0'dan büyük olmalıdır");
         }
 
+        public IDataResult<List<Student>> GetAllByAdvisorNo(int adviserNo)
+        {
+            if (adviserNo > 0)
+            {
+                return _studentDal.GetAll(new Dictionary<string, dynamic>() { { "danisman_no", adviserNo } });
+            }
+
+            return new ErrorDataResult<List<Student>>("Danışman no 0'dan büyük olmalıdır");
+        }
+
         public IDataResult<List<Student>> GetAllContainStudentName(string studentName)
         {
             var studentResult = _studentDal.GetAll(null);
@@ -56,6 +69,41 @@ namespace StudentManagementSystem.Business.Concrete
             }
 
             return new SuccessDataResult<List<Student>>(returnList);
+        }
+
+        public IDataResult<List<Student>> GetAllByCourseNo(int courseNo)
+        {
+            var enrolledCourseResult = _enrolledCourseService.GetAll();
+            if (enrolledCourseResult.Success)
+            {
+                var courseStudents = enrolledCourseResult.Data.Where(e => e.CourseNo == courseNo).ToList();
+                if (courseStudents.Count > 0)
+                {
+                    var returnList = new List<Student>();
+                    foreach (var enrolledCourse in courseStudents)
+                    {
+                        var studentResult = GetByStudentNo(enrolledCourse.StudentNo);
+                        if (studentResult.Success)
+                        {
+                            returnList.Add(studentResult.Data);
+                        }
+                        else
+                        {
+                            return new ErrorDataResult<List<Student>>("Öğrenci bilgileri alınırken bir hata oldu");
+                        }
+                    }
+
+                    return new SuccessDataResult<List<Student>>(returnList);
+                }
+                else
+                {
+                    return new SuccessDataResult<List<Student>>(new List<Student>());
+                }
+            }
+            else
+            {
+                return new ErrorDataResult<List<Student>>("Ders kayıtları alınırken bir hata oluştu");
+            }
         }
 
         public IDataResult<Student> GetByStudentNo(int studentNo)

@@ -86,7 +86,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCurrentDepartments}:\n\n{departmentResult.Message}", Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}:\n\n{departmentResult.Message}", Messages.ServerError);
             }
         }
 
@@ -117,7 +117,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCurrentCourses}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { courseResult.Message, departmentListForUpdateResult.Message, instructorListForUpdateResult.Message, semesterListResult.Message })}", Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { courseResult.Message, departmentListForUpdateResult.Message, instructorListForUpdateResult.Message, semesterListResult.Message })}", Messages.ServerError);
             }
         }
 
@@ -144,7 +144,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCurrentInstructors}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { instructorResult.Message, departmentResult.Message })}", Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { instructorResult.Message, departmentResult.Message })}", Messages.ServerError);
             }
         }
 
@@ -173,14 +173,45 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCurrentStudents}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { studentResult.Message, instructorResult.Message, departmentResult.Message })}");
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { studentResult.Message, instructorResult.Message, departmentResult.Message })}");
             }
         }
 
-        //Assign advisor
+        //Assign Advisor
         private void btnGlobalAssignAdvisor_Click(object sender, System.EventArgs e)
         {
             PanelSwitcher.ShowPanel(pnlGlobalAssignAdviser, _panels);
+            ReBuildAssignAdvisorPanel();
+        }
+
+        private void ReBuildAssignAdvisorPanel()
+        {
+            PanelCleaner.Clean(pnlGlobalAssignAdviser);
+            listBoxAssignAdviserBatchSelectedStudents.Items.Clear();
+            chckListBoxAssignAdviserBatchDepartments.DataSource = null;
+            chckListBoxAssignAdviserBatchDepartments.Items.Clear();
+            chckListBoxAssignAdviserBatchCourses.DataSource = null;
+            chckListBoxAssignAdviserBatchCourses.Items.Clear();
+            chckListBoxAssignAdviserBatchStudents.DataSource = null;
+            chckListBoxAssignAdviserBatchStudents.Items.Clear();
+            var departmentResult = _departmentService.GetAll();
+            var courseResult = _catalogCourseService.GetAll();
+            var studentResult = _studentService.GetAll();
+            var instructorResult = _instructorService.GetAll();
+            if (departmentResult.Success && courseResult.Success && studentResult.Success && instructorResult.Success)
+            {
+                DataSetterToBoxes.SetDataToCheckedListBox<Department>(chckListBoxAssignAdviserBatchDepartments, departmentResult.Data);
+                DataSetterToBoxes.SetDataToCheckedListBox<CatalogCourse>(chckListBoxAssignAdviserBatchCourses, courseResult.Data);
+                DataSetterToBoxes.SetDataToCheckedListBox<Student>(chckListBoxAssignAdviserBatchStudents, studentResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Instructor>(cmbAssignAdviserBatchAdviserList, instructorResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Instructor>(cmbAssignAdviserChangeOldAdviser, instructorResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Instructor>(cmbAssignAdviserChangeNewAdviser, instructorResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Instructor>(cmbAssignAdviserSingleAdviserList, instructorResult.Data);
+            }
+            else
+            {
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { departmentResult.Message, courseResult.Message, studentResult.Message, instructorResult.Message })}");
+            }
         }
 
         // GLOBAL PRIVATE METHODS
@@ -1362,6 +1393,375 @@ namespace StudentManagementSystem.Application
         private void btnStudentOperationsFilterReset_Click(object sender, EventArgs e)
         {
             ReBuildStudentPanel();
+        }
+
+        // Assign Adviser Methods
+
+        private void cmbAssignAdviserBatchAdviserList_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
+        }
+
+        private void cmbAssignAdviserChangeOldAdviser_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
+        }
+
+        private void cmbAssignAdviserChangeNewAdviser_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
+        }
+
+        private void cmbAssignAdviserSingleAdviserList_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
+        }
+
+        private void listBoxAssignAdviserBatchSelectedStudents_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Student)e.ListItem).FirstName} {((Student)e.ListItem).LastName}";
+        }
+
+        private void chckListBoxAssignAdviserBatchStudents_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Student)e.ListItem).FirstName} {((Student)e.ListItem).LastName}";
+        }
+
+        private void btnAssignAdvisorGetAllCheckedDepartment_Click(object sender, EventArgs e)
+        {
+            if (chckListBoxAssignAdviserBatchDepartments.CheckedItems.Count == 0)
+            {
+                MessageBox.Show(Messages.YouMustSelectAtLeastOneDepartment, Messages.Warning);
+            }
+            else
+            {
+                var selectedStudents = new List<Student>();
+                foreach (var checkedItem in chckListBoxAssignAdviserBatchDepartments.CheckedItems)
+                {
+                    var departmentNo = ((Department)checkedItem).DepartmentNo;
+                    var studentResult = _studentService.GetAllByDepartmentNo(departmentNo);
+                    if (studentResult.Success)
+                    {
+                        foreach (var student in studentResult.Data)
+                        {
+                            selectedStudents.Add(student);
+                        }
+                    }
+                    else
+                    {
+                        var failedDepartmentNameResult = _departmentService.GetByDepartmentNo(departmentNo);
+                        if (failedDepartmentNameResult.Success)
+                        {
+                            MessageBox.Show($"{failedDepartmentNameResult.Data} bölümünün öğrencilerini alırken bir şeyler ters gitti", Messages.ServerError);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"{departmentNo} numaralı bölümün öğrencilerini alırken bir şeyler ters gitti", Messages.ServerError);
+                        }
+                    }
+                }
+
+                var messageDialogResult =
+                    MessageBox.Show(
+                        $"Toplamda {selectedStudents.Count} öğrenci atama listesine aktarılacak. Onaylıyor musunuz?",
+                        "Aktarım Onayı", MessageBoxButtons.YesNo);
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    DataSetterToBoxes.SetDataToListBox(listBoxAssignAdviserBatchSelectedStudents, selectedStudents);
+                    MessageBox.Show($"{selectedStudents.Count} öğrenci atama listesine başarıyla aktarıldı");
+                }
+            }
+        }
+
+        private void btnAssignAdvisorGetAllCheckedCourses_Click(object sender, EventArgs e)
+        {
+            if (chckListBoxAssignAdviserBatchCourses.CheckedItems.Count == 0)
+            {
+                MessageBox.Show(Messages.YouMustSelectAtLeastOneCourse, Messages.Warning);
+            }
+            else
+            {
+                var selectedStudents = new List<Student>();
+                foreach (var checkedItem in chckListBoxAssignAdviserBatchCourses.CheckedItems)
+                {
+                    var courseNo = ((CatalogCourse)checkedItem).CourseNo;
+                    var studentResult = _studentService.GetAllByCourseNo(courseNo);
+                    if (studentResult.Success)
+                    {
+                        foreach (var student in studentResult.Data)
+                        {
+                            selectedStudents.Add(student);
+                        }
+                    }
+                    else
+                    {
+                        var failedCourseNameResult = _catalogCourseService.GetByCourseNo(courseNo);
+                        if (failedCourseNameResult.Success)
+                        {
+                            MessageBox.Show($"{failedCourseNameResult.Data} dersinin öğrencilerini alırken bir şeyler ters gitti", Messages.ServerError);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Ders kodu {courseNo} olan dersin öğrencilerini alırken bir şeyler ters gitti", Messages.ServerError);
+                        }
+                    }
+                }
+
+                var messageDialogResult =
+                    MessageBox.Show(
+                        $"Toplamda {selectedStudents.Count} öğrenci atama listesine aktarılacak. Onaylıyor musunuz?",
+                        "Aktarım Onayı", MessageBoxButtons.YesNo);
+
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    DataSetterToBoxes.SetDataToListBox(listBoxAssignAdviserBatchSelectedStudents, selectedStudents);
+                    MessageBox.Show($"{selectedStudents.Count} öğrenci atama listesine başarıyla aktarıldı", Messages.Successful);
+                }
+            }
+        }
+
+        private void btnAssignAdvisorGetAllCheckedStudents_Click(object sender, EventArgs e)
+        {
+            if (chckListBoxAssignAdviserBatchStudents.CheckedItems.Count == 0)
+            {
+                MessageBox.Show(Messages.YouMustSelectAtLeastOneStudent, Messages.Warning);
+            }
+            else
+            {
+                var selectedStudents = new List<Student>();
+                foreach (var checkedItem in chckListBoxAssignAdviserBatchStudents.CheckedItems)
+                {
+                    selectedStudents.Add((Student)checkedItem);
+                }
+
+                var messageDialogResult =
+                    MessageBox.Show(
+                        $"Toplamda {selectedStudents.Count} öğrenci atama listesine aktarılacak. Onaylıyor musunuz?",
+                        "Aktarım Onayı", MessageBoxButtons.YesNo);
+
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    DataSetterToBoxes.SetDataToListBox(listBoxAssignAdviserBatchSelectedStudents, selectedStudents);
+                    MessageBox.Show($"{selectedStudents.Count} öğrenci atama listesine başarıyla aktarıldı", Messages.Successful);
+                }
+            }
+        }
+
+        private void btnAssignAdviserBatchSave_Click(object sender, EventArgs e)
+        {
+            if (listBoxAssignAdviserBatchSelectedStudents.Items.Count == 0)
+            {
+                MessageBox.Show(Messages.ThereMustBeAtLeastOneStudentOnTheAdvisorAssignList, Messages.Warning);
+                return;
+            }
+
+            if (cmbAssignAdviserBatchAdviserList.SelectedItem == null)
+            {
+                MessageBox.Show(Messages.BeforeYouCanAssignAdvisorYouMustFirstSelectAnAdvisor, Messages.Warning);
+                return;
+            }
+
+            var messageDialogResult =
+                MessageBox.Show(
+                    $"Toplamda {listBoxAssignAdviserBatchSelectedStudents.Items.Count} öğrencinin danışmanı değiştirilecek. Onaylıyor musunuz?",
+                    "Atama Onayı", MessageBoxButtons.YesNo);
+
+            if (messageDialogResult == DialogResult.Yes)
+            {
+                int successfulAssign = 0;
+                int failedAssign = 0;
+                foreach (var student in listBoxAssignAdviserBatchSelectedStudents.Items)
+                {
+                    var updatedStudent = (Student)student;
+                    updatedStudent.AdviserNo = Convert.ToInt32(cmbAssignAdviserBatchAdviserList.SelectedValue);
+                    var updateResult = _studentService.Update(updatedStudent);
+                    if (updateResult.Success)
+                    {
+                        successfulAssign += 1;
+                    }
+                    else
+                    {
+                        failedAssign += 1;
+                    }
+                }
+                MessageBox.Show($"Toplu danışman atama işlemi tamamlandı. Atama sonuçları:\n\n- Başarılı atama sayısı: {successfulAssign}\n- Başarısız atama sayısı: {failedAssign}", Messages.Successful);
+                ReBuildAssignAdvisorPanel();
+            }
+        }
+
+        private void btnAssignAdviserSingleSearch_Click(object sender, EventArgs e)
+        {
+            if (txtAssignAdviserSingleSearchStudentNo.Text == string.Empty)
+            {
+                MessageBox.Show(Messages.MakeSureFillInAllFields, Messages.Warning);
+            }
+            else
+            {
+                if (!NumberStringValidator.ValidateString(txtAssignAdviserSingleSearchStudentNo.Text))
+                {
+                    MessageBox.Show(Messages.StudentNoMustConsistOfNumbersOnly, Messages.Warning);
+                    return;
+                }
+                var studentResult = _studentService.GetByStudentNo(Convert.ToInt32(txtAssignAdviserSingleSearchStudentNo.Text));
+                if (studentResult.Success)
+                {
+                    var departmentResult = _departmentService.GetByDepartmentNo(studentResult.Data.DepartmentNo);
+                    var instructorResult = _instructorService.GetByInstructorNo(studentResult.Data.AdviserNo);
+
+                    if (departmentResult.Success && instructorResult.Success)
+                    {
+                        txtAssignAdviserSingleInfoStudentNo.Text = studentResult.Data.StudentNo.ToString();
+                        txtAssignAdviserSingleInfoFirstName.Text = studentResult.Data.FirstName;
+                        txtAssignAdviserSingleInfoLastName.Text = studentResult.Data.LastName;
+                        txtAssignAdviserSingleInfoDepartment.Text = departmentResult.Data.DepartmentName;
+                        txtAssignAdviserSingleInfoEmail.Text = studentResult.Data.Email;
+                        txtAssignAdviserSingleInfoPhone.Text = studentResult.Data.Phone;
+                        txtAssignAdviserSingleInfoAdviser.Text = $"{instructorResult.Data.FirstName} {instructorResult.Data.LastName}";
+                        txtAssignAdviserSingleInfoEnrollmentDate.Text = studentResult.Data.EnrollmentDate.ToString();
+                        txtAssignAdviserSingleInfoSemester.Text = studentResult.Data.Semester.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show(Messages.SomethingWentWrongWhileGettingStudentDetails, Messages.ServerError);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Öğrenci bulunamadı", Messages.ServerError);
+                }
+            }
+        }
+
+        private void btnAssignAdviserSingleSearchClear_Click(object sender, EventArgs e)
+        {
+            txtAssignAdviserSingleSearchStudentNo.Clear();
+            txtAssignAdviserSingleInfoStudentNo.Clear();
+            txtAssignAdviserSingleInfoFirstName.Clear();
+            txtAssignAdviserSingleInfoLastName.Clear();
+            txtAssignAdviserSingleInfoDepartment.Clear();
+            txtAssignAdviserSingleInfoEmail.Clear();
+            txtAssignAdviserSingleInfoPhone.Clear();
+            txtAssignAdviserSingleInfoAdviser.Clear();
+            txtAssignAdviserSingleInfoEnrollmentDate.Clear();
+            txtAssignAdviserSingleInfoSemester.Clear();
+        }
+
+        private void btnAssignAdviserSingleSave_Click(object sender, EventArgs e)
+        {
+            if (cmbAssignAdviserSingleAdviserList.SelectedItem == null)
+            {
+                MessageBox.Show(Messages.BeforeYouCanAssignAdvisorYouMustFirstSelectAnAdvisor, Messages.Warning);
+                return;
+            }
+
+            if (txtAssignAdviserSingleInfoStudentNo.Text == string.Empty)
+            {
+                MessageBox.Show(Messages.BeforeYouCanAssignAdvisorYouMustFirstSelectAStudent, Messages.Warning);
+                return;
+            }
+
+            var updatedStudentResult = _studentService.GetByStudentNo(Convert.ToInt32(txtAssignAdviserSingleInfoStudentNo.Text));
+
+            if (updatedStudentResult.Success)
+            {
+                var messageDialogResult =
+                    MessageBox.Show(
+                        $"{updatedStudentResult.Data.FirstName} {updatedStudentResult.Data.LastName} isimli öğrencinin danışmanı değiştirilecek. Onaylıyor musunuz?",
+                        "Atama Onayı", MessageBoxButtons.YesNo);
+
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    updatedStudentResult.Data.AdviserNo = Convert.ToInt32(txtAssignAdviserSingleInfoStudentNo.Text);
+                    var updateResult = _studentService.Update(updatedStudentResult.Data);
+                    if (updateResult.Success)
+                    {
+                        MessageBox.Show(Messages.AssignmentCompletedSuccessfully, Messages.Successful);
+                        ReBuildAssignAdvisorPanel();
+                    }
+                    else
+                    {
+                        MessageBox.Show(Messages.SomethingWentWrongWhileAssignmentProcess, Messages.ServerError);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show(Messages.SomethingWentWrongWhileGettingStudentDetails, Messages.ServerError);
+            }
+        }
+
+        private void cmbAssignAdviserChangeOldAdviser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbAssignAdviserChangeOldAdviser.SelectedItem != null)
+            {
+                var instructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserChangeOldAdviser);
+                var studentsResult = _studentService.GetAllByAdvisorNo(Convert.ToInt32(instructorNo));
+                if (studentsResult.Success)
+                {
+                    lblAssignAdvisorChangeAdvisorNumberOfStudentInfo.Text =
+                        $"Öğretim görevlisi {studentsResult.Data.Count} öğrencinin danışmanıdır.";
+                }
+                else
+                {
+                    MessageBox.Show(Messages.SomethingWentWrongWhileGettingCurrentStudents, Messages.ServerError);
+                }
+            }
+        }
+
+        private void btnAssignAdviserChangeSave_Click(object sender, EventArgs e)
+        {
+            if (cmbAssignAdviserChangeOldAdviser.SelectedItem == null ||
+                cmbAssignAdviserChangeNewAdviser.SelectedItem == null)
+            {
+                MessageBox.Show(Messages.MakeSureSelectAllFields, Messages.Warning);
+                return;
+            }
+
+            var oldInstructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserChangeOldAdviser);
+            var newInstructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserChangeNewAdviser);
+
+            if (oldInstructorNo == newInstructorNo)
+            {
+                MessageBox.Show(Messages.TheAdvisorYouWantToAppointIsTheSameAsTheOldAdvisor, Messages.Warning);
+                return;
+            }
+
+            var studentListResult = _studentService.GetAllByAdvisorNo(oldInstructorNo);
+            if (studentListResult.Success)
+            {
+                var messageDialogResult =
+                    MessageBox.Show(
+                        $"Toplamda {studentListResult.Data.Count} öğrencinin danışmanı değiştirilecek. Onaylıyor musunuz?",
+                        "Danışman Değişim Onayı", MessageBoxButtons.YesNo);
+
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    int successfulAssign = 0;
+                    int failedAssign = 0;
+
+                    foreach (var student in studentListResult.Data)
+                    {
+                        student.AdviserNo = newInstructorNo;
+                        var updateResult = _studentService.Update(student);
+                        if (updateResult.Success)
+                        {
+                            successfulAssign += 1;
+                        }
+                        else
+                        {
+                            failedAssign += 1;
+                        }
+                    }
+
+                    MessageBox.Show(
+                        $"Danışman değişim işlemi tamamlandı. Sonuçlar:\n\n- Başarılı atama: {successfulAssign}\n- Başarısız atama: {failedAssign}", Messages.Successful);
+                    ReBuildAssignAdvisorPanel();
+                }
+            }
+            else
+            {
+                MessageBox.Show(Messages.SomethingWentWrongWhileGettingCurrentStudents, Messages.ServerError);
+            }
         }
     }
 }

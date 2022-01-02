@@ -8,10 +8,16 @@ namespace StudentManagementSystem.Application.Utilities
 {
     public static class DataSetterToBoxes
     {
-        public static void SetDataToListBox<T>(ListBox listBox, List<T> data)
+        public static void SetDataToListBox<T>(ListBox listBox, List<T> dataList)
             where T : class, IEntity, new()
         {
-            listBox.DataSource = data;
+            var finalData = new List<T>();
+            foreach (var data in dataList)
+            {
+                finalData.Add(data);
+            }
+
+            listBox.DataSource = finalData;
             switch (typeof(T).Name)
             {
                 case nameof(Department):
@@ -70,6 +76,43 @@ namespace StudentManagementSystem.Application.Utilities
                 case nameof(CatalogCourse):
                     comboBox.DisplayMember = nameof(CatalogCourse.CourseName);
                     comboBox.ValueMember = nameof(CatalogCourse.CourseNo);
+                    break;
+                default:
+                    throw new Exception("Tip eşleme hatası");
+            }
+        }
+
+        public static void SetDataToCheckedListBox<T>(CheckedListBox checkedListBox, List<T> dataList)
+            where T : class, IEntity, new()
+        {
+            var finalData = new List<T>();
+            foreach (var data in dataList)
+            {
+                finalData.Add(data);
+            }
+
+            checkedListBox.DataSource = finalData;
+            switch (typeof(T).Name)
+            {
+                case nameof(Department):
+                    checkedListBox.DisplayMember = nameof(Department.DepartmentName);
+                    checkedListBox.ValueMember = nameof(Department.DepartmentNo);
+                    break;
+                case nameof(Student):
+                    checkedListBox.DisplayMember = nameof(Student.FirstName);
+                    checkedListBox.ValueMember = nameof(Student.StudentNo);
+                    break;
+                case nameof(Officer):
+                    checkedListBox.DisplayMember = nameof(Officer.FirstName);
+                    checkedListBox.ValueMember = nameof(Officer.OfficerNo);
+                    break;
+                case nameof(Instructor):
+                    checkedListBox.DisplayMember = nameof(Instructor.FirstName);
+                    checkedListBox.ValueMember = nameof(Instructor.InstructorNo);
+                    break;
+                case nameof(CatalogCourse):
+                    checkedListBox.DisplayMember = nameof(CatalogCourse.CourseName);
+                    checkedListBox.ValueMember = nameof(CatalogCourse.CourseNo);
                     break;
                 default:
                     throw new Exception("Tip eşleme hatası");

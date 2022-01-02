@@ -8,7 +8,9 @@ namespace StudentManagementSystem.Business.Abstract
     {
         IDataResult<List<Student>> GetAllByDepartmentNo(int departmentNo);
         IDataResult<List<Student>> GetAllByStudentNo(int studentNo);
+        IDataResult<List<Student>> GetAllByAdvisorNo(int adviserNo);
         IDataResult<List<Student>> GetAllContainStudentName(string studentName);
+        IDataResult<List<Student>> GetAllByCourseNo(int courseNo);
         IDataResult<Student> GetByStudentNo(int studentNo);
     }
 }

@@ -271,11 +271,11 @@
             this.btnAssignAdviserChangeSave = new System.Windows.Forms.Button();
             this.cmbAssignAdviserChangeNewAdviser = new System.Windows.Forms.ComboBox();
             this.label91 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
+            this.lblAssignAdvisorChangeAdvisorNumberOfStudentInfo = new System.Windows.Forms.Label();
             this.cmbAssignAdviserChangeOldAdviser = new System.Windows.Forms.ComboBox();
             this.label89 = new System.Windows.Forms.Label();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
-            this.txtAssignAdviserSingleSearchStudentName = new System.Windows.Forms.TextBox();
+            this.btnAssignAdviserSingleSearchClear = new System.Windows.Forms.Button();
             this.txtAssignAdviserSingleSearchStudentNo = new System.Windows.Forms.TextBox();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.txtAssignAdviserSingleInfoEnrollmentDate = new System.Windows.Forms.TextBox();
@@ -296,14 +296,15 @@
             this.txtAssignAdviserSingleInfoDepartment = new System.Windows.Forms.TextBox();
             this.label85 = new System.Windows.Forms.Label();
             this.txtAssignAdviserSingleInfoStudentNo = new System.Windows.Forms.TextBox();
-            this.label88 = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAssignAdviserSingleSave = new System.Windows.Forms.Button();
             this.cmbAssignAdviserSingleAdviserList = new System.Windows.Forms.ComboBox();
             this.btnAssignAdviserSingleSearch = new System.Windows.Forms.Button();
             this.label76 = new System.Windows.Forms.Label();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.btnAssignAdvisorGetkAllCheckedStudents = new System.Windows.Forms.Button();
+            this.btnAssignAdvisorGetAllCheckedCourses = new System.Windows.Forms.Button();
+            this.btnAssignAdvisorGetAllCheckedDepartment = new System.Windows.Forms.Button();
             this.label75 = new System.Windows.Forms.Label();
             this.label74 = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
@@ -312,7 +313,7 @@
             this.btnAssignAdviserBatchSave = new System.Windows.Forms.Button();
             this.cmbAssignAdviserBatchAdviserList = new System.Windows.Forms.ComboBox();
             this.listBoxAssignAdviserBatchSelectedStudents = new System.Windows.Forms.ListBox();
-            this.chckListBoxAssignAdviserBatchStıdents = new System.Windows.Forms.CheckedListBox();
+            this.chckListBoxAssignAdviserBatchStudents = new System.Windows.Forms.CheckedListBox();
             this.chckListBoxAssignAdviserBatchCourses = new System.Windows.Forms.CheckedListBox();
             this.chckListBoxAssignAdviserBatchDepartments = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -2826,11 +2827,11 @@
             this.groupBox27.Controls.Add(this.btnAssignAdviserChangeSave);
             this.groupBox27.Controls.Add(this.cmbAssignAdviserChangeNewAdviser);
             this.groupBox27.Controls.Add(this.label91);
-            this.groupBox27.Controls.Add(this.label90);
+            this.groupBox27.Controls.Add(this.lblAssignAdvisorChangeAdvisorNumberOfStudentInfo);
             this.groupBox27.Controls.Add(this.cmbAssignAdviserChangeOldAdviser);
             this.groupBox27.Controls.Add(this.label89);
             this.groupBox27.Font = new System.Drawing.Font("Roboto", 9.75F);
-            this.groupBox27.Location = new System.Drawing.Point(661, 298);
+            this.groupBox27.Location = new System.Drawing.Point(661, 304);
             this.groupBox27.Name = "groupBox27";
             this.groupBox27.Size = new System.Drawing.Size(200, 238);
             this.groupBox27.TabIndex = 3;
@@ -2843,8 +2844,9 @@
             this.btnAssignAdviserChangeSave.Name = "btnAssignAdviserChangeSave";
             this.btnAssignAdviserChangeSave.Size = new System.Drawing.Size(159, 32);
             this.btnAssignAdviserChangeSave.TabIndex = 5;
-            this.btnAssignAdviserChangeSave.Text = "Kaydet";
+            this.btnAssignAdviserChangeSave.Text = "Atamayı tamamla";
             this.btnAssignAdviserChangeSave.UseVisualStyleBackColor = true;
+            this.btnAssignAdviserChangeSave.Click += new System.EventHandler(this.btnAssignAdviserChangeSave_Click);
             // 
             // cmbAssignAdviserChangeNewAdviser
             // 
@@ -2854,6 +2856,7 @@
             this.cmbAssignAdviserChangeNewAdviser.Name = "cmbAssignAdviserChangeNewAdviser";
             this.cmbAssignAdviserChangeNewAdviser.Size = new System.Drawing.Size(159, 23);
             this.cmbAssignAdviserChangeNewAdviser.TabIndex = 4;
+            this.cmbAssignAdviserChangeNewAdviser.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbAssignAdviserChangeNewAdviser_Format);
             // 
             // label91
             // 
@@ -2864,15 +2867,15 @@
             this.label91.TabIndex = 3;
             this.label91.Text = "Yeni öğretim görevlisi";
             // 
-            // label90
+            // lblAssignAdvisorChangeAdvisorNumberOfStudentInfo
             // 
-            this.label90.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-            this.label90.Location = new System.Drawing.Point(23, 94);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(162, 51);
-            this.label90.TabIndex = 2;
-            this.label90.Text = "Öğretim görevlisi 10005 öğrencinin danışmanıdır.";
-            this.label90.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblAssignAdvisorChangeAdvisorNumberOfStudentInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.lblAssignAdvisorChangeAdvisorNumberOfStudentInfo.Location = new System.Drawing.Point(23, 94);
+            this.lblAssignAdvisorChangeAdvisorNumberOfStudentInfo.Name = "lblAssignAdvisorChangeAdvisorNumberOfStudentInfo";
+            this.lblAssignAdvisorChangeAdvisorNumberOfStudentInfo.Size = new System.Drawing.Size(162, 51);
+            this.lblAssignAdvisorChangeAdvisorNumberOfStudentInfo.TabIndex = 2;
+            this.lblAssignAdvisorChangeAdvisorNumberOfStudentInfo.Text = "Öğretim görevlisi 10005 öğrencinin danışmanıdır.";
+            this.lblAssignAdvisorChangeAdvisorNumberOfStudentInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // cmbAssignAdviserChangeOldAdviser
             // 
@@ -2882,6 +2885,8 @@
             this.cmbAssignAdviserChangeOldAdviser.Name = "cmbAssignAdviserChangeOldAdviser";
             this.cmbAssignAdviserChangeOldAdviser.Size = new System.Drawing.Size(159, 23);
             this.cmbAssignAdviserChangeOldAdviser.TabIndex = 1;
+            this.cmbAssignAdviserChangeOldAdviser.SelectedIndexChanged += new System.EventHandler(this.cmbAssignAdviserChangeOldAdviser_SelectedIndexChanged);
+            this.cmbAssignAdviserChangeOldAdviser.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbAssignAdviserChangeOldAdviser_Format);
             // 
             // label89
             // 
@@ -2894,30 +2899,31 @@
             // 
             // groupBox25
             // 
-            this.groupBox25.Controls.Add(this.txtAssignAdviserSingleSearchStudentName);
+            this.groupBox25.Controls.Add(this.btnAssignAdviserSingleSearchClear);
             this.groupBox25.Controls.Add(this.txtAssignAdviserSingleSearchStudentNo);
             this.groupBox25.Controls.Add(this.groupBox26);
-            this.groupBox25.Controls.Add(this.label88);
-            this.groupBox25.Controls.Add(this.label87);
             this.groupBox25.Controls.Add(this.label86);
-            this.groupBox25.Controls.Add(this.button3);
+            this.groupBox25.Controls.Add(this.btnAssignAdviserSingleSave);
             this.groupBox25.Controls.Add(this.cmbAssignAdviserSingleAdviserList);
             this.groupBox25.Controls.Add(this.btnAssignAdviserSingleSearch);
             this.groupBox25.Controls.Add(this.label76);
             this.groupBox25.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox25.Location = new System.Drawing.Point(22, 298);
+            this.groupBox25.Location = new System.Drawing.Point(22, 320);
             this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(621, 238);
+            this.groupBox25.Size = new System.Drawing.Size(621, 222);
             this.groupBox25.TabIndex = 2;
             this.groupBox25.TabStop = false;
             this.groupBox25.Text = "Tekli Danışman Atama";
             // 
-            // txtAssignAdviserSingleSearchStudentName
+            // btnAssignAdviserSingleSearchClear
             // 
-            this.txtAssignAdviserSingleSearchStudentName.Location = new System.Drawing.Point(136, 63);
-            this.txtAssignAdviserSingleSearchStudentName.Name = "txtAssignAdviserSingleSearchStudentName";
-            this.txtAssignAdviserSingleSearchStudentName.Size = new System.Drawing.Size(140, 23);
-            this.txtAssignAdviserSingleSearchStudentName.TabIndex = 15;
+            this.btnAssignAdviserSingleSearchClear.Location = new System.Drawing.Point(282, 54);
+            this.btnAssignAdviserSingleSearchClear.Name = "btnAssignAdviserSingleSearchClear";
+            this.btnAssignAdviserSingleSearchClear.Size = new System.Drawing.Size(103, 29);
+            this.btnAssignAdviserSingleSearchClear.TabIndex = 18;
+            this.btnAssignAdviserSingleSearchClear.Text = "Temizle";
+            this.btnAssignAdviserSingleSearchClear.UseVisualStyleBackColor = true;
+            this.btnAssignAdviserSingleSearchClear.Click += new System.EventHandler(this.btnAssignAdviserSingleSearchClear_Click);
             // 
             // txtAssignAdviserSingleSearchStudentNo
             // 
@@ -2946,7 +2952,7 @@
             this.groupBox26.Controls.Add(this.txtAssignAdviserSingleInfoDepartment);
             this.groupBox26.Controls.Add(this.label85);
             this.groupBox26.Controls.Add(this.txtAssignAdviserSingleInfoStudentNo);
-            this.groupBox26.Location = new System.Drawing.Point(23, 97);
+            this.groupBox26.Location = new System.Drawing.Point(23, 79);
             this.groupBox26.Name = "groupBox26";
             this.groupBox26.Size = new System.Drawing.Size(580, 131);
             this.groupBox26.TabIndex = 17;
@@ -3116,59 +3122,44 @@
             this.txtAssignAdviserSingleInfoStudentNo.Size = new System.Drawing.Size(131, 26);
             this.txtAssignAdviserSingleInfoStudentNo.TabIndex = 29;
             // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(188, 48);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(33, 15);
-            this.label88.TabIndex = 16;
-            this.label88.Text = "veya";
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(56, 68);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(74, 15);
-            this.label87.TabIndex = 14;
-            this.label87.Text = "Öğrenci adı:";
-            // 
             // label86
             // 
             this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(411, 26);
+            this.label86.Location = new System.Drawing.Point(399, 23);
             this.label86.Name = "label86";
             this.label86.Size = new System.Drawing.Size(123, 15);
             this.label86.TabIndex = 13;
             this.label86.Text = "Atanacak danışman:";
             // 
-            // button3
+            // btnAssignAdviserSingleSave
             // 
-            this.button3.Location = new System.Drawing.Point(540, 24);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(63, 51);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Kaydet";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAssignAdviserSingleSave.Location = new System.Drawing.Point(528, 21);
+            this.btnAssignAdviserSingleSave.Name = "btnAssignAdviserSingleSave";
+            this.btnAssignAdviserSingleSave.Size = new System.Drawing.Size(75, 51);
+            this.btnAssignAdviserSingleSave.TabIndex = 12;
+            this.btnAssignAdviserSingleSave.Text = "Atamayı tamamla";
+            this.btnAssignAdviserSingleSave.UseVisualStyleBackColor = true;
+            this.btnAssignAdviserSingleSave.Click += new System.EventHandler(this.btnAssignAdviserSingleSave_Click);
             // 
             // cmbAssignAdviserSingleAdviserList
             // 
             this.cmbAssignAdviserSingleAdviserList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAssignAdviserSingleAdviserList.FormattingEnabled = true;
-            this.cmbAssignAdviserSingleAdviserList.Location = new System.Drawing.Point(413, 49);
+            this.cmbAssignAdviserSingleAdviserList.Location = new System.Drawing.Point(401, 46);
             this.cmbAssignAdviserSingleAdviserList.Name = "cmbAssignAdviserSingleAdviserList";
             this.cmbAssignAdviserSingleAdviserList.Size = new System.Drawing.Size(121, 23);
             this.cmbAssignAdviserSingleAdviserList.TabIndex = 11;
+            this.cmbAssignAdviserSingleAdviserList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbAssignAdviserSingleAdviserList_Format);
             // 
             // btnAssignAdviserSingleSearch
             // 
-            this.btnAssignAdviserSingleSearch.Location = new System.Drawing.Point(282, 23);
+            this.btnAssignAdviserSingleSearch.Location = new System.Drawing.Point(282, 22);
             this.btnAssignAdviserSingleSearch.Name = "btnAssignAdviserSingleSearch";
-            this.btnAssignAdviserSingleSearch.Size = new System.Drawing.Size(103, 63);
+            this.btnAssignAdviserSingleSearch.Size = new System.Drawing.Size(103, 29);
             this.btnAssignAdviserSingleSearch.TabIndex = 2;
             this.btnAssignAdviserSingleSearch.Text = "Öğrenciyi getir";
             this.btnAssignAdviserSingleSearch.UseVisualStyleBackColor = true;
+            this.btnAssignAdviserSingleSearch.Click += new System.EventHandler(this.btnAssignAdviserSingleSearch_Click);
             // 
             // label76
             // 
@@ -3181,6 +3172,9 @@
             // 
             // groupBox24
             // 
+            this.groupBox24.Controls.Add(this.btnAssignAdvisorGetkAllCheckedStudents);
+            this.groupBox24.Controls.Add(this.btnAssignAdvisorGetAllCheckedCourses);
+            this.groupBox24.Controls.Add(this.btnAssignAdvisorGetAllCheckedDepartment);
             this.groupBox24.Controls.Add(this.label75);
             this.groupBox24.Controls.Add(this.label74);
             this.groupBox24.Controls.Add(this.label73);
@@ -3189,21 +3183,51 @@
             this.groupBox24.Controls.Add(this.btnAssignAdviserBatchSave);
             this.groupBox24.Controls.Add(this.cmbAssignAdviserBatchAdviserList);
             this.groupBox24.Controls.Add(this.listBoxAssignAdviserBatchSelectedStudents);
-            this.groupBox24.Controls.Add(this.chckListBoxAssignAdviserBatchStıdents);
+            this.groupBox24.Controls.Add(this.chckListBoxAssignAdviserBatchStudents);
             this.groupBox24.Controls.Add(this.chckListBoxAssignAdviserBatchCourses);
             this.groupBox24.Controls.Add(this.chckListBoxAssignAdviserBatchDepartments);
             this.groupBox24.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox24.Location = new System.Drawing.Point(22, 54);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(838, 238);
+            this.groupBox24.Size = new System.Drawing.Size(838, 243);
             this.groupBox24.TabIndex = 1;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "Toplu Danışman Atama";
             // 
+            // btnAssignAdvisorGetkAllCheckedStudents
+            // 
+            this.btnAssignAdvisorGetkAllCheckedStudents.Location = new System.Drawing.Point(347, 180);
+            this.btnAssignAdvisorGetkAllCheckedStudents.Name = "btnAssignAdvisorGetkAllCheckedStudents";
+            this.btnAssignAdvisorGetkAllCheckedStudents.Size = new System.Drawing.Size(160, 57);
+            this.btnAssignAdvisorGetkAllCheckedStudents.TabIndex = 13;
+            this.btnAssignAdvisorGetkAllCheckedStudents.Text = "Seçilen öğrencileri atama listesine ekle";
+            this.btnAssignAdvisorGetkAllCheckedStudents.UseVisualStyleBackColor = true;
+            this.btnAssignAdvisorGetkAllCheckedStudents.Click += new System.EventHandler(this.btnAssignAdvisorGetAllCheckedStudents_Click);
+            // 
+            // btnAssignAdvisorGetAllCheckedCourses
+            // 
+            this.btnAssignAdvisorGetAllCheckedCourses.Location = new System.Drawing.Point(181, 180);
+            this.btnAssignAdvisorGetAllCheckedCourses.Name = "btnAssignAdvisorGetAllCheckedCourses";
+            this.btnAssignAdvisorGetAllCheckedCourses.Size = new System.Drawing.Size(160, 57);
+            this.btnAssignAdvisorGetAllCheckedCourses.TabIndex = 12;
+            this.btnAssignAdvisorGetAllCheckedCourses.Text = "Seçilen dersleri alan öğrencileri atama listesine ekle";
+            this.btnAssignAdvisorGetAllCheckedCourses.UseVisualStyleBackColor = true;
+            this.btnAssignAdvisorGetAllCheckedCourses.Click += new System.EventHandler(this.btnAssignAdvisorGetAllCheckedCourses_Click);
+            // 
+            // btnAssignAdvisorGetAllCheckedDepartment
+            // 
+            this.btnAssignAdvisorGetAllCheckedDepartment.Location = new System.Drawing.Point(15, 180);
+            this.btnAssignAdvisorGetAllCheckedDepartment.Name = "btnAssignAdvisorGetAllCheckedDepartment";
+            this.btnAssignAdvisorGetAllCheckedDepartment.Size = new System.Drawing.Size(160, 57);
+            this.btnAssignAdvisorGetAllCheckedDepartment.TabIndex = 11;
+            this.btnAssignAdvisorGetAllCheckedDepartment.Text = "Seçilen bölümlerdeki öğrencileri atama listesine ekle";
+            this.btnAssignAdvisorGetAllCheckedDepartment.UseVisualStyleBackColor = true;
+            this.btnAssignAdvisorGetAllCheckedDepartment.Click += new System.EventHandler(this.btnAssignAdvisorGetAllCheckedDepartment_Click);
+            // 
             // label75
             // 
             this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(567, 162);
+            this.label75.Location = new System.Drawing.Point(564, 187);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(123, 15);
             this.label75.TabIndex = 10;
@@ -3212,16 +3236,17 @@
             // label74
             // 
             this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(628, 35);
+            this.label74.Location = new System.Drawing.Point(588, 18);
             this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(108, 15);
+            this.label74.Size = new System.Drawing.Size(198, 30);
             this.label74.TabIndex = 9;
-            this.label74.Text = "Seçilen öğrenciler";
+            this.label74.Text = "Atama Listesi\r\n(Danışmanı değişecek öğrenciler)";
+            this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label73
             // 
             this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(388, 35);
+            this.label73.Location = new System.Drawing.Point(388, 25);
             this.label73.Name = "label73";
             this.label73.Size = new System.Drawing.Size(65, 15);
             this.label73.TabIndex = 8;
@@ -3230,7 +3255,7 @@
             // label66
             // 
             this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(228, 35);
+            this.label66.Location = new System.Drawing.Point(228, 25);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(48, 15);
             this.label66.TabIndex = 7;
@@ -3239,7 +3264,7 @@
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(60, 35);
+            this.label65.Location = new System.Drawing.Point(60, 25);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(57, 15);
             this.label65.TabIndex = 6;
@@ -3247,53 +3272,57 @@
             // 
             // btnAssignAdviserBatchSave
             // 
-            this.btnAssignAdviserBatchSave.Location = new System.Drawing.Point(743, 158);
+            this.btnAssignAdviserBatchSave.Location = new System.Drawing.Point(696, 183);
             this.btnAssignAdviserBatchSave.Name = "btnAssignAdviserBatchSave";
-            this.btnAssignAdviserBatchSave.Size = new System.Drawing.Size(63, 51);
+            this.btnAssignAdviserBatchSave.Size = new System.Drawing.Size(107, 51);
             this.btnAssignAdviserBatchSave.TabIndex = 5;
-            this.btnAssignAdviserBatchSave.Text = "Kaydet";
+            this.btnAssignAdviserBatchSave.Text = "Atamayı tamamla";
             this.btnAssignAdviserBatchSave.UseVisualStyleBackColor = true;
+            this.btnAssignAdviserBatchSave.Click += new System.EventHandler(this.btnAssignAdviserBatchSave_Click);
             // 
             // cmbAssignAdviserBatchAdviserList
             // 
             this.cmbAssignAdviserBatchAdviserList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAssignAdviserBatchAdviserList.FormattingEnabled = true;
-            this.cmbAssignAdviserBatchAdviserList.Location = new System.Drawing.Point(569, 185);
+            this.cmbAssignAdviserBatchAdviserList.Location = new System.Drawing.Point(566, 210);
             this.cmbAssignAdviserBatchAdviserList.Name = "cmbAssignAdviserBatchAdviserList";
-            this.cmbAssignAdviserBatchAdviserList.Size = new System.Drawing.Size(168, 23);
+            this.cmbAssignAdviserBatchAdviserList.Size = new System.Drawing.Size(124, 23);
             this.cmbAssignAdviserBatchAdviserList.TabIndex = 4;
+            this.cmbAssignAdviserBatchAdviserList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbAssignAdviserBatchAdviserList_Format);
             // 
             // listBoxAssignAdviserBatchSelectedStudents
             // 
             this.listBoxAssignAdviserBatchSelectedStudents.FormattingEnabled = true;
             this.listBoxAssignAdviserBatchSelectedStudents.ItemHeight = 15;
-            this.listBoxAssignAdviserBatchSelectedStudents.Location = new System.Drawing.Point(569, 59);
+            this.listBoxAssignAdviserBatchSelectedStudents.Location = new System.Drawing.Point(567, 54);
             this.listBoxAssignAdviserBatchSelectedStudents.Name = "listBoxAssignAdviserBatchSelectedStudents";
-            this.listBoxAssignAdviserBatchSelectedStudents.Size = new System.Drawing.Size(237, 94);
+            this.listBoxAssignAdviserBatchSelectedStudents.Size = new System.Drawing.Size(237, 124);
             this.listBoxAssignAdviserBatchSelectedStudents.TabIndex = 3;
+            this.listBoxAssignAdviserBatchSelectedStudents.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxAssignAdviserBatchSelectedStudents_Format);
             // 
-            // chckListBoxAssignAdviserBatchStıdents
+            // chckListBoxAssignAdviserBatchStudents
             // 
-            this.chckListBoxAssignAdviserBatchStıdents.FormattingEnabled = true;
-            this.chckListBoxAssignAdviserBatchStıdents.Location = new System.Drawing.Point(347, 59);
-            this.chckListBoxAssignAdviserBatchStıdents.Name = "chckListBoxAssignAdviserBatchStıdents";
-            this.chckListBoxAssignAdviserBatchStıdents.Size = new System.Drawing.Size(160, 166);
-            this.chckListBoxAssignAdviserBatchStıdents.TabIndex = 2;
+            this.chckListBoxAssignAdviserBatchStudents.FormattingEnabled = true;
+            this.chckListBoxAssignAdviserBatchStudents.Location = new System.Drawing.Point(347, 46);
+            this.chckListBoxAssignAdviserBatchStudents.Name = "chckListBoxAssignAdviserBatchStudents";
+            this.chckListBoxAssignAdviserBatchStudents.Size = new System.Drawing.Size(160, 130);
+            this.chckListBoxAssignAdviserBatchStudents.TabIndex = 2;
+            this.chckListBoxAssignAdviserBatchStudents.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.chckListBoxAssignAdviserBatchStudents_Format);
             // 
             // chckListBoxAssignAdviserBatchCourses
             // 
             this.chckListBoxAssignAdviserBatchCourses.FormattingEnabled = true;
-            this.chckListBoxAssignAdviserBatchCourses.Location = new System.Drawing.Point(181, 59);
+            this.chckListBoxAssignAdviserBatchCourses.Location = new System.Drawing.Point(181, 46);
             this.chckListBoxAssignAdviserBatchCourses.Name = "chckListBoxAssignAdviserBatchCourses";
-            this.chckListBoxAssignAdviserBatchCourses.Size = new System.Drawing.Size(160, 166);
+            this.chckListBoxAssignAdviserBatchCourses.Size = new System.Drawing.Size(160, 130);
             this.chckListBoxAssignAdviserBatchCourses.TabIndex = 1;
             // 
             // chckListBoxAssignAdviserBatchDepartments
             // 
             this.chckListBoxAssignAdviserBatchDepartments.FormattingEnabled = true;
-            this.chckListBoxAssignAdviserBatchDepartments.Location = new System.Drawing.Point(15, 59);
+            this.chckListBoxAssignAdviserBatchDepartments.Location = new System.Drawing.Point(15, 46);
             this.chckListBoxAssignAdviserBatchDepartments.Name = "chckListBoxAssignAdviserBatchDepartments";
-            this.chckListBoxAssignAdviserBatchDepartments.Size = new System.Drawing.Size(160, 166);
+            this.chckListBoxAssignAdviserBatchDepartments.Size = new System.Drawing.Size(160, 130);
             this.chckListBoxAssignAdviserBatchDepartments.TabIndex = 0;
             // 
             // label7
@@ -3314,12 +3343,12 @@
             this.ClientSize = new System.Drawing.Size(1087, 572);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
-            this.Controls.Add(this.pnlGlobalDepartmentOperations);
             this.Controls.Add(this.pnlGlobalAssignAdviser);
             this.Controls.Add(this.pnlGlobalStudentOperations);
             this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Controls.Add(this.pnlGlobalCourseOperations);
             this.Controls.Add(this.pnlGlobalProfile);
+            this.Controls.Add(this.pnlGlobalDepartmentOperations);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
@@ -3583,11 +3612,8 @@
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.TextBox txtStudentOperationsInfoStudentNo;
         private System.Windows.Forms.GroupBox groupBox25;
-        private System.Windows.Forms.Label label88;
-        private System.Windows.Forms.TextBox txtAssignAdviserSingleSearchStudentName;
-        private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Label label86;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAssignAdviserSingleSave;
         private System.Windows.Forms.ComboBox cmbAssignAdviserSingleAdviserList;
         private System.Windows.Forms.Button btnAssignAdviserSingleSearch;
         private System.Windows.Forms.TextBox txtAssignAdviserSingleSearchStudentNo;
@@ -3601,14 +3627,14 @@
         private System.Windows.Forms.Button btnAssignAdviserBatchSave;
         private System.Windows.Forms.ComboBox cmbAssignAdviserBatchAdviserList;
         private System.Windows.Forms.ListBox listBoxAssignAdviserBatchSelectedStudents;
-        private System.Windows.Forms.CheckedListBox chckListBoxAssignAdviserBatchStıdents;
+        private System.Windows.Forms.CheckedListBox chckListBoxAssignAdviserBatchStudents;
         private System.Windows.Forms.CheckedListBox chckListBoxAssignAdviserBatchCourses;
         private System.Windows.Forms.CheckedListBox chckListBoxAssignAdviserBatchDepartments;
         private System.Windows.Forms.GroupBox groupBox27;
         private System.Windows.Forms.Button btnAssignAdviserChangeSave;
         private System.Windows.Forms.ComboBox cmbAssignAdviserChangeNewAdviser;
         private System.Windows.Forms.Label label91;
-        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label lblAssignAdvisorChangeAdvisorNumberOfStudentInfo;
         private System.Windows.Forms.ComboBox cmbAssignAdviserChangeOldAdviser;
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.GroupBox groupBox26;
@@ -3686,5 +3712,9 @@
         private System.Windows.Forms.CheckBox chbxStudentOperationsInfoStudentDepartmentEnabled;
         private System.Windows.Forms.ComboBox cmbStudentOperationsInfoDepartment;
         private System.Windows.Forms.Button btnStudenOperationsChangeStudentDepartment;
+        private System.Windows.Forms.Button btnAssignAdvisorGetkAllCheckedStudents;
+        private System.Windows.Forms.Button btnAssignAdvisorGetAllCheckedCourses;
+        private System.Windows.Forms.Button btnAssignAdvisorGetAllCheckedDepartment;
+        private System.Windows.Forms.Button btnAssignAdviserSingleSearchClear;
     }
 }

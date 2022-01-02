@@ -45,7 +45,7 @@ namespace StudentManagementSystem.Application
                         new OfficerManager(new SqlOfficerDal()),
                         new DepartmentManager(new SqlDepartmentDal()),
                         new InstructorManager(new SqlInstructorDal()),
-                        new StudentManager(new SqlStudentDal()),
+                        new StudentManager(new SqlStudentDal(), new EnrolledCourseManager(new SqlEnrolledCourseDal())),
                         new CatalogCourseManager(new SqlCatalogCourseDal())
                     );
                     this.Hide();

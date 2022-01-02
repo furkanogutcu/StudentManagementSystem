@@ -14,6 +14,8 @@
 
         private static readonly string _errorStatement = "bir şeyler ters gitti";
 
+        public static string SomethingWentWrongWhileFetchingData = $@"Verileri alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileAssignmentProcess = $@"Atama işlemi sırasında {_errorStatement}";
         public static string SomethingWentWrongWhileGettingCurrentDepartments = $@"Mevcut bölümleri alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingCurrentCourses = $@"Mevcut dersleri alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingCurrentInstructors = $@"Mevcut öğretim görevlisi listesini alırken {_errorStatement}";
@@ -47,29 +49,39 @@
         public static string MakeSureSelectAllFields = "Tüm alanları seçtiğinizden emin olunuz";
         public static string NotAllSearchCriteriaCanBeFilledAtOnce = "Tüm arama kriterleri aynı anda doldurulamaz";
         public static string ApplicationIsRestarting = "Uygulama yeniden başlatılıyor";
-        
+
         public static string NewPasswordsDoNotMatch = "Yeni şifreler eşleşmiyor";
         public static string NewPasswordCannotBeSameAsOldPassword = "Yeni şifre, eski şifre ile aynı olamaz";
         public static string PasswordHasBeenChanged = "Şifreniz başarıyla değiştirildi";
         public static string LoginAgainWithNewPassword = "Yeni şifrenizle tekrar giriş yapınız";
         public static string OldPasswordEnteredDoesNotMatchCurrentPassword = "Girilen eski şifre, mevcut şifreyle eşleşmiyor";
-        
-        public static string DepartmentNumberMustConsistOfNumbersOnly= "Bölüm numarası yalnızca rakamlardan oluşmalıdır";
-        public static string DepartmentNumberOfSemesterMustConsistOfNumbersOnly= "Bölüm dönemi yalnızca rakamlardan oluşmalıdır";
-        public static string CourseCreditMustConsistOfNumbersOnly= "Ders kredisi yalnızca rakamlardan oluşmalıdır";
-        public static string CourseYearMustConsistOfNumbersOnly= "Ders yılı yalnızca rakamlardan oluşmalıdır";
-        public static string CourseSemesterMustConsistOfNumbersOnly= "Ders dönemi yalnızca rakamlardan oluşmalıdır";
-        public static string CourseNoMustConsistOfNumbersOnly= "Ders kodu yalnızca rakamlardan oluşmalıdır";
-        public static string InstructorNoMustConsistOfNumbersOnly= "Öğretim görevlisi numarası yalnızca rakamlardan oluşmalıdır";
-        public static string StudentNoMustConsistOfNumbersOnly= "Öğrenci numarası yalnızca rakamlardan oluşmalıdır";
 
-        public static string ThereMustBeAtLeastOneDepartmentToBeAbleToAddACourse= "Ders ekleyebilmek için en az bir bölüm olmalıdır";
-        public static string ThereMustBeAtLeastOneDepartmentToBeAbleToAddAStudent= "Öğrenci ekleyebilmek için en az bir bölüm olmalıdır";
-        public static string ThereMustBeAtLeastOneInstructorToBeAbleToAddACourse= "Ders ekleyebilmek için en az bir öğretim görevlisi olmalıdır";
-        public static string ThereMustBeAtLeastOneInstructorToBeAbleToAddAStudent= "Öğrenci ekleyebilmek için danışmanlık işlemlerini yürütecek en az bir öğretim görevlisi olmalıdır";
+        public static string DepartmentNumberMustConsistOfNumbersOnly = "Bölüm numarası yalnızca rakamlardan oluşmalıdır";
+        public static string DepartmentNumberOfSemesterMustConsistOfNumbersOnly = "Bölüm dönemi yalnızca rakamlardan oluşmalıdır";
+        public static string CourseCreditMustConsistOfNumbersOnly = "Ders kredisi yalnızca rakamlardan oluşmalıdır";
+        public static string CourseYearMustConsistOfNumbersOnly = "Ders yılı yalnızca rakamlardan oluşmalıdır";
+        public static string CourseSemesterMustConsistOfNumbersOnly = "Ders dönemi yalnızca rakamlardan oluşmalıdır";
+        public static string CourseNoMustConsistOfNumbersOnly = "Ders kodu yalnızca rakamlardan oluşmalıdır";
+        public static string InstructorNoMustConsistOfNumbersOnly = "Öğretim görevlisi numarası yalnızca rakamlardan oluşmalıdır";
+        public static string StudentNoMustConsistOfNumbersOnly = "Öğrenci numarası yalnızca rakamlardan oluşmalıdır";
+
+        public static string BeforeYouCanAssignAdvisorYouMustFirstSelectAnAdvisor = "Danışman atayabilmek için önce bir danışman seçmelisiniz";
+        public static string BeforeYouCanAssignAdvisorYouMustFirstSelectAStudent = "Danışman atayabilmek için önce bir öğrenci seçmelisiniz";
+        public static string ThereMustBeAtLeastOneStudentOnTheAdvisorAssignList = "Atama listesinde en az bir öğrenci bulunmalıdır";
+        public static string ThereMustBeAtLeastOneDepartmentToBeAbleToAddACourse = "Ders ekleyebilmek için en az bir bölüm olmalıdır";
+        public static string ThereMustBeAtLeastOneDepartmentToBeAbleToAddAStudent = "Öğrenci ekleyebilmek için en az bir bölüm olmalıdır";
+        public static string ThereMustBeAtLeastOneInstructorToBeAbleToAddACourse = "Ders ekleyebilmek için en az bir öğretim görevlisi olmalıdır";
+        public static string ThereMustBeAtLeastOneInstructorToBeAbleToAddAStudent = "Öğrenci ekleyebilmek için danışmanlık işlemlerini yürütecek en az bir öğretim görevlisi olmalıdır";
         public static string AtLeastOneFilterMustBeOn = "Filtreleme yapabilmek için en az bir filtre açık olmalıdır";
         public static string MustSelectADepartmentToBeAbleToFilter = "Filtreleme yapabilmek için bir bölüm seçmelisiniz";
         public static string MustSelectAInstructorToBeAbleToFilter = "Filtreleme yapabilmek için bir öğretim görevlisi seçmelisiniz";
+
+        public static string YouMustSelectAtLeastOneDepartment = "En az bir bölüm seçmelisiniz";
+        public static string YouMustSelectAtLeastOneCourse = "En az bir ders seçmelisiniz";
+        public static string YouMustSelectAtLeastOneStudent = "En az bir öğrenci seçmelisiniz";
+
+        public static string AssignmentCompletedSuccessfully = "Atama işlemi başarıyla tamamlandı";
+        public static string TheAdvisorYouWantToAppointIsTheSameAsTheOldAdvisor = "Atamaya çalıştığınız danışman eski danışman ile aynı";
 
         public static string OfficerLogin = "Memur girişi";
         public static string StudentLogin = "Öğrenci girişi";
