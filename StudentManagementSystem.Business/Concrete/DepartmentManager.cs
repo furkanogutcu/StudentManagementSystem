@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.ValidationRules.FluentValidation;
 using StudentManagementSystem.Core.CrossCuttingConcerns.Validation.FluentValidation;
@@ -61,6 +62,25 @@ namespace StudentManagementSystem.Business.Concrete
             }
 
             return new SuccessDataResult<List<Department>>(returnList);
+        }
+
+        public IDataResult<List<int>> GetAListUpToTheMaxNumberOfSemester()
+        {
+            var departmentResult = _departmentDal.GetAll(null);
+            if (!departmentResult.Success)
+            {
+                return new ErrorDataResult<List<int>>("Bölümler alınırken bir hata oluştu");
+            }
+
+            var resultList = new List<int>();
+            var maxSemesterNumber = departmentResult.Data.Max(c => c.NumberOfSemester);
+
+            for (int i = 0; i < maxSemesterNumber; i++)
+            {
+                resultList.Add(i + 1);
+            }
+
+            return new SuccessDataResult<List<int>>(resultList);
         }
 
         public IResult Add(Department entity)

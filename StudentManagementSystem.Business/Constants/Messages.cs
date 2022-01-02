@@ -47,13 +47,17 @@
         public static string PasswordHasBeenChanged = "Şifreniz başarıyla değiştirildi";
         public static string LoginAgainWithNewPassword = "Yeni şifrenizle tekrar giriş yapınız";
         public static string OldPasswordEnteredDoesNotMatchCurrentPassword = "Girilen eski şifre, mevcut şifreyle eşleşmiyor";
-
-        public static string DepartmentNameCannotBeEmpty = "Bölüm adı boş olamaz";
+        
         public static string DepartmentNumberMustConsistOfNumbersOnly= "Bölüm numarası yalnızca rakamlardan oluşmalıdır";
         public static string DepartmentNumberOfSemesterMustConsistOfNumbersOnly= "Bölüm dönemi yalnızca rakamlardan oluşmalıdır";
         public static string CourseCreditMustConsistOfNumbersOnly= "Ders kredisi yalnızca rakamlardan oluşmalıdır";
         public static string CourseYearMustConsistOfNumbersOnly= "Ders yılı yalnızca rakamlardan oluşmalıdır";
         public static string CourseSemesterMustConsistOfNumbersOnly= "Ders dönemi yalnızca rakamlardan oluşmalıdır";
+        public static string CourseNoMustConsistOfNumbersOnly= "Ders kodu yalnızca rakamlardan oluşmalıdır";
+
+        public static string ThereMustBeAtLeastOneDepartmentToBeAbleToAddACourse= "Ders ekleyebilmek için en az bir bölüm olmalıdır";
+        public static string ThereMustBeAtLeastOneInstructorToBeAbleToAddACourse= "Ders ekleyebilmek için en az bir öğretim görevlisi olmalıdır";
+        public static string AtLeastOneFilterMustBeOn = "Filtreleme yapabilmek için en az bir filtre açık olmalıdır";
 
         public static string OfficerLogin = "Memur girişi";
         public static string StudentLogin = "Öğrenci girişi";
@@ -62,6 +66,10 @@
         public static string CreateSearchResultMessage(int recordFoundInSearch)
         {
             return $@"Arama sonucunda {recordFoundInSearch} adet kayıt bulundu";
+        }
+        public static string CreateFilterResultMessage(int recordFoundInFilter)
+        {
+            return $@"Filtreleme sonucunda {recordFoundInFilter} adet kayıt kaldı";
         }
     }
 }

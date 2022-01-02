@@ -9,5 +9,6 @@ namespace StudentManagementSystem.Business.Abstract
         IDataResult<Department> GetByDepartmentNo(int departmentNo);
         IDataResult<List<Department>> GetAllByDepartmentNo(int departmentNo);
         IDataResult<List<Department>> GetAllContainDepartmentName(string departmentName);
+        IDataResult<List<int>> GetAListUpToTheMaxNumberOfSemester();
     }
 }

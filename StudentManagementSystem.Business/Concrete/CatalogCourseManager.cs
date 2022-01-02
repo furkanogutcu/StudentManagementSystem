@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.ValidationRules.FluentValidation;
 using StudentManagementSystem.Core.CrossCuttingConcerns.Validation.FluentValidation;
@@ -29,9 +30,39 @@ namespace StudentManagementSystem.Business.Concrete
             return _catalogCourseDal.Get(new Dictionary<string, dynamic>() { { "ders_no", courseNo } });
         }
 
+        public IDataResult<List<CatalogCourse>> GetAllByCourseNo(int courseNo)
+        {
+            return _catalogCourseDal.GetAll(new Dictionary<string, dynamic>() { { "ders_no", courseNo } });
+        }
+
+        public IDataResult<List<CatalogCourse>> GetAllContainCourseName(string courseName)
+        {
+            var courseResult = _catalogCourseDal.GetAll(null);
+            if (courseResult.Success)
+            {
+                var returnList = new List<CatalogCourse>();
+                foreach (var course in courseResult.Data)
+                {
+                    if (course.CourseName.ToUpper().Contains(courseName.ToUpper()))
+                    {
+                        returnList.Add(course);
+                    }
+                }
+
+                return new SuccessDataResult<List<CatalogCourse>>(returnList);
+            }
+            return new ErrorDataResult<List<CatalogCourse>>("Dersler alınırken bir hata oluştu");
+        }
+
         public IResult Add(CatalogCourse entity)
         {
-            throw new System.NotImplementedException();
+            var validatorResult = ValidationTool.Validate(_catalogCourseValidator, entity);
+            if (validatorResult.Success)
+            {
+                return _catalogCourseDal.Add(entity);
+            }
+
+            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
         }
 
         public IResult Update(CatalogCourse entity)

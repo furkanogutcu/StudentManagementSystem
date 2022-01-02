@@ -74,8 +74,10 @@
     <Compile Include="StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\DataSetterToBoxes.cs" />
     <Compile Include="Utilities\PanelCleaner.cs" />
     <Compile Include="Utilities\PanelSwitcher.cs" />
+    <Compile Include="Utilities\UniqueValueTaker.cs" />
     <EmbeddedResource Include="InstructorForm.resx">
       <DependentUpon>InstructorForm.cs</DependentUpon>
     </EmbeddedResource>

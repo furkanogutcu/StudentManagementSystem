@@ -81,14 +81,20 @@
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.txtDepartmentOperationsAddNumberOfSemester = new System.Windows.Forms.TextBox();
+            this.label98 = new System.Windows.Forms.Label();
             this.btnDepartmentOperationsAddDepartment = new System.Windows.Forms.Button();
             this.txtDepartmentOperationsAddDepartmentName = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.btnDepartmentOperationsUpdateDepartmentName = new System.Windows.Forms.Button();
+            this.txtDepartmentOperationsUpdateNumberOfSemester = new System.Windows.Forms.TextBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.btnDepartmentOperationsUpdate = new System.Windows.Forms.Button();
             this.txtDepartmentOperationsUpdateDepartmentName = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label96 = new System.Windows.Forms.Label();
+            this.txtDepartmentOperationsNumberOfSemester = new System.Windows.Forms.TextBox();
             this.btnDepartmentOperationsDeleteDepartment = new System.Windows.Forms.Button();
             this.txtDepartmentOperationsTotalInstructor = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -125,6 +131,7 @@
             this.label33 = new System.Windows.Forms.Label();
             this.grbxCourseOperationsCurrentCourses = new System.Windows.Forms.GroupBox();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.btnCourseOperationsSearchReset = new System.Windows.Forms.Button();
             this.txtCourseOperationsCourseInfoSearchByCourseName = new System.Windows.Forms.TextBox();
             this.txtCourseOperationsCourseInfoSearchByCourseNo = new System.Windows.Forms.TextBox();
             this.label94 = new System.Windows.Forms.Label();
@@ -132,15 +139,18 @@
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.chbxCourseOperationsFilterBySemester = new System.Windows.Forms.CheckBox();
+            this.chbxCourseOperationsFilterByDepartment = new System.Windows.Forms.CheckBox();
             this.btnCourseOperationsFilter = new System.Windows.Forms.Button();
             this.cmbCourseOperationsFilterCourseDepartment = new System.Windows.Forms.ComboBox();
+            this.cmbCourseOperationsFilterCourseSemester = new System.Windows.Forms.ComboBox();
             this.listBoxCourseOperationsListCourses = new System.Windows.Forms.ListBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.cmbCourseOperationsAddCourseInstructor = new System.Windows.Forms.ComboBox();
             this.cmbCourseOperationsAddCourseDepartment = new System.Windows.Forms.ComboBox();
             this.btnCourseOperationsAdd = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
-            this.txtCourseOperationsAddCourseCourYear = new System.Windows.Forms.TextBox();
+            this.txtCourseOperationsAddCourseCourseSemester = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.txtCourseOperationsAddCourseCourseYear = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
@@ -298,15 +308,6 @@
             this.chckListBoxAssignAdviserBatchCourses = new System.Windows.Forms.CheckedListBox();
             this.chckListBoxAssignAdviserBatchDepartments = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.chbxCourseOperationsFilterByDepartment = new System.Windows.Forms.CheckBox();
-            this.cmbCourseOperationsFilterCourseSemester = new System.Windows.Forms.ComboBox();
-            this.chbxCourseOperationsFilterBySemester = new System.Windows.Forms.CheckBox();
-            this.txtDepartmentOperationsNumberOfSemester = new System.Windows.Forms.TextBox();
-            this.label96 = new System.Windows.Forms.Label();
-            this.txtDepartmentOperationsUpdateNumberOfSemester = new System.Windows.Forms.TextBox();
-            this.label97 = new System.Windows.Forms.Label();
-            this.txtDepartmentOperationsAddNumberOfSemester = new System.Windows.Forms.TextBox();
-            this.label98 = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalProfile.SuspendLayout();
@@ -892,6 +893,23 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Yeni Bölüm Ekle";
             // 
+            // txtDepartmentOperationsAddNumberOfSemester
+            // 
+            this.txtDepartmentOperationsAddNumberOfSemester.Location = new System.Drawing.Point(130, 68);
+            this.txtDepartmentOperationsAddNumberOfSemester.Name = "txtDepartmentOperationsAddNumberOfSemester";
+            this.txtDepartmentOperationsAddNumberOfSemester.Size = new System.Drawing.Size(165, 26);
+            this.txtDepartmentOperationsAddNumberOfSemester.TabIndex = 23;
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.ForeColor = System.Drawing.Color.Black;
+            this.label98.Location = new System.Drawing.Point(20, 72);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(103, 18);
+            this.label98.TabIndex = 22;
+            this.label98.Text = "Dönem sayısı:";
+            // 
             // btnDepartmentOperationsAddDepartment
             // 
             this.btnDepartmentOperationsAddDepartment.ForeColor = System.Drawing.Color.Black;
@@ -924,7 +942,7 @@
             // 
             this.groupBox6.Controls.Add(this.txtDepartmentOperationsUpdateNumberOfSemester);
             this.groupBox6.Controls.Add(this.label97);
-            this.groupBox6.Controls.Add(this.btnDepartmentOperationsUpdateDepartmentName);
+            this.groupBox6.Controls.Add(this.btnDepartmentOperationsUpdate);
             this.groupBox6.Controls.Add(this.txtDepartmentOperationsUpdateDepartmentName);
             this.groupBox6.Controls.Add(this.label21);
             this.groupBox6.ForeColor = System.Drawing.Color.Black;
@@ -935,16 +953,33 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Bölümü Güncelle";
             // 
-            // btnDepartmentOperationsUpdateDepartmentName
+            // txtDepartmentOperationsUpdateNumberOfSemester
             // 
-            this.btnDepartmentOperationsUpdateDepartmentName.ForeColor = System.Drawing.Color.Black;
-            this.btnDepartmentOperationsUpdateDepartmentName.Location = new System.Drawing.Point(301, 64);
-            this.btnDepartmentOperationsUpdateDepartmentName.Name = "btnDepartmentOperationsUpdateDepartmentName";
-            this.btnDepartmentOperationsUpdateDepartmentName.Size = new System.Drawing.Size(86, 26);
-            this.btnDepartmentOperationsUpdateDepartmentName.TabIndex = 19;
-            this.btnDepartmentOperationsUpdateDepartmentName.Text = "Güncelle";
-            this.btnDepartmentOperationsUpdateDepartmentName.UseVisualStyleBackColor = true;
-            this.btnDepartmentOperationsUpdateDepartmentName.Click += new System.EventHandler(this.btnDepartmentOperationsUpdateDepartmentName_Click);
+            this.txtDepartmentOperationsUpdateNumberOfSemester.Location = new System.Drawing.Point(130, 63);
+            this.txtDepartmentOperationsUpdateNumberOfSemester.Name = "txtDepartmentOperationsUpdateNumberOfSemester";
+            this.txtDepartmentOperationsUpdateNumberOfSemester.Size = new System.Drawing.Size(165, 26);
+            this.txtDepartmentOperationsUpdateNumberOfSemester.TabIndex = 21;
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.ForeColor = System.Drawing.Color.Black;
+            this.label97.Location = new System.Drawing.Point(20, 67);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(103, 18);
+            this.label97.TabIndex = 20;
+            this.label97.Text = "Dönem sayısı:";
+            // 
+            // btnDepartmentOperationsUpdate
+            // 
+            this.btnDepartmentOperationsUpdate.ForeColor = System.Drawing.Color.Black;
+            this.btnDepartmentOperationsUpdate.Location = new System.Drawing.Point(301, 64);
+            this.btnDepartmentOperationsUpdate.Name = "btnDepartmentOperationsUpdate";
+            this.btnDepartmentOperationsUpdate.Size = new System.Drawing.Size(86, 26);
+            this.btnDepartmentOperationsUpdate.TabIndex = 19;
+            this.btnDepartmentOperationsUpdate.Text = "Güncelle";
+            this.btnDepartmentOperationsUpdate.UseVisualStyleBackColor = true;
+            this.btnDepartmentOperationsUpdate.Click += new System.EventHandler(this.btnDepartmentOperationsUpdate_Click);
             // 
             // txtDepartmentOperationsUpdateDepartmentName
             // 
@@ -983,6 +1018,24 @@
             this.groupBox5.TabIndex = 9;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Bölüm Bilgileri";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.ForeColor = System.Drawing.Color.Black;
+            this.label96.Location = new System.Drawing.Point(212, 33);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(103, 18);
+            this.label96.TabIndex = 22;
+            this.label96.Text = "Dönem sayısı:";
+            // 
+            // txtDepartmentOperationsNumberOfSemester
+            // 
+            this.txtDepartmentOperationsNumberOfSemester.Location = new System.Drawing.Point(317, 28);
+            this.txtDepartmentOperationsNumberOfSemester.Name = "txtDepartmentOperationsNumberOfSemester";
+            this.txtDepartmentOperationsNumberOfSemester.ReadOnly = true;
+            this.txtDepartmentOperationsNumberOfSemester.Size = new System.Drawing.Size(70, 26);
+            this.txtDepartmentOperationsNumberOfSemester.TabIndex = 21;
             // 
             // btnDepartmentOperationsDeleteDepartment
             // 
@@ -1350,6 +1403,7 @@
             // 
             // groupBox15
             // 
+            this.groupBox15.Controls.Add(this.btnCourseOperationsSearchReset);
             this.groupBox15.Controls.Add(this.txtCourseOperationsCourseInfoSearchByCourseName);
             this.groupBox15.Controls.Add(this.txtCourseOperationsCourseInfoSearchByCourseNo);
             this.groupBox15.Controls.Add(this.label94);
@@ -1362,6 +1416,16 @@
             this.groupBox15.TabIndex = 7;
             this.groupBox15.TabStop = false;
             this.groupBox15.Text = "Ders Arama";
+            // 
+            // btnCourseOperationsSearchReset
+            // 
+            this.btnCourseOperationsSearchReset.Location = new System.Drawing.Point(288, 16);
+            this.btnCourseOperationsSearchReset.Name = "btnCourseOperationsSearchReset";
+            this.btnCourseOperationsSearchReset.Size = new System.Drawing.Size(123, 32);
+            this.btnCourseOperationsSearchReset.TabIndex = 26;
+            this.btnCourseOperationsSearchReset.Text = "Sıfırla";
+            this.btnCourseOperationsSearchReset.UseVisualStyleBackColor = true;
+            this.btnCourseOperationsSearchReset.Click += new System.EventHandler(this.btnCourseOperationsSearchReset_Click);
             // 
             // txtCourseOperationsCourseInfoSearchByCourseName
             // 
@@ -1390,12 +1454,13 @@
             // 
             // btnCourseOperationsSearch
             // 
-            this.btnCourseOperationsSearch.Location = new System.Drawing.Point(288, 18);
+            this.btnCourseOperationsSearch.Location = new System.Drawing.Point(288, 57);
             this.btnCourseOperationsSearch.Name = "btnCourseOperationsSearch";
-            this.btnCourseOperationsSearch.Size = new System.Drawing.Size(123, 71);
+            this.btnCourseOperationsSearch.Size = new System.Drawing.Size(123, 32);
             this.btnCourseOperationsSearch.TabIndex = 25;
             this.btnCourseOperationsSearch.Text = "Ara";
             this.btnCourseOperationsSearch.UseVisualStyleBackColor = true;
+            this.btnCourseOperationsSearch.Click += new System.EventHandler(this.btnCourseOperationsSearch_Click);
             // 
             // label38
             // 
@@ -1429,6 +1494,28 @@
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "Ders Filtreleme";
             // 
+            // chbxCourseOperationsFilterBySemester
+            // 
+            this.chbxCourseOperationsFilterBySemester.AutoSize = true;
+            this.chbxCourseOperationsFilterBySemester.Location = new System.Drawing.Point(168, 29);
+            this.chbxCourseOperationsFilterBySemester.Name = "chbxCourseOperationsFilterBySemester";
+            this.chbxCourseOperationsFilterBySemester.Size = new System.Drawing.Size(139, 19);
+            this.chbxCourseOperationsFilterBySemester.TabIndex = 7;
+            this.chbxCourseOperationsFilterBySemester.Text = "Döneme göre listele";
+            this.chbxCourseOperationsFilterBySemester.UseVisualStyleBackColor = true;
+            this.chbxCourseOperationsFilterBySemester.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsFilterBySemester_CheckedChanged);
+            // 
+            // chbxCourseOperationsFilterByDepartment
+            // 
+            this.chbxCourseOperationsFilterByDepartment.AutoSize = true;
+            this.chbxCourseOperationsFilterByDepartment.Location = new System.Drawing.Point(17, 29);
+            this.chbxCourseOperationsFilterByDepartment.Name = "chbxCourseOperationsFilterByDepartment";
+            this.chbxCourseOperationsFilterByDepartment.Size = new System.Drawing.Size(134, 19);
+            this.chbxCourseOperationsFilterByDepartment.TabIndex = 6;
+            this.chbxCourseOperationsFilterByDepartment.Text = "Bölüme göre listele";
+            this.chbxCourseOperationsFilterByDepartment.UseVisualStyleBackColor = true;
+            this.chbxCourseOperationsFilterByDepartment.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsFilterByDepartment_CheckedChanged);
+            // 
             // btnCourseOperationsFilter
             // 
             this.btnCourseOperationsFilter.Location = new System.Drawing.Point(313, 33);
@@ -1437,15 +1524,27 @@
             this.btnCourseOperationsFilter.TabIndex = 5;
             this.btnCourseOperationsFilter.Text = "Filtrele";
             this.btnCourseOperationsFilter.UseVisualStyleBackColor = true;
+            this.btnCourseOperationsFilter.Click += new System.EventHandler(this.btnCourseOperationsFilter_Click);
             // 
             // cmbCourseOperationsFilterCourseDepartment
             // 
             this.cmbCourseOperationsFilterCourseDepartment.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourseOperationsFilterCourseDepartment.Enabled = false;
             this.cmbCourseOperationsFilterCourseDepartment.FormattingEnabled = true;
             this.cmbCourseOperationsFilterCourseDepartment.Location = new System.Drawing.Point(17, 55);
             this.cmbCourseOperationsFilterCourseDepartment.Name = "cmbCourseOperationsFilterCourseDepartment";
             this.cmbCourseOperationsFilterCourseDepartment.Size = new System.Drawing.Size(133, 23);
             this.cmbCourseOperationsFilterCourseDepartment.TabIndex = 1;
+            // 
+            // cmbCourseOperationsFilterCourseSemester
+            // 
+            this.cmbCourseOperationsFilterCourseSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourseOperationsFilterCourseSemester.Enabled = false;
+            this.cmbCourseOperationsFilterCourseSemester.FormattingEnabled = true;
+            this.cmbCourseOperationsFilterCourseSemester.Location = new System.Drawing.Point(169, 55);
+            this.cmbCourseOperationsFilterCourseSemester.Name = "cmbCourseOperationsFilterCourseSemester";
+            this.cmbCourseOperationsFilterCourseSemester.Size = new System.Drawing.Size(138, 23);
+            this.cmbCourseOperationsFilterCourseSemester.TabIndex = 3;
             // 
             // listBoxCourseOperationsListCourses
             // 
@@ -1463,7 +1562,7 @@
             this.groupBox7.Controls.Add(this.cmbCourseOperationsAddCourseDepartment);
             this.groupBox7.Controls.Add(this.btnCourseOperationsAdd);
             this.groupBox7.Controls.Add(this.label27);
-            this.groupBox7.Controls.Add(this.txtCourseOperationsAddCourseCourYear);
+            this.groupBox7.Controls.Add(this.txtCourseOperationsAddCourseCourseSemester);
             this.groupBox7.Controls.Add(this.label26);
             this.groupBox7.Controls.Add(this.txtCourseOperationsAddCourseCourseYear);
             this.groupBox7.Controls.Add(this.label25);
@@ -1489,6 +1588,7 @@
             this.cmbCourseOperationsAddCourseInstructor.Name = "cmbCourseOperationsAddCourseInstructor";
             this.cmbCourseOperationsAddCourseInstructor.Size = new System.Drawing.Size(195, 26);
             this.cmbCourseOperationsAddCourseInstructor.TabIndex = 14;
+            this.cmbCourseOperationsAddCourseInstructor.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbCourseOperationsAddCourseInstructor_Format);
             // 
             // cmbCourseOperationsAddCourseDepartment
             // 
@@ -1508,6 +1608,7 @@
             this.btnCourseOperationsAdd.TabIndex = 12;
             this.btnCourseOperationsAdd.Text = "Ekle";
             this.btnCourseOperationsAdd.UseVisualStyleBackColor = true;
+            this.btnCourseOperationsAdd.Click += new System.EventHandler(this.btnCourseOperationsAdd_Click);
             // 
             // label27
             // 
@@ -1518,13 +1619,13 @@
             this.label27.TabIndex = 11;
             this.label27.Text = "Ders dönemi:";
             // 
-            // txtCourseOperationsAddCourseCourYear
+            // txtCourseOperationsAddCourseCourseSemester
             // 
-            this.txtCourseOperationsAddCourseCourYear.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCourseOperationsAddCourseCourYear.Location = new System.Drawing.Point(145, 154);
-            this.txtCourseOperationsAddCourseCourYear.Name = "txtCourseOperationsAddCourseCourYear";
-            this.txtCourseOperationsAddCourseCourYear.Size = new System.Drawing.Size(58, 26);
-            this.txtCourseOperationsAddCourseCourYear.TabIndex = 10;
+            this.txtCourseOperationsAddCourseCourseSemester.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.txtCourseOperationsAddCourseCourseSemester.Location = new System.Drawing.Point(145, 154);
+            this.txtCourseOperationsAddCourseCourseSemester.Name = "txtCourseOperationsAddCourseCourseSemester";
+            this.txtCourseOperationsAddCourseCourseSemester.Size = new System.Drawing.Size(58, 26);
+            this.txtCourseOperationsAddCourseCourseSemester.TabIndex = 10;
             // 
             // label26
             // 
@@ -3092,87 +3193,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "DANIŞMAN ATA";
             // 
-            // chbxCourseOperationsFilterByDepartment
-            // 
-            this.chbxCourseOperationsFilterByDepartment.AutoSize = true;
-            this.chbxCourseOperationsFilterByDepartment.Location = new System.Drawing.Point(17, 29);
-            this.chbxCourseOperationsFilterByDepartment.Name = "chbxCourseOperationsFilterByDepartment";
-            this.chbxCourseOperationsFilterByDepartment.Size = new System.Drawing.Size(134, 19);
-            this.chbxCourseOperationsFilterByDepartment.TabIndex = 6;
-            this.chbxCourseOperationsFilterByDepartment.Text = "Bölüme göre listele";
-            this.chbxCourseOperationsFilterByDepartment.UseVisualStyleBackColor = true;
-            // 
-            // cmbCourseOperationsFilterCourseSemester
-            // 
-            this.cmbCourseOperationsFilterCourseSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCourseOperationsFilterCourseSemester.FormattingEnabled = true;
-            this.cmbCourseOperationsFilterCourseSemester.Location = new System.Drawing.Point(169, 55);
-            this.cmbCourseOperationsFilterCourseSemester.Name = "cmbCourseOperationsFilterCourseSemester";
-            this.cmbCourseOperationsFilterCourseSemester.Size = new System.Drawing.Size(138, 23);
-            this.cmbCourseOperationsFilterCourseSemester.TabIndex = 3;
-            // 
-            // chbxCourseOperationsFilterBySemester
-            // 
-            this.chbxCourseOperationsFilterBySemester.AutoSize = true;
-            this.chbxCourseOperationsFilterBySemester.Location = new System.Drawing.Point(168, 29);
-            this.chbxCourseOperationsFilterBySemester.Name = "chbxCourseOperationsFilterBySemester";
-            this.chbxCourseOperationsFilterBySemester.Size = new System.Drawing.Size(139, 19);
-            this.chbxCourseOperationsFilterBySemester.TabIndex = 7;
-            this.chbxCourseOperationsFilterBySemester.Text = "Döneme göre listele";
-            this.chbxCourseOperationsFilterBySemester.UseVisualStyleBackColor = true;
-            // 
-            // txtDepartmentOperationsNumberOfSemester
-            // 
-            this.txtDepartmentOperationsNumberOfSemester.Location = new System.Drawing.Point(317, 28);
-            this.txtDepartmentOperationsNumberOfSemester.Name = "txtDepartmentOperationsNumberOfSemester";
-            this.txtDepartmentOperationsNumberOfSemester.ReadOnly = true;
-            this.txtDepartmentOperationsNumberOfSemester.Size = new System.Drawing.Size(70, 26);
-            this.txtDepartmentOperationsNumberOfSemester.TabIndex = 21;
-            // 
-            // label96
-            // 
-            this.label96.AutoSize = true;
-            this.label96.ForeColor = System.Drawing.Color.Black;
-            this.label96.Location = new System.Drawing.Point(212, 33);
-            this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(103, 18);
-            this.label96.TabIndex = 22;
-            this.label96.Text = "Dönem sayısı:";
-            // 
-            // txtDepartmentOperationsUpdateNumberOfSemester
-            // 
-            this.txtDepartmentOperationsUpdateNumberOfSemester.Location = new System.Drawing.Point(130, 63);
-            this.txtDepartmentOperationsUpdateNumberOfSemester.Name = "txtDepartmentOperationsUpdateNumberOfSemester";
-            this.txtDepartmentOperationsUpdateNumberOfSemester.Size = new System.Drawing.Size(165, 26);
-            this.txtDepartmentOperationsUpdateNumberOfSemester.TabIndex = 21;
-            // 
-            // label97
-            // 
-            this.label97.AutoSize = true;
-            this.label97.ForeColor = System.Drawing.Color.Black;
-            this.label97.Location = new System.Drawing.Point(20, 67);
-            this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(103, 18);
-            this.label97.TabIndex = 20;
-            this.label97.Text = "Dönem sayısı:";
-            // 
-            // txtDepartmentOperationsAddNumberOfSemester
-            // 
-            this.txtDepartmentOperationsAddNumberOfSemester.Location = new System.Drawing.Point(130, 68);
-            this.txtDepartmentOperationsAddNumberOfSemester.Name = "txtDepartmentOperationsAddNumberOfSemester";
-            this.txtDepartmentOperationsAddNumberOfSemester.Size = new System.Drawing.Size(165, 26);
-            this.txtDepartmentOperationsAddNumberOfSemester.TabIndex = 23;
-            // 
-            // label98
-            // 
-            this.label98.AutoSize = true;
-            this.label98.ForeColor = System.Drawing.Color.Black;
-            this.label98.Location = new System.Drawing.Point(20, 72);
-            this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(103, 18);
-            this.label98.TabIndex = 22;
-            this.label98.Text = "Dönem sayısı:";
-            // 
             // OfficerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3315,7 +3335,7 @@
         private System.Windows.Forms.TextBox txtDepartmentOperationsAddDepartmentName;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Button btnDepartmentOperationsUpdateDepartmentName;
+        private System.Windows.Forms.Button btnDepartmentOperationsUpdate;
         private System.Windows.Forms.TextBox txtDepartmentOperationsUpdateDepartmentName;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -3356,7 +3376,7 @@
         private System.Windows.Forms.ComboBox cmbCourseOperationsAddCourseDepartment;
         private System.Windows.Forms.Button btnCourseOperationsAdd;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox txtCourseOperationsAddCourseCourYear;
+        private System.Windows.Forms.TextBox txtCourseOperationsAddCourseCourseSemester;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox txtCourseOperationsAddCourseCourseYear;
         private System.Windows.Forms.Label label25;
@@ -3544,5 +3564,6 @@
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.TextBox txtDepartmentOperationsAddNumberOfSemester;
         private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Button btnCourseOperationsSearchReset;
     }
 }
