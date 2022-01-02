@@ -21,7 +21,7 @@ namespace StudentManagementSystem.Core.Utilities.Validation
             var errorMessage = "";
             foreach (var error in errorList)
             {
-                if (error != string.Empty)
+                if (error != null)
                 {
                     errorMessage += $"-{error}\n\n";
                 }

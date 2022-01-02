@@ -106,11 +106,11 @@ namespace StudentManagementSystem.Application
             if (courseResult.Success && departmentListForUpdateResult.Success && instructorListForUpdateResult.Success && semesterListResult.Success)
             {
                 grbxCourseOperationsCurrentCourses.Text = $@"Dersleri listele (Toplam kayıtlı ders sayısı: {courseResult.Data.Count})";
-                DataSetterToBoxes.SetDataToComboBox(cmbCourseOperationsCourseInfoDepartment, departmentListForUpdateResult.Data);
-                DataSetterToBoxes.SetDataToComboBox(cmbCourseOperationsCourseInfoInstructor, instructorListForUpdateResult.Data);
-                DataSetterToBoxes.SetDataToComboBox(cmbCourseOperationsAddCourseDepartment, departmentListForUpdateResult.Data);
-                DataSetterToBoxes.SetDataToComboBox(cmbCourseOperationsAddCourseInstructor, instructorListForUpdateResult.Data);
-                DataSetterToBoxes.SetDataToComboBox(cmbCourseOperationsFilterCourseDepartment, departmentListForUpdateResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Department>(cmbCourseOperationsCourseInfoDepartment, departmentListForUpdateResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Instructor>(cmbCourseOperationsCourseInfoInstructor, instructorListForUpdateResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Department>(cmbCourseOperationsAddCourseDepartment, departmentListForUpdateResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Instructor>(cmbCourseOperationsAddCourseInstructor, instructorListForUpdateResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Department>(cmbCourseOperationsFilterCourseDepartment, departmentListForUpdateResult.Data);
                 cmbCourseOperationsFilterCourseSemester.DataSource = semesterListResult.Data;
                 DataSetterToBoxes.SetDataToListBox<CatalogCourse>(listBoxCourseOperationsListCourses, courseResult.Data);
             }
@@ -132,14 +132,19 @@ namespace StudentManagementSystem.Application
         {
             PanelCleaner.Clean(pnlGlobalInstructorOperations);
             var instructorResult = _instructorService.GetAll();
-            if (instructorResult.Success)
+            var departmentResult = _departmentService.GetAll();
+            if (instructorResult.Success && departmentResult.Success)
             {
+                DataSetterToBoxes.SetDataToComboBox<Department>(cmbInstructorOperationsFilterByDepartment, departmentResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Department>(cmbInstructorOperationsAddAvailableDepartmentNames, departmentResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Department>(cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames, departmentResult.Data);
+                DataSetterToBoxes.SetDataToComboBox<Instructor>(cmbInstructorOperationsAssignInstructorToDepartmentInstructors, instructorResult.Data);
                 DataSetterToBoxes.SetDataToListBox<Instructor>(listBoxInstructorOperationsInstructorList, instructorResult.Data);
                 grbxInstructorOperationsCurrentInstructors.Text = $@"Öğretim Görevlisi Listesi (Toplam kayıtlı öğretim görevlisi sayısı: {instructorResult.Data.Count})";
             }
             else
             {
-                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCurrentInstructors}:\n\n{instructorResult.Message}", Messages.ServerError);
+                MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingCurrentInstructors}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { instructorResult.Message, departmentResult.Message })}", Messages.ServerError);
             }
         }
 
@@ -395,12 +400,21 @@ namespace StudentManagementSystem.Application
                 return;
             }
             int departmentNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInListbox<Department>(listBoxDepartmentOperationsCurrentDepartments);
-            var deletedDepartment = _departmentService.GetByDepartmentNo(departmentNo);
-            var messageDialogResult = MessageBox.Show($@"{deletedDepartment.Data.DepartmentName} isimli bölüm silinecek. Onaylıyor musunuz?", Messages.DeleteConfirmation, MessageBoxButtons.YesNo);
-            if (messageDialogResult == DialogResult.Yes)
+            var deletedDepartmentResult = _departmentService.GetByDepartmentNo(departmentNo);
+            if (deletedDepartmentResult.Success)
             {
-                DeleteOperationForDeleteButtons<Department>(_departmentService, deletedDepartment.Data, ReBuildDepartmentPanel);
+                var messageDialogResult = MessageBox.Show($@"{deletedDepartmentResult.Data.DepartmentName} isimli bölüm silinecek. Onaylıyor musunuz?", Messages.DeleteConfirmation, MessageBoxButtons.YesNo);
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    DeleteOperationForDeleteButtons<Department>(_departmentService, deletedDepartmentResult.Data, ReBuildDepartmentPanel);
+                }
             }
+            else
+            {
+                MessageBox.Show(Messages.SomethingWentWrongWhileGettingDepartmentDetails, Messages.ServerError);
+            }
+
+
         }
         private void btnDepartmentOperationsUpdate_Click(object sender, EventArgs e)
         {
@@ -624,14 +638,27 @@ namespace StudentManagementSystem.Application
             SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoSemesterEnabled, txtCourseOperationsCourseInfoSemester);
         }
 
-        // Instructor Operations Methods
-
-        private void listBoxInstructorOperationsInstructorList_Format(object sender, ListControlConvertEventArgs e)
+        private void btnCourseOperationsDelete_Click(object sender, EventArgs e)
         {
-            e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
+            if (listBoxCourseOperationsListCourses.SelectedItem == null)
+            {
+                return;
+            }
+            int courseNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInListbox<CatalogCourse>(listBoxCourseOperationsListCourses);
+            var deletedCourseResult = _catalogCourseService.GetByCourseNo(courseNo);
+            if (deletedCourseResult.Success)
+            {
+                var messageDialogResult = MessageBox.Show($@"{deletedCourseResult.Data.CourseName} isimli ders silinecek. Onaylıyor musunuz?", Messages.DeleteConfirmation, MessageBoxButtons.YesNo);
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    DeleteOperationForDeleteButtons<CatalogCourse>(_catalogCourseService, deletedCourseResult.Data, ReBuildCoursePanel);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Messages.SomethingWentWrongWhileGettingCourseDetails, Messages.ServerError);
+            }
         }
-
-        // Instructor Operations Methods END
 
         private void btnCourseOperationsUpdate_Click(object sender, EventArgs e)
         {
@@ -863,6 +890,230 @@ namespace StudentManagementSystem.Application
         private void chbxCourseOperationsFilterBySemester_CheckedChanged(object sender, EventArgs e)
         {
             SwitchUpdateComboBoxEnabled(chbxCourseOperationsFilterBySemester, cmbCourseOperationsFilterCourseSemester);
+        }
+
+        // Instructor Operations Methods
+
+        private void listBoxInstructorOperationsInstructorList_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
+        }
+
+        private void listBoxInstructorOperationsInstructorList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxInstructorOperationsInstructorList.SelectedItem == null)
+            {
+                return;
+            }
+
+            int selectedInstructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInListbox<Instructor>(listBoxInstructorOperationsInstructorList);
+
+            var selectedInstructorResult = _instructorService.GetByInstructorNo(selectedInstructorNo);
+            var departmentResult = _departmentService.GetByDepartmentNo(selectedInstructorResult.Data.DepartmentNo);
+
+            if (selectedInstructorResult.Success && departmentResult.Success)
+            {
+                txtInstructorOperationsInfoInstructorNo.Text = selectedInstructorResult.Data.InstructorNo.ToString();
+                txtInstructorOperationsInfoDepartmentName.Text = departmentResult.Data.DepartmentName;
+
+                txtInstructorOperationsInfoEmail.Text = selectedInstructorResult.Data.Email;
+                txtInstructorOperationsInfoPhone.Text = selectedInstructorResult.Data.Phone;
+                txtInstructorOperationsInfoFirstName.Text = selectedInstructorResult.Data.FirstName;
+                txtInstructorOperationsInfoLastName.Text = selectedInstructorResult.Data.LastName;
+            }
+            else
+            {
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}:\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { selectedInstructorResult.Message, departmentResult.Message })}", Messages.ServerError);
+            }
+        }
+
+        private void btnInstructorOperationsDelete_Click(object sender, EventArgs e)
+        {
+            if (listBoxInstructorOperationsInstructorList.SelectedItem == null)
+            {
+                return;
+            }
+            int instructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInListbox<Instructor>(listBoxInstructorOperationsInstructorList);
+            var deletedInstructorResult = _instructorService.GetByInstructorNo(instructorNo);
+            if (deletedInstructorResult.Success)
+            {
+                var messageDialogResult = MessageBox.Show($@"{deletedInstructorResult.Data.FirstName} {deletedInstructorResult.Data.LastName} isimli öğretim görevlisi silinecek. Onaylıyor musunuz?", Messages.DeleteConfirmation, MessageBoxButtons.YesNo);
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    DeleteOperationForDeleteButtons<Instructor>(_instructorService, deletedInstructorResult.Data, ReBuildInstructorPanel);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Messages.SomethingWentWrongWhileGettingCourseDetails, Messages.ServerError);
+            }
+        }
+
+        private void btnInstructorOperationsSave_Click(object sender, EventArgs e)
+        {
+            if (txtInstructorOperationsAddFirstName.Text == string.Empty
+                || txtInstructorOperationsAddLastName.Text == string.Empty
+                || txtInstructorOperationsAddEmail.Text == string.Empty
+                || txtInstructorOperationsAddPhone.Text == string.Empty
+                )
+            {
+                MessageBox.Show(Messages.MakeSureFillInAllFields, Messages.Warning);
+                return;
+            }
+
+            if (!NumberStringValidator.ValidateString(txtInstructorOperationsAddPhone.Text))
+            {
+                MessageBox.Show(Messages.OnlyNumberForPhone, Messages.Warning);
+                return;
+            }
+
+            var password = $"{TurkishCharNormalizer.Normalization(txtInstructorOperationsAddFirstName.Text.ToLowerInvariant())}.{TurkishCharNormalizer.Normalization(txtInstructorOperationsAddLastName.Text.ToLowerInvariant())}";
+
+            var addedInstructor = new Instructor
+            {
+                FirstName = txtInstructorOperationsAddFirstName.Text,
+                LastName = txtInstructorOperationsAddLastName.Text,
+                Email = txtInstructorOperationsAddEmail.Text,
+                Phone = txtInstructorOperationsAddPhone.Text,
+                DepartmentNo = Convert.ToInt32(cmbInstructorOperationsAddAvailableDepartmentNames.SelectedValue),
+                Password = password,
+                InstructorNo = 1    //Insignificant
+            };
+            var messageDialogResult = MessageBox.Show($"{addedInstructor.FirstName} {addedInstructor.LastName} isimli yeni bir öğretim görevlisi eklenecek. Onaylıyor musunuz?\n\nGiriş şifresi: {password}", Messages.AddConfirmation, MessageBoxButtons.YesNo);
+            if (messageDialogResult == DialogResult.Yes)
+            {
+                AddOperationForAddButtons<Instructor>(_instructorService, addedInstructor, ReBuildInstructorPanel);
+            }
+        }
+
+        private void cmbInstructorOperationsAssignInstructorToDepartmentInstructors_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Instructor)e.ListItem).FirstName} {((Instructor)e.ListItem).LastName}";
+        }
+
+        private void btnInstructorOperationsCompleteAssignment_Click(object sender, EventArgs e)
+        {
+            if (cmbInstructorOperationsAssignInstructorToDepartmentInstructors.SelectedItem == null ||
+                cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames.SelectedItem == null)
+            {
+                MessageBox.Show(Messages.MakeSureSelectAllFields, Messages.Warning);
+                return;
+            }
+
+            var instructorNo = Convert.ToInt32(cmbInstructorOperationsAssignInstructorToDepartmentInstructors.SelectedValue);
+            var newDepartmentNo = Convert.ToInt32(cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames.SelectedValue);
+            var instructorResult = _instructorService.GetByInstructorNo(instructorNo);
+            var departmentResult = _departmentService.GetByDepartmentNo(newDepartmentNo);
+
+            if (instructorResult.Success && departmentResult.Success)
+            {
+                var updatedInstructor = instructorResult.Data;
+                if (updatedInstructor.DepartmentNo == newDepartmentNo)
+                {
+                    MessageBox.Show(Messages.TheInstructorIsAlreadyWorkingInTheDepartmentYouWantToAssign, Messages.Warning);
+                    return;
+                }
+                updatedInstructor.DepartmentNo = newDepartmentNo;
+                var messageDialogResult = MessageBox.Show($"{updatedInstructor.FirstName} {updatedInstructor.LastName} isimli öğretim görevlisi {departmentResult.Data.DepartmentName} isimli bölüme atanacak. Onaylıyor musunuz?", Messages.AddConfirmation, MessageBoxButtons.YesNo);
+                if (messageDialogResult == DialogResult.Yes)
+                {
+                    UpdateOperationForUpdateButtons<Instructor>(_instructorService, updatedInstructor, ReBuildInstructorPanel);
+                }
+            }
+            else
+            {
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingInstructorDetails}\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { instructorResult.Message, departmentResult.Message })}", Messages.ServerError);
+            }
+        }
+
+        private void btnInstructorOperationsSearch_Click(object sender, EventArgs e)
+        {
+            if (txtInstructorOperationsSearchByInstructorNo.Text != string.Empty && txtInstructorOperationsSearchByInstructorName.Text != string.Empty)
+            {
+                MessageBox.Show(Messages.NotAllSearchCriteriaCanBeFilledAtOnce, Messages.Warning);
+            }
+            else if (txtInstructorOperationsSearchByInstructorNo.Text != string.Empty &&
+                     txtInstructorOperationsSearchByInstructorName.Text == string.Empty)
+            {
+                if (!NumberStringValidator.ValidateString(txtInstructorOperationsSearchByInstructorNo.Text))
+                {
+                    MessageBox.Show(Messages.InstructorNoMustConsistOfNumbersOnly, Messages.Warning);
+                    return;
+                }
+                var instructorResult = _instructorService.GetAllByInstructorNo(Convert.ToInt32(txtInstructorOperationsSearchByInstructorNo.Text));
+                if (instructorResult.Success)
+                {
+                    txtInstructorOperationsInfoInstructorNo.Text = string.Empty;
+                    txtInstructorOperationsInfoDepartmentName.Text = string.Empty;
+                    txtInstructorOperationsInfoEmail.Text = string.Empty;
+                    txtInstructorOperationsInfoPhone.Text = string.Empty;
+                    txtInstructorOperationsInfoFirstName.Text = string.Empty;
+                    txtInstructorOperationsInfoLastName.Text = string.Empty;
+                    DataSetterToBoxes.SetDataToListBox<Instructor>(listBoxInstructorOperationsInstructorList, instructorResult.Data);
+                    MessageBox.Show(Messages.CreateSearchResultMessage(instructorResult.Data.Count), Messages.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"{Messages.SomethingWentWrongWhileSearching}:\n\n{instructorResult.Message}", Messages.ServerError);
+                }
+
+            }
+            else if (txtInstructorOperationsSearchByInstructorNo.Text == string.Empty &&
+                     txtInstructorOperationsSearchByInstructorName.Text != string.Empty)
+            {
+                var instructorResult = _instructorService.GetAllContainInstructorName(txtInstructorOperationsSearchByInstructorName.Text);
+                if (instructorResult.Success)
+                {
+                    txtInstructorOperationsInfoInstructorNo.Text = string.Empty;
+                    txtInstructorOperationsInfoDepartmentName.Text = string.Empty;
+                    txtInstructorOperationsInfoEmail.Text = string.Empty;
+                    txtInstructorOperationsInfoPhone.Text = string.Empty;
+                    txtInstructorOperationsInfoFirstName.Text = string.Empty;
+                    txtInstructorOperationsInfoLastName.Text = string.Empty;
+                    DataSetterToBoxes.SetDataToListBox<Instructor>(listBoxInstructorOperationsInstructorList, instructorResult.Data);
+                    MessageBox.Show(Messages.CreateSearchResultMessage(instructorResult.Data.Count), Messages.Information);
+                }
+                else
+                {
+                    MessageBox.Show($"{Messages.SomethingWentWrongWhileSearching}:\n\n{instructorResult.Message}", Messages.ServerError);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Messages.NotAllSearchCriteriaCanBeFilledAtOnce, Messages.Warning);
+            }
+        }
+
+        private void btnInstructorOperationsSearchReset_Click(object sender, EventArgs e)
+        {
+            ReBuildInstructorPanel();
+        }
+
+        private void btnInstructorOperationsFilter_Click(object sender, EventArgs e)
+        {
+            if (cmbInstructorOperationsFilterByDepartment.SelectedItem == null)
+            {
+                MessageBox.Show(Messages.MustSelectADepartmentToBeAbleToFilter, Messages.Warning);
+                return;
+            }
+            var instructorListResult = _instructorService.GetAll();
+            if (instructorListResult.Success)
+            {
+                List<Instructor> filteredList = instructorListResult.Data;
+                filteredList = filteredList.Where(i => i.DepartmentNo == Convert.ToInt32(cmbInstructorOperationsFilterByDepartment.SelectedValue)).ToList();
+
+                DataSetterToBoxes.SetDataToListBox(listBoxInstructorOperationsInstructorList, filteredList);
+                MessageBox.Show(Messages.CreateFilterResultMessage(filteredList.Count), Messages.Information);
+            }
+            else
+            {
+                MessageBox.Show(Messages.SomethingWentWrongWhileGettingCurrentCourses, Messages.ServerError);
+            }
+        }
+
+        private void btnInstructorOperationsFilterReset_Click(object sender, EventArgs e)
+        {
+            ReBuildInstructorPanel();
         }
     }
 }

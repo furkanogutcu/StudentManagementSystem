@@ -78,7 +78,13 @@ namespace StudentManagementSystem.Business.Concrete
 
         public IResult Delete(CatalogCourse entity)
         {
-            throw new System.NotImplementedException();
+            var validatorResult = ValidationTool.Validate(_catalogCourseValidator, entity);
+            if (validatorResult.Success)
+            {
+                return _catalogCourseDal.Delete(entity);
+            }
+
+            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
         }
     }
 }

@@ -19,6 +19,7 @@
         public static string SomethingWentWrongWhileGettingCurrentInstructors = $@"Mevcut öğretim görevlisi listesini alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingDepartmentDetails = $@"Bölüm detaylarını alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingCourseDetails = $@"Ders detaylarını alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileGettingInstructorDetails = $@"Öğretim görevlisi detaylarını alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingNewProfileInfos = $@"Yeni profil bilgilerini alırken {_errorStatement}";
         public static string SomethingWentWrongWhilePasswordChange = $@"Şifre değişikliği sırasında {_errorStatement}";
         public static string SomethingWentWrongWhileCheckPassword = $@"Şifrenizi kontrol ederken {_errorStatement}";
@@ -38,7 +39,9 @@
 
         public static string MustFillInTheFieldsWantToUpdate = "Tüm alanlar boş olamaz.Güncellemek istediğiniz alanları doldurmalısınız";
         public static string TheDataToBeUpdatedIsTheSameAsTheOldData = "Güncellemek istediğiniz veriler eski veriler ile aynı";
+        public static string TheInstructorIsAlreadyWorkingInTheDepartmentYouWantToAssign = "Öğretim görevlisi zaten atamak istediğiniz bölümde çalışıyor";
         public static string MakeSureFillInAllFields = "Tüm alanları doldurduğunuzdan emin olunuz";
+        public static string MakeSureSelectAllFields = "Tüm alanları seçtiğinizden emin olunuz";
         public static string NotAllSearchCriteriaCanBeFilledAtOnce = "Tüm arama kriterleri aynı anda doldurulamaz";
         public static string ApplicationIsRestarting = "Uygulama yeniden başlatılıyor";
         
@@ -54,10 +57,12 @@
         public static string CourseYearMustConsistOfNumbersOnly= "Ders yılı yalnızca rakamlardan oluşmalıdır";
         public static string CourseSemesterMustConsistOfNumbersOnly= "Ders dönemi yalnızca rakamlardan oluşmalıdır";
         public static string CourseNoMustConsistOfNumbersOnly= "Ders kodu yalnızca rakamlardan oluşmalıdır";
+        public static string InstructorNoMustConsistOfNumbersOnly= "Öğretim görevlisi numarası yalnızca rakamlardan oluşmalıdır";
 
         public static string ThereMustBeAtLeastOneDepartmentToBeAbleToAddACourse= "Ders ekleyebilmek için en az bir bölüm olmalıdır";
         public static string ThereMustBeAtLeastOneInstructorToBeAbleToAddACourse= "Ders ekleyebilmek için en az bir öğretim görevlisi olmalıdır";
         public static string AtLeastOneFilterMustBeOn = "Filtreleme yapabilmek için en az bir filtre açık olmalıdır";
+        public static string MustSelectADepartmentToBeAbleToFilter = "Filtreleme yapabilmek için bir bölüm seçmelisiniz";
 
         public static string OfficerLogin = "Memur girişi";
         public static string StudentLogin = "Öğrenci girişi";
