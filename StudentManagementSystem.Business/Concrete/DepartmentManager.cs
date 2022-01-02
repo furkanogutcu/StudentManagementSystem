@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.ValidationRules.FluentValidation;
@@ -70,6 +71,11 @@ namespace StudentManagementSystem.Business.Concrete
             if (!departmentResult.Success)
             {
                 return new ErrorDataResult<List<int>>("Bölümler alınırken bir hata oluştu");
+            }
+
+            if (departmentResult.Data.Count == 0)
+            {
+                return new SuccessDataResult<List<int>>(new List<int>());
             }
 
             var resultList = new List<int>();

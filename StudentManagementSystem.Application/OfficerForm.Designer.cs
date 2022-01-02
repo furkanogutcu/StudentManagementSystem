@@ -317,6 +317,8 @@
             this.chckListBoxAssignAdviserBatchCourses = new System.Windows.Forms.CheckedListBox();
             this.chckListBoxAssignAdviserBatchDepartments = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnStudentOperationsResetPassword = new System.Windows.Forms.Button();
+            this.btnInstructorOperationsResetPassword = new System.Windows.Forms.Button();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalProfile.SuspendLayout();
@@ -1870,6 +1872,7 @@
             // 
             // groupBox17
             // 
+            this.groupBox17.Controls.Add(this.btnInstructorOperationsResetPassword);
             this.groupBox17.Controls.Add(this.btnInstructorOperationsDelete);
             this.groupBox17.Controls.Add(this.txtInstructorOperationsInfoPhone);
             this.groupBox17.Controls.Add(this.label48);
@@ -1893,9 +1896,9 @@
             // 
             // btnInstructorOperationsDelete
             // 
-            this.btnInstructorOperationsDelete.Location = new System.Drawing.Point(138, 158);
+            this.btnInstructorOperationsDelete.Location = new System.Drawing.Point(248, 158);
             this.btnInstructorOperationsDelete.Name = "btnInstructorOperationsDelete";
-            this.btnInstructorOperationsDelete.Size = new System.Drawing.Size(260, 28);
+            this.btnInstructorOperationsDelete.Size = new System.Drawing.Size(150, 28);
             this.btnInstructorOperationsDelete.TabIndex = 6;
             this.btnInstructorOperationsDelete.Text = "Öğretim görevlisini sil";
             this.btnInstructorOperationsDelete.UseVisualStyleBackColor = true;
@@ -2391,6 +2394,7 @@
             // 
             // groupBox21
             // 
+            this.groupBox21.Controls.Add(this.btnStudentOperationsResetPassword);
             this.groupBox21.Controls.Add(this.chbxStudentOperationsInfoStudentDepartmentEnabled);
             this.groupBox21.Controls.Add(this.cmbStudentOperationsInfoDepartment);
             this.groupBox21.Controls.Add(this.btnStudenOperationsChangeStudentDepartment);
@@ -3335,6 +3339,26 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "DANIŞMAN ATA";
             // 
+            // btnStudentOperationsResetPassword
+            // 
+            this.btnStudentOperationsResetPassword.Location = new System.Drawing.Point(19, 233);
+            this.btnStudentOperationsResetPassword.Name = "btnStudentOperationsResetPassword";
+            this.btnStudentOperationsResetPassword.Size = new System.Drawing.Size(107, 33);
+            this.btnStudentOperationsResetPassword.TabIndex = 46;
+            this.btnStudentOperationsResetPassword.Text = "Şifreyi sıfırla";
+            this.btnStudentOperationsResetPassword.UseVisualStyleBackColor = true;
+            this.btnStudentOperationsResetPassword.Click += new System.EventHandler(this.btnStudentOperationsResetPassword_Click);
+            // 
+            // btnInstructorOperationsResetPassword
+            // 
+            this.btnInstructorOperationsResetPassword.Location = new System.Drawing.Point(137, 158);
+            this.btnInstructorOperationsResetPassword.Name = "btnInstructorOperationsResetPassword";
+            this.btnInstructorOperationsResetPassword.Size = new System.Drawing.Size(107, 28);
+            this.btnInstructorOperationsResetPassword.TabIndex = 47;
+            this.btnInstructorOperationsResetPassword.Text = "Şifreyi sıfırla";
+            this.btnInstructorOperationsResetPassword.UseVisualStyleBackColor = true;
+            this.btnInstructorOperationsResetPassword.Click += new System.EventHandler(this.btnInstructorOperationsResetPassword_Click);
+            // 
             // OfficerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3343,18 +3367,19 @@
             this.ClientSize = new System.Drawing.Size(1087, 572);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
-            this.Controls.Add(this.pnlGlobalAssignAdviser);
-            this.Controls.Add(this.pnlGlobalStudentOperations);
             this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Controls.Add(this.pnlGlobalCourseOperations);
             this.Controls.Add(this.pnlGlobalProfile);
             this.Controls.Add(this.pnlGlobalDepartmentOperations);
+            this.Controls.Add(this.pnlGlobalAssignAdviser);
+            this.Controls.Add(this.pnlGlobalStudentOperations);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
             this.Name = "OfficerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Memur Paneli";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.OfficerForm_FormClosing);
             this.pnlLeftBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlGlobalProfile.ResumeLayout(false);
@@ -3716,5 +3741,7 @@
         private System.Windows.Forms.Button btnAssignAdvisorGetAllCheckedCourses;
         private System.Windows.Forms.Button btnAssignAdvisorGetAllCheckedDepartment;
         private System.Windows.Forms.Button btnAssignAdviserSingleSearchClear;
+        private System.Windows.Forms.Button btnStudentOperationsResetPassword;
+        private System.Windows.Forms.Button btnInstructorOperationsResetPassword;
     }
 }

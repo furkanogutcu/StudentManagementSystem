@@ -78,6 +78,7 @@
     <Compile Include="Utilities\FilteringTool.cs" />
     <Compile Include="Utilities\PanelCleaner.cs" />
     <Compile Include="Utilities\PanelSwitcher.cs" />
+    <Compile Include="Utilities\PasswordCreator.cs" />
     <Compile Include="Utilities\UniqueValueTaker.cs" />
     <EmbeddedResource Include="InstructorForm.resx">
       <DependentUpon>InstructorForm.cs</DependentUpon>

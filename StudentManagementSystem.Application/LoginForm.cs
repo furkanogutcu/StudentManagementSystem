@@ -46,7 +46,8 @@ namespace StudentManagementSystem.Application
                         new DepartmentManager(new SqlDepartmentDal()),
                         new InstructorManager(new SqlInstructorDal()),
                         new StudentManager(new SqlStudentDal(), new EnrolledCourseManager(new SqlEnrolledCourseDal())),
-                        new CatalogCourseManager(new SqlCatalogCourseDal())
+                        new CatalogCourseManager(new SqlCatalogCourseDal()),
+                        this
                     );
                     this.Hide();
                     officerForm.Show();

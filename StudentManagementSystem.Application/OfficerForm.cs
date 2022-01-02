@@ -22,10 +22,12 @@ namespace StudentManagementSystem.Application
         private readonly IInstructorService _instructorService;
         private readonly IStudentService _studentService;
         private readonly ICatalogCourseService _catalogCourseService;
+        private readonly LoginForm _application;
 
-        public OfficerForm(Officer officer, IOfficerService officerService, IDepartmentService departmentService, IInstructorService instructorService, IStudentService studentService, ICatalogCourseService catalogCourseService)
+        public OfficerForm(Officer officer, IOfficerService officerService, IDepartmentService departmentService, IInstructorService instructorService, IStudentService studentService, ICatalogCourseService catalogCourseService, LoginForm application)
         {
             _officer = officer;
+            _application = application;
             _officerService = officerService;
             _departmentService = departmentService;
             _instructorService = instructorService;
@@ -41,6 +43,20 @@ namespace StudentManagementSystem.Application
         }
 
         // Private Methods
+
+        private void OfficerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var messageDialogResult = MessageBox.Show("Uygulamadan çıkış yapmak istediğinize emin misiniz?",
+                "Uygulama Kapatılıyor", MessageBoxButtons.OKCancel);
+            if (messageDialogResult == DialogResult.OK)
+            {
+                _application.Close();
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
 
         //Profile
         private void btnGlobalProfileOperations_Click(object sender, System.EventArgs e)
@@ -1006,7 +1022,7 @@ namespace StudentManagementSystem.Application
                 return;
             }
 
-            var password = $"{TurkishCharNormalizer.Normalization(txtInstructorOperationsAddFirstName.Text.ToLowerInvariant())}.{TurkishCharNormalizer.Normalization(txtInstructorOperationsAddLastName.Text.ToLowerInvariant())}";
+            var password = PasswordCreator.Create(txtInstructorOperationsAddFirstName.Text, txtInstructorOperationsAddLastName.Text);
 
             var addedInstructor = new Instructor
             {
@@ -1272,7 +1288,7 @@ namespace StudentManagementSystem.Application
                 return;
             }
 
-            var password = $"{TurkishCharNormalizer.Normalization(txtStudentOperationsAddFirstName.Text.ToLowerInvariant())}.{TurkishCharNormalizer.Normalization(txtStudentOperationsAddLastName.Text.ToLowerInvariant())}";
+            var password = PasswordCreator.Create(txtStudentOperationsAddFirstName.Text, txtStudentOperationsAddLastName.Text);
 
             var addedStudent = new Student
             {
@@ -1761,6 +1777,62 @@ namespace StudentManagementSystem.Application
             else
             {
                 MessageBox.Show(Messages.SomethingWentWrongWhileGettingCurrentStudents, Messages.ServerError);
+            }
+        }
+
+        private void btnStudentOperationsResetPassword_Click(object sender, EventArgs e)
+        {
+            if (listBoxStudentOperationsStudentList.SelectedItem == null)
+            {
+                return;
+            }
+
+            int selectedStudentNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInListbox<Student>(listBoxStudentOperationsStudentList);
+            var updatedStudentResult = _studentService.GetByStudentNo(selectedStudentNo);
+
+            if (!updatedStudentResult.Success)
+            {
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingStudentDetails}:\n\n{updatedStudentResult.Message}", Messages.ServerError);
+                return;
+            }
+
+            var updatedStudent = updatedStudentResult.Data;
+
+            var password = PasswordCreator.Create(updatedStudent.FirstName, updatedStudent.LastName);
+
+            var messageDialogResult = MessageBox.Show($"{updatedStudent.FirstName} {updatedStudent.LastName} isimli öğrencinin şifresi:\n\n{password}\n\nşeklinde değiştirilecek. Onaylıyor musunuz?", Messages.UpdateConfirmation, MessageBoxButtons.YesNo);
+            if (messageDialogResult == DialogResult.Yes)
+            {
+                updatedStudent.Password = password;
+                UpdateOperationForUpdateButtons<Student>(_studentService, updatedStudent, ReBuildStudentPanel);
+            }
+        }
+
+        private void btnInstructorOperationsResetPassword_Click(object sender, EventArgs e)
+        {
+            if (listBoxInstructorOperationsInstructorList.SelectedItem == null)
+            {
+                return;
+            }
+
+            int selectedInstructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInListbox<Instructor>(listBoxInstructorOperationsInstructorList);
+            var updatedInstructorResult = _instructorService.GetByInstructorNo(selectedInstructorNo);
+
+            if (!updatedInstructorResult.Success)
+            {
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingInstructorDetails}:\n\n{updatedInstructorResult.Message}", Messages.ServerError);
+                return;
+            }
+
+            var updatedInstructor = updatedInstructorResult.Data;
+
+            var password = PasswordCreator.Create(updatedInstructor.FirstName, updatedInstructor.LastName);
+
+            var messageDialogResult = MessageBox.Show($"{updatedInstructor.FirstName} {updatedInstructor.LastName} isimli öğretim görevlisinin şifresi:\n\n{password}\n\nşeklinde değiştirilecek. Onaylıyor musunuz?", Messages.UpdateConfirmation, MessageBoxButtons.YesNo);
+            if (messageDialogResult == DialogResult.Yes)
+            {
+                updatedInstructor.Password = password;
+                UpdateOperationForUpdateButtons<Instructor>(_instructorService, updatedInstructor, ReBuildInstructorPanel);
             }
         }
     }
