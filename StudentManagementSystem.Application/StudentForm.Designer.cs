@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBottomBar = new System.Windows.Forms.Panel();
             this.pnlLeftBar = new System.Windows.Forms.Panel();
             this.btnGlobalLogOut = new System.Windows.Forms.Button();
@@ -68,16 +68,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlGlobalTranscript = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlGlobalProfile = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -119,6 +109,9 @@
             this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.btnTranscriptGetTranscriptPDF = new System.Windows.Forms.Button();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lblTranscriptPdfOutputFileName = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalGradeView.SuspendLayout();
@@ -132,8 +125,6 @@
             this.tabPageApprovedCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterApprovedCourses)).BeginInit();
             this.pnlGlobalTranscript.SuspendLayout();
-            this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             this.pnlGlobalProfile.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -208,6 +199,7 @@
             this.btnGlobalTranscript.TabIndex = 4;
             this.btnGlobalTranscript.Text = "Transkript al";
             this.btnGlobalTranscript.UseVisualStyleBackColor = true;
+            this.btnGlobalTranscript.Click += new System.EventHandler(this.btnGlobalTranscript_Click);
             // 
             // btnGlobalCourseRegister
             // 
@@ -256,23 +248,23 @@
             // 
             this.dataGridViewGradeViewGrades.AllowUserToAddRows = false;
             this.dataGridViewGradeViewGrades.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGradeViewGrades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGradeViewGrades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewGradeViewGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGradeViewGrades.Location = new System.Drawing.Point(10, 60);
             this.dataGridViewGradeViewGrades.MultiSelect = false;
             this.dataGridViewGradeViewGrades.Name = "dataGridViewGradeViewGrades";
             this.dataGridViewGradeViewGrades.ReadOnly = true;
             this.dataGridViewGradeViewGrades.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dataGridViewGradeViewGrades.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewGradeViewGrades.RowsDefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridViewGradeViewGrades.RowTemplate.Height = 80;
             this.dataGridViewGradeViewGrades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewGradeViewGrades.Size = new System.Drawing.Size(855, 422);
@@ -361,23 +353,23 @@
             // 
             this.dataGridViewCourseRegisterAvailableCourses.AllowUserToAddRows = false;
             this.dataGridViewCourseRegisterAvailableCourses.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCourseRegisterAvailableCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourseRegisterAvailableCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewCourseRegisterAvailableCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCourseRegisterAvailableCourses.Location = new System.Drawing.Point(18, 36);
             this.dataGridViewCourseRegisterAvailableCourses.MultiSelect = false;
             this.dataGridViewCourseRegisterAvailableCourses.Name = "dataGridViewCourseRegisterAvailableCourses";
             this.dataGridViewCourseRegisterAvailableCourses.ReadOnly = true;
             this.dataGridViewCourseRegisterAvailableCourses.RowHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dataGridViewCourseRegisterAvailableCourses.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewCourseRegisterAvailableCourses.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.dataGridViewCourseRegisterAvailableCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterAvailableCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourseRegisterAvailableCourses.Size = new System.Drawing.Size(730, 385);
@@ -423,31 +415,31 @@
             // 
             this.dataGridViewCourseRegisterSelectedCourses.AllowUserToAddRows = false;
             this.dataGridViewCourseRegisterSelectedCourses.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCourseRegisterSelectedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourseRegisterSelectedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewCourseRegisterSelectedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCourseRegisterSelectedCourses.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCourseRegisterSelectedCourses.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewCourseRegisterSelectedCourses.Location = new System.Drawing.Point(18, 34);
             this.dataGridViewCourseRegisterSelectedCourses.MultiSelect = false;
             this.dataGridViewCourseRegisterSelectedCourses.Name = "dataGridViewCourseRegisterSelectedCourses";
             this.dataGridViewCourseRegisterSelectedCourses.ReadOnly = true;
             this.dataGridViewCourseRegisterSelectedCourses.RowHeadersVisible = false;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dataGridViewCourseRegisterSelectedCourses.RowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewCourseRegisterSelectedCourses.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dataGridViewCourseRegisterSelectedCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterSelectedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourseRegisterSelectedCourses.Size = new System.Drawing.Size(728, 385);
@@ -502,23 +494,23 @@
             // 
             this.dataGridViewCourseRegisterApprovedCourses.AllowUserToAddRows = false;
             this.dataGridViewCourseRegisterApprovedCourses.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCourseRegisterApprovedCourses.Location = new System.Drawing.Point(18, 33);
             this.dataGridViewCourseRegisterApprovedCourses.MultiSelect = false;
             this.dataGridViewCourseRegisterApprovedCourses.Name = "dataGridViewCourseRegisterApprovedCourses";
             this.dataGridViewCourseRegisterApprovedCourses.ReadOnly = true;
             this.dataGridViewCourseRegisterApprovedCourses.RowHeadersVisible = false;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dataGridViewCourseRegisterApprovedCourses.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewCourseRegisterApprovedCourses.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.dataGridViewCourseRegisterApprovedCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterApprovedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourseRegisterApprovedCourses.Size = new System.Drawing.Size(823, 389);
@@ -547,126 +539,15 @@
             // pnlGlobalTranscript
             // 
             this.pnlGlobalTranscript.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlGlobalTranscript.Controls.Add(this.tableLayoutPanel3);
-            this.pnlGlobalTranscript.Controls.Add(this.tableLayoutPanel2);
+            this.pnlGlobalTranscript.Controls.Add(this.lblTranscriptPdfOutputFileName);
+            this.pnlGlobalTranscript.Controls.Add(this.label24);
+            this.pnlGlobalTranscript.Controls.Add(this.btnTranscriptGetTranscriptPDF);
             this.pnlGlobalTranscript.Controls.Add(this.label4);
             this.pnlGlobalTranscript.Location = new System.Drawing.Point(210, 0);
             this.pnlGlobalTranscript.Name = "pnlGlobalTranscript";
             this.pnlGlobalTranscript.Size = new System.Drawing.Size(878, 493);
             this.pnlGlobalTranscript.TabIndex = 4;
             this.pnlGlobalTranscript.Visible = false;
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.label32, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label34, 2, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label35, 3, 0);
-            this.tableLayoutPanel3.Controls.Add(this.label33, 0, 1);
-            this.tableLayoutPanel3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(10, 444);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 2;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(855, 39);
-            this.tableLayoutPanel3.TabIndex = 8;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(216, 0);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(107, 19);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "Toplam AKTS";
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(429, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(75, 19);
-            this.label34.TabIndex = 4;
-            this.label34.Text = "Ortalama";
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(642, 0);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(52, 19);
-            this.label35.TabIndex = 5;
-            this.label35.Text = "GANO";
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(3, 19);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(70, 19);
-            this.label33.TabIndex = 0;
-            this.label33.Text = "Birikimli:";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 4;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel2.Controls.Add(this.label28, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label31, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label27, 2, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label24, 3, 0);
-            this.tableLayoutPanel2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(10, 41);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 2;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(855, 397);
-            this.tableLayoutPanel2.TabIndex = 5;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(216, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(68, 19);
-            this.label28.TabIndex = 7;
-            this.label28.Text = "Ders Adı";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(3, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(82, 19);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "Ders Kodu";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(429, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(79, 19);
-            this.label27.TabIndex = 4;
-            this.label27.Text = "Ortalama:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(642, 0);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(61, 19);
-            this.label24.TabIndex = 5;
-            this.label24.Text = "Durum:";
             // 
             // label4
             // 
@@ -1069,6 +950,39 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "PROFİL BİLGİLERİM";
             // 
+            // btnTranscriptGetTranscriptPDF
+            // 
+            this.btnTranscriptGetTranscriptPDF.Font = new System.Drawing.Font("Roboto", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTranscriptGetTranscriptPDF.Location = new System.Drawing.Point(272, 359);
+            this.btnTranscriptGetTranscriptPDF.Name = "btnTranscriptGetTranscriptPDF";
+            this.btnTranscriptGetTranscriptPDF.Size = new System.Drawing.Size(330, 81);
+            this.btnTranscriptGetTranscriptPDF.TabIndex = 1;
+            this.btnTranscriptGetTranscriptPDF.Text = "PDF olarak al";
+            this.btnTranscriptGetTranscriptPDF.UseVisualStyleBackColor = true;
+            this.btnTranscriptGetTranscriptPDF.Click += new System.EventHandler(this.btnTranscriptGetTranscriptPDF_Click);
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label24.Location = new System.Drawing.Point(110, 125);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(654, 198);
+            this.label24.TabIndex = 2;
+            this.label24.Text = "Transkriptinizi PDF formatında alabilirsiniz.\r\nButona tıkladıktan sonra bilgisaya" +
+    "rınızın masaüstüne\r\n\r\n\r\n\r\nadında bir dosya oluşacak.";
+            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblTranscriptPdfOutputFileName
+            // 
+            this.lblTranscriptPdfOutputFileName.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTranscriptPdfOutputFileName.Location = new System.Drawing.Point(12, 219);
+            this.lblTranscriptPdfOutputFileName.Name = "lblTranscriptPdfOutputFileName";
+            this.lblTranscriptPdfOutputFileName.Size = new System.Drawing.Size(851, 48);
+            this.lblTranscriptPdfOutputFileName.TabIndex = 3;
+            this.lblTranscriptPdfOutputFileName.Text = "\"adiniz_soyadiniz_transkript.pdf\"";
+            this.lblTranscriptPdfOutputFileName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1107,10 +1021,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterApprovedCourses)).EndInit();
             this.pnlGlobalTranscript.ResumeLayout(false);
             this.pnlGlobalTranscript.PerformLayout();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
             this.pnlGlobalProfile.ResumeLayout(false);
             this.pnlGlobalProfile.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1147,16 +1057,6 @@
         private System.Windows.Forms.Button btnCourseRegisterSendToDraft;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button btnCourseRegisterDeleteToDraft;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Button btnCourseRegisterSubmitForAdviserApproval;
         private System.Windows.Forms.Label lblProfileLastProfileUpdate;
         private System.Windows.Forms.TextBox txtProfileStudentNo;
@@ -1207,5 +1107,8 @@
         private System.Windows.Forms.Label lblAdviserApprovalCoursesPendingApproval;
         private System.Windows.Forms.DataGridView dataGridViewCourseRegisterApprovedCourses;
         private System.Windows.Forms.Button btnGlobalLogOut;
+        private System.Windows.Forms.Button btnTranscriptGetTranscriptPDF;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label lblTranscriptPdfOutputFileName;
     }
 }
