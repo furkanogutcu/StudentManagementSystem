@@ -30,10 +30,11 @@
         {
             this.pnlBottomBar = new System.Windows.Forms.Panel();
             this.pnlLeftBar = new System.Windows.Forms.Panel();
+            this.btnGlobalLogOut = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGlobalProfile = new System.Windows.Forms.Button();
             this.btnGlobalAdviserOperations = new System.Windows.Forms.Button();
-            this.btnGlobalNoteOperations = new System.Windows.Forms.Button();
+            this.btnGlobalGradeOperations = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pnlGlobalProfile = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -60,49 +61,47 @@
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnProfileUpdate = new System.Windows.Forms.Button();
-            this.txtProfilePhone = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdatePhone = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtProfileLastName = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdateLastName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtProfileFirstName = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdateFirstName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtProfileEmail = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pnlNotIslemleri = new System.Windows.Forms.Panel();
+            this.pnlGlobalGradeOperations = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.lblNoteOperationsInfoStudentStatus = new System.Windows.Forms.Label();
+            this.lblGradeOperationsInfoStudentStatus = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.lblNoteOperationsInfoStudentNoteAvarage = new System.Windows.Forms.Label();
+            this.lblGradeOperationsInfoStudentGradeAvarage = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
-            this.lblNoteOperationsInfoCourseAvarage = new System.Windows.Forms.Label();
+            this.lblGradeOperationsInfoCourseAvarage = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
-            this.txtNoteOperationsInfoSemester = new System.Windows.Forms.TextBox();
+            this.txtGradeOperationsInfoSemester = new System.Windows.Forms.TextBox();
             this.label32 = new System.Windows.Forms.Label();
-            this.txtNoteOperationsInfoEnrollmentDate = new System.Windows.Forms.TextBox();
+            this.txtGradeOperationsInfoEnrollmentDate = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.txtNoteOperationsInfoStudentAdviser = new System.Windows.Forms.TextBox();
+            this.txtGradeOperationsInfoStudentAdviser = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.txtNoteOperationsInfoStudentFullName = new System.Windows.Forms.TextBox();
-            this.btnNoteOperationsSaveNotes = new System.Windows.Forms.Button();
-            this.txtNoteOperationsInputFinal = new System.Windows.Forms.TextBox();
-            this.txtNoteOperationsInputVizeButunleme = new System.Windows.Forms.TextBox();
-            this.txtNoteOperationsInputVize = new System.Windows.Forms.TextBox();
+            this.txtGradeOperationsInfoStudentFullName = new System.Windows.Forms.TextBox();
+            this.btnGradeOperationsSaveGrades = new System.Windows.Forms.Button();
+            this.txtGradeOperationsInputFinal = new System.Windows.Forms.TextBox();
+            this.txtGradeOperationsInputButunleme = new System.Windows.Forms.TextBox();
+            this.txtGradeOperationsInputVize = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.cmbNoteOperationsSelectSemester = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.listBoxNoteOperationsCourseStudents = new System.Windows.Forms.ListBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.listBoxNoteOperationsCurrentCourses = new System.Windows.Forms.ListBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.cmbNoteOperationsSelectYear = new System.Windows.Forms.ComboBox();
+            this.cmbGradeOperationsSelectSemester = new System.Windows.Forms.ComboBox();
+            this.listBoxGradeOperationsCourseStudents = new System.Windows.Forms.ListBox();
+            this.lblGradeOperationsTotalStudent = new System.Windows.Forms.Label();
+            this.listBoxGradeOperationsCurrentCourses = new System.Windows.Forms.ListBox();
+            this.lblGradeOperationsTotalCourse = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pnlDanismanIslemleri = new System.Windows.Forms.Panel();
+            this.pnlGlobalAdviserOperations = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.txtAdviserOperationsInfoApprovalSendDate = new System.Windows.Forms.TextBox();
             this.label40 = new System.Windows.Forms.Label();
@@ -130,9 +129,9 @@
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.pnlNotIslemleri.SuspendLayout();
+            this.pnlGlobalGradeOperations.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.pnlDanismanIslemleri.SuspendLayout();
+            this.pnlGlobalAdviserOperations.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -147,15 +146,27 @@
             // pnlLeftBar
             // 
             this.pnlLeftBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlLeftBar.Controls.Add(this.btnGlobalLogOut);
             this.pnlLeftBar.Controls.Add(this.label1);
             this.pnlLeftBar.Controls.Add(this.btnGlobalProfile);
             this.pnlLeftBar.Controls.Add(this.btnGlobalAdviserOperations);
-            this.pnlLeftBar.Controls.Add(this.btnGlobalNoteOperations);
+            this.pnlLeftBar.Controls.Add(this.btnGlobalGradeOperations);
             this.pnlLeftBar.Controls.Add(this.pictureBox1);
             this.pnlLeftBar.Location = new System.Drawing.Point(0, 0);
             this.pnlLeftBar.Name = "pnlLeftBar";
             this.pnlLeftBar.Size = new System.Drawing.Size(210, 493);
             this.pnlLeftBar.TabIndex = 1;
+            // 
+            // btnGlobalLogOut
+            // 
+            this.btnGlobalLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnGlobalLogOut.Location = new System.Drawing.Point(12, 397);
+            this.btnGlobalLogOut.Name = "btnGlobalLogOut";
+            this.btnGlobalLogOut.Size = new System.Drawing.Size(186, 41);
+            this.btnGlobalLogOut.TabIndex = 6;
+            this.btnGlobalLogOut.Text = "Hesabımdan Çıkış Yap";
+            this.btnGlobalLogOut.UseVisualStyleBackColor = false;
+            this.btnGlobalLogOut.Click += new System.EventHandler(this.btnGlobalLogOut_Click);
             // 
             // label1
             // 
@@ -178,6 +189,7 @@
             this.btnGlobalProfile.TabIndex = 4;
             this.btnGlobalProfile.Text = "Profil bilgilerim";
             this.btnGlobalProfile.UseVisualStyleBackColor = true;
+            this.btnGlobalProfile.Click += new System.EventHandler(this.btnGlobalProfile_Click);
             // 
             // btnGlobalAdviserOperations
             // 
@@ -187,15 +199,17 @@
             this.btnGlobalAdviserOperations.TabIndex = 2;
             this.btnGlobalAdviserOperations.Text = "Danışman işlemleri";
             this.btnGlobalAdviserOperations.UseVisualStyleBackColor = true;
+            this.btnGlobalAdviserOperations.Click += new System.EventHandler(this.btnGlobalAdviserOperations_Click);
             // 
-            // btnGlobalNoteOperations
+            // btnGlobalGradeOperations
             // 
-            this.btnGlobalNoteOperations.Location = new System.Drawing.Point(12, 303);
-            this.btnGlobalNoteOperations.Name = "btnGlobalNoteOperations";
-            this.btnGlobalNoteOperations.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalNoteOperations.TabIndex = 1;
-            this.btnGlobalNoteOperations.Text = "Not işlemleri";
-            this.btnGlobalNoteOperations.UseVisualStyleBackColor = true;
+            this.btnGlobalGradeOperations.Location = new System.Drawing.Point(12, 303);
+            this.btnGlobalGradeOperations.Name = "btnGlobalGradeOperations";
+            this.btnGlobalGradeOperations.Size = new System.Drawing.Size(186, 41);
+            this.btnGlobalGradeOperations.TabIndex = 1;
+            this.btnGlobalGradeOperations.Text = "Not işlemleri";
+            this.btnGlobalGradeOperations.UseVisualStyleBackColor = true;
+            this.btnGlobalGradeOperations.Click += new System.EventHandler(this.btnGlobalGradeOperations_Click);
             // 
             // pictureBox1
             // 
@@ -219,6 +233,7 @@
             this.pnlGlobalProfile.Name = "pnlGlobalProfile";
             this.pnlGlobalProfile.Size = new System.Drawing.Size(878, 493);
             this.pnlGlobalProfile.TabIndex = 2;
+            this.pnlGlobalProfile.Visible = false;
             // 
             // groupBox3
             // 
@@ -381,6 +396,7 @@
             this.btnProfileChangePassword.TabIndex = 18;
             this.btnProfileChangePassword.Text = "Şifremi değiştir";
             this.btnProfileChangePassword.UseVisualStyleBackColor = true;
+            this.btnProfileChangePassword.Click += new System.EventHandler(this.btnProfileChangePassword_Click);
             // 
             // txtProfileOldPassword
             // 
@@ -436,13 +452,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnProfileUpdate);
-            this.groupBox1.Controls.Add(this.txtProfilePhone);
+            this.groupBox1.Controls.Add(this.txtProfileUpdatePhone);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtProfileLastName);
+            this.groupBox1.Controls.Add(this.txtProfileUpdateLastName);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtProfileFirstName);
+            this.groupBox1.Controls.Add(this.txtProfileUpdateFirstName);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtProfileEmail);
+            this.groupBox1.Controls.Add(this.txtProfileUpdateEmail);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(37, 225);
@@ -461,13 +477,14 @@
             this.btnProfileUpdate.TabIndex = 8;
             this.btnProfileUpdate.Text = "Güncelle";
             this.btnProfileUpdate.UseVisualStyleBackColor = true;
+            this.btnProfileUpdate.Click += new System.EventHandler(this.btnProfileUpdate_Click);
             // 
-            // txtProfilePhone
+            // txtProfileUpdatePhone
             // 
-            this.txtProfilePhone.Location = new System.Drawing.Point(103, 140);
-            this.txtProfilePhone.Name = "txtProfilePhone";
-            this.txtProfilePhone.Size = new System.Drawing.Size(235, 27);
-            this.txtProfilePhone.TabIndex = 7;
+            this.txtProfileUpdatePhone.Location = new System.Drawing.Point(103, 140);
+            this.txtProfileUpdatePhone.Name = "txtProfileUpdatePhone";
+            this.txtProfileUpdatePhone.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdatePhone.TabIndex = 7;
             // 
             // label12
             // 
@@ -478,12 +495,12 @@
             this.label12.TabIndex = 6;
             this.label12.Text = "Telefon:";
             // 
-            // txtProfileLastName
+            // txtProfileUpdateLastName
             // 
-            this.txtProfileLastName.Location = new System.Drawing.Point(103, 107);
-            this.txtProfileLastName.Name = "txtProfileLastName";
-            this.txtProfileLastName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileLastName.TabIndex = 5;
+            this.txtProfileUpdateLastName.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateLastName.Name = "txtProfileUpdateLastName";
+            this.txtProfileUpdateLastName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateLastName.TabIndex = 5;
             // 
             // label2
             // 
@@ -494,12 +511,12 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Soyad:";
             // 
-            // txtProfileFirstName
+            // txtProfileUpdateFirstName
             // 
-            this.txtProfileFirstName.Location = new System.Drawing.Point(103, 74);
-            this.txtProfileFirstName.Name = "txtProfileFirstName";
-            this.txtProfileFirstName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileFirstName.TabIndex = 3;
+            this.txtProfileUpdateFirstName.Location = new System.Drawing.Point(103, 74);
+            this.txtProfileUpdateFirstName.Name = "txtProfileUpdateFirstName";
+            this.txtProfileUpdateFirstName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateFirstName.TabIndex = 3;
             // 
             // label10
             // 
@@ -510,12 +527,12 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Ad:";
             // 
-            // txtProfileEmail
+            // txtProfileUpdateEmail
             // 
-            this.txtProfileEmail.Location = new System.Drawing.Point(103, 41);
-            this.txtProfileEmail.Name = "txtProfileEmail";
-            this.txtProfileEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileEmail.TabIndex = 1;
+            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 41);
+            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
+            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateEmail.TabIndex = 1;
             // 
             // label9
             // 
@@ -536,46 +553,45 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "PROFİL BİLGİLERİM";
             // 
-            // pnlNotIslemleri
+            // pnlGlobalGradeOperations
             // 
-            this.pnlNotIslemleri.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlNotIslemleri.Controls.Add(this.groupBox4);
-            this.pnlNotIslemleri.Controls.Add(this.cmbNoteOperationsSelectSemester);
-            this.pnlNotIslemleri.Controls.Add(this.label13);
-            this.pnlNotIslemleri.Controls.Add(this.listBoxNoteOperationsCourseStudents);
-            this.pnlNotIslemleri.Controls.Add(this.label23);
-            this.pnlNotIslemleri.Controls.Add(this.listBoxNoteOperationsCurrentCourses);
-            this.pnlNotIslemleri.Controls.Add(this.label22);
-            this.pnlNotIslemleri.Controls.Add(this.cmbNoteOperationsSelectYear);
-            this.pnlNotIslemleri.Controls.Add(this.label21);
-            this.pnlNotIslemleri.Controls.Add(this.label3);
-            this.pnlNotIslemleri.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.pnlNotIslemleri.Location = new System.Drawing.Point(210, 0);
-            this.pnlNotIslemleri.Name = "pnlNotIslemleri";
-            this.pnlNotIslemleri.Size = new System.Drawing.Size(878, 493);
-            this.pnlNotIslemleri.TabIndex = 3;
+            this.pnlGlobalGradeOperations.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGlobalGradeOperations.Controls.Add(this.groupBox4);
+            this.pnlGlobalGradeOperations.Controls.Add(this.cmbGradeOperationsSelectSemester);
+            this.pnlGlobalGradeOperations.Controls.Add(this.listBoxGradeOperationsCourseStudents);
+            this.pnlGlobalGradeOperations.Controls.Add(this.lblGradeOperationsTotalStudent);
+            this.pnlGlobalGradeOperations.Controls.Add(this.listBoxGradeOperationsCurrentCourses);
+            this.pnlGlobalGradeOperations.Controls.Add(this.lblGradeOperationsTotalCourse);
+            this.pnlGlobalGradeOperations.Controls.Add(this.label21);
+            this.pnlGlobalGradeOperations.Controls.Add(this.label3);
+            this.pnlGlobalGradeOperations.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.pnlGlobalGradeOperations.Location = new System.Drawing.Point(210, 0);
+            this.pnlGlobalGradeOperations.Name = "pnlGlobalGradeOperations";
+            this.pnlGlobalGradeOperations.Size = new System.Drawing.Size(878, 493);
+            this.pnlGlobalGradeOperations.TabIndex = 3;
+            this.pnlGlobalGradeOperations.Visible = false;
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.lblNoteOperationsInfoStudentStatus);
+            this.groupBox4.Controls.Add(this.lblGradeOperationsInfoStudentStatus);
             this.groupBox4.Controls.Add(this.label38);
-            this.groupBox4.Controls.Add(this.lblNoteOperationsInfoStudentNoteAvarage);
+            this.groupBox4.Controls.Add(this.lblGradeOperationsInfoStudentGradeAvarage);
             this.groupBox4.Controls.Add(this.label36);
-            this.groupBox4.Controls.Add(this.lblNoteOperationsInfoCourseAvarage);
+            this.groupBox4.Controls.Add(this.lblGradeOperationsInfoCourseAvarage);
             this.groupBox4.Controls.Add(this.label33);
             this.groupBox4.Controls.Add(this.label11);
             this.groupBox4.Controls.Add(this.label31);
-            this.groupBox4.Controls.Add(this.txtNoteOperationsInfoSemester);
+            this.groupBox4.Controls.Add(this.txtGradeOperationsInfoSemester);
             this.groupBox4.Controls.Add(this.label32);
-            this.groupBox4.Controls.Add(this.txtNoteOperationsInfoEnrollmentDate);
+            this.groupBox4.Controls.Add(this.txtGradeOperationsInfoEnrollmentDate);
             this.groupBox4.Controls.Add(this.label26);
-            this.groupBox4.Controls.Add(this.txtNoteOperationsInfoStudentAdviser);
+            this.groupBox4.Controls.Add(this.txtGradeOperationsInfoStudentAdviser);
             this.groupBox4.Controls.Add(this.label24);
-            this.groupBox4.Controls.Add(this.txtNoteOperationsInfoStudentFullName);
-            this.groupBox4.Controls.Add(this.btnNoteOperationsSaveNotes);
-            this.groupBox4.Controls.Add(this.txtNoteOperationsInputFinal);
-            this.groupBox4.Controls.Add(this.txtNoteOperationsInputVizeButunleme);
-            this.groupBox4.Controls.Add(this.txtNoteOperationsInputVize);
+            this.groupBox4.Controls.Add(this.txtGradeOperationsInfoStudentFullName);
+            this.groupBox4.Controls.Add(this.btnGradeOperationsSaveGrades);
+            this.groupBox4.Controls.Add(this.txtGradeOperationsInputFinal);
+            this.groupBox4.Controls.Add(this.txtGradeOperationsInputButunleme);
+            this.groupBox4.Controls.Add(this.txtGradeOperationsInputVize);
             this.groupBox4.Controls.Add(this.label19);
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.label17);
@@ -586,15 +602,15 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Seçili öğrenci Bilgileri";
             // 
-            // lblNoteOperationsInfoStudentStatus
+            // lblGradeOperationsInfoStudentStatus
             // 
-            this.lblNoteOperationsInfoStudentStatus.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblNoteOperationsInfoStudentStatus.Location = new System.Drawing.Point(218, 372);
-            this.lblNoteOperationsInfoStudentStatus.Name = "lblNoteOperationsInfoStudentStatus";
-            this.lblNoteOperationsInfoStudentStatus.Size = new System.Drawing.Size(119, 18);
-            this.lblNoteOperationsInfoStudentStatus.TabIndex = 55;
-            this.lblNoteOperationsInfoStudentStatus.Text = "GEÇTİ";
-            this.lblNoteOperationsInfoStudentStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGradeOperationsInfoStudentStatus.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblGradeOperationsInfoStudentStatus.Location = new System.Drawing.Point(218, 372);
+            this.lblGradeOperationsInfoStudentStatus.Name = "lblGradeOperationsInfoStudentStatus";
+            this.lblGradeOperationsInfoStudentStatus.Size = new System.Drawing.Size(119, 18);
+            this.lblGradeOperationsInfoStudentStatus.TabIndex = 55;
+            this.lblGradeOperationsInfoStudentStatus.Text = "GEÇTİ";
+            this.lblGradeOperationsInfoStudentStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label38
             // 
@@ -606,15 +622,15 @@
             this.label38.TabIndex = 54;
             this.label38.Text = "Durumu:";
             // 
-            // lblNoteOperationsInfoStudentNoteAvarage
+            // lblGradeOperationsInfoStudentGradeAvarage
             // 
-            this.lblNoteOperationsInfoStudentNoteAvarage.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblNoteOperationsInfoStudentNoteAvarage.Location = new System.Drawing.Point(218, 320);
-            this.lblNoteOperationsInfoStudentNoteAvarage.Name = "lblNoteOperationsInfoStudentNoteAvarage";
-            this.lblNoteOperationsInfoStudentNoteAvarage.Size = new System.Drawing.Size(119, 18);
-            this.lblNoteOperationsInfoStudentNoteAvarage.TabIndex = 53;
-            this.lblNoteOperationsInfoStudentNoteAvarage.Text = "100";
-            this.lblNoteOperationsInfoStudentNoteAvarage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGradeOperationsInfoStudentGradeAvarage.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblGradeOperationsInfoStudentGradeAvarage.Location = new System.Drawing.Point(218, 320);
+            this.lblGradeOperationsInfoStudentGradeAvarage.Name = "lblGradeOperationsInfoStudentGradeAvarage";
+            this.lblGradeOperationsInfoStudentGradeAvarage.Size = new System.Drawing.Size(119, 18);
+            this.lblGradeOperationsInfoStudentGradeAvarage.TabIndex = 53;
+            this.lblGradeOperationsInfoStudentGradeAvarage.Text = "100";
+            this.lblGradeOperationsInfoStudentGradeAvarage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label36
             // 
@@ -626,15 +642,14 @@
             this.label36.TabIndex = 52;
             this.label36.Text = "Öğrenci ortalaması:";
             // 
-            // lblNoteOperationsInfoCourseAvarage
+            // lblGradeOperationsInfoCourseAvarage
             // 
-            this.lblNoteOperationsInfoCourseAvarage.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblNoteOperationsInfoCourseAvarage.Location = new System.Drawing.Point(218, 267);
-            this.lblNoteOperationsInfoCourseAvarage.Name = "lblNoteOperationsInfoCourseAvarage";
-            this.lblNoteOperationsInfoCourseAvarage.Size = new System.Drawing.Size(119, 18);
-            this.lblNoteOperationsInfoCourseAvarage.TabIndex = 51;
-            this.lblNoteOperationsInfoCourseAvarage.Text = "100";
-            this.lblNoteOperationsInfoCourseAvarage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblGradeOperationsInfoCourseAvarage.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblGradeOperationsInfoCourseAvarage.Location = new System.Drawing.Point(218, 267);
+            this.lblGradeOperationsInfoCourseAvarage.Name = "lblGradeOperationsInfoCourseAvarage";
+            this.lblGradeOperationsInfoCourseAvarage.Size = new System.Drawing.Size(119, 18);
+            this.lblGradeOperationsInfoCourseAvarage.TabIndex = 51;
+            this.lblGradeOperationsInfoCourseAvarage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label33
             // 
@@ -665,13 +680,13 @@
             this.label31.TabIndex = 48;
             this.label31.Text = "Kayıt yılı:";
             // 
-            // txtNoteOperationsInfoSemester
+            // txtGradeOperationsInfoSemester
             // 
-            this.txtNoteOperationsInfoSemester.Location = new System.Drawing.Point(272, 122);
-            this.txtNoteOperationsInfoSemester.Name = "txtNoteOperationsInfoSemester";
-            this.txtNoteOperationsInfoSemester.ReadOnly = true;
-            this.txtNoteOperationsInfoSemester.Size = new System.Drawing.Size(65, 27);
-            this.txtNoteOperationsInfoSemester.TabIndex = 47;
+            this.txtGradeOperationsInfoSemester.Location = new System.Drawing.Point(272, 122);
+            this.txtGradeOperationsInfoSemester.Name = "txtGradeOperationsInfoSemester";
+            this.txtGradeOperationsInfoSemester.ReadOnly = true;
+            this.txtGradeOperationsInfoSemester.Size = new System.Drawing.Size(65, 27);
+            this.txtGradeOperationsInfoSemester.TabIndex = 47;
             // 
             // label32
             // 
@@ -682,13 +697,13 @@
             this.label32.TabIndex = 46;
             this.label32.Text = "Dönemi:";
             // 
-            // txtNoteOperationsInfoEnrollmentDate
+            // txtGradeOperationsInfoEnrollmentDate
             // 
-            this.txtNoteOperationsInfoEnrollmentDate.Location = new System.Drawing.Point(120, 120);
-            this.txtNoteOperationsInfoEnrollmentDate.Name = "txtNoteOperationsInfoEnrollmentDate";
-            this.txtNoteOperationsInfoEnrollmentDate.ReadOnly = true;
-            this.txtNoteOperationsInfoEnrollmentDate.Size = new System.Drawing.Size(80, 27);
-            this.txtNoteOperationsInfoEnrollmentDate.TabIndex = 45;
+            this.txtGradeOperationsInfoEnrollmentDate.Location = new System.Drawing.Point(120, 120);
+            this.txtGradeOperationsInfoEnrollmentDate.Name = "txtGradeOperationsInfoEnrollmentDate";
+            this.txtGradeOperationsInfoEnrollmentDate.ReadOnly = true;
+            this.txtGradeOperationsInfoEnrollmentDate.Size = new System.Drawing.Size(80, 27);
+            this.txtGradeOperationsInfoEnrollmentDate.TabIndex = 45;
             // 
             // label26
             // 
@@ -699,13 +714,13 @@
             this.label26.TabIndex = 44;
             this.label26.Text = "Adı soyadı:";
             // 
-            // txtNoteOperationsInfoStudentAdviser
+            // txtGradeOperationsInfoStudentAdviser
             // 
-            this.txtNoteOperationsInfoStudentAdviser.Location = new System.Drawing.Point(120, 87);
-            this.txtNoteOperationsInfoStudentAdviser.Name = "txtNoteOperationsInfoStudentAdviser";
-            this.txtNoteOperationsInfoStudentAdviser.ReadOnly = true;
-            this.txtNoteOperationsInfoStudentAdviser.Size = new System.Drawing.Size(217, 27);
-            this.txtNoteOperationsInfoStudentAdviser.TabIndex = 43;
+            this.txtGradeOperationsInfoStudentAdviser.Location = new System.Drawing.Point(120, 87);
+            this.txtGradeOperationsInfoStudentAdviser.Name = "txtGradeOperationsInfoStudentAdviser";
+            this.txtGradeOperationsInfoStudentAdviser.ReadOnly = true;
+            this.txtGradeOperationsInfoStudentAdviser.Size = new System.Drawing.Size(217, 27);
+            this.txtGradeOperationsInfoStudentAdviser.TabIndex = 43;
             // 
             // label24
             // 
@@ -716,43 +731,48 @@
             this.label24.TabIndex = 42;
             this.label24.Text = "Danışmanı:";
             // 
-            // txtNoteOperationsInfoStudentFullName
+            // txtGradeOperationsInfoStudentFullName
             // 
-            this.txtNoteOperationsInfoStudentFullName.Location = new System.Drawing.Point(120, 54);
-            this.txtNoteOperationsInfoStudentFullName.Name = "txtNoteOperationsInfoStudentFullName";
-            this.txtNoteOperationsInfoStudentFullName.ReadOnly = true;
-            this.txtNoteOperationsInfoStudentFullName.Size = new System.Drawing.Size(217, 27);
-            this.txtNoteOperationsInfoStudentFullName.TabIndex = 41;
+            this.txtGradeOperationsInfoStudentFullName.Location = new System.Drawing.Point(120, 54);
+            this.txtGradeOperationsInfoStudentFullName.Name = "txtGradeOperationsInfoStudentFullName";
+            this.txtGradeOperationsInfoStudentFullName.ReadOnly = true;
+            this.txtGradeOperationsInfoStudentFullName.Size = new System.Drawing.Size(217, 27);
+            this.txtGradeOperationsInfoStudentFullName.TabIndex = 41;
             // 
-            // btnNoteOperationsSaveNotes
+            // btnGradeOperationsSaveGrades
             // 
-            this.btnNoteOperationsSaveNotes.Location = new System.Drawing.Point(100, 351);
-            this.btnNoteOperationsSaveNotes.Name = "btnNoteOperationsSaveNotes";
-            this.btnNoteOperationsSaveNotes.Size = new System.Drawing.Size(100, 30);
-            this.btnNoteOperationsSaveNotes.TabIndex = 40;
-            this.btnNoteOperationsSaveNotes.Text = "Kaydet";
-            this.btnNoteOperationsSaveNotes.UseVisualStyleBackColor = true;
+            this.btnGradeOperationsSaveGrades.Enabled = false;
+            this.btnGradeOperationsSaveGrades.Location = new System.Drawing.Point(100, 351);
+            this.btnGradeOperationsSaveGrades.Name = "btnGradeOperationsSaveGrades";
+            this.btnGradeOperationsSaveGrades.Size = new System.Drawing.Size(100, 30);
+            this.btnGradeOperationsSaveGrades.TabIndex = 40;
+            this.btnGradeOperationsSaveGrades.Text = "Kaydet";
+            this.btnGradeOperationsSaveGrades.UseVisualStyleBackColor = true;
+            this.btnGradeOperationsSaveGrades.Click += new System.EventHandler(this.btnGradeOperationsSaveGrades_Click);
             // 
-            // txtNoteOperationsInputFinal
+            // txtGradeOperationsInputFinal
             // 
-            this.txtNoteOperationsInputFinal.Location = new System.Drawing.Point(100, 278);
-            this.txtNoteOperationsInputFinal.Name = "txtNoteOperationsInputFinal";
-            this.txtNoteOperationsInputFinal.Size = new System.Drawing.Size(100, 27);
-            this.txtNoteOperationsInputFinal.TabIndex = 39;
+            this.txtGradeOperationsInputFinal.Enabled = false;
+            this.txtGradeOperationsInputFinal.Location = new System.Drawing.Point(100, 278);
+            this.txtGradeOperationsInputFinal.Name = "txtGradeOperationsInputFinal";
+            this.txtGradeOperationsInputFinal.Size = new System.Drawing.Size(100, 27);
+            this.txtGradeOperationsInputFinal.TabIndex = 39;
             // 
-            // txtNoteOperationsInputVizeButunleme
+            // txtGradeOperationsInputButunleme
             // 
-            this.txtNoteOperationsInputVizeButunleme.Location = new System.Drawing.Point(100, 314);
-            this.txtNoteOperationsInputVizeButunleme.Name = "txtNoteOperationsInputVizeButunleme";
-            this.txtNoteOperationsInputVizeButunleme.Size = new System.Drawing.Size(100, 27);
-            this.txtNoteOperationsInputVizeButunleme.TabIndex = 38;
+            this.txtGradeOperationsInputButunleme.Enabled = false;
+            this.txtGradeOperationsInputButunleme.Location = new System.Drawing.Point(100, 314);
+            this.txtGradeOperationsInputButunleme.Name = "txtGradeOperationsInputButunleme";
+            this.txtGradeOperationsInputButunleme.Size = new System.Drawing.Size(100, 27);
+            this.txtGradeOperationsInputButunleme.TabIndex = 38;
             // 
-            // txtNoteOperationsInputVize
+            // txtGradeOperationsInputVize
             // 
-            this.txtNoteOperationsInputVize.Location = new System.Drawing.Point(100, 241);
-            this.txtNoteOperationsInputVize.Name = "txtNoteOperationsInputVize";
-            this.txtNoteOperationsInputVize.Size = new System.Drawing.Size(100, 27);
-            this.txtNoteOperationsInputVize.TabIndex = 37;
+            this.txtGradeOperationsInputVize.Enabled = false;
+            this.txtGradeOperationsInputVize.Location = new System.Drawing.Point(100, 241);
+            this.txtGradeOperationsInputVize.Name = "txtGradeOperationsInputVize";
+            this.txtGradeOperationsInputVize.Size = new System.Drawing.Size(100, 27);
+            this.txtGradeOperationsInputVize.TabIndex = 37;
             // 
             // label19
             // 
@@ -781,73 +801,59 @@
             this.label17.TabIndex = 34;
             this.label17.Text = "Bütünleme:";
             // 
-            // cmbNoteOperationsSelectSemester
+            // cmbGradeOperationsSelectSemester
             // 
-            this.cmbNoteOperationsSelectSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNoteOperationsSelectSemester.FormattingEnabled = true;
-            this.cmbNoteOperationsSelectSemester.Location = new System.Drawing.Point(370, 79);
-            this.cmbNoteOperationsSelectSemester.Name = "cmbNoteOperationsSelectSemester";
-            this.cmbNoteOperationsSelectSemester.Size = new System.Drawing.Size(100, 27);
-            this.cmbNoteOperationsSelectSemester.TabIndex = 25;
+            this.cmbGradeOperationsSelectSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGradeOperationsSelectSemester.FormattingEnabled = true;
+            this.cmbGradeOperationsSelectSemester.Location = new System.Drawing.Point(206, 87);
+            this.cmbGradeOperationsSelectSemester.Name = "cmbGradeOperationsSelectSemester";
+            this.cmbGradeOperationsSelectSemester.Size = new System.Drawing.Size(159, 27);
+            this.cmbGradeOperationsSelectSemester.TabIndex = 25;
+            this.cmbGradeOperationsSelectSemester.SelectedIndexChanged += new System.EventHandler(this.cmbGradeOperationsSelectSemester_SelectedIndexChanged);
             // 
-            // label13
+            // listBoxGradeOperationsCourseStudents
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 84);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 19);
-            this.label13.TabIndex = 24;
-            this.label13.Text = "Yıl seçiniz:";
+            this.listBoxGradeOperationsCourseStudents.FormattingEnabled = true;
+            this.listBoxGradeOperationsCourseStudents.ItemHeight = 19;
+            this.listBoxGradeOperationsCourseStudents.Location = new System.Drawing.Point(243, 153);
+            this.listBoxGradeOperationsCourseStudents.Name = "listBoxGradeOperationsCourseStudents";
+            this.listBoxGradeOperationsCourseStudents.Size = new System.Drawing.Size(227, 327);
+            this.listBoxGradeOperationsCourseStudents.TabIndex = 23;
+            this.listBoxGradeOperationsCourseStudents.SelectedIndexChanged += new System.EventHandler(this.listBoxGradeOperationsCourseStudents_SelectedIndexChanged);
+            this.listBoxGradeOperationsCourseStudents.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxGradeOperationsCourseStudents_Format);
             // 
-            // listBoxNoteOperationsCourseStudents
+            // lblGradeOperationsTotalStudent
             // 
-            this.listBoxNoteOperationsCourseStudents.FormattingEnabled = true;
-            this.listBoxNoteOperationsCourseStudents.ItemHeight = 19;
-            this.listBoxNoteOperationsCourseStudents.Location = new System.Drawing.Point(243, 153);
-            this.listBoxNoteOperationsCourseStudents.Name = "listBoxNoteOperationsCourseStudents";
-            this.listBoxNoteOperationsCourseStudents.Size = new System.Drawing.Size(227, 327);
-            this.listBoxNoteOperationsCourseStudents.TabIndex = 23;
+            this.lblGradeOperationsTotalStudent.AutoSize = true;
+            this.lblGradeOperationsTotalStudent.Location = new System.Drawing.Point(242, 131);
+            this.lblGradeOperationsTotalStudent.Name = "lblGradeOperationsTotalStudent";
+            this.lblGradeOperationsTotalStudent.Size = new System.Drawing.Size(160, 19);
+            this.lblGradeOperationsTotalStudent.TabIndex = 22;
+            this.lblGradeOperationsTotalStudent.Text = "Dersi Alan Öğrenciler:";
             // 
-            // label23
+            // listBoxGradeOperationsCurrentCourses
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(242, 131);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(160, 19);
-            this.label23.TabIndex = 22;
-            this.label23.Text = "Dersi Alan Öğrenciler:";
+            this.listBoxGradeOperationsCurrentCourses.FormattingEnabled = true;
+            this.listBoxGradeOperationsCurrentCourses.ItemHeight = 19;
+            this.listBoxGradeOperationsCurrentCourses.Location = new System.Drawing.Point(10, 153);
+            this.listBoxGradeOperationsCurrentCourses.Name = "listBoxGradeOperationsCurrentCourses";
+            this.listBoxGradeOperationsCurrentCourses.Size = new System.Drawing.Size(227, 327);
+            this.listBoxGradeOperationsCurrentCourses.TabIndex = 21;
+            this.listBoxGradeOperationsCurrentCourses.SelectedIndexChanged += new System.EventHandler(this.listBoxGradeOperationsCurrentCourses_SelectedIndexChanged);
             // 
-            // listBoxNoteOperationsCurrentCourses
+            // lblGradeOperationsTotalCourse
             // 
-            this.listBoxNoteOperationsCurrentCourses.FormattingEnabled = true;
-            this.listBoxNoteOperationsCurrentCourses.ItemHeight = 19;
-            this.listBoxNoteOperationsCurrentCourses.Location = new System.Drawing.Point(10, 153);
-            this.listBoxNoteOperationsCurrentCourses.Name = "listBoxNoteOperationsCurrentCourses";
-            this.listBoxNoteOperationsCurrentCourses.Size = new System.Drawing.Size(227, 327);
-            this.listBoxNoteOperationsCurrentCourses.TabIndex = 21;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(9, 131);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(112, 19);
-            this.label22.TabIndex = 20;
-            this.label22.Text = "Verilen dersler:";
-            // 
-            // cmbNoteOperationsSelectYear
-            // 
-            this.cmbNoteOperationsSelectYear.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNoteOperationsSelectYear.FormattingEnabled = true;
-            this.cmbNoteOperationsSelectYear.Location = new System.Drawing.Point(106, 79);
-            this.cmbNoteOperationsSelectYear.Name = "cmbNoteOperationsSelectYear";
-            this.cmbNoteOperationsSelectYear.Size = new System.Drawing.Size(131, 27);
-            this.cmbNoteOperationsSelectYear.TabIndex = 18;
+            this.lblGradeOperationsTotalCourse.AutoSize = true;
+            this.lblGradeOperationsTotalCourse.Location = new System.Drawing.Point(9, 131);
+            this.lblGradeOperationsTotalCourse.Name = "lblGradeOperationsTotalCourse";
+            this.lblGradeOperationsTotalCourse.Size = new System.Drawing.Size(112, 19);
+            this.lblGradeOperationsTotalCourse.TabIndex = 20;
+            this.lblGradeOperationsTotalCourse.Text = "Verilen dersler:";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(245, 84);
+            this.label21.Location = new System.Drawing.Point(81, 92);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(119, 19);
             this.label21.TabIndex = 17;
@@ -863,25 +869,26 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "NOT İŞLEMLERİ";
             // 
-            // pnlDanismanIslemleri
+            // pnlGlobalAdviserOperations
             // 
-            this.pnlDanismanIslemleri.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlDanismanIslemleri.Controls.Add(this.groupBox5);
-            this.pnlDanismanIslemleri.Controls.Add(this.chckListBoxAdviserOperationsFinalCourseList);
-            this.pnlDanismanIslemleri.Controls.Add(this.chckListBoxAdviserOperationsAvailableCourseList);
-            this.pnlDanismanIslemleri.Controls.Add(this.label20);
-            this.pnlDanismanIslemleri.Controls.Add(this.btnAdviserOperationsSubmitFinalList);
-            this.pnlDanismanIslemleri.Controls.Add(this.btnAdviserOperationsDeleteFromFinalList);
-            this.pnlDanismanIslemleri.Controls.Add(this.btnAdviserOperationsAddToFinalList);
-            this.pnlDanismanIslemleri.Controls.Add(this.label16);
-            this.pnlDanismanIslemleri.Controls.Add(this.label6);
-            this.pnlDanismanIslemleri.Controls.Add(this.listBoxAdviserOperationsStudentList);
-            this.pnlDanismanIslemleri.Controls.Add(this.label4);
-            this.pnlDanismanIslemleri.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.pnlDanismanIslemleri.Location = new System.Drawing.Point(210, 0);
-            this.pnlDanismanIslemleri.Name = "pnlDanismanIslemleri";
-            this.pnlDanismanIslemleri.Size = new System.Drawing.Size(878, 493);
-            this.pnlDanismanIslemleri.TabIndex = 4;
+            this.pnlGlobalAdviserOperations.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGlobalAdviserOperations.Controls.Add(this.groupBox5);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.chckListBoxAdviserOperationsFinalCourseList);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.chckListBoxAdviserOperationsAvailableCourseList);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.label20);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.btnAdviserOperationsSubmitFinalList);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.btnAdviserOperationsDeleteFromFinalList);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.btnAdviserOperationsAddToFinalList);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.label16);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.label6);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.listBoxAdviserOperationsStudentList);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.label4);
+            this.pnlGlobalAdviserOperations.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.pnlGlobalAdviserOperations.Location = new System.Drawing.Point(210, 0);
+            this.pnlGlobalAdviserOperations.Name = "pnlGlobalAdviserOperations";
+            this.pnlGlobalAdviserOperations.Size = new System.Drawing.Size(878, 493);
+            this.pnlGlobalAdviserOperations.TabIndex = 4;
+            this.pnlGlobalAdviserOperations.Visible = false;
             // 
             // groupBox5
             // 
@@ -1087,15 +1094,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1087, 518);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
+            this.Controls.Add(this.pnlGlobalGradeOperations);
+            this.Controls.Add(this.pnlGlobalAdviserOperations);
             this.Controls.Add(this.pnlGlobalProfile);
-            this.Controls.Add(this.pnlNotIslemleri);
-            this.Controls.Add(this.pnlDanismanIslemleri);
             this.MaximumSize = new System.Drawing.Size(1103, 557);
-            this.MinimumSize = new System.Drawing.Size(1103, 557);
+            this.MinimumSize = new System.Drawing.Size(1078, 557);
             this.Name = "InstructorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Öğretim Görevlisi Paneli";
@@ -1109,12 +1116,12 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.pnlNotIslemleri.ResumeLayout(false);
-            this.pnlNotIslemleri.PerformLayout();
+            this.pnlGlobalGradeOperations.ResumeLayout(false);
+            this.pnlGlobalGradeOperations.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.pnlDanismanIslemleri.ResumeLayout(false);
-            this.pnlDanismanIslemleri.PerformLayout();
+            this.pnlGlobalAdviserOperations.ResumeLayout(false);
+            this.pnlGlobalAdviserOperations.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -1127,13 +1134,13 @@
         private System.Windows.Forms.Panel pnlLeftBar;
         private System.Windows.Forms.Button btnGlobalProfile;
         private System.Windows.Forms.Button btnGlobalAdviserOperations;
-        private System.Windows.Forms.Button btnGlobalNoteOperations;
+        private System.Windows.Forms.Button btnGlobalGradeOperations;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlGlobalProfile;
-        private System.Windows.Forms.Panel pnlNotIslemleri;
+        private System.Windows.Forms.Panel pnlGlobalGradeOperations;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel pnlDanismanIslemleri;
+        private System.Windows.Forms.Panel pnlGlobalAdviserOperations;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox listBoxAdviserOperationsStudentList;
         private System.Windows.Forms.Label label6;
@@ -1142,12 +1149,11 @@
         private System.Windows.Forms.Button btnAdviserOperationsDeleteFromFinalList;
         private System.Windows.Forms.Button btnAdviserOperationsAddToFinalList;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox cmbNoteOperationsSelectYear;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.ListBox listBoxNoteOperationsCourseStudents;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ListBox listBoxNoteOperationsCurrentCourses;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ListBox listBoxGradeOperationsCourseStudents;
+        private System.Windows.Forms.Label lblGradeOperationsTotalStudent;
+        private System.Windows.Forms.ListBox listBoxGradeOperationsCurrentCourses;
+        private System.Windows.Forms.Label lblGradeOperationsTotalCourse;
         private System.Windows.Forms.Label lblProfileLastProfileUpdate;
         private System.Windows.Forms.TextBox txtProfileInstructorNo;
         private System.Windows.Forms.Label label8;
@@ -1161,13 +1167,13 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnProfileUpdate;
-        private System.Windows.Forms.TextBox txtProfilePhone;
+        private System.Windows.Forms.TextBox txtProfileUpdatePhone;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtProfileLastName;
+        private System.Windows.Forms.TextBox txtProfileUpdateLastName;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtProfileFirstName;
+        private System.Windows.Forms.TextBox txtProfileUpdateFirstName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtProfileEmail;
+        private System.Windows.Forms.TextBox txtProfileUpdateEmail;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -1181,28 +1187,27 @@
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.TextBox txtProfileInfoEmail;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.ComboBox cmbNoteOperationsSelectSemester;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox cmbGradeOperationsSelectSemester;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label lblNoteOperationsInfoStudentStatus;
+        private System.Windows.Forms.Label lblGradeOperationsInfoStudentStatus;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label lblNoteOperationsInfoStudentNoteAvarage;
+        private System.Windows.Forms.Label lblGradeOperationsInfoStudentGradeAvarage;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.Label lblNoteOperationsInfoCourseAvarage;
+        private System.Windows.Forms.Label lblGradeOperationsInfoCourseAvarage;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.TextBox txtNoteOperationsInfoSemester;
+        private System.Windows.Forms.TextBox txtGradeOperationsInfoSemester;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.TextBox txtNoteOperationsInfoEnrollmentDate;
+        private System.Windows.Forms.TextBox txtGradeOperationsInfoEnrollmentDate;
         private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txtNoteOperationsInfoStudentAdviser;
+        private System.Windows.Forms.TextBox txtGradeOperationsInfoStudentAdviser;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox txtNoteOperationsInfoStudentFullName;
-        private System.Windows.Forms.Button btnNoteOperationsSaveNotes;
-        private System.Windows.Forms.TextBox txtNoteOperationsInputFinal;
-        private System.Windows.Forms.TextBox txtNoteOperationsInputVizeButunleme;
-        private System.Windows.Forms.TextBox txtNoteOperationsInputVize;
+        private System.Windows.Forms.TextBox txtGradeOperationsInfoStudentFullName;
+        private System.Windows.Forms.Button btnGradeOperationsSaveGrades;
+        private System.Windows.Forms.TextBox txtGradeOperationsInputFinal;
+        private System.Windows.Forms.TextBox txtGradeOperationsInputButunleme;
+        private System.Windows.Forms.TextBox txtGradeOperationsInputVize;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
@@ -1219,5 +1224,6 @@
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.CheckedListBox chckListBoxAdviserOperationsFinalCourseList;
         private System.Windows.Forms.CheckedListBox chckListBoxAdviserOperationsAvailableCourseList;
+        private System.Windows.Forms.Button btnGlobalLogOut;
     }
 }

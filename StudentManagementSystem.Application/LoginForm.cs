@@ -39,9 +39,17 @@ namespace StudentManagementSystem.Application
                 }
                 else if (result.Data.GetType() == typeof(Instructor))
                 {
-                    InstructorForm instructorForm = new InstructorForm();
                     var instructor = (Instructor)result.Data;
                     MessageBox.Show($@"Hoşgeldiniz {instructor.FirstName} {instructor.LastName}.", Messages.InstructorLogin);
+                    InstructorForm instructorForm = new InstructorForm(
+                        instructor,
+                        this,
+                        new DepartmentManager(new SqlDepartmentDal()),
+                        new InstructorManager(new SqlInstructorDal(), new CatalogCourseManager(new SqlCatalogCourseDal())),
+                        new CatalogCourseManager(new SqlCatalogCourseDal()),
+                        new StudentManager(new SqlStudentDal(), new EnrolledCourseManager(new SqlEnrolledCourseDal())),
+                        new EnrolledCourseManager(new SqlEnrolledCourseDal())
+                    );
                     this.Hide();
                     instructorForm.Show();
                 }

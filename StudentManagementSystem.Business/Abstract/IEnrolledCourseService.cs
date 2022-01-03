@@ -7,5 +7,6 @@ namespace StudentManagementSystem.Business.Abstract
     public interface IEnrolledCourseService : IEntityCrudService<EnrolledCourse>
     {
         IDataResult<List<EnrolledCourse>> GetAllByStudentNo(int studentNo);
+        IDataResult<EnrolledCourse> GetByCourseNoAndStudentNo(int courseNo, int studentNo);
     }
 }

@@ -49,6 +49,11 @@ namespace StudentManagementSystem.Business.Concrete
             return _catalogCourseDal.GetAll(new Dictionary<string, dynamic>() { { "bolum_no", departmentNo } });
         }
 
+        public IDataResult<List<CatalogCourse>> GetAllByInstructorNo(int instructorNo)
+        {
+            return _catalogCourseDal.GetAll(new Dictionary<string, dynamic>() { { "ogretim_uyesi_no", instructorNo } });
+        }
+
         public IDataResult<List<CatalogCourse>> GetAllContainCourseName(string courseName)
         {
             var courseResult = _catalogCourseDal.GetAll(null);
