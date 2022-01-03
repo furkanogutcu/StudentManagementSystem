@@ -56,8 +56,21 @@ namespace StudentManagementSystem.Application
                 }
                 else
                 {
-                    e.Cancel = true;
+                    e.Cancel = true;    // Stop close
                 }
+            }
+        }
+
+        private void btnGlobalLogOut_Click(object sender, EventArgs e)
+        {
+            var dialogResult = MessageBox.Show("Hesabınızdan çıkış yapmak istediğinize emin misiniz?", "Güvenli Çıkış", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                // https://stackoverflow.com/questions/10626396/how-to-bypass-formclosing-event
+                this.FormClosing -= OfficerForm_FormClosing;
+                this.Close();
+                _application.Show();
             }
         }
 

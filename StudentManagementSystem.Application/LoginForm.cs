@@ -61,6 +61,8 @@ namespace StudentManagementSystem.Application
                     this.Hide();
                     officerForm.Show();
                 }
+                txtGlobalUsername.Clear();
+                txtGlobalPassword.Clear();
             }
             else
             {

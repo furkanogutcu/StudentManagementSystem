@@ -44,7 +44,7 @@ namespace StudentManagementSystem.Application
             _panels.Add(pnlGlobalTranscript);
         }
 
-        // Private Methods
+        // Other Methods
 
         private void StudentForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -58,11 +58,24 @@ namespace StudentManagementSystem.Application
                 }
                 else
                 {
-                    e.Cancel = true;
+                    e.Cancel = true;    // Stop close
                 }
             }
 
             // If a shutdown call comes from the system (e.CloseReason == CloseReason.ApplicationExitCall), it will be shut down directly. For example, restarting the application when the password is changed.
+        }
+
+        private void btnGlobalLogOut_Click(object sender, EventArgs e)
+        {
+            var dialogResult = MessageBox.Show("Hesabınızdan çıkış yapmak istediğinize emin misiniz?", "Güvenli Çıkış", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                // https://stackoverflow.com/questions/10626396/how-to-bypass-formclosing-event
+                this.FormClosing -= StudentForm_FormClosing;
+                this.Close();
+                _application.Show();
+            }
         }
 
         // Global Methods
