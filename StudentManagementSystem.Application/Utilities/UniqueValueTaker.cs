@@ -49,32 +49,39 @@ namespace StudentManagementSystem.Application.Utilities
             // The first item selected in the listbox is of T type. The next selected items are of type int.
             var tempObject = comboBox.SelectedItem;
 
-            switch (typeof(T).Name)
+            if (tempObject == null)
             {
-                case nameof(Department):
-                    uniqueValueOfSelectedIndex = ((Department)tempObject).DepartmentNo;
-                    break;
-                case nameof(Student):
-                    uniqueValueOfSelectedIndex = ((Student)tempObject).StudentNo;
-                    break;
-                case nameof(Officer):
-                    uniqueValueOfSelectedIndex = ((Officer)tempObject).OfficerNo;
-                    break;
-                case nameof(Instructor):
-                    uniqueValueOfSelectedIndex = ((Instructor)tempObject).InstructorNo;
-                    break;
-                case nameof(EnrolledCourse):
-                    uniqueValueOfSelectedIndex = ((EnrolledCourse)tempObject).Id;
-                    break;
-                case nameof(CatalogCourse):
-                    uniqueValueOfSelectedIndex = ((CatalogCourse)tempObject).CourseNo;
-                    break;
-                case nameof(AdviserApproval):
-                    uniqueValueOfSelectedIndex = ((AdviserApproval)tempObject).Id;
-                    break;
-                default:
-                    uniqueValueOfSelectedIndex = Convert.ToInt32(comboBox.SelectedItem);
-                    break;
+                uniqueValueOfSelectedIndex = Convert.ToInt32(comboBox.SelectedItem);
+            }
+            else
+            {
+                switch (typeof(T).Name)
+                {
+                    case nameof(Department):
+                        uniqueValueOfSelectedIndex = ((Department)tempObject).DepartmentNo;
+                        break;
+                    case nameof(Student):
+                        uniqueValueOfSelectedIndex = ((Student)tempObject).StudentNo;
+                        break;
+                    case nameof(Officer):
+                        uniqueValueOfSelectedIndex = ((Officer)tempObject).OfficerNo;
+                        break;
+                    case nameof(Instructor):
+                        uniqueValueOfSelectedIndex = ((Instructor)tempObject).InstructorNo;
+                        break;
+                    case nameof(EnrolledCourse):
+                        uniqueValueOfSelectedIndex = ((EnrolledCourse)tempObject).Id;
+                        break;
+                    case nameof(CatalogCourse):
+                        uniqueValueOfSelectedIndex = ((CatalogCourse)tempObject).CourseNo;
+                        break;
+                    case nameof(AdviserApproval):
+                        uniqueValueOfSelectedIndex = ((AdviserApproval)tempObject).Id;
+                        break;
+                    default:
+                        uniqueValueOfSelectedIndex = Convert.ToInt32(comboBox.SelectedItem);
+                        break;
+                }
             }
 
             return uniqueValueOfSelectedIndex;

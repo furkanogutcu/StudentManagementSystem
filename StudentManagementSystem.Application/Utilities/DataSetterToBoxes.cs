@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using StudentManagementSystem.Core.Entities;
 using StudentManagementSystem.Entities.Concrete;
@@ -45,13 +46,18 @@ namespace StudentManagementSystem.Application.Utilities
             }
         }
 
-        public static void SetDataToComboBox<T>(ComboBox comboBox, List<T> dataList)
+        public static void SetDataToComboBox<T>(ComboBox comboBox, List<T> dataList, Func<T, bool> condition)
             where T : class, IEntity, new()
         {
             var finalData = new List<T>();
             foreach (var data in dataList)
             {
                 finalData.Add(data);
+            }
+
+            if (condition != null)
+            {
+                finalData = finalData.Where(condition).ToList();
             }
 
             comboBox.DataSource = finalData;

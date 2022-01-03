@@ -79,6 +79,7 @@
         public static string YouMustSelectAtLeastOneDepartment = "En az bir bölüm seçmelisiniz";
         public static string YouMustSelectAtLeastOneCourse = "En az bir ders seçmelisiniz";
         public static string YouMustSelectAtLeastOneStudent = "En az bir öğrenci seçmelisiniz";
+        public static string YouMustSelectAtLeastOneInstructor = "En az bir öğretim görevlisi seçmelisiniz";
 
         public static string AssignmentCompletedSuccessfully = "Atama işlemi başarıyla tamamlandı";
         public static string TheAdvisorYouWantToAppointIsTheSameAsTheOldAdvisor = "Atamaya çalıştığınız danışman eski danışman ile aynı";

@@ -176,6 +176,7 @@
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.btnInstructorOperationsResetPassword = new System.Windows.Forms.Button();
             this.btnInstructorOperationsDelete = new System.Windows.Forms.Button();
             this.txtInstructorOperationsInfoPhone = new System.Windows.Forms.TextBox();
             this.label48 = new System.Windows.Forms.Label();
@@ -227,6 +228,7 @@
             this.label71 = new System.Windows.Forms.Label();
             this.label72 = new System.Windows.Forms.Label();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.btnStudentOperationsResetPassword = new System.Windows.Forms.Button();
             this.chbxStudentOperationsInfoStudentDepartmentEnabled = new System.Windows.Forms.CheckBox();
             this.cmbStudentOperationsInfoDepartment = new System.Windows.Forms.ComboBox();
             this.btnStudenOperationsChangeStudentDepartment = new System.Windows.Forms.Button();
@@ -317,8 +319,6 @@
             this.chckListBoxAssignAdviserBatchCourses = new System.Windows.Forms.CheckedListBox();
             this.chckListBoxAssignAdviserBatchDepartments = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnStudentOperationsResetPassword = new System.Windows.Forms.Button();
-            this.btnInstructorOperationsResetPassword = new System.Windows.Forms.Button();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalProfile.SuspendLayout();
@@ -1309,6 +1309,7 @@
             this.cmbCourseOperationsCourseInfoDepartment.Name = "cmbCourseOperationsCourseInfoDepartment";
             this.cmbCourseOperationsCourseInfoDepartment.Size = new System.Drawing.Size(195, 26);
             this.cmbCourseOperationsCourseInfoDepartment.TabIndex = 13;
+            this.cmbCourseOperationsCourseInfoDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbCourseOperationsCourseInfoDepartment_SelectedIndexChanged);
             // 
             // btnCourseOperationsUpdate
             // 
@@ -1632,6 +1633,7 @@
             this.cmbCourseOperationsAddCourseDepartment.Name = "cmbCourseOperationsAddCourseDepartment";
             this.cmbCourseOperationsAddCourseDepartment.Size = new System.Drawing.Size(195, 26);
             this.cmbCourseOperationsAddCourseDepartment.TabIndex = 13;
+            this.cmbCourseOperationsAddCourseDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbCourseOperationsAddCourseDepartment_SelectedIndexChanged);
             // 
             // btnCourseOperationsAdd
             // 
@@ -1893,6 +1895,16 @@
             this.groupBox17.TabIndex = 5;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "Öğretim Görevlisi Bilgileri";
+            // 
+            // btnInstructorOperationsResetPassword
+            // 
+            this.btnInstructorOperationsResetPassword.Location = new System.Drawing.Point(137, 158);
+            this.btnInstructorOperationsResetPassword.Name = "btnInstructorOperationsResetPassword";
+            this.btnInstructorOperationsResetPassword.Size = new System.Drawing.Size(107, 28);
+            this.btnInstructorOperationsResetPassword.TabIndex = 47;
+            this.btnInstructorOperationsResetPassword.Text = "Şifreyi sıfırla";
+            this.btnInstructorOperationsResetPassword.UseVisualStyleBackColor = true;
+            this.btnInstructorOperationsResetPassword.Click += new System.EventHandler(this.btnInstructorOperationsResetPassword_Click);
             // 
             // btnInstructorOperationsDelete
             // 
@@ -2363,6 +2375,7 @@
             this.cmbStudentOperationsAddDepartment.Name = "cmbStudentOperationsAddDepartment";
             this.cmbStudentOperationsAddDepartment.Size = new System.Drawing.Size(240, 23);
             this.cmbStudentOperationsAddDepartment.TabIndex = 30;
+            this.cmbStudentOperationsAddDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbStudentOperationsAddDepartment_SelectedIndexChanged);
             // 
             // btnStudentOperationsAdd
             // 
@@ -2423,6 +2436,16 @@
             this.groupBox21.TabIndex = 2;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "Öğrenci Bilgileri";
+            // 
+            // btnStudentOperationsResetPassword
+            // 
+            this.btnStudentOperationsResetPassword.Location = new System.Drawing.Point(19, 233);
+            this.btnStudentOperationsResetPassword.Name = "btnStudentOperationsResetPassword";
+            this.btnStudentOperationsResetPassword.Size = new System.Drawing.Size(107, 33);
+            this.btnStudentOperationsResetPassword.TabIndex = 46;
+            this.btnStudentOperationsResetPassword.Text = "Şifreyi sıfırla";
+            this.btnStudentOperationsResetPassword.UseVisualStyleBackColor = true;
+            this.btnStudentOperationsResetPassword.Click += new System.EventHandler(this.btnStudentOperationsResetPassword_Click);
             // 
             // chbxStudentOperationsInfoStudentDepartmentEnabled
             // 
@@ -3339,26 +3362,6 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "DANIŞMAN ATA";
             // 
-            // btnStudentOperationsResetPassword
-            // 
-            this.btnStudentOperationsResetPassword.Location = new System.Drawing.Point(19, 233);
-            this.btnStudentOperationsResetPassword.Name = "btnStudentOperationsResetPassword";
-            this.btnStudentOperationsResetPassword.Size = new System.Drawing.Size(107, 33);
-            this.btnStudentOperationsResetPassword.TabIndex = 46;
-            this.btnStudentOperationsResetPassword.Text = "Şifreyi sıfırla";
-            this.btnStudentOperationsResetPassword.UseVisualStyleBackColor = true;
-            this.btnStudentOperationsResetPassword.Click += new System.EventHandler(this.btnStudentOperationsResetPassword_Click);
-            // 
-            // btnInstructorOperationsResetPassword
-            // 
-            this.btnInstructorOperationsResetPassword.Location = new System.Drawing.Point(137, 158);
-            this.btnInstructorOperationsResetPassword.Name = "btnInstructorOperationsResetPassword";
-            this.btnInstructorOperationsResetPassword.Size = new System.Drawing.Size(107, 28);
-            this.btnInstructorOperationsResetPassword.TabIndex = 47;
-            this.btnInstructorOperationsResetPassword.Text = "Şifreyi sıfırla";
-            this.btnInstructorOperationsResetPassword.UseVisualStyleBackColor = true;
-            this.btnInstructorOperationsResetPassword.Click += new System.EventHandler(this.btnInstructorOperationsResetPassword_Click);
-            // 
             // OfficerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3367,12 +3370,12 @@
             this.ClientSize = new System.Drawing.Size(1087, 572);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
+            this.Controls.Add(this.pnlGlobalAssignAdviser);
+            this.Controls.Add(this.pnlGlobalStudentOperations);
             this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Controls.Add(this.pnlGlobalCourseOperations);
             this.Controls.Add(this.pnlGlobalProfile);
             this.Controls.Add(this.pnlGlobalDepartmentOperations);
-            this.Controls.Add(this.pnlGlobalAssignAdviser);
-            this.Controls.Add(this.pnlGlobalStudentOperations);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
