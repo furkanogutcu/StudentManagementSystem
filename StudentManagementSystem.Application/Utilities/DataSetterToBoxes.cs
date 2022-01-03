@@ -124,5 +124,35 @@ namespace StudentManagementSystem.Application.Utilities
                     throw new Exception("Tip eşleme hatası");
             }
         }
+
+        public static void SetComboBoxSelectedItem<T>(ComboBox comboBox, string primaryField)
+            where T : class, IEntity, new()
+        {
+            for (int i = 0; i < comboBox.Items.Count; i++)
+            {
+                var selectedItem = comboBox.Items[i];
+
+                bool condition;
+
+                switch (typeof(T).Name)
+                {
+                    case nameof(Department):
+                        condition = ((Department)selectedItem).DepartmentNo == Convert.ToInt32(primaryField);
+                        break;
+                    case nameof(Instructor):
+                        condition = ((Instructor)selectedItem).InstructorNo == Convert.ToInt32(primaryField);
+                        break;
+                    default:
+                        condition = false;
+                        break;
+                }
+
+                if (condition)
+                {
+                    comboBox.SelectedItem = comboBox.Items[i];
+                    break;
+                }
+            }
+        }
     }
 }

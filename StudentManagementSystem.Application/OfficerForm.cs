@@ -230,113 +230,6 @@ namespace StudentManagementSystem.Application
             }
         }
 
-        // GLOBAL PRIVATE METHODS
-
-        private void AddOperationForAddButtons<T>(IEntityCrudService<T> service, T addedEntity, Delegate methodToRunAfterAdd)
-            where T : class, IEntity, new()
-        {
-            var addResult = service.Add(addedEntity);
-            if (addResult.Success)
-            {
-                MessageBox.Show(Messages.AdditionComplete, Messages.Successful);
-                methodToRunAfterAdd.DynamicInvoke();
-            }
-            else
-            {
-                MessageBox.Show($"{Messages.SomethingWentWrongWhileAddition}:\n\n{addResult.Message}", Messages.ServerError);
-            }
-        }
-
-        private void DeleteOperationForDeleteButtons<T>(IEntityCrudService<T> service, T deletedEntity, Delegate methodToRunAfterDeletion)
-            where T : class, IEntity, new()
-        {
-            var deleteResult = service.Delete(deletedEntity);
-            if (deleteResult.Success)
-            {
-                MessageBox.Show(Messages.DeletionComplete, Messages.Successful);
-                methodToRunAfterDeletion.DynamicInvoke();
-            }
-            else
-            {
-                MessageBox.Show($"{Messages.SomethingWentWrongWhileDeletion}:\n\n{deleteResult.Message}", Messages.ServerError);
-            }
-        }
-
-        private void UpdateOperationForUpdateButtons<T>(IEntityCrudService<T> service, T updatedEntity, Delegate methodToRunAfterUpdate)
-            where T : class, IEntity, new()
-        {
-            var updateResult = service.Update(updatedEntity);
-            if (updateResult.Success)
-            {
-                MessageBox.Show(Messages.UpdateComplete, Messages.Successful);
-                methodToRunAfterUpdate.DynamicInvoke();
-            }
-            else
-            {
-                MessageBox.Show($"{Messages.SomethingWentWrongWhileUpdate}:\n\n{updateResult.Message}", Messages.ServerError);
-            }
-        }
-
-        private void SwitchUpdateTextBoxEnabled(CheckBox controlCheckBox, TextBox targetTextBox)
-        {
-            targetTextBox.Enabled = true;
-            targetTextBox.ReadOnly = !controlCheckBox.Checked;
-        }
-        private void SwitchUpdateComboBoxEnabled(CheckBox controlCheckBox, ComboBox controlComboBox)
-        {
-            controlComboBox.Enabled = controlCheckBox.Checked;
-        }
-
-        private void SetComboBoxSelectedItem<T>(ComboBox comboBox, string primaryField)
-            where T : class, IEntity, new()
-        {
-            for (int i = 0; i < comboBox.Items.Count; i++)
-            {
-                var selectedItem = comboBox.Items[i];
-
-                bool condition;
-
-                switch (typeof(T).Name)
-                {
-                    case nameof(Department):
-                        condition = ((Department)selectedItem).DepartmentNo == Convert.ToInt32(primaryField);
-                        break;
-                    case nameof(Instructor):
-                        condition = ((Instructor)selectedItem).InstructorNo == Convert.ToInt32(primaryField);
-                        break;
-                    default:
-                        condition = false;
-                        break;
-                }
-
-                if (condition)
-                {
-                    comboBox.SelectedItem = comboBox.Items[i];
-                    break;
-                }
-            }
-        }
-
-        private void ApplySearchToListbox<T>(ListBox targetListbox, IDataResult<List<T>> searchResult, List<TextBox> textBoxesToClearAfterProcess)
-            where T : class, IEntity, new()
-        {
-            if (searchResult.Success)
-            {
-                foreach (var textBox in textBoxesToClearAfterProcess)
-                {
-                    textBox.Text = string.Empty;
-                }
-                DataSetterToBoxes.SetDataToListBox<T>(targetListbox, searchResult.Data);
-                MessageBox.Show(Messages.CreateSearchResultMessage(searchResult.Data.Count), Messages.Information);
-            }
-            else
-            {
-                MessageBox.Show($"{Messages.SomethingWentWrongWhileSearching}:\n\n{searchResult.Message}", Messages.ServerError);
-            }
-        }
-
-        // GLOBAL PRIVATE METHODS END
-
         // Profile Methods
 
         private void btnProfileUpdate_Click(object sender, System.EventArgs e)
@@ -494,7 +387,7 @@ namespace StudentManagementSystem.Application
                 var messageDialogResult = MessageBox.Show($@"{deletedDepartmentResult.Data.DepartmentName} isimli bölüm silinecek. Onaylıyor musunuz?", Messages.DeleteConfirmation, MessageBoxButtons.YesNo);
                 if (messageDialogResult == DialogResult.Yes)
                 {
-                    DeleteOperationForDeleteButtons<Department>(_departmentService, deletedDepartmentResult.Data, ReBuildDepartmentPanel);
+                    CrudForButtons.DeleteOperationForDeleteButtons<Department>(_departmentService, deletedDepartmentResult.Data, ReBuildDepartmentPanel);
                 }
             }
             else
@@ -547,7 +440,7 @@ namespace StudentManagementSystem.Application
                 if (messageDialogResult == DialogResult.Yes)
                 {
                     updatedDepartmentDetailsResult.Data.DepartmentName = txtDepartmentOperationsUpdateDepartmentName.Text;
-                    UpdateOperationForUpdateButtons<Department>(_departmentService, updateDepartment, ReBuildDepartmentPanel);
+                    CrudForButtons.UpdateOperationForUpdateButtons<Department>(_departmentService, updateDepartment, ReBuildDepartmentPanel);
                 }
             }
             else
@@ -579,7 +472,7 @@ namespace StudentManagementSystem.Application
             var messageDialogResult = MessageBox.Show($@"{addedDepartment.DepartmentName} isimli yeni bir bölüm eklenecek. Onaylıyor musunuz?", Messages.AddConfirmation, MessageBoxButtons.YesNo);
             if (messageDialogResult == DialogResult.Yes)
             {
-                AddOperationForAddButtons<Department>(_departmentService, addedDepartment, ReBuildDepartmentPanel);
+                CrudForButtons.AddOperationForAddButtons<Department>(_departmentService, addedDepartment, ReBuildDepartmentPanel);
             }
         }
 
@@ -608,13 +501,13 @@ namespace StudentManagementSystem.Application
                 }
                 var departmentResult = _departmentService.GetAllByDepartmentNo(Convert.ToInt32(txtDepartmentOperationsSearchByDepartmentNo.Text));
 
-                ApplySearchToListbox(listBoxDepartmentOperationsCurrentDepartments, departmentResult, textBoxesToClearAfterProcess);
+                SearchingTool.ApplySearchToListbox(listBoxDepartmentOperationsCurrentDepartments, departmentResult, textBoxesToClearAfterProcess);
             }
             else if (txtDepartmentOperationsSearchByDepartmentNo.Text == string.Empty &&
                      txtDepartmentOperationsSearchByDepartmentName.Text != string.Empty)
             {
                 var departmentResult = _departmentService.GetAllContainDepartmentName(txtDepartmentOperationsSearchByDepartmentName.Text);
-                ApplySearchToListbox(listBoxDepartmentOperationsCurrentDepartments, departmentResult, textBoxesToClearAfterProcess);
+                SearchingTool.ApplySearchToListbox(listBoxDepartmentOperationsCurrentDepartments, departmentResult, textBoxesToClearAfterProcess);
             }
             else
             {
@@ -651,8 +544,8 @@ namespace StudentManagementSystem.Application
                     txtCourseOperationsCourseInfoCourseNo.Text = selectedCourseResult.Data.CourseNo.ToString();
                     txtCourseOperationsCourseInfoCourseName.Text = selectedCourseResult.Data.CourseName;
 
-                    SetComboBoxSelectedItem<Department>(cmbCourseOperationsCourseInfoDepartment, departmentResult.Data.DepartmentNo.ToString());    //FIXME
-                    SetComboBoxSelectedItem<Instructor>(cmbCourseOperationsCourseInfoInstructor, instructorResult.Data.InstructorNo.ToString());    //FIXME
+                    DataSetterToBoxes.SetComboBoxSelectedItem<Department>(cmbCourseOperationsCourseInfoDepartment, departmentResult.Data.DepartmentNo.ToString());    //FIXME
+                    DataSetterToBoxes.SetComboBoxSelectedItem<Instructor>(cmbCourseOperationsCourseInfoInstructor, instructorResult.Data.InstructorNo.ToString());    //FIXME
 
                     txtCourseOperationsCourseInfoCredit.Text = selectedCourseResult.Data.Credit.ToString();
                     txtCourseOperationsCourseInfoCourseYear.Text = selectedCourseResult.Data.CourseYear.ToString();
@@ -682,32 +575,32 @@ namespace StudentManagementSystem.Application
 
         private void chbxCourseOperationsCourseInfoCourseNameEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCourseNameEnabled, txtCourseOperationsCourseInfoCourseName);
+            EnableStateSwitcher.SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCourseNameEnabled, txtCourseOperationsCourseInfoCourseName);
         }
 
         private void chbxCourseOperationsCourseInfoDepartmentEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            SwitchUpdateComboBoxEnabled(chbxCourseOperationsCourseInfoDepartmentEnabled, cmbCourseOperationsCourseInfoDepartment);
+            EnableStateSwitcher.SwitchUpdateComboBoxEnabled(chbxCourseOperationsCourseInfoDepartmentEnabled, cmbCourseOperationsCourseInfoDepartment);
         }
 
         private void chbxCourseOperationsCourseInfoInstructorEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            SwitchUpdateComboBoxEnabled(chbxCourseOperationsCourseInfoInstructorEnabled, cmbCourseOperationsCourseInfoInstructor);
+            EnableStateSwitcher.SwitchUpdateComboBoxEnabled(chbxCourseOperationsCourseInfoInstructorEnabled, cmbCourseOperationsCourseInfoInstructor);
         }
 
         private void chbxCourseOperationsCourseInfoCreditEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCreditEnabled, txtCourseOperationsCourseInfoCredit);
+            EnableStateSwitcher.SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCreditEnabled, txtCourseOperationsCourseInfoCredit);
         }
 
         private void chbxCourseOperationsCourseInfoCourseYearEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCourseYearEnabled, txtCourseOperationsCourseInfoCourseYear);
+            EnableStateSwitcher.SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCourseYearEnabled, txtCourseOperationsCourseInfoCourseYear);
         }
 
         private void chbxCourseOperationsCourseInfoSemesterEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoSemesterEnabled, txtCourseOperationsCourseInfoSemester);
+            EnableStateSwitcher.SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoSemesterEnabled, txtCourseOperationsCourseInfoSemester);
         }
 
         private void btnCourseOperationsDelete_Click(object sender, EventArgs e)
@@ -723,7 +616,7 @@ namespace StudentManagementSystem.Application
                 var messageDialogResult = MessageBox.Show($@"{deletedCourseResult.Data.CourseName} isimli ders silinecek. Onaylıyor musunuz?", Messages.DeleteConfirmation, MessageBoxButtons.YesNo);
                 if (messageDialogResult == DialogResult.Yes)
                 {
-                    DeleteOperationForDeleteButtons<CatalogCourse>(_catalogCourseService, deletedCourseResult.Data, ReBuildCoursePanel);
+                    CrudForButtons.DeleteOperationForDeleteButtons<CatalogCourse>(_catalogCourseService, deletedCourseResult.Data, ReBuildCoursePanel);
                 }
             }
             else
@@ -809,7 +702,7 @@ namespace StudentManagementSystem.Application
                 var messageDialogResult = MessageBox.Show(message, Messages.UpdateConfirmation, MessageBoxButtons.YesNo);
                 if (messageDialogResult == DialogResult.Yes)
                 {
-                    UpdateOperationForUpdateButtons<CatalogCourse>(_catalogCourseService, updatedCourse, ReBuildCoursePanel);
+                    CrudForButtons.UpdateOperationForUpdateButtons<CatalogCourse>(_catalogCourseService, updatedCourse, ReBuildCoursePanel);
                 }
             }
             else
@@ -871,7 +764,7 @@ namespace StudentManagementSystem.Application
             var messageDialogResult = MessageBox.Show($@"{addedCourse.CourseName} isimli yeni bir ders eklenecek. Onaylıyor musunuz?", Messages.AddConfirmation, MessageBoxButtons.YesNo);
             if (messageDialogResult == DialogResult.Yes)
             {
-                AddOperationForAddButtons<CatalogCourse>(_catalogCourseService, addedCourse, ReBuildCoursePanel);
+                CrudForButtons.AddOperationForAddButtons<CatalogCourse>(_catalogCourseService, addedCourse, ReBuildCoursePanel);
             }
         }
 
@@ -899,14 +792,14 @@ namespace StudentManagementSystem.Application
                     return;
                 }
                 var courseResult = _catalogCourseService.GetAllByCourseNo(Convert.ToInt32(txtCourseOperationsCourseInfoSearchByCourseNo.Text));
-                ApplySearchToListbox(listBoxCourseOperationsListCourses, courseResult, textBoxesToClearAfterProcess);
+                SearchingTool.ApplySearchToListbox(listBoxCourseOperationsListCourses, courseResult, textBoxesToClearAfterProcess);
 
             }
             else if (txtCourseOperationsCourseInfoSearchByCourseNo.Text == string.Empty &&
                      txtCourseOperationsCourseInfoSearchByCourseName.Text != string.Empty)
             {
                 var courseResult = _catalogCourseService.GetAllContainCourseName(txtCourseOperationsCourseInfoSearchByCourseName.Text);
-                ApplySearchToListbox(listBoxCourseOperationsListCourses, courseResult, textBoxesToClearAfterProcess);
+                SearchingTool.ApplySearchToListbox(listBoxCourseOperationsListCourses, courseResult, textBoxesToClearAfterProcess);
             }
             else
             {
@@ -950,13 +843,13 @@ namespace StudentManagementSystem.Application
 
         private void chbxCourseOperationsFilterByDepartment_CheckedChanged(object sender, EventArgs e)
         {
-            SwitchUpdateComboBoxEnabled(chbxCourseOperationsFilterByDepartment, cmbCourseOperationsFilterCourseDepartment);
+            EnableStateSwitcher.SwitchUpdateComboBoxEnabled(chbxCourseOperationsFilterByDepartment, cmbCourseOperationsFilterCourseDepartment);
 
         }
 
         private void chbxCourseOperationsFilterBySemester_CheckedChanged(object sender, EventArgs e)
         {
-            SwitchUpdateComboBoxEnabled(chbxCourseOperationsFilterBySemester, cmbCourseOperationsFilterCourseSemester);
+            EnableStateSwitcher.SwitchUpdateComboBoxEnabled(chbxCourseOperationsFilterBySemester, cmbCourseOperationsFilterCourseSemester);
         }
 
         private void cmbCourseOperationsCourseInfoDepartment_SelectedIndexChanged(object sender, EventArgs e)
@@ -1033,7 +926,7 @@ namespace StudentManagementSystem.Application
                 var messageDialogResult = MessageBox.Show($@"{deletedInstructorResult.Data.FirstName} {deletedInstructorResult.Data.LastName} isimli öğretim görevlisi silinecek. Onaylıyor musunuz?", Messages.DeleteConfirmation, MessageBoxButtons.YesNo);
                 if (messageDialogResult == DialogResult.Yes)
                 {
-                    DeleteOperationForDeleteButtons<Instructor>(_instructorService, deletedInstructorResult.Data, ReBuildInstructorPanel);
+                    CrudForButtons.DeleteOperationForDeleteButtons<Instructor>(_instructorService, deletedInstructorResult.Data, ReBuildInstructorPanel);
                 }
             }
             else
@@ -1075,7 +968,7 @@ namespace StudentManagementSystem.Application
             var messageDialogResult = MessageBox.Show($"{addedInstructor.FirstName} {addedInstructor.LastName} isimli yeni bir öğretim görevlisi eklenecek. Onaylıyor musunuz?\n\nGiriş şifresi: {password}", Messages.AddConfirmation, MessageBoxButtons.YesNo);
             if (messageDialogResult == DialogResult.Yes)
             {
-                AddOperationForAddButtons<Instructor>(_instructorService, addedInstructor, ReBuildInstructorPanel);
+                CrudForButtons.AddOperationForAddButtons<Instructor>(_instructorService, addedInstructor, ReBuildInstructorPanel);
             }
         }
 
@@ -1110,7 +1003,7 @@ namespace StudentManagementSystem.Application
                 var messageDialogResult = MessageBox.Show($"{updatedInstructor.FirstName} {updatedInstructor.LastName} isimli öğretim görevlisi {departmentResult.Data.DepartmentName} isimli bölüme atanacak. Onaylıyor musunuz?", Messages.AddConfirmation, MessageBoxButtons.YesNo);
                 if (messageDialogResult == DialogResult.Yes)
                 {
-                    UpdateOperationForUpdateButtons<Instructor>(_instructorService, updatedInstructor, ReBuildInstructorPanel);
+                    CrudForButtons.UpdateOperationForUpdateButtons<Instructor>(_instructorService, updatedInstructor, ReBuildInstructorPanel);
                 }
             }
             else
@@ -1144,13 +1037,13 @@ namespace StudentManagementSystem.Application
                     return;
                 }
                 var instructorResult = _instructorService.GetAllByInstructorNo(Convert.ToInt32(txtInstructorOperationsSearchByInstructorNo.Text));
-                ApplySearchToListbox(listBoxInstructorOperationsInstructorList, instructorResult, textBoxesToClearAfterProcess);
+                SearchingTool.ApplySearchToListbox(listBoxInstructorOperationsInstructorList, instructorResult, textBoxesToClearAfterProcess);
             }
             else if (txtInstructorOperationsSearchByInstructorNo.Text == string.Empty &&
                      txtInstructorOperationsSearchByInstructorName.Text != string.Empty)
             {
                 var instructorResult = _instructorService.GetAllContainInstructorName(txtInstructorOperationsSearchByInstructorName.Text);
-                ApplySearchToListbox(listBoxInstructorOperationsInstructorList, instructorResult, textBoxesToClearAfterProcess);
+                SearchingTool.ApplySearchToListbox(listBoxInstructorOperationsInstructorList, instructorResult, textBoxesToClearAfterProcess);
             }
             else
             {
@@ -1206,7 +1099,7 @@ namespace StudentManagementSystem.Application
             if (messageDialogResult == DialogResult.Yes)
             {
                 updatedInstructor.Password = password;
-                UpdateOperationForUpdateButtons<Instructor>(_instructorService, updatedInstructor, ReBuildInstructorPanel);
+                CrudForButtons.UpdateOperationForUpdateButtons<Instructor>(_instructorService, updatedInstructor, ReBuildInstructorPanel);
             }
         }
 
@@ -1229,7 +1122,7 @@ namespace StudentManagementSystem.Application
 
         private void chbxStudentOperationsInfoStudentDepartmentEnabled_CheckedChanged(object sender, EventArgs e)
         {
-            SwitchUpdateComboBoxEnabled(chbxStudentOperationsInfoStudentDepartmentEnabled, cmbStudentOperationsInfoDepartment);
+            EnableStateSwitcher.SwitchUpdateComboBoxEnabled(chbxStudentOperationsInfoStudentDepartmentEnabled, cmbStudentOperationsInfoDepartment);
         }
 
         private void listBoxStudentOperationsStudentList_SelectedIndexChanged(object sender, EventArgs e)
@@ -1248,7 +1141,7 @@ namespace StudentManagementSystem.Application
             if (selectedStudentResult.Success && departmentResult.Success && instructorResult.Success)
             {
                 txtStudentOperationsInfoStudentNo.Text = selectedStudentResult.Data.StudentNo.ToString();
-                SetComboBoxSelectedItem<Department>(cmbStudentOperationsInfoDepartment, departmentResult.Data.DepartmentNo.ToString());
+                DataSetterToBoxes.SetComboBoxSelectedItem<Department>(cmbStudentOperationsInfoDepartment, departmentResult.Data.DepartmentNo.ToString());   //FIXME
                 txtStudentOperationsInfoAdviserName.Text = $@"{instructorResult.Data.FirstName} {instructorResult.Data.LastName}";
                 txtStudentOperationsInfoEmail.Text = selectedStudentResult.Data.Email;
                 txtStudentOperationsInfoPhone.Text = selectedStudentResult.Data.Phone;
@@ -1276,7 +1169,7 @@ namespace StudentManagementSystem.Application
                 var messageDialogResult = MessageBox.Show($@"{deletedStudentResult.Data.FirstName} {deletedStudentResult.Data.LastName} isimli öğrenci silinecek. Onaylıyor musunuz?", Messages.DeleteConfirmation, MessageBoxButtons.YesNo);
                 if (messageDialogResult == DialogResult.Yes)
                 {
-                    DeleteOperationForDeleteButtons<Student>(_studentService, deletedStudentResult.Data, ReBuildStudentPanel);
+                    CrudForButtons.DeleteOperationForDeleteButtons<Student>(_studentService, deletedStudentResult.Data, ReBuildStudentPanel);
                 }
             }
             else
@@ -1322,7 +1215,7 @@ namespace StudentManagementSystem.Application
             var messageDialogResult = MessageBox.Show(message, Messages.UpdateConfirmation, MessageBoxButtons.YesNo);
             if (messageDialogResult == DialogResult.Yes)
             {
-                UpdateOperationForUpdateButtons<Student>(_studentService, updatedStudent, ReBuildStudentPanel);
+                CrudForButtons.UpdateOperationForUpdateButtons<Student>(_studentService, updatedStudent, ReBuildStudentPanel);
             }
         }
 
@@ -1372,7 +1265,7 @@ namespace StudentManagementSystem.Application
             var messageDialogResult = MessageBox.Show($"{addedStudent.FirstName} {addedStudent.LastName} isimli yeni bir öğrenci eklenecek. Onaylıyor musunuz?\n\nGiriş şifresi: {addedStudent.Password}", Messages.AddConfirmation, MessageBoxButtons.YesNo);
             if (messageDialogResult == DialogResult.Yes)
             {
-                AddOperationForAddButtons<Student>(_studentService, addedStudent, ReBuildStudentPanel);
+                CrudForButtons.AddOperationForAddButtons<Student>(_studentService, addedStudent, ReBuildStudentPanel);
             }
         }
 
@@ -1403,13 +1296,13 @@ namespace StudentManagementSystem.Application
                     return;
                 }
                 var studentResult = _studentService.GetAllByStudentNo(Convert.ToInt32(txtStudentOperationsSearchByStudentNo.Text));
-                ApplySearchToListbox(listBoxStudentOperationsStudentList, studentResult, textBoxesToClearAfterProcess);
+                SearchingTool.ApplySearchToListbox(listBoxStudentOperationsStudentList, studentResult, textBoxesToClearAfterProcess);
             }
             else if (txtStudentOperationsSearchByStudentNo.Text == string.Empty &&
                      txtStudentOperationsSearchByStudentName.Text != string.Empty)
             {
                 var studentResult = _studentService.GetAllContainStudentName(txtStudentOperationsSearchByStudentName.Text);
-                ApplySearchToListbox(listBoxStudentOperationsStudentList, studentResult, textBoxesToClearAfterProcess);
+                SearchingTool.ApplySearchToListbox(listBoxStudentOperationsStudentList, studentResult, textBoxesToClearAfterProcess);
             }
             else
             {
@@ -1501,7 +1394,7 @@ namespace StudentManagementSystem.Application
             if (messageDialogResult == DialogResult.Yes)
             {
                 updatedStudent.Password = password;
-                UpdateOperationForUpdateButtons<Student>(_studentService, updatedStudent, ReBuildStudentPanel);
+                CrudForButtons.UpdateOperationForUpdateButtons<Student>(_studentService, updatedStudent, ReBuildStudentPanel);
             }
         }
 

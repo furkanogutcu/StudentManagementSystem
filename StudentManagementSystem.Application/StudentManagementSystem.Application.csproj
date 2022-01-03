@@ -74,11 +74,14 @@
     <Compile Include="StudentForm.Designer.cs">
       <DependentUpon>StudentForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\CrudForButtons.cs" />
     <Compile Include="Utilities\DataSetterToBoxes.cs" />
+    <Compile Include="Utilities\EnableStateSwitcher.cs" />
     <Compile Include="Utilities\FilteringTool.cs" />
     <Compile Include="Utilities\PanelCleaner.cs" />
     <Compile Include="Utilities\PanelSwitcher.cs" />
     <Compile Include="Utilities\PasswordCreator.cs" />
+    <Compile Include="Utilities\SearchingTool.cs" />
     <Compile Include="Utilities\UniqueValueTaker.cs" />
     <EmbeddedResource Include="InstructorForm.resx">
       <DependentUpon>InstructorForm.cs</DependentUpon>
