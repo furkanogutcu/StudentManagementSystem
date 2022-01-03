@@ -15,6 +15,11 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             return "tbldanismanonay";
         }
 
+        public override bool IsSoftDeleteTable()
+        {
+            return false;
+        }
+
         public override IResult Add(AdviserApproval entity)
         {
             MySqlConnection connection = ConnectionHelper.OpenConnection();

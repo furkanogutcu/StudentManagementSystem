@@ -27,6 +27,10 @@ namespace StudentManagementSystem.Application.Utilities
                 case RadioButton radioButton:
                     radioButton.Checked = false;
                     break;
+                case DataGridView dataGridView:
+                    dataGridView.DataSource = null;
+                    dataGridView.Refresh();
+                    break;
                 case CheckBox checkBox:
                     checkBox.Checked = false;
                     break;

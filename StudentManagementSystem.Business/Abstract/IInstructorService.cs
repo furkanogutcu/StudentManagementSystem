@@ -10,5 +10,6 @@ namespace StudentManagementSystem.Business.Abstract
         IDataResult<List<Instructor>> GetAllByInstructorNo(int instructorNo);
         IDataResult<List<Instructor>> GetAllContainInstructorName(string instructorName);
         IDataResult<Instructor> GetByInstructorNo(int instructorNo);
+        IDataResult<Instructor> GetByCourseNo(int courseNo);
     }
 }

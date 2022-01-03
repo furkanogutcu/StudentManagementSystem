@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using StudentManagementSystem.Core.Entities;
 using StudentManagementSystem.Entities.Concrete;
 
 namespace StudentManagementSystem.Application.Utilities
@@ -7,6 +8,7 @@ namespace StudentManagementSystem.Application.Utilities
     public static class UniqueValueTaker
     {
         public static int GetUniqueValueOfSelectedItemInListbox<T>(ListBox listBox)
+        where T : class, IEntity, new()
         {
             int uniqueValueOfSelectedIndex;
             // The first item selected in the listbox is of T type. The next selected items are of type int.
@@ -44,6 +46,7 @@ namespace StudentManagementSystem.Application.Utilities
         }
 
         public static int GetUniqueValueOfSelectedItemInComboBox<T>(ComboBox comboBox)
+            where T : class, IEntity, new()
         {
             int uniqueValueOfSelectedIndex;
             // The first item selected in the listbox is of T type. The next selected items are of type int.

@@ -46,15 +46,18 @@ namespace StudentManagementSystem.Application
 
         private void OfficerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var messageDialogResult = MessageBox.Show("Uygulamadan çıkış yapmak istediğinize emin misiniz?",
-                "Uygulama Kapatılıyor", MessageBoxButtons.OKCancel);
-            if (messageDialogResult == DialogResult.OK)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
-                _application.Close();
-            }
-            else
-            {
-                e.Cancel = true;
+                var messageDialogResult = MessageBox.Show("Uygulamadan çıkış yapmak istediğinize emin misiniz?",
+                    "Uygulama Kapatılıyor", MessageBoxButtons.OKCancel);
+                if (messageDialogResult == DialogResult.OK)
+                {
+                    _application.Close();
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
         }
 
@@ -275,13 +278,13 @@ namespace StudentManagementSystem.Application
                         }
                         else
                         {
-                            MessageBox.Show($@"{Messages.SomethingWentWrongWhileGettingNewProfileInfos}:\n\n{updateResult.Message}\n\n{Messages.ApplicationIsRestarting}..", Messages.ServerError);
+                            MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingNewProfileInfos}:\n\n{updateResult.Message}\n\n{Messages.ApplicationIsRestarting}..", Messages.ServerError);
                             System.Windows.Forms.Application.Restart();
                         }
                     }
                     else
                     {
-                        MessageBox.Show($@"{Messages.SomethingWentWrongWhileUpdate}:\n\n{updateResult.Message}", Messages.ServerError);
+                        MessageBox.Show($"{Messages.SomethingWentWrongWhileUpdate}:\n\n{updateResult.Message}", Messages.ServerError);
                     }
                 }
             }
@@ -308,24 +311,29 @@ namespace StudentManagementSystem.Application
                     {
                         if (txtProfileOldPassword.Text == officerResult.Data.Password)
                         {
-                            var updateResult = _officerService.Update(new Officer
+                            var selection = MessageBox.Show("Şifreniz güncellenecek. Onaylıyor musunuz?", "Güncellemeyi onaylıyor musunuz?", MessageBoxButtons.YesNo);
+
+                            if (selection == DialogResult.Yes)
                             {
-                                Email = _officer.Email,
-                                FirstName = _officer.FirstName,
-                                LastName = _officer.LastName,
-                                OfficerNo = _officer.OfficerNo,
-                                Phone = _officer.Phone,
-                                Password = txtProfileNewPassword.Text,
-                                ModifiedAt = DateTime.Now,
-                            });
-                            if (updateResult.Success)
-                            {
-                                MessageBox.Show($@"{Messages.PasswordHasBeenChanged}. {Messages.LoginAgainWithNewPassword}. {Messages.ApplicationIsRestarting}..", Messages.Successful);
-                                System.Windows.Forms.Application.Restart();
-                            }
-                            else
-                            {
-                                MessageBox.Show($@"{Messages.SomethingWentWrongWhilePasswordChange}:\n\n{updateResult.Message}", Messages.ServerError);
+                                var updateResult = _officerService.Update(new Officer
+                                {
+                                    Email = _officer.Email,
+                                    FirstName = _officer.FirstName,
+                                    LastName = _officer.LastName,
+                                    OfficerNo = _officer.OfficerNo,
+                                    Phone = _officer.Phone,
+                                    Password = txtProfileNewPassword.Text,
+                                    ModifiedAt = DateTime.Now,
+                                });
+                                if (updateResult.Success)
+                                {
+                                    MessageBox.Show($"{Messages.PasswordHasBeenChanged}. {Messages.LoginAgainWithNewPassword}. {Messages.ApplicationIsRestarting}..", Messages.Successful);
+                                    System.Windows.Forms.Application.Restart();
+                                }
+                                else
+                                {
+                                    MessageBox.Show($"{Messages.SomethingWentWrongWhilePasswordChange}:\n\n{updateResult.Message}", Messages.ServerError);
+                                }
                             }
                         }
                         else
@@ -335,7 +343,7 @@ namespace StudentManagementSystem.Application
                     }
                     else
                     {
-                        MessageBox.Show($@"{Messages.SomethingWentWrongWhileCheckPassword}:\n\n{officerResult.Message}", Messages.ServerError);
+                        MessageBox.Show($"{Messages.SomethingWentWrongWhileCheckPassword}:\n\n{officerResult.Message}", Messages.ServerError);
                     }
                 }
             }

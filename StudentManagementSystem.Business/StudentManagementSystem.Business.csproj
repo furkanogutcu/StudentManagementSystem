@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\IAdviserApprovalService.cs" />
     <Compile Include="Abstract\IAuthenticationService.cs" />
     <Compile Include="Abstract\ICatalogCourseService.cs" />
     <Compile Include="Abstract\IDepartmentService.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="Abstract\IInstructorService.cs" />
     <Compile Include="Abstract\IOfficerService.cs" />
     <Compile Include="Abstract\IStudentService.cs" />
+    <Compile Include="Concrete\AdviserApprovalManager.cs" />
     <Compile Include="Concrete\AuthenticationManager.cs" />
     <Compile Include="Concrete\CatalogCourseManager.cs" />
     <Compile Include="Concrete\DepartmentManager.cs" />

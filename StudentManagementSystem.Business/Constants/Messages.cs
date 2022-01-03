@@ -25,6 +25,7 @@
         public static string SomethingWentWrongWhileGettingInstructorDetails = $@"Öğretim görevlisi detaylarını alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingStudentDetails = $@"Öğrenci detaylarını alırken {_errorStatement}";
         public static string SomethingWentWrongWhileGettingNewProfileInfos = $@"Yeni profil bilgilerini alırken {_errorStatement}";
+        public static string SomethingWentWrongWhileGettingStudentsEnrolledCourses = $@"Öğrencinin kayıtlı derslerini alırken {_errorStatement}";
         public static string SomethingWentWrongWhilePasswordChange = $@"Şifre değişikliği sırasında {_errorStatement}";
         public static string SomethingWentWrongWhileCheckPassword = $@"Şifrenizi kontrol ederken {_errorStatement}";
         public static string SomethingWentWrongWhileUpdate = $@"Güncelleme işlemi sırasında {_errorStatement}";

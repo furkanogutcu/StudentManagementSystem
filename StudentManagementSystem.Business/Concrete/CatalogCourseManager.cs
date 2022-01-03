@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.ValidationRules.FluentValidation;
 using StudentManagementSystem.Core.CrossCuttingConcerns.Validation.FluentValidation;
@@ -23,6 +22,16 @@ namespace StudentManagementSystem.Business.Concrete
         public IDataResult<List<CatalogCourse>> GetAll()
         {
             return _catalogCourseDal.GetAll(null);
+        }
+
+        public IDataResult<List<CatalogCourse>> GetAllByDepartmentNoAndSemesterNo(int departmentNo, int semesterNo)
+        {
+            if (departmentNo > 0 && semesterNo > 0)
+            {
+                return _catalogCourseDal.GetAll(new Dictionary<string, dynamic>() { { "bolum_no", departmentNo }, { "ders_donemi", semesterNo } });
+            }
+
+            return new ErrorDataResult<List<CatalogCourse>>("Bölüm no ve ders dönemi 0'dan büyük olmalıdır");
         }
 
         public IDataResult<CatalogCourse> GetByCourseNo(int courseNo)

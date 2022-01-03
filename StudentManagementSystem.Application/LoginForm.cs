@@ -22,9 +22,18 @@ namespace StudentManagementSystem.Application
             {
                 if (result.Data.GetType() == typeof(Student))
                 {
-                    StudentForm studentForm = new StudentForm();
                     var student = (Student)result.Data;
                     MessageBox.Show($@"Hoşgeldiniz {student.FirstName} {student.LastName}.", Messages.StudentLogin);
+                    StudentForm studentForm = new StudentForm(
+                        student,
+                        this,
+                        new StudentManager(new SqlStudentDal(), new EnrolledCourseManager(new SqlEnrolledCourseDal())),
+                        new DepartmentManager(new SqlDepartmentDal()),
+                        new InstructorManager(new SqlInstructorDal(), new CatalogCourseManager(new SqlCatalogCourseDal())),
+                        new EnrolledCourseManager(new SqlEnrolledCourseDal()),
+                        new CatalogCourseManager(new SqlCatalogCourseDal()),
+                        new AdviserApprovalManager(new SqlAdviserApprovalDal())
+                        );
                     this.Hide();
                     studentForm.Show();
                 }
@@ -44,7 +53,7 @@ namespace StudentManagementSystem.Application
                         officer,
                         new OfficerManager(new SqlOfficerDal()),
                         new DepartmentManager(new SqlDepartmentDal()),
-                        new InstructorManager(new SqlInstructorDal()),
+                        new InstructorManager(new SqlInstructorDal(), new CatalogCourseManager(new SqlCatalogCourseDal())),
                         new StudentManager(new SqlStudentDal(), new EnrolledCourseManager(new SqlEnrolledCourseDal())),
                         new CatalogCourseManager(new SqlCatalogCourseDal()),
                         this

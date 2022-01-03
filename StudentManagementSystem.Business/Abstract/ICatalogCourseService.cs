@@ -9,6 +9,7 @@ namespace StudentManagementSystem.Business.Abstract
         IDataResult<List<CatalogCourse>> GetAllByCourseNo(int courseNo);
         IDataResult<List<CatalogCourse>> GetAllByDepartmentNo(int departmentNo);
         IDataResult<List<CatalogCourse>> GetAllContainCourseName(string courseName);
+        IDataResult<List<CatalogCourse>> GetAllByDepartmentNoAndSemesterNo(int departmentNo, int semesterNo);
         IDataResult<CatalogCourse> GetByCourseNo(int courseNo);
     }
 }

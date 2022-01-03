@@ -13,6 +13,11 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
     {
         public abstract string GetTableName();
 
+        public virtual bool IsSoftDeleteTable()
+        {
+            return true;
+        }
+
         //Virtual because it can be overridden in subclasses.
         public virtual IDataResult<List<TEntity>> GetAll(Dictionary<string, dynamic>? conditions)
         {
@@ -33,7 +38,12 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
                         }
                     }
                 }
-                commandText += conditions != null ? " AND deleted_at IS NULL" : " WHERE deleted_at IS NULL";
+
+                if (IsSoftDeleteTable())
+                {
+                    commandText += conditions != null ? " AND deleted_at IS NULL" : " WHERE deleted_at IS NULL";
+                }
+                
                 MySqlCommand command = new MySqlCommand(commandText, connection);
 
                 if (conditions != null)
@@ -72,7 +82,12 @@ namespace StudentManagementSystem.Core.DataAccess.Sql
                         commandText += " AND ";
                     }
                 }
-                commandText += " AND deleted_at IS NULL";
+
+                if (IsSoftDeleteTable())
+                {
+                    commandText += " AND deleted_at IS NULL";
+                }
+                
                 MySqlCommand command = new MySqlCommand(commandText, connection);
 
                 foreach (var condition in conditions)

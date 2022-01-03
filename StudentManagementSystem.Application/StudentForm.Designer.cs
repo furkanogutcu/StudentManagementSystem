@@ -28,35 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBottomBar = new System.Windows.Forms.Panel();
             this.pnlLeftBar = new System.Windows.Forms.Panel();
             this.btnGlobalProfile = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnGlobalTranscript = new System.Windows.Forms.Button();
             this.btnGlobalCourseRegister = new System.Windows.Forms.Button();
-            this.btnGlobalNoteView = new System.Windows.Forms.Button();
+            this.btnGlobalGradeView = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pnlGlobalNotView = new System.Windows.Forms.Panel();
-            this.dataGridViewNotViewNotes = new System.Windows.Forms.DataGridView();
-            this.cmbNotViewSelectSemester = new System.Windows.Forms.ComboBox();
+            this.pnlGlobalGradeView = new System.Windows.Forms.Panel();
+            this.dataGridViewGradeViewGrades = new System.Windows.Forms.DataGridView();
+            this.cmbGradeViewSelectSemester = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlGlobalCourseRegister = new System.Windows.Forms.Panel();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabControlCourseRegister = new System.Windows.Forms.TabControl();
+            this.tabPageAvailableCourses = new System.Windows.Forms.TabPage();
             this.dataGridViewCourseRegisterAvailableCourses = new System.Windows.Forms.DataGridView();
-            this.label26 = new System.Windows.Forms.Label();
             this.btnCourseRegisterSendToDraft = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageCoursesOnDraft = new System.Windows.Forms.TabPage();
             this.dataGridViewCourseRegisterSelectedCourses = new System.Windows.Forms.DataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.btnCourseRegisterSubmitForAdviserApproval = new System.Windows.Forms.Button();
             this.btnCourseRegisterDeleteToDraft = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.dataGridViewCourseRegisterApprovedCourses = new System.Windows.Forms.DataGridView();
+            this.tabPageApprovedCourses = new System.Windows.Forms.TabPage();
             this.label23 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.pnlTranskriptAl = new System.Windows.Forms.Panel();
+            this.pnlGlobalTranscript = new System.Windows.Forms.Panel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label32 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
@@ -99,34 +106,37 @@
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnProfileUpdate = new System.Windows.Forms.Button();
-            this.txtProfilePhone = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdatePhone = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.txtProfileLastName = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdateLastName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.txtProfileFirstName = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdateFirstName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtProfileEmail = new System.Windows.Forms.TextBox();
+            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.lblAdviserApprovalCoursesPendingApproval = new System.Windows.Forms.Label();
+            this.dataGridViewCourseRegisterApprovedCourses = new System.Windows.Forms.DataGridView();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pnlGlobalNotView.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotViewNotes)).BeginInit();
+            this.pnlGlobalGradeView.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGradeViewGrades)).BeginInit();
             this.pnlGlobalCourseRegister.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabControlCourseRegister.SuspendLayout();
+            this.tabPageAvailableCourses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterAvailableCourses)).BeginInit();
-            this.tabPage2.SuspendLayout();
+            this.tabPageCoursesOnDraft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterSelectedCourses)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterApprovedCourses)).BeginInit();
-            this.pnlTranskriptAl.SuspendLayout();
+            this.tabPageApprovedCourses.SuspendLayout();
+            this.pnlGlobalTranscript.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.pnlGlobalProfile.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterApprovedCourses)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBottomBar
@@ -144,7 +154,7 @@
             this.pnlLeftBar.Controls.Add(this.label1);
             this.pnlLeftBar.Controls.Add(this.btnGlobalTranscript);
             this.pnlLeftBar.Controls.Add(this.btnGlobalCourseRegister);
-            this.pnlLeftBar.Controls.Add(this.btnGlobalNoteView);
+            this.pnlLeftBar.Controls.Add(this.btnGlobalGradeView);
             this.pnlLeftBar.Controls.Add(this.pictureBox1);
             this.pnlLeftBar.Location = new System.Drawing.Point(0, 0);
             this.pnlLeftBar.Name = "pnlLeftBar";
@@ -160,6 +170,7 @@
             this.btnGlobalProfile.TabIndex = 6;
             this.btnGlobalProfile.Text = "Profil bilgilerim";
             this.btnGlobalProfile.UseVisualStyleBackColor = true;
+            this.btnGlobalProfile.Click += new System.EventHandler(this.btnGlobalProfile_Click);
             // 
             // label1
             // 
@@ -193,16 +204,18 @@
             this.btnGlobalCourseRegister.TabIndex = 2;
             this.btnGlobalCourseRegister.Text = "Ders kayıt işlemleri";
             this.btnGlobalCourseRegister.UseVisualStyleBackColor = true;
+            this.btnGlobalCourseRegister.Click += new System.EventHandler(this.btnGlobalCourseRegister_Click);
             // 
-            // btnGlobalNoteView
+            // btnGlobalGradeView
             // 
-            this.btnGlobalNoteView.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.btnGlobalNoteView.Location = new System.Drawing.Point(12, 303);
-            this.btnGlobalNoteView.Name = "btnGlobalNoteView";
-            this.btnGlobalNoteView.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalNoteView.TabIndex = 1;
-            this.btnGlobalNoteView.Text = "Not görüntüleme";
-            this.btnGlobalNoteView.UseVisualStyleBackColor = true;
+            this.btnGlobalGradeView.Font = new System.Drawing.Font("Roboto", 11.25F);
+            this.btnGlobalGradeView.Location = new System.Drawing.Point(12, 303);
+            this.btnGlobalGradeView.Name = "btnGlobalGradeView";
+            this.btnGlobalGradeView.Size = new System.Drawing.Size(186, 41);
+            this.btnGlobalGradeView.TabIndex = 1;
+            this.btnGlobalGradeView.Text = "Not görüntüleme";
+            this.btnGlobalGradeView.UseVisualStyleBackColor = true;
+            this.btnGlobalGradeView.Click += new System.EventHandler(this.btnGlobalGradeView_Click);
             // 
             // pictureBox1
             // 
@@ -212,41 +225,61 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // pnlGlobalNotView
+            // pnlGlobalGradeView
             // 
-            this.pnlGlobalNotView.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlGlobalNotView.Controls.Add(this.dataGridViewNotViewNotes);
-            this.pnlGlobalNotView.Controls.Add(this.cmbNotViewSelectSemester);
-            this.pnlGlobalNotView.Controls.Add(this.label16);
-            this.pnlGlobalNotView.Controls.Add(this.label2);
-            this.pnlGlobalNotView.Location = new System.Drawing.Point(210, 0);
-            this.pnlGlobalNotView.Name = "pnlGlobalNotView";
-            this.pnlGlobalNotView.Size = new System.Drawing.Size(878, 493);
-            this.pnlGlobalNotView.TabIndex = 2;
+            this.pnlGlobalGradeView.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGlobalGradeView.Controls.Add(this.dataGridViewGradeViewGrades);
+            this.pnlGlobalGradeView.Controls.Add(this.cmbGradeViewSelectSemester);
+            this.pnlGlobalGradeView.Controls.Add(this.label16);
+            this.pnlGlobalGradeView.Controls.Add(this.label2);
+            this.pnlGlobalGradeView.Location = new System.Drawing.Point(210, 0);
+            this.pnlGlobalGradeView.Name = "pnlGlobalGradeView";
+            this.pnlGlobalGradeView.Size = new System.Drawing.Size(878, 493);
+            this.pnlGlobalGradeView.TabIndex = 2;
+            this.pnlGlobalGradeView.Visible = false;
             // 
-            // dataGridViewNotViewNotes
+            // dataGridViewGradeViewGrades
             // 
-            this.dataGridViewNotViewNotes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewNotViewNotes.Location = new System.Drawing.Point(10, 60);
-            this.dataGridViewNotViewNotes.Name = "dataGridViewNotViewNotes";
-            this.dataGridViewNotViewNotes.Size = new System.Drawing.Size(855, 422);
-            this.dataGridViewNotViewNotes.TabIndex = 4;
+            this.dataGridViewGradeViewGrades.AllowUserToAddRows = false;
+            this.dataGridViewGradeViewGrades.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGradeViewGrades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGridViewGradeViewGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewGradeViewGrades.Location = new System.Drawing.Point(10, 60);
+            this.dataGridViewGradeViewGrades.MultiSelect = false;
+            this.dataGridViewGradeViewGrades.Name = "dataGridViewGradeViewGrades";
+            this.dataGridViewGradeViewGrades.ReadOnly = true;
+            this.dataGridViewGradeViewGrades.RowHeadersVisible = false;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewGradeViewGrades.RowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGridViewGradeViewGrades.RowTemplate.Height = 80;
+            this.dataGridViewGradeViewGrades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewGradeViewGrades.Size = new System.Drawing.Size(855, 422);
+            this.dataGridViewGradeViewGrades.TabIndex = 4;
             // 
-            // cmbNotViewSelectSemester
+            // cmbGradeViewSelectSemester
             // 
-            this.cmbNotViewSelectSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbNotViewSelectSemester.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.cmbNotViewSelectSemester.FormattingEnabled = true;
-            this.cmbNotViewSelectSemester.Location = new System.Drawing.Point(707, 12);
-            this.cmbNotViewSelectSemester.Name = "cmbNotViewSelectSemester";
-            this.cmbNotViewSelectSemester.Size = new System.Drawing.Size(158, 27);
-            this.cmbNotViewSelectSemester.TabIndex = 3;
+            this.cmbGradeViewSelectSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGradeViewSelectSemester.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cmbGradeViewSelectSemester.FormattingEnabled = true;
+            this.cmbGradeViewSelectSemester.Location = new System.Drawing.Point(507, 12);
+            this.cmbGradeViewSelectSemester.Name = "cmbGradeViewSelectSemester";
+            this.cmbGradeViewSelectSemester.Size = new System.Drawing.Size(358, 27);
+            this.cmbGradeViewSelectSemester.TabIndex = 3;
+            this.cmbGradeViewSelectSemester.SelectedIndexChanged += new System.EventHandler(this.cmbGradeViewSelectSemester_SelectedIndexChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(533, 15);
+            this.label16.Location = new System.Drawing.Point(333, 15);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(168, 19);
             this.label16.TabIndex = 1;
@@ -265,55 +298,66 @@
             // pnlGlobalCourseRegister
             // 
             this.pnlGlobalCourseRegister.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlGlobalCourseRegister.Controls.Add(this.tabControl1);
+            this.pnlGlobalCourseRegister.Controls.Add(this.lblAdviserApprovalCoursesPendingApproval);
+            this.pnlGlobalCourseRegister.Controls.Add(this.tabControlCourseRegister);
             this.pnlGlobalCourseRegister.Controls.Add(this.label3);
             this.pnlGlobalCourseRegister.Location = new System.Drawing.Point(204, 0);
             this.pnlGlobalCourseRegister.Name = "pnlGlobalCourseRegister";
             this.pnlGlobalCourseRegister.Size = new System.Drawing.Size(884, 493);
             this.pnlGlobalCourseRegister.TabIndex = 3;
+            this.pnlGlobalCourseRegister.Visible = false;
             // 
-            // tabControl1
+            // tabControlCourseRegister
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tabControl1.Location = new System.Drawing.Point(16, 36);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(855, 457);
-            this.tabControl1.TabIndex = 1;
+            this.tabControlCourseRegister.Controls.Add(this.tabPageAvailableCourses);
+            this.tabControlCourseRegister.Controls.Add(this.tabPageCoursesOnDraft);
+            this.tabControlCourseRegister.Controls.Add(this.tabPageApprovedCourses);
+            this.tabControlCourseRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tabControlCourseRegister.Location = new System.Drawing.Point(18, 36);
+            this.tabControlCourseRegister.Name = "tabControlCourseRegister";
+            this.tabControlCourseRegister.SelectedIndex = 0;
+            this.tabControlCourseRegister.Size = new System.Drawing.Size(855, 457);
+            this.tabControlCourseRegister.TabIndex = 1;
             // 
-            // tabPage1
+            // tabPageAvailableCourses
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.dataGridViewCourseRegisterAvailableCourses);
-            this.tabPage1.Controls.Add(this.label26);
-            this.tabPage1.Controls.Add(this.btnCourseRegisterSendToDraft);
-            this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(847, 428);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Kayıt İşlemleri";
+            this.tabPageAvailableCourses.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageAvailableCourses.Controls.Add(this.dataGridViewCourseRegisterAvailableCourses);
+            this.tabPageAvailableCourses.Controls.Add(this.label26);
+            this.tabPageAvailableCourses.Controls.Add(this.btnCourseRegisterSendToDraft);
+            this.tabPageAvailableCourses.Location = new System.Drawing.Point(4, 25);
+            this.tabPageAvailableCourses.Name = "tabPageAvailableCourses";
+            this.tabPageAvailableCourses.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAvailableCourses.Size = new System.Drawing.Size(847, 428);
+            this.tabPageAvailableCourses.TabIndex = 0;
+            this.tabPageAvailableCourses.Text = "Açılan Dersler";
             // 
             // dataGridViewCourseRegisterAvailableCourses
             // 
+            this.dataGridViewCourseRegisterAvailableCourses.AllowUserToAddRows = false;
+            this.dataGridViewCourseRegisterAvailableCourses.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourseRegisterAvailableCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridViewCourseRegisterAvailableCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCourseRegisterAvailableCourses.Location = new System.Drawing.Point(18, 34);
+            this.dataGridViewCourseRegisterAvailableCourses.Location = new System.Drawing.Point(18, 36);
+            this.dataGridViewCourseRegisterAvailableCourses.MultiSelect = false;
             this.dataGridViewCourseRegisterAvailableCourses.Name = "dataGridViewCourseRegisterAvailableCourses";
-            this.dataGridViewCourseRegisterAvailableCourses.Size = new System.Drawing.Size(728, 388);
-            this.dataGridViewCourseRegisterAvailableCourses.TabIndex = 6;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label26.Location = new System.Drawing.Point(14, 10);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(108, 19);
-            this.label26.TabIndex = 5;
-            this.label26.Text = "Açılan dersler:";
+            this.dataGridViewCourseRegisterAvailableCourses.ReadOnly = true;
+            this.dataGridViewCourseRegisterAvailableCourses.RowHeadersVisible = false;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewCourseRegisterAvailableCourses.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            this.dataGridViewCourseRegisterAvailableCourses.RowTemplate.Height = 80;
+            this.dataGridViewCourseRegisterAvailableCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCourseRegisterAvailableCourses.Size = new System.Drawing.Size(730, 385);
+            this.dataGridViewCourseRegisterAvailableCourses.TabIndex = 7;
+            this.dataGridViewCourseRegisterAvailableCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCourseRegisterAvailableCourses_CellClick);
             // 
             // btnCourseRegisterSendToDraft
             // 
@@ -324,28 +368,56 @@
             this.btnCourseRegisterSendToDraft.TabIndex = 0;
             this.btnCourseRegisterSendToDraft.Text = "Seçilenleri taslağa gönder";
             this.btnCourseRegisterSendToDraft.UseVisualStyleBackColor = true;
+            this.btnCourseRegisterSendToDraft.Click += new System.EventHandler(this.btnCourseRegisterSendToDraft_Click);
             // 
-            // tabPage2
+            // tabPageCoursesOnDraft
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage2.Controls.Add(this.dataGridViewCourseRegisterSelectedCourses);
-            this.tabPage2.Controls.Add(this.label7);
-            this.tabPage2.Controls.Add(this.btnCourseRegisterSubmitForAdviserApproval);
-            this.tabPage2.Controls.Add(this.btnCourseRegisterDeleteToDraft);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(847, 428);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Taslaktaki Dersler";
+            this.tabPageCoursesOnDraft.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageCoursesOnDraft.Controls.Add(this.dataGridViewCourseRegisterSelectedCourses);
+            this.tabPageCoursesOnDraft.Controls.Add(this.label7);
+            this.tabPageCoursesOnDraft.Controls.Add(this.btnCourseRegisterSubmitForAdviserApproval);
+            this.tabPageCoursesOnDraft.Controls.Add(this.btnCourseRegisterDeleteToDraft);
+            this.tabPageCoursesOnDraft.Location = new System.Drawing.Point(4, 25);
+            this.tabPageCoursesOnDraft.Name = "tabPageCoursesOnDraft";
+            this.tabPageCoursesOnDraft.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageCoursesOnDraft.Size = new System.Drawing.Size(847, 428);
+            this.tabPageCoursesOnDraft.TabIndex = 1;
+            this.tabPageCoursesOnDraft.Text = "Taslaktaki Dersler";
             // 
             // dataGridViewCourseRegisterSelectedCourses
             // 
+            this.dataGridViewCourseRegisterSelectedCourses.AllowUserToAddRows = false;
+            this.dataGridViewCourseRegisterSelectedCourses.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourseRegisterSelectedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewCourseRegisterSelectedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCourseRegisterSelectedCourses.DefaultCellStyle = dataGridViewCellStyle15;
             this.dataGridViewCourseRegisterSelectedCourses.Location = new System.Drawing.Point(18, 34);
+            this.dataGridViewCourseRegisterSelectedCourses.MultiSelect = false;
             this.dataGridViewCourseRegisterSelectedCourses.Name = "dataGridViewCourseRegisterSelectedCourses";
-            this.dataGridViewCourseRegisterSelectedCourses.Size = new System.Drawing.Size(728, 388);
-            this.dataGridViewCourseRegisterSelectedCourses.TabIndex = 9;
+            this.dataGridViewCourseRegisterSelectedCourses.ReadOnly = true;
+            this.dataGridViewCourseRegisterSelectedCourses.RowHeadersVisible = false;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewCourseRegisterSelectedCourses.RowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.dataGridViewCourseRegisterSelectedCourses.RowTemplate.Height = 80;
+            this.dataGridViewCourseRegisterSelectedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCourseRegisterSelectedCourses.Size = new System.Drawing.Size(728, 385);
+            this.dataGridViewCourseRegisterSelectedCourses.TabIndex = 11;
+            this.dataGridViewCourseRegisterSelectedCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCourseRegisterSelectedCourses_CellClick);
             // 
             // label7
             // 
@@ -353,9 +425,9 @@
             this.label7.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.Location = new System.Drawing.Point(14, 10);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(115, 19);
+            this.label7.Size = new System.Drawing.Size(137, 19);
             this.label7.TabIndex = 8;
-            this.label7.Text = "Seçilen dersler:";
+            this.label7.Text = "Taslaktaki dersler:";
             // 
             // btnCourseRegisterSubmitForAdviserApproval
             // 
@@ -366,6 +438,7 @@
             this.btnCourseRegisterSubmitForAdviserApproval.TabIndex = 7;
             this.btnCourseRegisterSubmitForAdviserApproval.Text = "Onaya Gönder";
             this.btnCourseRegisterSubmitForAdviserApproval.UseVisualStyleBackColor = true;
+            this.btnCourseRegisterSubmitForAdviserApproval.Click += new System.EventHandler(this.btnCourseRegisterSubmitForAdviserApproval_Click);
             // 
             // btnCourseRegisterDeleteToDraft
             // 
@@ -376,32 +449,25 @@
             this.btnCourseRegisterDeleteToDraft.TabIndex = 6;
             this.btnCourseRegisterDeleteToDraft.Text = "Seçilenleri taslaktan çıkar";
             this.btnCourseRegisterDeleteToDraft.UseVisualStyleBackColor = true;
+            this.btnCourseRegisterDeleteToDraft.Click += new System.EventHandler(this.btnCourseRegisterDeleteToDraft_Click);
             // 
-            // tabPage3
+            // tabPageApprovedCourses
             // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage3.Controls.Add(this.dataGridViewCourseRegisterApprovedCourses);
-            this.tabPage3.Controls.Add(this.label23);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(847, 428);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Onaylanan Dersler";
-            // 
-            // dataGridViewCourseRegisterApprovedCourses
-            // 
-            this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCourseRegisterApprovedCourses.Location = new System.Drawing.Point(18, 34);
-            this.dataGridViewCourseRegisterApprovedCourses.Name = "dataGridViewCourseRegisterApprovedCourses";
-            this.dataGridViewCourseRegisterApprovedCourses.Size = new System.Drawing.Size(810, 388);
-            this.dataGridViewCourseRegisterApprovedCourses.TabIndex = 8;
+            this.tabPageApprovedCourses.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageApprovedCourses.Controls.Add(this.dataGridViewCourseRegisterApprovedCourses);
+            this.tabPageApprovedCourses.Controls.Add(this.label23);
+            this.tabPageApprovedCourses.Location = new System.Drawing.Point(4, 25);
+            this.tabPageApprovedCourses.Name = "tabPageApprovedCourses";
+            this.tabPageApprovedCourses.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageApprovedCourses.Size = new System.Drawing.Size(847, 428);
+            this.tabPageApprovedCourses.TabIndex = 2;
+            this.tabPageApprovedCourses.Text = "Onaylanan Dersler";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label23.Location = new System.Drawing.Point(14, 12);
+            this.label23.Location = new System.Drawing.Point(14, 11);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(141, 19);
             this.label23.TabIndex = 7;
@@ -417,16 +483,17 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "DERS KAYIT İŞLEMLERİ";
             // 
-            // pnlTranskriptAl
+            // pnlGlobalTranscript
             // 
-            this.pnlTranskriptAl.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlTranskriptAl.Controls.Add(this.tableLayoutPanel3);
-            this.pnlTranskriptAl.Controls.Add(this.tableLayoutPanel2);
-            this.pnlTranskriptAl.Controls.Add(this.label4);
-            this.pnlTranskriptAl.Location = new System.Drawing.Point(210, 0);
-            this.pnlTranskriptAl.Name = "pnlTranskriptAl";
-            this.pnlTranskriptAl.Size = new System.Drawing.Size(878, 493);
-            this.pnlTranskriptAl.TabIndex = 4;
+            this.pnlGlobalTranscript.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGlobalTranscript.Controls.Add(this.tableLayoutPanel3);
+            this.pnlGlobalTranscript.Controls.Add(this.tableLayoutPanel2);
+            this.pnlGlobalTranscript.Controls.Add(this.label4);
+            this.pnlGlobalTranscript.Location = new System.Drawing.Point(210, 0);
+            this.pnlGlobalTranscript.Name = "pnlGlobalTranscript";
+            this.pnlGlobalTranscript.Size = new System.Drawing.Size(878, 493);
+            this.pnlGlobalTranscript.TabIndex = 4;
+            this.pnlGlobalTranscript.Visible = false;
             // 
             // tableLayoutPanel3
             // 
@@ -564,6 +631,7 @@
             this.pnlGlobalProfile.Name = "pnlGlobalProfile";
             this.pnlGlobalProfile.Size = new System.Drawing.Size(878, 493);
             this.pnlGlobalProfile.TabIndex = 5;
+            this.pnlGlobalProfile.Visible = false;
             // 
             // groupBox3
             // 
@@ -729,13 +797,13 @@
             // 
             // lblProfileLastProfileUpdate
             // 
-            this.lblProfileLastProfileUpdate.AutoSize = true;
             this.lblProfileLastProfileUpdate.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(631, 471);
+            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(566, 463);
             this.lblProfileLastProfileUpdate.Name = "lblProfileLastProfileUpdate";
-            this.lblProfileLastProfileUpdate.Size = new System.Drawing.Size(241, 15);
+            this.lblProfileLastProfileUpdate.Size = new System.Drawing.Size(306, 23);
             this.lblProfileLastProfileUpdate.TabIndex = 15;
             this.lblProfileLastProfileUpdate.Text = "Son profil güncellemesi: 29.12.2021 19:40";
+            this.lblProfileLastProfileUpdate.TextAlign = System.Drawing.ContentAlignment.BottomRight;
             // 
             // txtProfileStudentNo
             // 
@@ -783,6 +851,7 @@
             this.btnProfileChangePassword.TabIndex = 18;
             this.btnProfileChangePassword.Text = "Şifremi değiştir";
             this.btnProfileChangePassword.UseVisualStyleBackColor = true;
+            this.btnProfileChangePassword.Click += new System.EventHandler(this.btnProfileChangePassword_Click);
             // 
             // txtProfileOldPassword
             // 
@@ -838,13 +907,13 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnProfileUpdate);
-            this.groupBox1.Controls.Add(this.txtProfilePhone);
+            this.groupBox1.Controls.Add(this.txtProfileUpdatePhone);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.txtProfileLastName);
+            this.groupBox1.Controls.Add(this.txtProfileUpdateLastName);
             this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.txtProfileFirstName);
+            this.groupBox1.Controls.Add(this.txtProfileUpdateFirstName);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtProfileEmail);
+            this.groupBox1.Controls.Add(this.txtProfileUpdateEmail);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(46, 222);
@@ -863,13 +932,14 @@
             this.btnProfileUpdate.TabIndex = 8;
             this.btnProfileUpdate.Text = "Güncelle";
             this.btnProfileUpdate.UseVisualStyleBackColor = true;
+            this.btnProfileUpdate.Click += new System.EventHandler(this.btnProfileUpdate_Click);
             // 
-            // txtProfilePhone
+            // txtProfileUpdatePhone
             // 
-            this.txtProfilePhone.Location = new System.Drawing.Point(103, 140);
-            this.txtProfilePhone.Name = "txtProfilePhone";
-            this.txtProfilePhone.Size = new System.Drawing.Size(235, 27);
-            this.txtProfilePhone.TabIndex = 7;
+            this.txtProfileUpdatePhone.Location = new System.Drawing.Point(103, 140);
+            this.txtProfileUpdatePhone.Name = "txtProfileUpdatePhone";
+            this.txtProfileUpdatePhone.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdatePhone.TabIndex = 7;
             // 
             // label12
             // 
@@ -880,12 +950,12 @@
             this.label12.TabIndex = 6;
             this.label12.Text = "Telefon:";
             // 
-            // txtProfileLastName
+            // txtProfileUpdateLastName
             // 
-            this.txtProfileLastName.Location = new System.Drawing.Point(103, 107);
-            this.txtProfileLastName.Name = "txtProfileLastName";
-            this.txtProfileLastName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileLastName.TabIndex = 5;
+            this.txtProfileUpdateLastName.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateLastName.Name = "txtProfileUpdateLastName";
+            this.txtProfileUpdateLastName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateLastName.TabIndex = 5;
             // 
             // label11
             // 
@@ -896,12 +966,12 @@
             this.label11.TabIndex = 4;
             this.label11.Text = "Soyad:";
             // 
-            // txtProfileFirstName
+            // txtProfileUpdateFirstName
             // 
-            this.txtProfileFirstName.Location = new System.Drawing.Point(103, 74);
-            this.txtProfileFirstName.Name = "txtProfileFirstName";
-            this.txtProfileFirstName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileFirstName.TabIndex = 3;
+            this.txtProfileUpdateFirstName.Location = new System.Drawing.Point(103, 74);
+            this.txtProfileUpdateFirstName.Name = "txtProfileUpdateFirstName";
+            this.txtProfileUpdateFirstName.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateFirstName.TabIndex = 3;
             // 
             // label10
             // 
@@ -912,12 +982,12 @@
             this.label10.TabIndex = 2;
             this.label10.Text = "Ad:";
             // 
-            // txtProfileEmail
+            // txtProfileUpdateEmail
             // 
-            this.txtProfileEmail.Location = new System.Drawing.Point(103, 41);
-            this.txtProfileEmail.Name = "txtProfileEmail";
-            this.txtProfileEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileEmail.TabIndex = 1;
+            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 41);
+            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
+            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateEmail.TabIndex = 1;
             // 
             // label9
             // 
@@ -938,43 +1008,90 @@
             this.label6.TabIndex = 10;
             this.label6.Text = "PROFİL BİLGİLERİM";
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label26.Location = new System.Drawing.Point(14, 10);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(108, 19);
+            this.label26.TabIndex = 5;
+            this.label26.Text = "Açılan dersler:";
+            // 
+            // lblAdviserApprovalCoursesPendingApproval
+            // 
+            this.lblAdviserApprovalCoursesPendingApproval.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAdviserApprovalCoursesPendingApproval.ForeColor = System.Drawing.Color.Red;
+            this.lblAdviserApprovalCoursesPendingApproval.Location = new System.Drawing.Point(365, 11);
+            this.lblAdviserApprovalCoursesPendingApproval.Name = "lblAdviserApprovalCoursesPendingApproval";
+            this.lblAdviserApprovalCoursesPendingApproval.Size = new System.Drawing.Size(504, 26);
+            this.lblAdviserApprovalCoursesPendingApproval.TabIndex = 2;
+            this.lblAdviserApprovalCoursesPendingApproval.Text = "Danışman onaya gönderdiğiniz 4 ders danışmanınız tarafından onaylanmayı bekliyor";
+            this.lblAdviserApprovalCoursesPendingApproval.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dataGridViewCourseRegisterApprovedCourses
+            // 
+            this.dataGridViewCourseRegisterApprovedCourses.AllowUserToAddRows = false;
+            this.dataGridViewCourseRegisterApprovedCourses.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCourseRegisterApprovedCourses.Location = new System.Drawing.Point(18, 33);
+            this.dataGridViewCourseRegisterApprovedCourses.MultiSelect = false;
+            this.dataGridViewCourseRegisterApprovedCourses.Name = "dataGridViewCourseRegisterApprovedCourses";
+            this.dataGridViewCourseRegisterApprovedCourses.ReadOnly = true;
+            this.dataGridViewCourseRegisterApprovedCourses.RowHeadersVisible = false;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewCourseRegisterApprovedCourses.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridViewCourseRegisterApprovedCourses.RowTemplate.Height = 80;
+            this.dataGridViewCourseRegisterApprovedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewCourseRegisterApprovedCourses.Size = new System.Drawing.Size(823, 389);
+            this.dataGridViewCourseRegisterApprovedCourses.TabIndex = 12;
+            // 
             // StudentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1087, 518);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
+            this.Controls.Add(this.pnlGlobalTranscript);
             this.Controls.Add(this.pnlGlobalProfile);
-            this.Controls.Add(this.pnlGlobalNotView);
+            this.Controls.Add(this.pnlGlobalGradeView);
             this.Controls.Add(this.pnlGlobalCourseRegister);
-            this.Controls.Add(this.pnlTranskriptAl);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 557);
-            this.MinimumSize = new System.Drawing.Size(1103, 557);
+            this.MinimumSize = new System.Drawing.Size(1078, 557);
             this.Name = "StudentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Öğrenci Paneli";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudentForm_FormClosing);
             this.pnlLeftBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pnlGlobalNotView.ResumeLayout(false);
-            this.pnlGlobalNotView.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewNotViewNotes)).EndInit();
+            this.pnlGlobalGradeView.ResumeLayout(false);
+            this.pnlGlobalGradeView.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGradeViewGrades)).EndInit();
             this.pnlGlobalCourseRegister.ResumeLayout(false);
             this.pnlGlobalCourseRegister.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            this.tabControlCourseRegister.ResumeLayout(false);
+            this.tabPageAvailableCourses.ResumeLayout(false);
+            this.tabPageAvailableCourses.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterAvailableCourses)).EndInit();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
+            this.tabPageCoursesOnDraft.ResumeLayout(false);
+            this.tabPageCoursesOnDraft.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterSelectedCourses)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterApprovedCourses)).EndInit();
-            this.pnlTranskriptAl.ResumeLayout(false);
-            this.pnlTranskriptAl.PerformLayout();
+            this.tabPageApprovedCourses.ResumeLayout(false);
+            this.tabPageApprovedCourses.PerformLayout();
+            this.pnlGlobalTranscript.ResumeLayout(false);
+            this.pnlGlobalTranscript.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -987,6 +1104,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCourseRegisterApprovedCourses)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -997,23 +1115,22 @@
         private System.Windows.Forms.Panel pnlLeftBar;
         private System.Windows.Forms.Button btnGlobalTranscript;
         private System.Windows.Forms.Button btnGlobalCourseRegister;
-        private System.Windows.Forms.Button btnGlobalNoteView;
+        private System.Windows.Forms.Button btnGlobalGradeView;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel pnlGlobalNotView;
+        private System.Windows.Forms.Panel pnlGlobalGradeView;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlGlobalCourseRegister;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel pnlTranskriptAl;
+        private System.Windows.Forms.Panel pnlGlobalTranscript;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnGlobalProfile;
         private System.Windows.Forms.Panel pnlGlobalProfile;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabControl tabControlCourseRegister;
+        private System.Windows.Forms.TabPage tabPageAvailableCourses;
+        private System.Windows.Forms.TabPage tabPageCoursesOnDraft;
+        private System.Windows.Forms.TabPage tabPageApprovedCourses;
         private System.Windows.Forms.Button btnCourseRegisterSendToDraft;
-        private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button btnCourseRegisterDeleteToDraft;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -1040,22 +1157,19 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnProfileUpdate;
-        private System.Windows.Forms.TextBox txtProfilePhone;
+        private System.Windows.Forms.TextBox txtProfileUpdatePhone;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox txtProfileLastName;
+        private System.Windows.Forms.TextBox txtProfileUpdateLastName;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox txtProfileFirstName;
+        private System.Windows.Forms.TextBox txtProfileUpdateFirstName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtProfileEmail;
+        private System.Windows.Forms.TextBox txtProfileUpdateEmail;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cmbNotViewSelectSemester;
+        private System.Windows.Forms.ComboBox cmbGradeViewSelectSemester;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.DataGridView dataGridViewNotViewNotes;
-        private System.Windows.Forms.DataGridView dataGridViewCourseRegisterAvailableCourses;
-        private System.Windows.Forms.DataGridView dataGridViewCourseRegisterSelectedCourses;
+        private System.Windows.Forms.DataGridView dataGridViewGradeViewGrades;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridView dataGridViewCourseRegisterApprovedCourses;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtProfileInfoPhone;
         private System.Windows.Forms.Label label13;
@@ -1073,5 +1187,10 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox txtProfileInfoDepartment;
         private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.DataGridView dataGridViewCourseRegisterAvailableCourses;
+        private System.Windows.Forms.DataGridView dataGridViewCourseRegisterSelectedCourses;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label lblAdviserApprovalCoursesPendingApproval;
+        private System.Windows.Forms.DataGridView dataGridViewCourseRegisterApprovedCourses;
     }
 }

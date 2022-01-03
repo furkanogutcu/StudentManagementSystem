@@ -12,11 +12,13 @@ namespace StudentManagementSystem.Business.Concrete
     public class InstructorManager : IInstructorService
     {
         private readonly IInstructorDal _instructorDal;
+        private readonly ICatalogCourseService _catalogCourseService;
         private readonly InstructorValidator _instructorValidator = new InstructorValidator();
 
-        public InstructorManager(IInstructorDal instructorDal)
+        public InstructorManager(IInstructorDal instructorDal, ICatalogCourseService catalogCourseService)
         {
             _instructorDal = instructorDal;
+            _catalogCourseService = catalogCourseService;
         }
 
         public IDataResult<List<Instructor>> GetAll()
@@ -66,6 +68,22 @@ namespace StudentManagementSystem.Business.Concrete
         public IDataResult<Instructor> GetByInstructorNo(int instructorNo)
         {
             return _instructorDal.Get(new Dictionary<string, dynamic>() { { "ogretim_uye_no", instructorNo } });
+        }
+
+        public IDataResult<Instructor> GetByCourseNo(int courseNo)
+        {
+            if (courseNo > 0)
+            {
+                var catalogCourseResult = _catalogCourseService.GetByCourseNo(courseNo);
+                if (catalogCourseResult.Success)
+                {
+                    return GetByInstructorNo(catalogCourseResult.Data.InstructorNo);
+                }
+
+                return new ErrorDataResult<Instructor>("Ders detayları alınırken bir sorun oldu");
+            }
+
+            return new ErrorDataResult<Instructor>("Ders no 0'dan büyük olmalıdır");
         }
 
         public IResult Add(Instructor entity)
