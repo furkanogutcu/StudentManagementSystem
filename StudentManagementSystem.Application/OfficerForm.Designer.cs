@@ -114,7 +114,6 @@
             this.txtCourseOperationsCourseInfoCourseNo = new System.Windows.Forms.TextBox();
             this.chbxCourseOperationsCourseInfoSemesterEnabled = new System.Windows.Forms.CheckBox();
             this.chbxCourseOperationsCourseInfoCreditEnabled = new System.Windows.Forms.CheckBox();
-            this.chbxCourseOperationsCourseInfoCourseYearEnabled = new System.Windows.Forms.CheckBox();
             this.chbxCourseOperationsCourseInfoInstructorEnabled = new System.Windows.Forms.CheckBox();
             this.chbxCourseOperationsCourseInfoDepartmentEnabled = new System.Windows.Forms.CheckBox();
             this.chbxCourseOperationsCourseInfoCourseNameEnabled = new System.Windows.Forms.CheckBox();
@@ -123,8 +122,6 @@
             this.btnCourseOperationsUpdate = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.txtCourseOperationsCourseInfoSemester = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.txtCourseOperationsCourseInfoCourseYear = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.txtCourseOperationsCourseInfoCredit = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
@@ -154,8 +151,6 @@
             this.btnCourseOperationsAdd = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.txtCourseOperationsAddCourseCourseSemester = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.txtCourseOperationsAddCourseCourseYear = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.txtCourseOperationsAddCourseCredit = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -1187,7 +1182,6 @@
             this.groupBox9.Controls.Add(this.txtCourseOperationsCourseInfoCourseNo);
             this.groupBox9.Controls.Add(this.chbxCourseOperationsCourseInfoSemesterEnabled);
             this.groupBox9.Controls.Add(this.chbxCourseOperationsCourseInfoCreditEnabled);
-            this.groupBox9.Controls.Add(this.chbxCourseOperationsCourseInfoCourseYearEnabled);
             this.groupBox9.Controls.Add(this.chbxCourseOperationsCourseInfoInstructorEnabled);
             this.groupBox9.Controls.Add(this.chbxCourseOperationsCourseInfoDepartmentEnabled);
             this.groupBox9.Controls.Add(this.chbxCourseOperationsCourseInfoCourseNameEnabled);
@@ -1196,8 +1190,6 @@
             this.groupBox9.Controls.Add(this.btnCourseOperationsUpdate);
             this.groupBox9.Controls.Add(this.label28);
             this.groupBox9.Controls.Add(this.txtCourseOperationsCourseInfoSemester);
-            this.groupBox9.Controls.Add(this.label29);
-            this.groupBox9.Controls.Add(this.txtCourseOperationsCourseInfoCourseYear);
             this.groupBox9.Controls.Add(this.label30);
             this.groupBox9.Controls.Add(this.txtCourseOperationsCourseInfoCredit);
             this.groupBox9.Controls.Add(this.label31);
@@ -1214,9 +1206,9 @@
             // 
             // btnCourseOperationsDelete
             // 
-            this.btnCourseOperationsDelete.Location = new System.Drawing.Point(201, 224);
+            this.btnCourseOperationsDelete.Location = new System.Drawing.Point(116, 206);
             this.btnCourseOperationsDelete.Name = "btnCourseOperationsDelete";
-            this.btnCourseOperationsDelete.Size = new System.Drawing.Size(111, 26);
+            this.btnCourseOperationsDelete.Size = new System.Drawing.Size(99, 26);
             this.btnCourseOperationsDelete.TabIndex = 23;
             this.btnCourseOperationsDelete.Text = "Sil";
             this.btnCourseOperationsDelete.UseVisualStyleBackColor = true;
@@ -1225,7 +1217,7 @@
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(42, 35);
+            this.label43.Location = new System.Drawing.Point(42, 49);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(68, 15);
             this.label43.TabIndex = 22;
@@ -1235,16 +1227,16 @@
             // 
             this.txtCourseOperationsCourseInfoCourseNo.Enabled = false;
             this.txtCourseOperationsCourseInfoCourseNo.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCourseOperationsCourseInfoCourseNo.Location = new System.Drawing.Point(116, 30);
+            this.txtCourseOperationsCourseInfoCourseNo.Location = new System.Drawing.Point(116, 44);
             this.txtCourseOperationsCourseInfoCourseNo.Name = "txtCourseOperationsCourseInfoCourseNo";
             this.txtCourseOperationsCourseInfoCourseNo.ReadOnly = true;
-            this.txtCourseOperationsCourseInfoCourseNo.Size = new System.Drawing.Size(195, 26);
+            this.txtCourseOperationsCourseInfoCourseNo.Size = new System.Drawing.Size(212, 26);
             this.txtCourseOperationsCourseInfoCourseNo.TabIndex = 21;
             // 
             // chbxCourseOperationsCourseInfoSemesterEnabled
             // 
             this.chbxCourseOperationsCourseInfoSemesterEnabled.AutoSize = true;
-            this.chbxCourseOperationsCourseInfoSemesterEnabled.Location = new System.Drawing.Point(180, 199);
+            this.chbxCourseOperationsCourseInfoSemesterEnabled.Location = new System.Drawing.Point(334, 181);
             this.chbxCourseOperationsCourseInfoSemesterEnabled.Name = "chbxCourseOperationsCourseInfoSemesterEnabled";
             this.chbxCourseOperationsCourseInfoSemesterEnabled.Size = new System.Drawing.Size(15, 14);
             this.chbxCourseOperationsCourseInfoSemesterEnabled.TabIndex = 20;
@@ -1254,27 +1246,17 @@
             // chbxCourseOperationsCourseInfoCreditEnabled
             // 
             this.chbxCourseOperationsCourseInfoCreditEnabled.AutoSize = true;
-            this.chbxCourseOperationsCourseInfoCreditEnabled.Location = new System.Drawing.Point(167, 167);
+            this.chbxCourseOperationsCourseInfoCreditEnabled.Location = new System.Drawing.Point(167, 181);
             this.chbxCourseOperationsCourseInfoCreditEnabled.Name = "chbxCourseOperationsCourseInfoCreditEnabled";
             this.chbxCourseOperationsCourseInfoCreditEnabled.Size = new System.Drawing.Size(15, 14);
             this.chbxCourseOperationsCourseInfoCreditEnabled.TabIndex = 19;
             this.chbxCourseOperationsCourseInfoCreditEnabled.UseVisualStyleBackColor = true;
             this.chbxCourseOperationsCourseInfoCreditEnabled.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsCourseInfoCreditEnabled_CheckedChanged);
             // 
-            // chbxCourseOperationsCourseInfoCourseYearEnabled
-            // 
-            this.chbxCourseOperationsCourseInfoCourseYearEnabled.AutoSize = true;
-            this.chbxCourseOperationsCourseInfoCourseYearEnabled.Location = new System.Drawing.Point(317, 167);
-            this.chbxCourseOperationsCourseInfoCourseYearEnabled.Name = "chbxCourseOperationsCourseInfoCourseYearEnabled";
-            this.chbxCourseOperationsCourseInfoCourseYearEnabled.Size = new System.Drawing.Size(15, 14);
-            this.chbxCourseOperationsCourseInfoCourseYearEnabled.TabIndex = 18;
-            this.chbxCourseOperationsCourseInfoCourseYearEnabled.UseVisualStyleBackColor = true;
-            this.chbxCourseOperationsCourseInfoCourseYearEnabled.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsCourseInfoCourseYearEnabled_CheckedChanged);
-            // 
             // chbxCourseOperationsCourseInfoInstructorEnabled
             // 
             this.chbxCourseOperationsCourseInfoInstructorEnabled.AutoSize = true;
-            this.chbxCourseOperationsCourseInfoInstructorEnabled.Location = new System.Drawing.Point(317, 133);
+            this.chbxCourseOperationsCourseInfoInstructorEnabled.Location = new System.Drawing.Point(334, 147);
             this.chbxCourseOperationsCourseInfoInstructorEnabled.Name = "chbxCourseOperationsCourseInfoInstructorEnabled";
             this.chbxCourseOperationsCourseInfoInstructorEnabled.Size = new System.Drawing.Size(15, 14);
             this.chbxCourseOperationsCourseInfoInstructorEnabled.TabIndex = 17;
@@ -1284,7 +1266,7 @@
             // chbxCourseOperationsCourseInfoDepartmentEnabled
             // 
             this.chbxCourseOperationsCourseInfoDepartmentEnabled.AutoSize = true;
-            this.chbxCourseOperationsCourseInfoDepartmentEnabled.Location = new System.Drawing.Point(317, 99);
+            this.chbxCourseOperationsCourseInfoDepartmentEnabled.Location = new System.Drawing.Point(334, 113);
             this.chbxCourseOperationsCourseInfoDepartmentEnabled.Name = "chbxCourseOperationsCourseInfoDepartmentEnabled";
             this.chbxCourseOperationsCourseInfoDepartmentEnabled.Size = new System.Drawing.Size(15, 14);
             this.chbxCourseOperationsCourseInfoDepartmentEnabled.TabIndex = 16;
@@ -1294,7 +1276,7 @@
             // chbxCourseOperationsCourseInfoCourseNameEnabled
             // 
             this.chbxCourseOperationsCourseInfoCourseNameEnabled.AutoSize = true;
-            this.chbxCourseOperationsCourseInfoCourseNameEnabled.Location = new System.Drawing.Point(317, 68);
+            this.chbxCourseOperationsCourseInfoCourseNameEnabled.Location = new System.Drawing.Point(334, 82);
             this.chbxCourseOperationsCourseInfoCourseNameEnabled.Name = "chbxCourseOperationsCourseInfoCourseNameEnabled";
             this.chbxCourseOperationsCourseInfoCourseNameEnabled.Size = new System.Drawing.Size(15, 14);
             this.chbxCourseOperationsCourseInfoCourseNameEnabled.TabIndex = 15;
@@ -1307,9 +1289,9 @@
             this.cmbCourseOperationsCourseInfoInstructor.Enabled = false;
             this.cmbCourseOperationsCourseInfoInstructor.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbCourseOperationsCourseInfoInstructor.FormattingEnabled = true;
-            this.cmbCourseOperationsCourseInfoInstructor.Location = new System.Drawing.Point(116, 127);
+            this.cmbCourseOperationsCourseInfoInstructor.Location = new System.Drawing.Point(116, 141);
             this.cmbCourseOperationsCourseInfoInstructor.Name = "cmbCourseOperationsCourseInfoInstructor";
-            this.cmbCourseOperationsCourseInfoInstructor.Size = new System.Drawing.Size(195, 26);
+            this.cmbCourseOperationsCourseInfoInstructor.Size = new System.Drawing.Size(212, 26);
             this.cmbCourseOperationsCourseInfoInstructor.TabIndex = 14;
             this.cmbCourseOperationsCourseInfoInstructor.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbCourseOperationsCourseInfoInstructor_Format);
             // 
@@ -1319,17 +1301,17 @@
             this.cmbCourseOperationsCourseInfoDepartment.Enabled = false;
             this.cmbCourseOperationsCourseInfoDepartment.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.cmbCourseOperationsCourseInfoDepartment.FormattingEnabled = true;
-            this.cmbCourseOperationsCourseInfoDepartment.Location = new System.Drawing.Point(116, 94);
+            this.cmbCourseOperationsCourseInfoDepartment.Location = new System.Drawing.Point(116, 108);
             this.cmbCourseOperationsCourseInfoDepartment.Name = "cmbCourseOperationsCourseInfoDepartment";
-            this.cmbCourseOperationsCourseInfoDepartment.Size = new System.Drawing.Size(195, 26);
+            this.cmbCourseOperationsCourseInfoDepartment.Size = new System.Drawing.Size(212, 26);
             this.cmbCourseOperationsCourseInfoDepartment.TabIndex = 13;
             this.cmbCourseOperationsCourseInfoDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbCourseOperationsCourseInfoDepartment_SelectedIndexChanged);
             // 
             // btnCourseOperationsUpdate
             // 
-            this.btnCourseOperationsUpdate.Location = new System.Drawing.Point(201, 193);
+            this.btnCourseOperationsUpdate.Location = new System.Drawing.Point(233, 206);
             this.btnCourseOperationsUpdate.Name = "btnCourseOperationsUpdate";
-            this.btnCourseOperationsUpdate.Size = new System.Drawing.Size(111, 26);
+            this.btnCourseOperationsUpdate.Size = new System.Drawing.Size(95, 26);
             this.btnCourseOperationsUpdate.TabIndex = 12;
             this.btnCourseOperationsUpdate.Text = "Güncelle";
             this.btnCourseOperationsUpdate.UseVisualStyleBackColor = true;
@@ -1338,7 +1320,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(28, 198);
+            this.label28.Location = new System.Drawing.Point(185, 180);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(82, 15);
             this.label28.TabIndex = 11;
@@ -1347,34 +1329,16 @@
             // txtCourseOperationsCourseInfoSemester
             // 
             this.txtCourseOperationsCourseInfoSemester.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCourseOperationsCourseInfoSemester.Location = new System.Drawing.Point(116, 193);
+            this.txtCourseOperationsCourseInfoSemester.Location = new System.Drawing.Point(270, 175);
             this.txtCourseOperationsCourseInfoSemester.Name = "txtCourseOperationsCourseInfoSemester";
             this.txtCourseOperationsCourseInfoSemester.ReadOnly = true;
             this.txtCourseOperationsCourseInfoSemester.Size = new System.Drawing.Size(58, 26);
             this.txtCourseOperationsCourseInfoSemester.TabIndex = 10;
             // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(191, 166);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(55, 15);
-            this.label29.TabIndex = 9;
-            this.label29.Text = "Ders yılı:";
-            // 
-            // txtCourseOperationsCourseInfoCourseYear
-            // 
-            this.txtCourseOperationsCourseInfoCourseYear.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCourseOperationsCourseInfoCourseYear.Location = new System.Drawing.Point(252, 161);
-            this.txtCourseOperationsCourseInfoCourseYear.Name = "txtCourseOperationsCourseInfoCourseYear";
-            this.txtCourseOperationsCourseInfoCourseYear.ReadOnly = true;
-            this.txtCourseOperationsCourseInfoCourseYear.Size = new System.Drawing.Size(60, 26);
-            this.txtCourseOperationsCourseInfoCourseYear.TabIndex = 8;
-            // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(71, 166);
+            this.label30.Location = new System.Drawing.Point(71, 180);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(39, 15);
             this.label30.TabIndex = 7;
@@ -1383,7 +1347,7 @@
             // txtCourseOperationsCourseInfoCredit
             // 
             this.txtCourseOperationsCourseInfoCredit.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCourseOperationsCourseInfoCredit.Location = new System.Drawing.Point(116, 160);
+            this.txtCourseOperationsCourseInfoCredit.Location = new System.Drawing.Point(116, 174);
             this.txtCourseOperationsCourseInfoCredit.Name = "txtCourseOperationsCourseInfoCredit";
             this.txtCourseOperationsCourseInfoCredit.ReadOnly = true;
             this.txtCourseOperationsCourseInfoCredit.Size = new System.Drawing.Size(45, 26);
@@ -1392,7 +1356,7 @@
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(53, 70);
+            this.label31.Location = new System.Drawing.Point(53, 84);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(57, 15);
             this.label31.TabIndex = 5;
@@ -1401,16 +1365,16 @@
             // txtCourseOperationsCourseInfoCourseName
             // 
             this.txtCourseOperationsCourseInfoCourseName.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCourseOperationsCourseInfoCourseName.Location = new System.Drawing.Point(116, 62);
+            this.txtCourseOperationsCourseInfoCourseName.Location = new System.Drawing.Point(116, 76);
             this.txtCourseOperationsCourseInfoCourseName.Name = "txtCourseOperationsCourseInfoCourseName";
             this.txtCourseOperationsCourseInfoCourseName.ReadOnly = true;
-            this.txtCourseOperationsCourseInfoCourseName.Size = new System.Drawing.Size(195, 26);
+            this.txtCourseOperationsCourseInfoCourseName.Size = new System.Drawing.Size(212, 26);
             this.txtCourseOperationsCourseInfoCourseName.TabIndex = 4;
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(5, 131);
+            this.label32.Location = new System.Drawing.Point(5, 145);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(105, 15);
             this.label32.TabIndex = 3;
@@ -1419,7 +1383,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(64, 102);
+            this.label33.Location = new System.Drawing.Point(64, 116);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(46, 15);
             this.label33.TabIndex = 1;
@@ -1611,8 +1575,6 @@
             this.groupBox7.Controls.Add(this.btnCourseOperationsAdd);
             this.groupBox7.Controls.Add(this.label27);
             this.groupBox7.Controls.Add(this.txtCourseOperationsAddCourseCourseSemester);
-            this.groupBox7.Controls.Add(this.label26);
-            this.groupBox7.Controls.Add(this.txtCourseOperationsAddCourseCourseYear);
             this.groupBox7.Controls.Add(this.label25);
             this.groupBox7.Controls.Add(this.txtCourseOperationsAddCourseCredit);
             this.groupBox7.Controls.Add(this.label24);
@@ -1634,7 +1596,7 @@
             this.cmbCourseOperationsAddCourseInstructor.FormattingEnabled = true;
             this.cmbCourseOperationsAddCourseInstructor.Location = new System.Drawing.Point(145, 88);
             this.cmbCourseOperationsAddCourseInstructor.Name = "cmbCourseOperationsAddCourseInstructor";
-            this.cmbCourseOperationsAddCourseInstructor.Size = new System.Drawing.Size(195, 26);
+            this.cmbCourseOperationsAddCourseInstructor.Size = new System.Drawing.Size(213, 26);
             this.cmbCourseOperationsAddCourseInstructor.TabIndex = 14;
             this.cmbCourseOperationsAddCourseInstructor.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbCourseOperationsAddCourseInstructor_Format);
             // 
@@ -1645,15 +1607,15 @@
             this.cmbCourseOperationsAddCourseDepartment.FormattingEnabled = true;
             this.cmbCourseOperationsAddCourseDepartment.Location = new System.Drawing.Point(145, 55);
             this.cmbCourseOperationsAddCourseDepartment.Name = "cmbCourseOperationsAddCourseDepartment";
-            this.cmbCourseOperationsAddCourseDepartment.Size = new System.Drawing.Size(195, 26);
+            this.cmbCourseOperationsAddCourseDepartment.Size = new System.Drawing.Size(213, 26);
             this.cmbCourseOperationsAddCourseDepartment.TabIndex = 13;
             this.cmbCourseOperationsAddCourseDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbCourseOperationsAddCourseDepartment_SelectedIndexChanged);
             // 
             // btnCourseOperationsAdd
             // 
-            this.btnCourseOperationsAdd.Location = new System.Drawing.Point(209, 154);
+            this.btnCourseOperationsAdd.Location = new System.Drawing.Point(146, 153);
             this.btnCourseOperationsAdd.Name = "btnCourseOperationsAdd";
-            this.btnCourseOperationsAdd.Size = new System.Drawing.Size(131, 26);
+            this.btnCourseOperationsAdd.Size = new System.Drawing.Size(212, 26);
             this.btnCourseOperationsAdd.TabIndex = 12;
             this.btnCourseOperationsAdd.Text = "Ekle";
             this.btnCourseOperationsAdd.UseVisualStyleBackColor = true;
@@ -1662,7 +1624,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(57, 159);
+            this.label27.Location = new System.Drawing.Point(212, 126);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(82, 15);
             this.label27.TabIndex = 11;
@@ -1671,27 +1633,10 @@
             // txtCourseOperationsAddCourseCourseSemester
             // 
             this.txtCourseOperationsAddCourseCourseSemester.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCourseOperationsAddCourseCourseSemester.Location = new System.Drawing.Point(145, 154);
+            this.txtCourseOperationsAddCourseCourseSemester.Location = new System.Drawing.Point(300, 121);
             this.txtCourseOperationsAddCourseCourseSemester.Name = "txtCourseOperationsAddCourseCourseSemester";
             this.txtCourseOperationsAddCourseCourseSemester.Size = new System.Drawing.Size(58, 26);
             this.txtCourseOperationsAddCourseCourseSemester.TabIndex = 10;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(209, 127);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(55, 15);
-            this.label26.TabIndex = 9;
-            this.label26.Text = "Ders yılı:";
-            // 
-            // txtCourseOperationsAddCourseCourseYear
-            // 
-            this.txtCourseOperationsAddCourseCourseYear.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCourseOperationsAddCourseCourseYear.Location = new System.Drawing.Point(269, 122);
-            this.txtCourseOperationsAddCourseCourseYear.Name = "txtCourseOperationsAddCourseCourseYear";
-            this.txtCourseOperationsAddCourseCourseYear.Size = new System.Drawing.Size(72, 26);
-            this.txtCourseOperationsAddCourseCourseYear.TabIndex = 8;
             // 
             // label25
             // 
@@ -1724,7 +1669,7 @@
             this.txtCourseOperationsAddCourseCourseName.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCourseOperationsAddCourseCourseName.Location = new System.Drawing.Point(145, 23);
             this.txtCourseOperationsAddCourseCourseName.Name = "txtCourseOperationsAddCourseCourseName";
-            this.txtCourseOperationsAddCourseCourseName.Size = new System.Drawing.Size(195, 26);
+            this.txtCourseOperationsAddCourseCourseName.Size = new System.Drawing.Size(213, 26);
             this.txtCourseOperationsAddCourseCourseName.TabIndex = 4;
             // 
             // label23
@@ -3384,12 +3329,12 @@
             this.ClientSize = new System.Drawing.Size(1087, 572);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
-            this.Controls.Add(this.pnlGlobalAssignAdviser);
-            this.Controls.Add(this.pnlGlobalStudentOperations);
-            this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Controls.Add(this.pnlGlobalCourseOperations);
             this.Controls.Add(this.pnlGlobalProfile);
             this.Controls.Add(this.pnlGlobalDepartmentOperations);
+            this.Controls.Add(this.pnlGlobalAssignAdviser);
+            this.Controls.Add(this.pnlGlobalStudentOperations);
+            this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
@@ -3535,7 +3480,6 @@
         private System.Windows.Forms.GroupBox groupBox9;
         private System.Windows.Forms.CheckBox chbxCourseOperationsCourseInfoSemesterEnabled;
         private System.Windows.Forms.CheckBox chbxCourseOperationsCourseInfoCreditEnabled;
-        private System.Windows.Forms.CheckBox chbxCourseOperationsCourseInfoCourseYearEnabled;
         private System.Windows.Forms.CheckBox chbxCourseOperationsCourseInfoInstructorEnabled;
         private System.Windows.Forms.CheckBox chbxCourseOperationsCourseInfoDepartmentEnabled;
         private System.Windows.Forms.CheckBox chbxCourseOperationsCourseInfoCourseNameEnabled;
@@ -3544,8 +3488,6 @@
         private System.Windows.Forms.Button btnCourseOperationsUpdate;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox txtCourseOperationsCourseInfoSemester;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox txtCourseOperationsCourseInfoCourseYear;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox txtCourseOperationsCourseInfoCredit;
         private System.Windows.Forms.Label label31;
@@ -3561,8 +3503,6 @@
         private System.Windows.Forms.Button btnCourseOperationsAdd;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtCourseOperationsAddCourseCourseSemester;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox txtCourseOperationsAddCourseCourseYear;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox txtCourseOperationsAddCourseCredit;
         private System.Windows.Forms.Label label24;

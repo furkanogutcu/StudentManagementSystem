@@ -569,7 +569,6 @@ namespace StudentManagementSystem.Application
                     DataSetterToBoxes.SetComboBoxSelectedItem<Instructor>(cmbCourseOperationsCourseInfoInstructor, instructorResult.Data.InstructorNo.ToString());    //FIXME
 
                     txtCourseOperationsCourseInfoCredit.Text = selectedCourseResult.Data.Credit.ToString();
-                    txtCourseOperationsCourseInfoCourseYear.Text = selectedCourseResult.Data.CourseYear.ToString();
                     txtCourseOperationsCourseInfoSemester.Text = selectedCourseResult.Data.CourseSemester.ToString();
                 }
                 else
@@ -614,11 +613,6 @@ namespace StudentManagementSystem.Application
             EnableStateSwitcher.SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCreditEnabled, txtCourseOperationsCourseInfoCredit);
         }
 
-        private void chbxCourseOperationsCourseInfoCourseYearEnabled_CheckedChanged(object sender, EventArgs e)
-        {
-            EnableStateSwitcher.SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoCourseYearEnabled, txtCourseOperationsCourseInfoCourseYear);
-        }
-
         private void chbxCourseOperationsCourseInfoSemesterEnabled_CheckedChanged(object sender, EventArgs e)
         {
             EnableStateSwitcher.SwitchUpdateTextBoxEnabled(chbxCourseOperationsCourseInfoSemesterEnabled, txtCourseOperationsCourseInfoSemester);
@@ -658,12 +652,6 @@ namespace StudentManagementSystem.Application
                 return;
             }
 
-            if (!NumberStringValidator.ValidateString(txtCourseOperationsCourseInfoCourseYear.Text))
-            {
-                MessageBox.Show($@"{Messages.CourseYearMustConsistOfNumbersOnly}", Messages.Warning);
-                return;
-            }
-
             if (!NumberStringValidator.ValidateString(txtCourseOperationsCourseInfoSemester.Text))
             {
                 MessageBox.Show($@"{Messages.CourseSemesterMustConsistOfNumbersOnly}", Messages.Warning);
@@ -698,7 +686,6 @@ namespace StudentManagementSystem.Application
                 DepartmentNo = ((Department)cmbCourseOperationsCourseInfoDepartment.SelectedItem).DepartmentNo,
                 InstructorNo = ((Instructor)cmbCourseOperationsCourseInfoInstructor.SelectedItem).InstructorNo,
                 Credit = Convert.ToInt32(txtCourseOperationsCourseInfoCredit.Text),
-                CourseYear = short.Parse(txtCourseOperationsCourseInfoCourseYear.Text),
                 CourseSemester = Convert.ToInt32(txtCourseOperationsCourseInfoSemester.Text),
                 CreatedAt = updatedCourseDetailsResult.Data.CreatedAt,
                 ModifiedAt = updatedCourseDetailsResult.Data.ModifiedAt,
@@ -714,7 +701,6 @@ namespace StudentManagementSystem.Application
             message += $"\n- Bölüm: {updatedDepartmentName}";
             message += $"\n- Öğretim görevlisi {updatedInstructorFullName}";
             message += $"\n- Kredi: {updatedCourse.Credit}";
-            message += $"\n- Ders yılı: {updatedCourse.CourseYear}";
             message += $"\n- Ders dönemi: {updatedCourse.CourseSemester}";
 
             if (FindDifferencesInEntities.Find(updatedCourse, updatedCourseDetailsResult.Data).Values
@@ -747,8 +733,7 @@ namespace StudentManagementSystem.Application
             }
             if (txtCourseOperationsAddCourseCourseName.Text == string.Empty
                 || txtCourseOperationsAddCourseCredit.Text == string.Empty
-                || txtCourseOperationsAddCourseCourseSemester.Text == string.Empty
-                || txtCourseOperationsAddCourseCourseYear.Text == string.Empty)
+                || txtCourseOperationsAddCourseCourseSemester.Text == string.Empty)
             {
                 MessageBox.Show(Messages.MakeSureFillInAllFields, Messages.Warning);
                 return;
@@ -757,12 +742,6 @@ namespace StudentManagementSystem.Application
             if (!NumberStringValidator.ValidateString(txtCourseOperationsAddCourseCredit.Text))
             {
                 MessageBox.Show(Messages.CourseCreditMustConsistOfNumbersOnly, Messages.Warning);
-                return;
-            }
-
-            if (!NumberStringValidator.ValidateString(txtCourseOperationsAddCourseCourseYear.Text))
-            {
-                MessageBox.Show(Messages.CourseYearMustConsistOfNumbersOnly, Messages.Warning);
                 return;
             }
 
@@ -775,7 +754,6 @@ namespace StudentManagementSystem.Application
             var addedCourse = new CatalogCourse
             {
                 CourseNo = 1,
-                CourseYear = short.Parse(txtCourseOperationsAddCourseCourseYear.Text),
                 CourseName = txtCourseOperationsAddCourseCourseName.Text,
                 CourseSemester = Convert.ToInt32(txtCourseOperationsAddCourseCourseSemester.Text),
                 Credit = Convert.ToInt32(txtCourseOperationsAddCourseCredit.Text),
@@ -796,7 +774,6 @@ namespace StudentManagementSystem.Application
                 txtCourseOperationsCourseInfoCourseNo,
                 txtCourseOperationsCourseInfoCourseName,
                 txtCourseOperationsCourseInfoCredit,
-                txtCourseOperationsCourseInfoCourseYear,
                 txtCourseOperationsCourseInfoSemester
             };
 

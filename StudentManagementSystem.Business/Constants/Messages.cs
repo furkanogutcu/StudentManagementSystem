@@ -60,7 +60,6 @@
         public static string DepartmentNumberMustConsistOfNumbersOnly = "Bölüm numarası yalnızca rakamlardan oluşmalıdır";
         public static string DepartmentNumberOfSemesterMustConsistOfNumbersOnly = "Bölüm dönemi yalnızca rakamlardan oluşmalıdır";
         public static string CourseCreditMustConsistOfNumbersOnly = "Ders kredisi yalnızca rakamlardan oluşmalıdır";
-        public static string CourseYearMustConsistOfNumbersOnly = "Ders yılı yalnızca rakamlardan oluşmalıdır";
         public static string CourseSemesterMustConsistOfNumbersOnly = "Ders dönemi yalnızca rakamlardan oluşmalıdır";
         public static string CourseNoMustConsistOfNumbersOnly = "Ders kodu yalnızca rakamlardan oluşmalıdır";
         public static string InstructorNoMustConsistOfNumbersOnly = "Öğretim görevlisi numarası yalnızca rakamlardan oluşmalıdır";

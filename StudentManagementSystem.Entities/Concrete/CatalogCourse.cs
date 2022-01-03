@@ -10,7 +10,6 @@ namespace StudentManagementSystem.Entities.Concrete
         public int InstructorNo { get; set; }
         public String CourseName { get; set; }
         public int Credit { get; set; }
-        public short CourseYear { get; set; }
         public int CourseSemester { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? ModifiedAt { get; set; }

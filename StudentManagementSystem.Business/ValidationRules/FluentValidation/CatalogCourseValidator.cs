@@ -29,10 +29,6 @@ namespace StudentManagementSystem.Business.ValidationRules.FluentValidation
             RuleFor(cc => cc.Credit).NotNull().WithName("Kredi");
             RuleFor(cc => cc.Credit).GreaterThan(0).WithName("Kredi");
 
-            RuleFor(cc => cc.CourseYear).NotEmpty().WithName("Ders yılı");
-            RuleFor(cc => cc.CourseYear).NotNull().WithName("Ders yılı");
-            RuleFor(cc => cc.CourseYear).GreaterThanOrEqualTo(short.Parse(DateTime.Now.Year.ToString())).WithName("Ders yılı");
-
             RuleFor(cc => cc.CourseSemester).NotEmpty().WithName("Ders dönemi");
             RuleFor(cc => cc.CourseSemester).NotNull().WithName("Ders dönemi");
             RuleFor(cc => cc.CourseSemester).GreaterThan(0).WithName("Ders dönemi");
