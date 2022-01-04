@@ -23,17 +23,17 @@ namespace StudentManagementSystem.Business.ValidationRules.FluentValidation
 
             RuleFor(i => i.Password).NotEmpty().WithName("Şifre");
             RuleFor(i => i.Password).NotNull().WithName("Şifre");
-            RuleFor(i => i.Password).MinimumLength(8).WithName("Şifre");
+            RuleFor(i => i.Password).MinimumLength(6).WithName("Şifre");
             RuleFor(i => i.Password).MaximumLength(50).WithName("Şifre");
 
             RuleFor(i => i.FirstName).NotEmpty().WithName("Ad");
             RuleFor(i => i.FirstName).NotNull().WithName("Ad");
-            RuleFor(i => i.FirstName).MinimumLength(2).WithName("Ad");
+            RuleFor(i => i.FirstName).MinimumLength(3).WithName("Ad");
             RuleFor(i => i.FirstName).MaximumLength(50).WithName("Ad");
 
             RuleFor(i => i.LastName).NotEmpty().WithName("Soyad");
             RuleFor(i => i.LastName).NotNull().WithName("Soyad");
-            RuleFor(i => i.LastName).MinimumLength(2).WithName("Soyad");
+            RuleFor(i => i.LastName).MinimumLength(3).WithName("Soyad");
             RuleFor(i => i.LastName).MaximumLength(50).WithName("Soyad");
 
             RuleFor(i => i.Phone).NotEmpty().WithName("Telefon");
