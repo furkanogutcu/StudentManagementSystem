@@ -227,7 +227,7 @@
             this.btnStudentOperationsResetPassword = new System.Windows.Forms.Button();
             this.chbxStudentOperationsInfoStudentDepartmentEnabled = new System.Windows.Forms.CheckBox();
             this.cmbStudentOperationsInfoDepartment = new System.Windows.Forms.ComboBox();
-            this.btnStudenOperationsChangeStudentDepartment = new System.Windows.Forms.Button();
+            this.btnStudentOperationsChangeStudentDepartment = new System.Windows.Forms.Button();
             this.txtStudentOperationsInfoEnrollmentDate = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
             this.txtStudentOperationsInfoSemester = new System.Windows.Forms.TextBox();
@@ -2163,6 +2163,7 @@
             this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.Name = "cmbInstructorOperationsAssignInstructorToDepartmentInstructors";
             this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.Size = new System.Drawing.Size(249, 26);
             this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.TabIndex = 6;
+            this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors_Format);
             // 
             // label35
             // 
@@ -2369,7 +2370,7 @@
             this.groupBox21.Controls.Add(this.btnStudentOperationsResetPassword);
             this.groupBox21.Controls.Add(this.chbxStudentOperationsInfoStudentDepartmentEnabled);
             this.groupBox21.Controls.Add(this.cmbStudentOperationsInfoDepartment);
-            this.groupBox21.Controls.Add(this.btnStudenOperationsChangeStudentDepartment);
+            this.groupBox21.Controls.Add(this.btnStudentOperationsChangeStudentDepartment);
             this.groupBox21.Controls.Add(this.txtStudentOperationsInfoEnrollmentDate);
             this.groupBox21.Controls.Add(this.label63);
             this.groupBox21.Controls.Add(this.txtStudentOperationsInfoSemester);
@@ -2426,15 +2427,15 @@
             this.cmbStudentOperationsInfoDepartment.Size = new System.Drawing.Size(219, 23);
             this.cmbStudentOperationsInfoDepartment.TabIndex = 44;
             // 
-            // btnStudenOperationsChangeStudentDepartment
+            // btnStudentOperationsChangeStudentDepartment
             // 
-            this.btnStudenOperationsChangeStudentDepartment.Location = new System.Drawing.Point(132, 233);
-            this.btnStudenOperationsChangeStudentDepartment.Name = "btnStudenOperationsChangeStudentDepartment";
-            this.btnStudenOperationsChangeStudentDepartment.Size = new System.Drawing.Size(127, 33);
-            this.btnStudenOperationsChangeStudentDepartment.TabIndex = 42;
-            this.btnStudenOperationsChangeStudentDepartment.Text = "Bölümünü değiştir";
-            this.btnStudenOperationsChangeStudentDepartment.UseVisualStyleBackColor = true;
-            this.btnStudenOperationsChangeStudentDepartment.Click += new System.EventHandler(this.btnStudenOperationsChangeStudentDepartment_Click);
+            this.btnStudentOperationsChangeStudentDepartment.Location = new System.Drawing.Point(132, 233);
+            this.btnStudentOperationsChangeStudentDepartment.Name = "btnStudentOperationsChangeStudentDepartment";
+            this.btnStudentOperationsChangeStudentDepartment.Size = new System.Drawing.Size(127, 33);
+            this.btnStudentOperationsChangeStudentDepartment.TabIndex = 42;
+            this.btnStudentOperationsChangeStudentDepartment.Text = "Bölümünü değiştir";
+            this.btnStudentOperationsChangeStudentDepartment.UseVisualStyleBackColor = true;
+            this.btnStudentOperationsChangeStudentDepartment.Click += new System.EventHandler(this.btnStudentOperationsChangeStudentDepartment_Click);
             // 
             // txtStudentOperationsInfoEnrollmentDate
             // 
@@ -3693,7 +3694,7 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.CheckBox chbxStudentOperationsInfoStudentDepartmentEnabled;
         private System.Windows.Forms.ComboBox cmbStudentOperationsInfoDepartment;
-        private System.Windows.Forms.Button btnStudenOperationsChangeStudentDepartment;
+        private System.Windows.Forms.Button btnStudentOperationsChangeStudentDepartment;
         private System.Windows.Forms.Button btnAssignAdvisorGetkAllCheckedStudents;
         private System.Windows.Forms.Button btnAssignAdvisorGetAllCheckedCourses;
         private System.Windows.Forms.Button btnAssignAdvisorGetAllCheckedDepartment;
