@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Helpers\PDFHelper.cs" />
     <Compile Include="InstructorForm.cs">
       <SubType>Form</SubType>
     </Compile>

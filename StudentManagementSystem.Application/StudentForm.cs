@@ -7,6 +7,7 @@ using System.Linq;
 using System.Windows.Forms;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using StudentManagementSystem.Application.Helpers;
 using StudentManagementSystem.Application.Utilities;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.Constants;
@@ -866,163 +867,40 @@ namespace StudentManagementSystem.Application
         private void btnTranscriptGetTranscriptPDF_Click(object sender, EventArgs e)
         {
             var departmentResult = _departmentService.GetByDepartmentNo(_student.DepartmentNo);
+            var enrolledCourseResult = _enrolledCourseService.GetAllByStudentNo(_student.StudentNo);
 
-            if (!departmentResult.Success)
+            if (!departmentResult.Success || !enrolledCourseResult.Success)
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingDepartmentDetails, Messages.ServerError);
+                MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                return;
             }
 
-            // https://stackoverflow.com/questions/4023118/html-to-pdf-turkish-character-problem
-            // https://www.c-sharpcorner.com/blogs/create-table-in-pdf-using-c-sharp-and-itextsharp
+            var enrolledCourseDict = new Dictionary<EnrolledCourse, CatalogCourse>();
 
-            BaseFont STF_Helvetica_Turkish = BaseFont.CreateFont("Helvetica", "CP1254", BaseFont.NOT_EMBEDDED);
-            var fontNormal = new iTextSharp.text.Font(STF_Helvetica_Turkish, 12, iTextSharp.text.Font.NORMAL);
-            var fontBold = new iTextSharp.text.Font(STF_Helvetica_Turkish, 12, iTextSharp.text.Font.BOLD);
-            var headerFont = new iTextSharp.text.Font(STF_Helvetica_Turkish, 18, iTextSharp.text.Font.BOLD);
-            BaseColor baseColorBlue = new BaseColor(153, 255, 255);
-            BaseColor baseColorGray = new BaseColor(224, 224, 224);
-            BaseColor baseColorYellow = new BaseColor(255, 255, 102);
-            BaseColor baseColorYellowLight = new BaseColor(255, 255, 153);
+            foreach (var enrolledCourse in enrolledCourseResult.Data)
+            {
+                var courseDetail = _catalogCourseService.GetByCourseNo(enrolledCourse.CourseNo);
+                if (courseDetail.Success)
+                {
+                    enrolledCourseDict.Add(enrolledCourse, courseDetail.Data);
+                }
+                else
+                {
+                    MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                    return;
+                }
+            }
 
-            Document pdfDocument = new Document(PageSize.A4.Rotate(), 10, 10, 10, 10);
+            var pdfBody = PDFHelper.CreateA4TranskriptBody(_student, departmentResult.Data, enrolledCourseDict, false);
+
+            Document pdfDocument = new Document(PageSize.A4, 10, 10, 10, 10);
             var fileName =
                 $"{TurkishCharNormalizer.Normalization(_student.FirstName.ToLower())}_{TurkishCharNormalizer.Normalization(_student.LastName.ToLower())}_transkript";
             var targetPath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\{fileName}.pdf";
             PdfWriter writer = PdfWriter.GetInstance(pdfDocument, new FileStream(targetPath, FileMode.Create));
 
-            PdfPTable transcriptTable = new PdfPTable(5);
-            transcriptTable.HorizontalAlignment = 0;
-            transcriptTable.TotalWidth = 820f;
-            transcriptTable.LockedWidth = true;
-            float[] widths = new float[] { 20f, 60f, 40f, 30f, 40f };
-            //float[] widths = new float[] { 20f, 60f, 60f, 30f, 50f};
-            transcriptTable.SetWidths(widths);
-            transcriptTable.AddCell(new PdfPCell(new Phrase($"{_student.FirstName.ToUpper()} {_student.LastName.ToUpper()} ÖĞRENCİSİNE AİT TRANSKRİPT", headerFont))
-            {
-                Colspan = 5,
-                HorizontalAlignment = Element.ALIGN_CENTER,
-                VerticalAlignment = Element.ALIGN_MIDDLE,
-                BackgroundColor = baseColorBlue,
-                MinimumHeight = 60f,
-                FixedHeight = 60f,
-            });
-
-            var emptyFullCell = new PdfPCell(new Phrase(" ", fontNormal))
-            {
-                Colspan = 5,
-                HorizontalAlignment = Element.ALIGN_CENTER
-            };
-
-            var dateTime = DateTime.Now;
-            transcriptTable.AddCell(new PdfPCell(new Phrase($"Tarih: {(dateTime.Day.ToString().Length == 1 ? "0" : "")}{dateTime.Day}/{(dateTime.Day.ToString().Length == 1 ? "0" : "")}{dateTime.Month}/{dateTime.Year}", fontBold))
-            {
-                Colspan = 5,
-                HorizontalAlignment = Element.ALIGN_RIGHT,
-                VerticalAlignment = Element.ALIGN_MIDDLE,
-                MinimumHeight = 40f,
-            });
-
-            transcriptTable.AddCell(new PdfPCell(new Phrase("Öğrenci no:", fontBold)) { BackgroundColor = baseColorGray, VerticalAlignment = Element.ALIGN_MIDDLE });
-            transcriptTable.AddCell(new PdfPCell(new Phrase($"{_student.StudentNo}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE });
-            transcriptTable.AddCell(new PdfPCell(new Phrase(" ", fontBold)) { Rowspan = 3, Colspan = 1 });
-            transcriptTable.AddCell(new PdfPCell(new Phrase("Bölümü:", fontBold)) { BackgroundColor = baseColorGray, VerticalAlignment = Element.ALIGN_MIDDLE });
-            transcriptTable.AddCell(new PdfPCell(new Phrase($"{departmentResult.Data.DepartmentName}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE });
-
-            transcriptTable.AddCell(new PdfPCell(new Phrase("Adı:", fontBold)) { BackgroundColor = baseColorGray, VerticalAlignment = Element.ALIGN_MIDDLE });
-            transcriptTable.AddCell(new PdfPCell(new Phrase($"{_student.FirstName.ToUpper()}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE });
-            transcriptTable.AddCell(new PdfPCell(new Phrase("Soyadı:", fontBold)) { BackgroundColor = baseColorGray, VerticalAlignment = Element.ALIGN_MIDDLE });
-            transcriptTable.AddCell(new PdfPCell(new Phrase($"{_student.LastName.ToUpper()}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE });
-
-            transcriptTable.AddCell(new PdfPCell(new Phrase("Kayıt yılı:", fontBold)) { BackgroundColor = baseColorGray, VerticalAlignment = Element.ALIGN_MIDDLE });
-            transcriptTable.AddCell(new PdfPCell(new Phrase($"{_student.EnrollmentDate}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE });
-            transcriptTable.AddCell(new PdfPCell(new Phrase("Mezuniyet yılı:", fontBold)) { BackgroundColor = baseColorGray, VerticalAlignment = Element.ALIGN_MIDDLE });
-            transcriptTable.AddCell(new PdfPCell(new Phrase($"{(departmentResult.Data.NumberOfSemester / 2) + _student.EnrollmentDate}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE });
-
-            transcriptTable.AddCell(emptyFullCell);
-
-            var enrolledCourseDetails = _enrolledCourseService.GetAllByStudentNo(_student.StudentNo);
-            if (!enrolledCourseDetails.Success)
-            {
-                return;
-            }
-
-            for (int i = 0; i < _student.Semester; i++)
-            {
-                var addedYear = Convert.ToInt32(i / 2);
-                var first = "Güz";
-                var second = "Bahar";
-
-                transcriptTable.AddCell(new PdfPCell(new Phrase($"{i + 1}. Yarıyıl : {_student.EnrollmentDate + addedYear} - {_student.EnrollmentDate + addedYear + 1} {(i % 2 == 0 ? first : second)}", fontBold))
-                {
-                    Colspan = 5,
-                    HorizontalAlignment = Element.ALIGN_LEFT,
-                    BackgroundColor = baseColorBlue
-                });
-
-                transcriptTable.AddCell(new PdfPCell(new Phrase("Ders Kodu", fontBold)) { BackgroundColor = baseColorGray, MinimumHeight = 25, FixedHeight = 25, VerticalAlignment = Element.ALIGN_MIDDLE });
-                transcriptTable.AddCell(new PdfPCell(new Phrase("Ders Adı", fontBold)) { BackgroundColor = baseColorGray, MinimumHeight = 25, FixedHeight = 25, VerticalAlignment = Element.ALIGN_MIDDLE });
-                transcriptTable.AddCell(new PdfPCell(new Phrase("Kredisi", fontBold)) { BackgroundColor = baseColorGray, MinimumHeight = 25, FixedHeight = 25, VerticalAlignment = Element.ALIGN_MIDDLE });
-                transcriptTable.AddCell(new PdfPCell(new Phrase("Başarı Notu", fontBold)) { BackgroundColor = baseColorGray, MinimumHeight = 25, FixedHeight = 25, VerticalAlignment = Element.ALIGN_MIDDLE });
-                transcriptTable.AddCell(new PdfPCell(new Phrase("Durumu", fontBold)) { BackgroundColor = baseColorGray, MinimumHeight = 25, FixedHeight = 25, VerticalAlignment = Element.ALIGN_MIDDLE });
-
-                var totalCredit = 0;
-                var totalCompleteCredit = 0;
-                var semesterGrade = 0;
-
-                foreach (var enrolledCourse in enrolledCourseDetails.Data)
-                {
-                    var courseDetails = _catalogCourseService.GetByCourseNo(enrolledCourse.CourseNo);
-                    if (!courseDetails.Success)
-                    {
-                        return;
-                    }
-
-                    if (courseDetails.Data.CourseSemester != i + 1)
-                    {
-                        continue;
-                    }
-
-                    var enrolledCourseView = new EnrolledCourseView
-                    {
-                        CourseName = courseDetails.Data.CourseName,
-                        CourseNo = courseDetails.Data.CourseNo,
-                        InstructorFullName = "",
-                        VizeResult = enrolledCourse.VizeResult,
-                        FinalResult = enrolledCourse.FinalResult,
-                        ButunlemeResult = enrolledCourse.ButunlemeResult
-                    };
-
-                    transcriptTable.AddCell(new PdfPCell(new Phrase($"{courseDetails.Data.CourseNo}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE, MinimumHeight = 25, FixedHeight = 25 });
-                    transcriptTable.AddCell(new PdfPCell(new Phrase($"{courseDetails.Data.CourseName}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE, MinimumHeight = 25, FixedHeight = 25 });
-                    transcriptTable.AddCell(new PdfPCell(new Phrase($"{courseDetails.Data.Credit}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE, MinimumHeight = 25, FixedHeight = 25 });
-                    transcriptTable.AddCell(new PdfPCell(new Phrase($"{enrolledCourseView.GetCompletionGrade()}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE, MinimumHeight = 25, FixedHeight = 25 });
-                    transcriptTable.AddCell(new PdfPCell(new Phrase($"{(enrolledCourseView.GetStatus() == null ? "" : enrolledCourseView.GetStatus() == true ? "GEÇTİ" : "KALDI")}", fontNormal)) { VerticalAlignment = Element.ALIGN_MIDDLE, MinimumHeight = 25, FixedHeight = 25 });
-
-                    totalCredit += courseDetails.Data.Credit;
-                    totalCompleteCredit += enrolledCourseView.GetStatus() == null ? 0 :
-                        enrolledCourseView.GetStatus() == true ? courseDetails.Data.Credit : 0;
-                    semesterGrade += enrolledCourseView.GetCompletionGrade() == null ? 0 : Convert.ToInt32(enrolledCourseView.GetCompletionGrade());
-                }
-
-                transcriptTable.AddCell(new PdfPCell(new Phrase(" ", fontBold)) { Rowspan = 2, Colspan = 2 });
-                transcriptTable.AddCell(new PdfPCell(new Phrase("Alınan Ders Sayısı", fontBold)) { BackgroundColor = baseColorYellow });
-                transcriptTable.AddCell(new PdfPCell(new Phrase("A/T Kredi", fontBold)) { BackgroundColor = baseColorYellow });
-                transcriptTable.AddCell(new PdfPCell(new Phrase("Puan", fontBold)) { BackgroundColor = baseColorYellow });
-
-                transcriptTable.AddCell(new PdfPCell(new Phrase($"{i}", fontNormal)) { BackgroundColor = baseColorYellowLight });
-                transcriptTable.AddCell(new PdfPCell(new Phrase($"{totalCredit} | {totalCompleteCredit}", fontNormal)) { BackgroundColor = baseColorYellowLight });
-                transcriptTable.AddCell(new PdfPCell(new Phrase($"{semesterGrade}", fontNormal)) { BackgroundColor = baseColorYellowLight });
-
-                transcriptTable.AddCell(new PdfPCell(new Phrase(" "))
-                {
-                    Colspan = 5,
-                    MinimumHeight = 10,
-                    FixedHeight = 10,
-                });
-            }
-
             pdfDocument.Open();
-            pdfDocument.Add(transcriptTable);
+            pdfDocument.Add(pdfBody);
             pdfDocument.Close();
             MessageBox.Show(
                 $"PDF formatında transkript alma işleminiz başarıyla tamamlandı. Transkript dosya dizini:\n\n{targetPath}",
