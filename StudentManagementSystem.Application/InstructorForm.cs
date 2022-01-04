@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Windows.Forms;
 using StudentManagementSystem.Application.Utilities;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.Constants;
+using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.Entities.Concrete;
 using StudentManagementSystem.Entities.Views;
 
@@ -47,8 +47,8 @@ namespace StudentManagementSystem.Application
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                var messageDialogResult = MessageBox.Show("Uygulamadan çıkış yapmak istediğinize emin misiniz?",
-                    "Uygulama Kapatılıyor", MessageBoxButtons.OKCancel);
+                var messageDialogResult = MessageBox.Show(Messages.AppClosingConfirmation,
+                    Messages.AppClosing, MessageBoxButtons.OKCancel);
                 if (messageDialogResult == DialogResult.OK)
                 {
                     _application.Close();
@@ -64,7 +64,7 @@ namespace StudentManagementSystem.Application
 
         private void btnGlobalLogOut_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show("Hesabınızdan çıkış yapmak istediğinize emin misiniz?", "Güvenli Çıkış", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show(Messages.LogOutConfirmation, Messages.SafetyLogOut, MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -100,7 +100,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                txtProfileInfoDepartment.Text = "SUNUCUDAN ALINAMADI";
+                txtProfileInfoDepartment.Text = Messages.CouldNotBeRetrivedFromServer;
             }
 
             if (_instructor.ModifiedAt != null)
@@ -129,7 +129,9 @@ namespace StudentManagementSystem.Application
             txtGradeOperationsInputFinal.Enabled = false;
             txtGradeOperationsInputButunleme.Enabled = false;
             btnGradeOperationsSaveGrades.Enabled = false;
+
             var departmentResult = _departmentService.GetByDepartmentNo(_instructor.DepartmentNo);
+
             if (departmentResult.Success)
             {
                 var semesterList = new List<int>();
@@ -142,7 +144,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingDepartmentDetails, Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}\n\n{departmentResult.Message}", Messages.ServerError);
             }
         }
 
@@ -152,21 +154,20 @@ namespace StudentManagementSystem.Application
         {
             PanelSwitcher.ShowPanel(pnlGlobalAdviserOperations, _panels);
             ReBuildAdviserOperationsPanel();
-
         }
 
         private void ReBuildAdviserOperationsPanel()
         {
             PanelCleaner.Clean(pnlGlobalAdviserOperations);
-            var studentList = _studentService.GetAllByAdvisorNo(_instructor.InstructorNo);
+            var studentListResult = _studentService.GetAllByAdvisorNo(_instructor.InstructorNo);
 
-            if (studentList.Success)
+            if (studentListResult.Success)
             {
-                if (studentList.Data.Count > 0)
+                if (studentListResult.Data.Count > 0)
                 {
                     grbxAdviserOperationsShowOperations.Visible = true;
                     lblAdviserThereIsNoStudentYouAreAdviser.Visible = false;
-                    DataSetterToBoxes.SetDataToListBox<Student>(listBoxAdviserOperationsStudentList, studentList.Data);
+                    DataSetterToBoxes.SetDataToListBox<Student>(listBoxAdviserOperationsStudentList, studentListResult.Data);
                 }
                 else
                 {
@@ -176,7 +177,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingCurrentStudents, Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCurrentStudents}\n\n{studentListResult.Message}", Messages.ServerError);
             }
         }
 
@@ -192,11 +193,14 @@ namespace StudentManagementSystem.Application
             else
             {
                 var message = "Aşağıdaki alanlar güncellenecek onaylıyor musunuz?\n";
+
                 if (txtProfileUpdateEmail.Text != string.Empty) message += $"\nEski email: {_instructor.Email} --> Yeni email: {txtProfileUpdateEmail.Text}\n";
                 if (txtProfileUpdateFirstName.Text != string.Empty) message += $"\nEski ad: {_instructor.FirstName} --> Yeni ad: {txtProfileUpdateFirstName.Text}\n";
                 if (txtProfileUpdateLastName.Text != string.Empty) message += $"\nEski soyad: {_instructor.LastName} --> Yeni soyad: {txtProfileUpdateLastName.Text}\n";
                 if (txtProfileUpdatePhone.Text != string.Empty) message += $"\nEski telefon: {_instructor.Phone} --> Yeni telefon: {txtProfileUpdatePhone.Text}\n";
-                var selection = MessageBox.Show(message, "Güncellemeyi onaylıyor musunuz?", MessageBoxButtons.YesNo);
+
+                var selection = MessageBox.Show(message, Messages.UpdateConfirmation, MessageBoxButtons.YesNo);
+
                 if (selection == DialogResult.Yes)
                 {
                     var newInstructor = new Instructor
@@ -212,11 +216,14 @@ namespace StudentManagementSystem.Application
                         DeletedAt = _instructor.DeletedAt,
                         InstructorNo = _instructor.InstructorNo
                     };
+
                     var updateResult = _instructorService.Update(newInstructor);
+
                     if (updateResult.Success)
                     {
                         MessageBox.Show(Messages.ProfileHasBeenUpdated, Messages.Successful);
                         var instructorGetResult = _instructorService.GetByInstructorNo(_instructor.InstructorNo);
+
                         if (instructorGetResult.Success)
                         {
                             _instructor = instructorGetResult.Data;
@@ -228,7 +235,7 @@ namespace StudentManagementSystem.Application
                         }
                         else
                         {
-                            MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingNewProfileInfos}:\n\n{updateResult.Message}\n\n{Messages.ApplicationIsRestarting}..", Messages.ServerError);
+                            MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingNewProfileInfos}:\n\n{instructorGetResult.Message}\n\n{Messages.ApplicationIsRestarting}..", Messages.ServerError);
                             System.Windows.Forms.Application.Restart();
                         }
                     }
@@ -257,11 +264,12 @@ namespace StudentManagementSystem.Application
                 else
                 {
                     var instructorResult = _instructorService.GetByInstructorNo(_instructor.InstructorNo);
+
                     if (instructorResult.Success)
                     {
                         if (txtProfileOldPassword.Text == instructorResult.Data.Password)
                         {
-                            var selection = MessageBox.Show("Şifreniz güncellenecek. Onaylıyor musunuz?", "Güncellemeyi onaylıyor musunuz?", MessageBoxButtons.YesNo);
+                            var selection = MessageBox.Show(Messages.PasswordChangeConfirmation, Messages.PasswordChanging, MessageBoxButtons.YesNo);
 
                             if (selection == DialogResult.Yes)
                             {
@@ -278,6 +286,7 @@ namespace StudentManagementSystem.Application
                                     DeletedAt = _instructor.DeletedAt,
                                     InstructorNo = _instructor.InstructorNo
                                 });
+
                                 if (updateResult.Success)
                                 {
                                     MessageBox.Show($"{Messages.PasswordHasBeenChanged}. {Messages.LoginAgainWithNewPassword}. {Messages.ApplicationIsRestarting}..", Messages.Successful);
@@ -320,9 +329,11 @@ namespace StudentManagementSystem.Application
             GradeOperationsClearScreenComponents();
 
             var catalogCourses = _catalogCourseService.GetAllByInstructorNo(_instructor.InstructorNo);
+
             if (catalogCourses.Success)
             {
                 var selectedCourses = new List<CatalogCourse>();
+
                 foreach (var catalogCourse in catalogCourses.Data)
                 {
                     if (catalogCourse.CourseSemester == Convert.ToInt32(cmbGradeOperationsSelectSemester.SelectedItem))
@@ -337,7 +348,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingCurrentCourses, Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCurrentCourses}\n\n{catalogCourses.Message}", Messages.ServerError);
             }
         }
 
@@ -351,7 +362,7 @@ namespace StudentManagementSystem.Application
                 return;
             }
 
-            var selectedCourse = (CatalogCourse)listBoxGradeOperationsCurrentCourses.SelectedItem;  // IMPORTANT
+            var selectedCourse = (CatalogCourse)listBoxGradeOperationsCurrentCourses.SelectedItem;
 
             var studentsResult = _studentService.GetAllByCourseNo(selectedCourse.CourseNo);
 
@@ -359,6 +370,7 @@ namespace StudentManagementSystem.Application
             {
                 var numberOfStudent = 0;
                 var gradeTotal = 0;
+
                 foreach (var student in studentsResult.Data)
                 {
                     var enrolledCourseResult =
@@ -375,6 +387,7 @@ namespace StudentManagementSystem.Application
                             ButunlemeResult = enrolledCourseResult.Data.ButunlemeResult,
                             FinalResult = enrolledCourseResult.Data.FinalResult
                         };
+
                         if (enrolledCourseView.GetCompletionGrade() != null)
                         {
                             gradeTotal += Convert.ToInt32(enrolledCourseView.GetCompletionGrade());
@@ -383,7 +396,7 @@ namespace StudentManagementSystem.Application
                     }
                     else
                     {
-                        MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                        MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}\n\n{enrolledCourseResult.Message}", Messages.ServerError);
                     }
                 }
 
@@ -400,7 +413,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingStudentDetails}\n\n{studentsResult.Message}", Messages.ServerError);
             }
         }
 
@@ -448,6 +461,7 @@ namespace StudentManagementSystem.Application
                     txtGradeOperationsInputButunleme.Text = enrolledCourseView.ButunlemeResult.ToString();
                     lblGradeOperationsInfoStudentGradeAvarage.Text = enrolledCourseView.GetCompletionGrade() == null ? "" : enrolledCourseView.GetCompletionGrade().ToString();
                     lblGradeOperationsInfoStudentStatus.Text = enrolledCourseView.GetCompletionGrade() == null ? "" : Convert.ToInt32(enrolledCourseView.GetCompletionGrade()) > 50 ? "GEÇTİ" : "KALDI";
+
                     txtGradeOperationsInputVize.Enabled = true;
                     txtGradeOperationsInputFinal.Enabled = true;
                     txtGradeOperationsInputButunleme.Enabled = true;
@@ -455,12 +469,12 @@ namespace StudentManagementSystem.Application
                 }
                 else
                 {
-                    MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                    MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}\n\n{enrolledCourseResult.Message}", Messages.ServerError);
                 }
             }
             else
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingInstructorDetails, Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingInstructorDetails}\n\n{instructorResult.Message}", Messages.ServerError);
             }
         }
 
@@ -486,21 +500,21 @@ namespace StudentManagementSystem.Application
             if (txtGradeOperationsInputVize.Text == string.Empty && txtGradeOperationsInputFinal.Text == string.Empty &&
                 txtGradeOperationsInputButunleme.Text == string.Empty)
             {
-                MessageBox.Show("Öncelikle not girişi yapmalısınız", Messages.Warning);
+                MessageBox.Show(Messages.YouMustFirstEnterGrade, Messages.Warning);
                 return;
             }
 
             if (txtGradeOperationsInputFinal.Text == string.Empty &&
                 txtGradeOperationsInputButunleme.Text != string.Empty)
             {
-                MessageBox.Show("Bütünleme notu girebilmek için öncelikle final notu girmelisiniz");
+                MessageBox.Show(Messages.FinalGradeBeforeTheButunlemeGrade, Messages.Warning);
                 return;
             }
 
             if (listBoxGradeOperationsCurrentCourses.SelectedItem == null ||
                 listBoxGradeOperationsCourseStudents.SelectedItem == null)
             {
-                MessageBox.Show("Bir ders ve öğrenci seçmelisiniz", Messages.Warning);
+                MessageBox.Show(Messages.YouMustFirstSelectACourseAndStudent, Messages.Warning);
                 return;
             }
 
@@ -529,13 +543,13 @@ namespace StudentManagementSystem.Application
                 };
 
                 var message =
-                    $"Seçili öğrencinin puanları aşağıdaki gibi güncellenecek. Onaylıyor musunuz?\n\n- Vize notu: {txtGradeOperationsInputVize.Text}\n\n- Final notu: {txtGradeOperationsInputFinal.Text}\n\n- Bütünleme notu: {txtGradeOperationsInputButunleme.Text}";
+                    $"Seçili öğrencinin puanları aşağıdaki gibi güncellenecek. {Messages.DoYouConfirm}\n\n- Vize notu: {txtGradeOperationsInputVize.Text}\n\n- Final notu: {txtGradeOperationsInputFinal.Text}\n\n- Bütünleme notu: {txtGradeOperationsInputButunleme.Text}";
                 if (txtGradeOperationsInputFinal.Text != string.Empty ||
                     txtGradeOperationsInputButunleme.Text != string.Empty)
                 {
                     message += $"\n\n- Öğrenci ortalaması: {enrolledCourseView.GetCompletionGrade()}\n- Öğrenci geçme/kalma durumu : {(enrolledCourseView.GetStatus() == null ? "" : enrolledCourseView.GetStatus() == true ? "GEÇTİ" : "KALDI")}";
                 }
-                var dialogResult = MessageBox.Show(message, "Not Girişi Onayı", MessageBoxButtons.YesNo);
+                var dialogResult = MessageBox.Show(message, Messages.GradeEntryConfirmation, MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     var updatedEnrolledCourse = new EnrolledCourse
@@ -555,18 +569,18 @@ namespace StudentManagementSystem.Application
                     var updateResult = _enrolledCourseService.Update(updatedEnrolledCourse);
                     if (updateResult.Success)
                     {
-                        MessageBox.Show("Not atama işlemi başarıyla tamamlandı", Messages.Successful);
+                        MessageBox.Show(Messages.GradeEntryComplete, Messages.Successful);
                         listBoxGradeOperationsCourseStudents_SelectedIndexChanged(this, EventArgs.Empty);    //Rebuild screen
                     }
                     else
                     {
-                        MessageBox.Show(Messages.SomethingWentWrongWhileUpdate, Messages.ServerError);
+                        MessageBox.Show($"{Messages.SomethingWentWrongWhileUpdate}\n\n{updateResult.Message}", Messages.ServerError);
                     }
                 }
             }
             else
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}\n\n{enrolledCourseResult.Message}", Messages.ServerError);
             }
         }
 
@@ -603,21 +617,21 @@ namespace StudentManagementSystem.Application
                 txtAdviserOperationsInfoDepartment.Text = departmentResult.Data.DepartmentName;
                 txtAdviserOperationsInfoSemester.Text = selectedStudent.Semester.ToString();
 
-                var approvalCourseList = _adviserApprovalService.GetAllByStudentNo(selectedStudent.StudentNo);
-                var availableCourseList =
+                var approvalCourseListResult = _adviserApprovalService.GetAllByStudentNo(selectedStudent.StudentNo);
+                var availableCourseListResult =
                     _catalogCourseService.GetAllByDepartmentNoAndSemesterNo(selectedStudent.DepartmentNo,
                         selectedStudent.Semester);
 
-                var currentEnrolledCourses = _enrolledCourseService.GetAllByStudentNo(selectedStudent.StudentNo);
+                var currentEnrolledCoursesResult = _enrolledCourseService.GetAllByStudentNo(selectedStudent.StudentNo);
 
-                if (approvalCourseList.Success && availableCourseList.Success && currentEnrolledCourses.Success)
+                if (approvalCourseListResult.Success && availableCourseListResult.Success && currentEnrolledCoursesResult.Success)
                 {
                     _availableCourses.Clear();
                     _coursesPendingApproval.Clear();
 
                     // Export availableCourseList to a tempList list to be able to check it
                     var tempList = new List<CatalogCourse>();
-                    foreach (var catalogCourse in availableCourseList.Data)
+                    foreach (var catalogCourse in availableCourseListResult.Data)
                     {
                         tempList.Add(catalogCourse);
                     }
@@ -625,29 +639,29 @@ namespace StudentManagementSystem.Application
                     // If there is a course pending approval among the accessible courses, remove it from the list.
                     foreach (var availableCatalogCourse in tempList)
                     {
-                        if (approvalCourseList.Data.Any(a => a.CatalogCourseCode == availableCatalogCourse.CourseNo))
+                        if (approvalCourseListResult.Data.Any(a => a.CatalogCourseCode == availableCatalogCourse.CourseNo))
                         {
-                            availableCourseList.Data.Remove(availableCatalogCourse);
+                            availableCourseListResult.Data.Remove(availableCatalogCourse);
                         }
                     }
 
-                    foreach (var enrolledCourse in currentEnrolledCourses.Data)
+                    foreach (var enrolledCourse in currentEnrolledCoursesResult.Data)
                     {
-                        if (availableCourseList.Data.Any(a => a.CourseNo == enrolledCourse.CourseNo))
+                        if (availableCourseListResult.Data.Any(a => a.CourseNo == enrolledCourse.CourseNo))
                         {
-                            var deletedCourse = availableCourseList.Data.Find(a => a.CourseNo == enrolledCourse.CourseNo);
-                            availableCourseList.Data.Remove(deletedCourse);
+                            var deletedCourse = availableCourseListResult.Data.Find(a => a.CourseNo == enrolledCourse.CourseNo);
+                            availableCourseListResult.Data.Remove(deletedCourse);
                         }
                     }
 
                     // Lists are now available. Export them to global lists
 
-                    foreach (var catalogCourse in availableCourseList.Data)
+                    foreach (var catalogCourse in availableCourseListResult.Data)
                     {
                         _availableCourses.Add(catalogCourse);
                     }
 
-                    foreach (var adviserApproval in approvalCourseList.Data)
+                    foreach (var adviserApproval in approvalCourseListResult.Data)
                     {
                         _coursesPendingApproval.Add(adviserApproval);
                     }
@@ -660,12 +674,12 @@ namespace StudentManagementSystem.Application
                 }
                 else
                 {
-                    MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                    MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { approvalCourseListResult.Message, availableCourseListResult.Message, currentEnrolledCoursesResult.Message })}", Messages.ServerError);
                 }
             }
             else
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingDepartmentDetails, Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}\n\n{departmentResult.Message}", Messages.ServerError);
             }
         }
 
@@ -673,20 +687,20 @@ namespace StudentManagementSystem.Application
         {
             var adviserApproval = ((AdviserApproval)e.ListItem);
             var course = _catalogCourseService.GetByCourseNo(adviserApproval.CatalogCourseCode);
-            e.Value = $"{(course.Success ? course.Data.CourseName : "SUNUCU_HATASI")}";
+            e.Value = $"{(course.Success ? course.Data.CourseName : Messages.CouldNotBeRetrivedFromServer)}";
         }
 
         private void btnAdviserOperationsAddToFinalList_Click(object sender, EventArgs e)
         {
             if (chckListBoxAdviserOperationsAvailableCourseList.CheckedItems.Count == 0)
             {
-                MessageBox.Show("En az bir ders seçmelisiniz", Messages.Warning);
+                MessageBox.Show(Messages.YouMustSelectAtLeastOneCourse, Messages.Warning);
                 return;
             }
 
             var dialogResult =
                 MessageBox.Show(
-                    $"Havuzdaki {chckListBoxAdviserOperationsAvailableCourseList.CheckedItems.Count} ders Onay Bekleyen Dersler listesine eklenecek. Onaylıyor musunuz?",
+                    $"Havuzdaki {chckListBoxAdviserOperationsAvailableCourseList.CheckedItems.Count} ders Onay Bekleyen Dersler listesine eklenecek. {Messages.DoYouConfirm}",
                     "Aktarım Onayı", MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
@@ -716,19 +730,17 @@ namespace StudentManagementSystem.Application
         {
             if (chckListBoxAdviserOperationsFinalCourseList.CheckedItems.Count == 0)
             {
-                MessageBox.Show("En az bir ders seçmelisiniz", Messages.Warning);
+                MessageBox.Show(Messages.YouMustSelectAtLeastOneCourse, Messages.Warning);
                 return;
             }
 
             var dialogResult =
                 MessageBox.Show(
-                    $"Onay Bekleyen Dersler listesindeki {chckListBoxAdviserOperationsFinalCourseList.CheckedItems.Count} ders tekrar Eklenebilir Havuz Listesi'ne eklenecek. Onaylıyor musunuz?",
-                    "Aktarım Onayı", MessageBoxButtons.YesNo);
+                    $"Onay Bekleyen Dersler listesindeki {chckListBoxAdviserOperationsFinalCourseList.CheckedItems.Count} ders tekrar Eklenebilir Havuz Listesi'ne eklenecek. {Messages.DoYouConfirm}",
+                    Messages.TransferConfirmation, MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
             {
-                var selectedStudent = (Student)listBoxAdviserOperationsStudentList.SelectedItem;
-
                 foreach (var checkedItem in chckListBoxAdviserOperationsFinalCourseList.CheckedItems)
                 {
                     _adviserApprovalService.Delete((AdviserApproval)checkedItem);
@@ -741,8 +753,8 @@ namespace StudentManagementSystem.Application
         {
             var dialogResult =
                 MessageBox.Show(
-                    $"Onay Bekleyen Dersler listesindeki {_coursesPendingApproval.Count} ders onaylanacak. Onaylıyor musunuz?",
-                    "Onay Verme Onayı", MessageBoxButtons.YesNo);
+                    $"Onay Bekleyen Dersler listesindeki {_coursesPendingApproval.Count} ders onaylanacak. {Messages.DoYouConfirm}",
+                    Messages.ApprovalConfirmation, MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
             {

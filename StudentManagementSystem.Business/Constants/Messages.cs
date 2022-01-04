@@ -14,6 +14,7 @@
         private static readonly string _errorStatement = "bir şeyler ters gitti";
         public static readonly string DoYouConfirm = "Onaylıyor musunuz?";
         public static string ApplicationIsRestarting = "Uygulama yeniden başlatılıyor";
+        public static string CouldNotBeRetrivedFromServer = "<SUNUCUDAN ALINAMADI>";
 
         public static string Error = "Hata";
         public static string Warning = "Uyarı";
@@ -44,12 +45,15 @@
         public static string AdditionComplete = "Ekleme işlemi başarıyla tamamlandı";
         public static string UpdateComplete = "Güncelleme işlemi başarıyla tamamlandı";
         public static string AssignmentCompletedSuccessfully = "Atama işlemi başarıyla tamamlandı";
+        public static string GradeEntryComplete = "Not giriş işlemi başarıyla tamamlandı";
 
         public static string DeleteConfirmation = "Silme Onayı";
         public static string AddConfirmation = "Ekleme Onayı";
         public static string UpdateConfirmation = "Güncelleme Onayı";
-        public static string TransferConfirmation = "Güncelleme Onayı";
+        public static string TransferConfirmation = "Aktarım Onayı";
         public static string ChangeAdviserConfirmation = "Danışman Değişim Onayı";
+        public static string GradeEntryConfirmation = "Not Girişi Onayı";
+        public static string ApprovalConfirmation = "Onay Verme Onayı";
 
         public static string MustFillInTheFieldsWantToUpdate = "Tüm alanlar boş olamaz.Güncellemek istediğiniz alanları doldurmalısınız";
         public static string TheDataToBeUpdatedIsTheSameAsTheOldData = "Güncellemek istediğiniz veriler eski veriler ile aynı";
@@ -98,6 +102,10 @@
         public static string SafetyLogOut = "Güvenli Çıkış";
         public static string PasswordChangeConfirmation = $"Şifreniz değiştirilecek. {DoYouConfirm}";
         public static string PasswordChanging = "Şifre Değişimi";
+
+        public static string YouMustFirstEnterGrade= "Not girişi yapabilmek için öncelikle bir not girmelisiniz";
+        public static string FinalGradeBeforeTheButunlemeGrade = "Bütünleme notu girebilmek için öncelikle final notu girmelisiniz";
+        public static string YouMustFirstSelectACourseAndStudent = "Not girişi yapabilmek için bir ders ve öğrenci seçmelisiniz";
 
         public static string CreateSearchResultMessage(int recordFoundInSearch)
         {
