@@ -1,27 +1,25 @@
 ﻿using System.Collections.Generic;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.ValidationRules.FluentValidation;
-using StudentManagementSystem.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using StudentManagementSystem.Core.Utilities.Results;
-using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.DataAccess.Abstract;
 using StudentManagementSystem.Entities.Concrete;
 
 namespace StudentManagementSystem.Business.Concrete
 {
-    public class InstructorManager : IInstructorService
+    public class InstructorManager : CrudOperations<Instructor>, IInstructorService
     {
         private readonly IInstructorDal _instructorDal;
         private readonly ICatalogCourseService _catalogCourseService;
         private readonly InstructorValidator _instructorValidator = new InstructorValidator();
 
-        public InstructorManager(IInstructorDal instructorDal, ICatalogCourseService catalogCourseService)
+        public InstructorManager(IInstructorDal instructorDal, ICatalogCourseService catalogCourseService) : base(typeof(InstructorValidator), instructorDal)
         {
             _instructorDal = instructorDal;
             _catalogCourseService = catalogCourseService;
         }
 
-        public IDataResult<List<Instructor>> GetAll()
+        public new IDataResult<List<Instructor>> GetAll()
         {
             return _instructorDal.GetAll(null);
         }
@@ -84,38 +82,6 @@ namespace StudentManagementSystem.Business.Concrete
             }
 
             return new ErrorDataResult<Instructor>("Ders no 0'dan büyük olmalıdır");
-        }
-
-        public IResult Add(Instructor entity)
-        {
-            var validatorResult = ValidationTool.Validate(_instructorValidator, entity);
-            if (validatorResult.Success)
-            {
-                return _instructorDal.Add(entity);
-            }
-            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
-        }
-
-        public IResult Update(Instructor entity)
-        {
-            var validatorResult = ValidationTool.Validate(_instructorValidator, entity);
-            if (validatorResult.Success)
-            {
-                return _instructorDal.Update(entity);
-            }
-
-            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
-        }
-
-        public IResult Delete(Instructor entity)
-        {
-            var validatorResult = ValidationTool.Validate(_instructorValidator, entity);
-            if (validatorResult.Success)
-            {
-                return _instructorDal.Delete(entity);
-            }
-
-            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
         }
     }
 }

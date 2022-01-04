@@ -1,27 +1,24 @@
 ﻿using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.ValidationRules.FluentValidation;
-using StudentManagementSystem.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using StudentManagementSystem.Core.Utilities.Results;
-using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.DataAccess.Abstract;
 using StudentManagementSystem.Entities.Concrete;
 
 namespace StudentManagementSystem.Business.Concrete
 {
-    public class DepartmentManager : IDepartmentService
+    public class DepartmentManager : CrudOperations<Department>, IDepartmentService
     {
         private readonly IDepartmentDal _departmentDal;
         private readonly DepartmentValidator _departmentValidator = new DepartmentValidator();
 
-        public DepartmentManager(IDepartmentDal departmentDal)
+        public DepartmentManager(IDepartmentDal departmentDal) : base(typeof(DepartmentValidator), departmentDal)
         {
             _departmentDal = departmentDal;
         }
 
-        public IDataResult<List<Department>> GetAll()
+        public new IDataResult<List<Department>> GetAll()
         {
             return _departmentDal.GetAll(null);
         }
@@ -87,38 +84,6 @@ namespace StudentManagementSystem.Business.Concrete
             }
 
             return new SuccessDataResult<List<int>>(resultList);
-        }
-
-        public IResult Add(Department entity)
-        {
-            var validatorResult = ValidationTool.Validate(_departmentValidator, entity);
-            if (validatorResult.Success)
-            {
-                return _departmentDal.Add(entity);
-            }
-
-            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
-        }
-
-        public IResult Update(Department entity)
-        {
-            var validatorResult = ValidationTool.Validate(_departmentValidator, entity);
-            if (validatorResult.Success)
-            {
-                return _departmentDal.Update(entity);
-            }
-
-            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
-        }
-
-        public IResult Delete(Department entity)
-        {
-            var validatorResult = ValidationTool.Validate(_departmentValidator, entity);
-            if (validatorResult.Success)
-            {
-                return _departmentDal.Delete(entity);
-            }
-            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
         }
     }
 }

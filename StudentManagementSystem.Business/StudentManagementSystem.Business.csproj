@@ -56,6 +56,7 @@
     <Compile Include="Concrete\AdviserApprovalManager.cs" />
     <Compile Include="Concrete\AuthenticationManager.cs" />
     <Compile Include="Concrete\CatalogCourseManager.cs" />
+    <Compile Include="Concrete\CrudOperations.cs" />
     <Compile Include="Concrete\DepartmentManager.cs" />
     <Compile Include="Concrete\EnrolledCourseManager.cs" />
     <Compile Include="Concrete\InstructorManager.cs" />

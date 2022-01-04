@@ -2,27 +2,25 @@
 using System.Linq;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.ValidationRules.FluentValidation;
-using StudentManagementSystem.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using StudentManagementSystem.Core.Utilities.Results;
-using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.DataAccess.Abstract;
 using StudentManagementSystem.Entities.Concrete;
 
 namespace StudentManagementSystem.Business.Concrete
 {
-    public class StudentManager : IStudentService
+    public class StudentManager : CrudOperations<Student>, IStudentService
     {
         private readonly IStudentDal _studentDal;
         private readonly StudentValidator _studentValidator = new StudentValidator();
         private readonly IEnrolledCourseService _enrolledCourseService;
 
-        public StudentManager(IStudentDal studentDal, IEnrolledCourseService enrolledCourseService)
+        public StudentManager(IStudentDal studentDal, IEnrolledCourseService enrolledCourseService) : base(typeof(StudentValidator), studentDal)
         {
             _studentDal = studentDal;
             _enrolledCourseService = enrolledCourseService;
         }
 
-        public IDataResult<List<Student>> GetAll()
+        public new IDataResult<List<Student>> GetAll()
         {
             return _studentDal.GetAll(null);
         }
@@ -109,39 +107,6 @@ namespace StudentManagementSystem.Business.Concrete
         public IDataResult<Student> GetByStudentNo(int studentNo)
         {
             return _studentDal.Get(new Dictionary<string, dynamic>() { { "ogrenci_no", studentNo } });
-        }
-
-        public IResult Add(Student entity)
-        {
-            var validatorResult = ValidationTool.Validate(_studentValidator, entity);
-            if (validatorResult.Success)
-            {
-                return _studentDal.Add(entity);
-            }
-
-            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
-        }
-
-        public IResult Update(Student entity)
-        {
-            var validatorResult = ValidationTool.Validate(_studentValidator, entity);
-            if (validatorResult.Success)
-            {
-                return _studentDal.Update(entity);
-            }
-
-            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
-        }
-
-        public IResult Delete(Student entity)
-        {
-            var validatorResult = ValidationTool.Validate(_studentValidator, entity);
-            if (validatorResult.Success)
-            {
-                return _studentDal.Delete(entity);
-            }
-
-            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
         }
     }
 }
