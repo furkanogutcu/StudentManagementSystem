@@ -292,7 +292,7 @@ namespace StudentManagementSystem.Application
                 var selectedCourses = new List<CatalogCourse>();
                 foreach (var catalogCourse in catalogCourses.Data)
                 {
-                    if (catalogCourse.CourseSemester == cmbGradeOperationsSelectSemester.SelectedIndex)
+                    if (catalogCourse.CourseSemester == Convert.ToInt32(cmbGradeOperationsSelectSemester.SelectedItem))
                     {
                         selectedCourses.Add(catalogCourse);
                     }
