@@ -54,6 +54,9 @@
         public static string ChangeAdviserConfirmation = "Danışman Değişim Onayı";
         public static string GradeEntryConfirmation = "Not Girişi Onayı";
         public static string ApprovalConfirmation = "Onay Verme Onayı";
+        public static string SendToDraftConfirmation = "Taslağa Gönderme Onayı";
+        public static string DeleteToDraftConfirmation = "Taslakan Silme Onayı";
+        public static string SendToAdviserApprovalConfirmation = "Danışman Onayına Gönderme Onayı";
 
         public static string MustFillInTheFieldsWantToUpdate = "Tüm alanlar boş olamaz.Güncellemek istediğiniz alanları doldurmalısınız";
         public static string TheDataToBeUpdatedIsTheSameAsTheOldData = "Güncellemek istediğiniz veriler eski veriler ile aynı";
@@ -103,9 +106,13 @@
         public static string PasswordChangeConfirmation = $"Şifreniz değiştirilecek. {DoYouConfirm}";
         public static string PasswordChanging = "Şifre Değişimi";
 
-        public static string YouMustFirstEnterGrade= "Not girişi yapabilmek için öncelikle bir not girmelisiniz";
+        public static string YouMustFirstEnterGrade = "Not girişi yapabilmek için öncelikle bir not girmelisiniz";
         public static string FinalGradeBeforeTheButunlemeGrade = "Bütünleme notu girebilmek için öncelikle final notu girmelisiniz";
         public static string YouMustFirstSelectACourseAndStudent = "Not girişi yapabilmek için bir ders ve öğrenci seçmelisiniz";
+
+        public static string SuccesfullySavedToDraft = "Seçilen dersler başarıyla taslağa kaydedildi. Taslaktaki derslerinizi danışman onayına göndermeyi unutmayınız";
+        public static string SuccesfullyDeletedToDraft = "Seçilen dersler başarıyla taslaktan silindi";
+        public static string SuccessfulySendToAdviser = "Taslaktaki tüm dersler başarıyla danışman onayına gönderildi";
 
         public static string CreateSearchResultMessage(int recordFoundInSearch)
         {

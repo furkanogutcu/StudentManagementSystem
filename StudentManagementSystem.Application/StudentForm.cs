@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,6 +12,7 @@ using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.Constants;
 using StudentManagementSystem.Core.Entities;
 using StudentManagementSystem.Core.Utilities.Others;
+using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.Entities.Concrete;
 using StudentManagementSystem.Entities.Views;
 
@@ -55,8 +55,8 @@ namespace StudentManagementSystem.Application
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                var messageDialogResult = MessageBox.Show("Uygulamadan çıkış yapmak istediğinize emin misiniz?",
-                    "Uygulama Kapatılıyor", MessageBoxButtons.OKCancel);
+                var messageDialogResult = MessageBox.Show(Messages.AppClosingConfirmation,
+                    Messages.AppClosing, MessageBoxButtons.OKCancel);
                 if (messageDialogResult == DialogResult.OK)
                 {
                     _application.Close();
@@ -72,7 +72,7 @@ namespace StudentManagementSystem.Application
 
         private void btnGlobalLogOut_Click(object sender, EventArgs e)
         {
-            var dialogResult = MessageBox.Show("Hesabınızdan çıkış yapmak istediğinize emin misiniz?", "Güvenli Çıkış", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show(Messages.LogOutConfirmation, Messages.SafetyLogOut, MessageBoxButtons.YesNo);
 
             if (dialogResult == DialogResult.Yes)
             {
@@ -199,8 +199,8 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                txtProfileInfoDepartment.Text = "SUNUCUDAN ALINAMADI";
-                txtProfileInfoAdviser.Text = $"SUNUCUDAN ALINAMADI";
+                txtProfileInfoDepartment.Text = Messages.CouldNotBeRetrivedFromServer;
+                txtProfileInfoAdviser.Text = Messages.CouldNotBeRetrivedFromServer;
             }
 
             if (_student.ModifiedAt != null)
@@ -226,6 +226,7 @@ namespace StudentManagementSystem.Application
         {
             PanelCleaner.Clean(pnlGlobalGradeView);
             var departmentResult = _departmentService.GetByDepartmentNo(_student.DepartmentNo);
+
             if (departmentResult.Success)
             {
                 var totalDepartmentSemester = departmentResult.Data.NumberOfSemester;
@@ -266,7 +267,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingDepartmentDetails, Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}\n\n{departmentResult.Message}", Messages.ServerError);
             }
         }
 
@@ -284,6 +285,7 @@ namespace StudentManagementSystem.Application
             var catalogCourseResult = _catalogCourseService.GetAllByDepartmentNoAndSemesterNo(_student.DepartmentNo, _student.Semester);
             var coursesAlreadyEnrolledResult = _enrolledCourseService.GetAllByStudentNo(_student.StudentNo);
             var adviserApprovalResult = _adviserApprovalService.GetAllByStudentNo(_student.StudentNo);
+
             if (catalogCourseResult.Success && coursesAlreadyEnrolledResult.Success && adviserApprovalResult.Success)
             {
                 var openedCourses = catalogCourseResult.Data;
@@ -313,7 +315,7 @@ namespace StudentManagementSystem.Application
                     }
                     else
                     {
-                        MessageBox.Show(Messages.SomethingWentWrongWhileGettingCourseDetails, Messages.ServerError);
+                        MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCourseDetails}\n\n{courseResult.Message}", Messages.ServerError);
                         return;
                     }
                 }
@@ -386,7 +388,6 @@ namespace StudentManagementSystem.Application
 
                 SetDataToDataGridView<CatalogCourseView>(dataGridViewCourseRegisterAvailableCourses, columnNames, openedCourseFinalList.ToList<dynamic>());
 
-
                 var coursesOnDraftFinalList = new List<CatalogCourseView>();
 
                 foreach (var courseOnDraft in _coursesOnDraft)
@@ -411,7 +412,7 @@ namespace StudentManagementSystem.Application
                     }
                     else
                     {
-                        MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                        MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { departmentResult.Message, instructorResult.Message })}", Messages.ServerError);
                         return;
                     }
                 }
@@ -421,13 +422,14 @@ namespace StudentManagementSystem.Application
                 var coursesAlreadyEnrolledList = new List<CatalogCourseView>();
 
                 var numberOfCoursesApprovedInTheCurrentSemester = coursesAlreadyEnrolled.Count;
+
                 foreach (var courseAlreadyEnrolled in coursesAlreadyEnrolled)
                 {
                     var courseResult = _catalogCourseService.GetByCourseNo(courseAlreadyEnrolled.CourseNo);
 
                     if (!courseResult.Success)
                     {
-                        MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                        MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCourseDetails}\n\n{courseResult.Message}", Messages.ServerError);
                         return;
                     }
 
@@ -456,17 +458,20 @@ namespace StudentManagementSystem.Application
                     }
                     else
                     {
-                        MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                        MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { departmentResult.Message, instructorResult.Message })}", Messages.ServerError);
                         return;
                     }
                 }
 
                 var newColumnNames = new List<string>();
+
                 foreach (var columnName in columnNames)
                 {
                     newColumnNames.Add(columnName);
                 }
-                newColumnNames.RemoveAt(0);
+
+                newColumnNames.RemoveAt(0); //Delete 'SECIM' column
+
                 SetDataToDataGridView<CatalogCourseView>(dataGridViewCourseRegisterApprovedCourses, newColumnNames, coursesAlreadyEnrolledList.ToList<dynamic>());
 
                 tabControlCourseRegister.TabPages["tabPageApprovedCourses"].Text =
@@ -513,7 +518,7 @@ namespace StudentManagementSystem.Application
                 if (txtProfileUpdateFirstName.Text != string.Empty) message += $"\nEski ad: {_student.FirstName} --> Yeni ad: {txtProfileUpdateFirstName.Text}\n";
                 if (txtProfileUpdateLastName.Text != string.Empty) message += $"\nEski soyad: {_student.LastName} --> Yeni soyad: {txtProfileUpdateLastName.Text}\n";
                 if (txtProfileUpdatePhone.Text != string.Empty) message += $"\nEski telefon: {_student.Phone} --> Yeni telefon: {txtProfileUpdatePhone.Text}\n";
-                var selection = MessageBox.Show(message, "Güncellemeyi onaylıyor musunuz?", MessageBoxButtons.YesNo);
+                var selection = MessageBox.Show(message, Messages.UpdateConfirmation, MessageBoxButtons.YesNo);
                 if (selection == DialogResult.Yes)
                 {
                     var newStudent = new Student()
@@ -581,7 +586,7 @@ namespace StudentManagementSystem.Application
                     {
                         if (txtProfileOldPassword.Text == studentResult.Data.Password)
                         {
-                            var selection = MessageBox.Show("Şifreniz güncellenecek. Onaylıyor musunuz?", "Güncellemeyi onaylıyor musunuz?", MessageBoxButtons.YesNo);
+                            var selection = MessageBox.Show(Messages.PasswordChangeConfirmation, Messages.PasswordChanging, MessageBoxButtons.YesNo);
 
                             if (selection == DialogResult.Yes)
                             {
@@ -635,6 +640,7 @@ namespace StudentManagementSystem.Application
         {
             var selectedSemester = cmbGradeViewSelectSemester.SelectedIndex + 1;
             var studentEnrolledCoursesResult = _enrolledCourseService.GetAllByStudentNo(_student.StudentNo);
+
             if (studentEnrolledCoursesResult.Success)
             {
                 var enrolledCourses = studentEnrolledCoursesResult.Data;
@@ -667,7 +673,7 @@ namespace StudentManagementSystem.Application
                     }
                     else
                     {
-                        MessageBox.Show(Messages.SomethingWentWrongWhileGettingStudentsEnrolledCourses, Messages.ServerError);
+                        MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { courseResult.Message, instructorResult.Message })}", Messages.ServerError);
                         return;
                     }
                 }
@@ -678,7 +684,7 @@ namespace StudentManagementSystem.Application
             }
             else
             {
-                MessageBox.Show(Messages.SomethingWentWrongWhileGettingStudentsEnrolledCourses, Messages.ServerError);
+                MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingStudentsEnrolledCourses}\n\n{studentEnrolledCoursesResult.Message}", Messages.ServerError);
             }
         }
 
@@ -703,7 +709,7 @@ namespace StudentManagementSystem.Application
 
             if (selectedCoursesNumbers.Count == 0)
             {
-                MessageBox.Show("Herhangi bir ders seçmediniz", Messages.Warning);
+                MessageBox.Show(Messages.YouMustSelectAtLeastOneCourse, Messages.Warning);
                 return;
             }
 
@@ -726,7 +732,7 @@ namespace StudentManagementSystem.Application
                 }
             }
 
-            var dialogResult = MessageBox.Show($"Aşağıdaki dersleri taslağa göndermeyi onaylıyor musunuz?\n\n{message}", "Taslağa Gönderme Onayı", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show($"Aşağıdaki dersler taslağa gönderilecek. {Messages.DoYouConfirm}\n\n{message}", Messages.SendToDraftConfirmation, MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 foreach (var selectedCourse in selectedCourses)
@@ -736,9 +742,7 @@ namespace StudentManagementSystem.Application
 
                 ReBuildCourseRegisterPanel();
 
-                MessageBox.Show(
-                    "Seçilen dersler başarıyla taslağa kaydedildi. Taslaktaki derslerinizi danışman onayına göndermeyi unutmayınız",
-                    Messages.Successful);
+                MessageBox.Show(Messages.SuccesfullySavedToDraft, Messages.Successful);
             }
         }
 
@@ -751,6 +755,7 @@ namespace StudentManagementSystem.Application
         private void btnCourseRegisterDeleteToDraft_Click(object sender, EventArgs e)
         {
             var selectedCoursesNumbers = new List<int>();
+
             foreach (DataGridViewRow dataGridViewRow in dataGridViewCourseRegisterSelectedCourses.Rows)
             {
                 if ((bool)dataGridViewRow.Cells["SECIM"].Value == true)
@@ -761,7 +766,7 @@ namespace StudentManagementSystem.Application
 
             if (selectedCoursesNumbers.Count == 0)
             {
-                MessageBox.Show("Herhangi bir ders seçmediniz", Messages.Warning);
+                MessageBox.Show(Messages.YouMustSelectAtLeastOneCourse, Messages.Warning);
                 return;
             }
 
@@ -784,7 +789,8 @@ namespace StudentManagementSystem.Application
                 }
             }
 
-            var dialogResult = MessageBox.Show($"Aşağıdaki dersleri taslaktan silmeyi onaylıyor musunuz? (İlgili dersler tekrar 'Açılan dersler' ekranında listelenecek)\n\n{message}", "Taslaktan Silme Onayı", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show($"Aşağıdaki dersleri taslaktan silinecek. {Messages.DoYouConfirm} (İlgili dersler tekrar 'Açılan dersler' ekranında listelenecek)\n\n{message}", Messages.DeleteToDraftConfirmation, MessageBoxButtons.YesNo);
+
             if (dialogResult == DialogResult.Yes)
             {
                 foreach (var selectedCourse in selectedCourses)
@@ -794,9 +800,7 @@ namespace StudentManagementSystem.Application
 
                 ReBuildCourseRegisterPanel();
 
-                MessageBox.Show(
-                    "Seçilen dersler başarıyla taslaktan silindi",
-                    Messages.Successful);
+                MessageBox.Show(Messages.SuccesfullyDeletedToDraft, Messages.Successful);
             }
         }
 
@@ -811,7 +815,7 @@ namespace StudentManagementSystem.Application
                 totalCourseCredit += catalogCourse.Credit;
             }
 
-            var dialogResult = MessageBox.Show($"Aşağıdaki dersleri danışman onayına göndermeyi onaylıyor musunuz?\n\n{message}\nDerslerin toplam kredisi: {totalCourseCredit} kredi", "Danışman Onayına Gönderme Onayı", MessageBoxButtons.YesNo);
+            var dialogResult = MessageBox.Show($"Aşağıdaki dersler danışman onayına gönderilecek. {Messages.DoYouConfirm}\n\n{message}\nDerslerin toplam kredisi: {totalCourseCredit} kredi", Messages.SendToAdviserApprovalConfirmation, MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 var failedCourses = new List<CatalogCourse>();
@@ -831,7 +835,9 @@ namespace StudentManagementSystem.Application
                         StudentNo = _student.StudentNo,
                         CatalogCourseCode = catalogCourse.CourseNo,
                     };
+
                     var result = _adviserApprovalService.Add(adviserApproval);
+
                     if (result.Success)
                     {
                         _coursesOnDraft.Remove(catalogCourse);
@@ -857,8 +863,7 @@ namespace StudentManagementSystem.Application
                 }
                 else
                 {
-                    MessageBox.Show("Taslaktaki tüm dersler başarıyla danışman onayına gönderildi",
-                        Messages.Successful);
+                    MessageBox.Show(Messages.SuccessfulySendToAdviser, Messages.Successful);
                 }
                 ReBuildCourseRegisterPanel();
             }
