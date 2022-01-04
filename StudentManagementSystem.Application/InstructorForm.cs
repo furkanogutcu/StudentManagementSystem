@@ -41,6 +41,15 @@ namespace StudentManagementSystem.Application
             _panels.Add(pnlGlobalAdviserOperations);
         }
 
+        private void GetCurrentInstructor()
+        {
+            var instructorResult = _instructorService.GetByInstructorNo(_instructor.InstructorNo);
+            if (instructorResult.Success)
+            {
+                _instructor = instructorResult.Data;
+            }
+        }
+
         // Other Methods
 
         private void InstructorForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -85,6 +94,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildProfilePanel()
         {
+            GetCurrentInstructor();
             PanelCleaner.Clean(pnlGlobalProfile);
             txtProfileInstructorNo.Text = _instructor.InstructorNo.ToString();
             txtProfileInfoFirstName.Text = _instructor.FirstName;
@@ -124,6 +134,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildGradeOperationsPanel()
         {
+            GetCurrentInstructor();
             PanelCleaner.Clean(pnlGlobalGradeOperations);
             txtGradeOperationsInputVize.Enabled = false;
             txtGradeOperationsInputFinal.Enabled = false;
@@ -158,6 +169,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildAdviserOperationsPanel()
         {
+            GetCurrentInstructor();
             PanelCleaner.Clean(pnlGlobalAdviserOperations);
             var studentListResult = _studentService.GetAllByAdvisorNo(_instructor.InstructorNo);
 

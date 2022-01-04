@@ -40,6 +40,15 @@ namespace StudentManagementSystem.Application
             _panels.Add(pnlGlobalAssignAdviser);
         }
 
+        private void GetCurrentOfficer()
+        {
+            var officerResult = _officerService.GetByOfficerNo(_officer.OfficerNo);
+            if (officerResult.Success)
+            {
+                _officer = officerResult.Data;
+            }
+        }
+
         // Private Methods
 
         private void OfficerForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -81,6 +90,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildProfilePanel()
         {
+            GetCurrentOfficer();
             PanelCleaner.Clean(pnlGlobalProfile);
             txtProfileOfficerNo.Text = _officer.OfficerNo.ToString();
             txtProfileInfoFirstName.Text = _officer.FirstName;
@@ -107,6 +117,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildDepartmentPanel()
         {
+            GetCurrentOfficer();
             PanelCleaner.Clean(pnlGlobalDepartmentOperations);
             var departmentResult = _departmentService.GetAll();
             if (departmentResult.Success)
@@ -129,6 +140,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildCoursePanel()
         {
+            GetCurrentOfficer();
             PanelCleaner.Clean(pnlGlobalCourseOperations);
             var courseResult = _catalogCourseService.GetAll();
             var departmentListForUpdateResult = _departmentService.GetAll();
@@ -160,6 +172,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildInstructorPanel()
         {
+            GetCurrentOfficer();
             PanelCleaner.Clean(pnlGlobalInstructorOperations);
             var instructorResult = _instructorService.GetAll();
             var departmentResult = _departmentService.GetAll();
@@ -187,6 +200,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildStudentPanel()
         {
+            GetCurrentOfficer();
             PanelCleaner.Clean(pnlGlobalStudentOperations);
             var studentResult = _studentService.GetAll();
             var instructorResult = _instructorService.GetAll();
@@ -216,6 +230,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildAssignAdvisorPanel()
         {
+            GetCurrentOfficer();
             PanelCleaner.Clean(pnlGlobalAssignAdviser);
             listBoxAssignAdviserBatchSelectedStudents.Items.Clear();
             chckListBoxAssignAdviserBatchDepartments.DataSource = null;
@@ -1606,7 +1621,7 @@ namespace StudentManagementSystem.Application
 
                 foreach (var checkedItem in chckListBoxAssignAdviserBatchStudents.CheckedItems)
                 {
-                    if (selectedStudents.All(s => s.StudentNo != ((Student) checkedItem).StudentNo))
+                    if (selectedStudents.All(s => s.StudentNo != ((Student)checkedItem).StudentNo))
                     {
                         selectedStudents.Add((Student)checkedItem);
                     }

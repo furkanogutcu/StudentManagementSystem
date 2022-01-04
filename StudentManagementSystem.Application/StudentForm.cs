@@ -49,6 +49,15 @@ namespace StudentManagementSystem.Application
             _panels.Add(pnlGlobalTranscript);
         }
 
+        private void GetCurrentStudent()
+        {
+            var studentResult = _studentService.GetByStudentNo(_student.StudentNo);
+            if (studentResult.Success)
+            {
+                _student = studentResult.Data;
+            }
+        }
+
         // Other Methods
 
         private void StudentForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -180,6 +189,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildProfilePanel()
         {
+            GetCurrentStudent();
             PanelCleaner.Clean(pnlGlobalProfile);
             txtProfileStudentNo.Text = _student.StudentNo.ToString();
             txtProfileInfoFirstName.Text = _student.FirstName;
@@ -224,6 +234,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildGradeViewPanel()
         {
+            GetCurrentStudent();
             PanelCleaner.Clean(pnlGlobalGradeView);
             var departmentResult = _departmentService.GetByDepartmentNo(_student.DepartmentNo);
 
@@ -281,6 +292,7 @@ namespace StudentManagementSystem.Application
 
         private void ReBuildCourseRegisterPanel()
         {
+            GetCurrentStudent();
             PanelCleaner.Clean(pnlGlobalCourseRegister);
             var catalogCourseResult = _catalogCourseService.GetAllByDepartmentNoAndSemesterNo(_student.DepartmentNo, _student.Semester);
             var coursesAlreadyEnrolledResult = _enrolledCourseService.GetAllByStudentNo(_student.StudentNo);
@@ -498,6 +510,7 @@ namespace StudentManagementSystem.Application
 
         private void btnGlobalTranscript_Click(object sender, EventArgs e)
         {
+            GetCurrentStudent();
             PanelSwitcher.ShowPanel(pnlGlobalTranscript, _panels);
             lblTranscriptPdfOutputFileName.Text = $"{TurkishCharNormalizer.Normalization(_student.FirstName.ToLower())}_{TurkishCharNormalizer.Normalization(_student.LastName.ToLower())}_transkript.pdf";
         }
