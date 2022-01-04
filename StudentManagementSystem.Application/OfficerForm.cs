@@ -687,8 +687,8 @@ namespace StudentManagementSystem.Application
             {
                 CourseNo = updatedCourseDetailsResult.Data.CourseNo,
                 CourseName = txtCourseOperationsCourseInfoCourseName.Text,
-                DepartmentNo = ((Department)cmbCourseOperationsCourseInfoDepartment.SelectedItem).DepartmentNo,
-                InstructorNo = ((Instructor)cmbCourseOperationsCourseInfoInstructor.SelectedItem).InstructorNo,
+                DepartmentNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbCourseOperationsCourseInfoDepartment),
+                InstructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbCourseOperationsCourseInfoInstructor),
                 Credit = Convert.ToInt32(txtCourseOperationsCourseInfoCredit.Text),
                 CourseSemester = Convert.ToInt32(txtCourseOperationsCourseInfoSemester.Text),
                 CreatedAt = updatedCourseDetailsResult.Data.CreatedAt,
@@ -776,8 +776,8 @@ namespace StudentManagementSystem.Application
                 CourseName = txtCourseOperationsAddCourseCourseName.Text,
                 CourseSemester = Convert.ToInt32(txtCourseOperationsAddCourseCourseSemester.Text),
                 Credit = Convert.ToInt32(txtCourseOperationsAddCourseCredit.Text),
-                DepartmentNo = ((Department)cmbCourseOperationsAddCourseDepartment.SelectedItem).DepartmentNo,
-                InstructorNo = ((Instructor)cmbCourseOperationsAddCourseInstructor.SelectedItem).InstructorNo,
+                DepartmentNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbCourseOperationsAddCourseDepartment),
+                InstructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbCourseOperationsAddCourseInstructor),
             };
 
             var messageDialogResult = MessageBox.Show($@"{addedCourse.CourseName} isimli yeni bir ders eklenecek. {Messages.DoYouConfirm}", Messages.AddConfirmation, MessageBoxButtons.YesNo);
@@ -844,7 +844,7 @@ namespace StudentManagementSystem.Application
 
             if (chbxCourseOperationsFilterByDepartment.Checked)
             {
-                conditions.Add(c => c.DepartmentNo == ((Department)cmbCourseOperationsFilterCourseDepartment.SelectedItem).DepartmentNo);
+                conditions.Add(c => c.DepartmentNo == UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbCourseOperationsFilterCourseDepartment));
             }
 
             if (chbxCourseOperationsFilterBySemester.Checked)
@@ -982,7 +982,7 @@ namespace StudentManagementSystem.Application
                 LastName = txtInstructorOperationsAddLastName.Text,
                 Email = txtInstructorOperationsAddEmail.Text,
                 Phone = txtInstructorOperationsAddPhone.Text,
-                DepartmentNo = ((Department)cmbInstructorOperationsAddAvailableDepartmentNames.SelectedItem).DepartmentNo,
+                DepartmentNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbInstructorOperationsAddAvailableDepartmentNames),
                 Password = password,
                 InstructorNo = 1    //Insignificant
             };
@@ -1007,8 +1007,8 @@ namespace StudentManagementSystem.Application
                 return;
             }
 
-            var instructorNo = ((Instructor)cmbInstructorOperationsAssignInstructorToDepartmentInstructors.SelectedItem).InstructorNo;
-            var newDepartmentNo = ((Department)cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames.SelectedItem).DepartmentNo;
+            var instructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbInstructorOperationsAssignInstructorToDepartmentInstructors);
+            var newDepartmentNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames);
             var instructorResult = _instructorService.GetByInstructorNo(instructorNo);
             var departmentResult = _departmentService.GetByDepartmentNo(newDepartmentNo);
 
@@ -1089,7 +1089,7 @@ namespace StudentManagementSystem.Application
 
             FilteringTool.FilterListBox<Instructor>(listBoxInstructorOperationsInstructorList, _instructorService, new List<Func<Instructor, bool>>
             {
-                i => i.DepartmentNo == ((Department)cmbInstructorOperationsFilterByDepartment.SelectedItem).DepartmentNo
+                i => i.DepartmentNo == UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbInstructorOperationsFilterByDepartment)
             }, Messages.SomethingWentWrongWhileGettingCurrentCourses);
         }
 
@@ -1227,7 +1227,7 @@ namespace StudentManagementSystem.Application
             }
 
             var updatedStudent = updatedStudentResult.Data;
-            int updatedDepartmentNo = ((Department)cmbStudentOperationsInfoDepartment.SelectedItem).DepartmentNo;
+            int updatedDepartmentNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbStudentOperationsInfoDepartment);
 
             if (updatedStudent.DepartmentNo == updatedDepartmentNo)
             {
@@ -1304,8 +1304,8 @@ namespace StudentManagementSystem.Application
                 FirstName = txtStudentOperationsAddFirstName.Text,
                 LastName = txtStudentOperationsAddLastName.Text,
                 Phone = txtStudentOperationsAddPhone.Text,
-                AdviserNo = ((Instructor)cmbStudentOperationsAddAdviser.SelectedItem).InstructorNo,
-                DepartmentNo = ((Department)cmbStudentOperationsAddDepartment.SelectedItem).DepartmentNo,
+                AdviserNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbStudentOperationsAddAdviser),
+                DepartmentNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbStudentOperationsAddDepartment),
                 EnrollmentDate = short.Parse(DateTime.Now.Year.ToString()),
                 Password = password,
                 Semester = 1
@@ -1400,7 +1400,7 @@ namespace StudentManagementSystem.Application
             {
                 FilteringTool.FilterListBox<Student>(listBoxStudentOperationsStudentList, _studentService, new List<Func<Student, bool>>
                     {
-                        s => s.DepartmentNo == ((Department)cmbStudentOperationsFilterDepartmentList.SelectedItem).DepartmentNo
+                        s => s.DepartmentNo == UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbStudentOperationsFilterDepartmentList)
                     }, Messages.SomethingWentWrongWhileGettingCurrentStudents
                     );
             }
@@ -1408,7 +1408,7 @@ namespace StudentManagementSystem.Application
             {
                 FilteringTool.FilterListBox<Student>(listBoxStudentOperationsStudentList, _studentService, new List<Func<Student, bool>>
                     {
-                        s => s.AdviserNo == ((Instructor)cmbStudentOperationsFilterAdviserList.SelectedItem).InstructorNo
+                        s => s.AdviserNo == UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbStudentOperationsFilterAdviserList)
                     }, Messages.SomethingWentWrongWhileGettingCurrentStudents
                 );
             }
@@ -1452,7 +1452,7 @@ namespace StudentManagementSystem.Application
             var instructorListForUpdateResult = _instructorService.GetAll();
             if (instructorListForUpdateResult.Success)
             {
-                DataSetterToBoxes.SetDataToComboBox<Instructor>(cmbStudentOperationsAddAdviser, instructorListForUpdateResult.Data, new Func<Instructor, bool>(i => i.DepartmentNo == ((Department)cmbStudentOperationsAddDepartment.SelectedItem).DepartmentNo));
+                DataSetterToBoxes.SetDataToComboBox<Instructor>(cmbStudentOperationsAddAdviser, instructorListForUpdateResult.Data, new Func<Instructor, bool>(i => i.DepartmentNo == UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Department>(cmbStudentOperationsAddDepartment)));
             }
             else
             {
@@ -1510,7 +1510,10 @@ namespace StudentManagementSystem.Application
                     {
                         foreach (var student in studentResult.Data)
                         {
-                            selectedStudents.Add(student);
+                            if (selectedStudents.All(s => s.StudentNo != student.StudentNo))
+                            {
+                                selectedStudents.Add(student);
+                            }
                         }
                     }
                     else
@@ -1558,7 +1561,10 @@ namespace StudentManagementSystem.Application
                     {
                         foreach (var student in studentResult.Data)
                         {
-                            selectedStudents.Add(student);
+                            if (selectedStudents.All(s => s.StudentNo != student.StudentNo))
+                            {
+                                selectedStudents.Add(student);
+                            }
                         }
                     }
                     else
@@ -1600,7 +1606,10 @@ namespace StudentManagementSystem.Application
 
                 foreach (var checkedItem in chckListBoxAssignAdviserBatchStudents.CheckedItems)
                 {
-                    selectedStudents.Add((Student)checkedItem);
+                    if (selectedStudents.All(s => s.StudentNo != ((Student) checkedItem).StudentNo))
+                    {
+                        selectedStudents.Add((Student)checkedItem);
+                    }
                 }
 
                 var messageDialogResult =
@@ -1643,7 +1652,7 @@ namespace StudentManagementSystem.Application
                 foreach (var student in listBoxAssignAdviserBatchSelectedStudents.Items)
                 {
                     var updatedStudent = (Student)student;
-                    updatedStudent.AdviserNo = ((Instructor)cmbAssignAdviserBatchAdviserList.SelectedItem).InstructorNo;
+                    updatedStudent.AdviserNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserBatchAdviserList);
                     var updateResult = _studentService.Update(updatedStudent);
 
                     if (updateResult.Success)
@@ -1744,7 +1753,7 @@ namespace StudentManagementSystem.Application
 
                 if (messageDialogResult == DialogResult.Yes)
                 {
-                    updatedStudentResult.Data.AdviserNo = ((Instructor)cmbAssignAdviserSingleAdviserList.SelectedItem).InstructorNo;
+                    updatedStudentResult.Data.AdviserNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserSingleAdviserList);
 
                     var updateResult = _studentService.Update(updatedStudentResult.Data);
 
@@ -1769,7 +1778,7 @@ namespace StudentManagementSystem.Application
         {
             if (cmbAssignAdviserChangeOldAdviser.SelectedItem != null)
             {
-                var instructorNo = ((Instructor)cmbAssignAdviserChangeOldAdviser.SelectedItem).InstructorNo;
+                var instructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserChangeOldAdviser);
                 var studentsResult = _studentService.GetAllByAdvisorNo(instructorNo);
 
                 if (studentsResult.Success)
@@ -1793,8 +1802,8 @@ namespace StudentManagementSystem.Application
                 return;
             }
 
-            var oldInstructorNo = ((Instructor)cmbAssignAdviserChangeOldAdviser.SelectedItem).InstructorNo;
-            var newInstructorNo = ((Instructor)cmbAssignAdviserChangeNewAdviser.SelectedItem).InstructorNo;
+            var oldInstructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserChangeOldAdviser);
+            var newInstructorNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserChangeNewAdviser);
 
             if (oldInstructorNo == newInstructorNo)
             {
