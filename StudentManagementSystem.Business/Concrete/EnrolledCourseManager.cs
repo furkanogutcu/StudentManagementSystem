@@ -47,7 +47,13 @@ namespace StudentManagementSystem.Business.Concrete
 
         public IResult Add(EnrolledCourse entity)
         {
-            throw new System.NotImplementedException();
+            var validatorResult = ValidationTool.Validate(_enrolledCourseValidator, entity);
+            if (validatorResult.Success)
+            {
+                return _enrolledCourseDal.Add(entity);
+            }
+
+            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
         }
 
         public IResult Update(EnrolledCourse entity)

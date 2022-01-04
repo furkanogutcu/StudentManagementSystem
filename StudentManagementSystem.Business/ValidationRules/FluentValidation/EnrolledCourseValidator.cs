@@ -22,7 +22,6 @@ namespace StudentManagementSystem.Business.ValidationRules.FluentValidation
 
             RuleFor(ec => ec.EnrolledDate).NotEmpty().WithName("Kayıtlanma tarihi");
             RuleFor(ec => ec.EnrolledDate).NotNull().WithName("Kayıtlanma tarihi");
-            RuleFor(ec => ec.EnrolledDate).LessThanOrEqualTo(DateTime.Now).WithName("Kayıtlanma tarihi");
 
             RuleFor(ec => ec.VizeResult).GreaterThanOrEqualTo(0).When(ec => ec.VizeResult != null).WithName("Vize notu");
             RuleFor(ec => ec.VizeResult).LessThanOrEqualTo(100).When(ec => ec.VizeResult != null).WithName("Vize notu");

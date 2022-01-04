@@ -65,8 +65,7 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
             {
-                MySqlCommand command = new MySqlCommand($"UPDATE {GetTableName()} SET deleted_at = @deleted_at WHERE id = @id", connection);
-                command.Parameters.AddWithValue("@deleted_at", DateTime.Now);
+                MySqlCommand command = new MySqlCommand($"DELETE FROM {GetTableName()} WHERE id = @id", connection);
                 command.Parameters.AddWithValue("@id", entity.Id);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);

@@ -102,9 +102,10 @@
             this.label21 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.pnlGlobalAdviserOperations = new System.Windows.Forms.Panel();
+            this.grbxAdviserOperationsShowOperations = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.listBoxAdviserOperationsStudentList = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.txtAdviserOperationsInfoApprovalSendDate = new System.Windows.Forms.TextBox();
-            this.label40 = new System.Windows.Forms.Label();
             this.txtAdviserOperationsInfoSemester = new System.Windows.Forms.TextBox();
             this.label39 = new System.Windows.Forms.Label();
             this.txtAdviserOperationsInfoDepartment = new System.Windows.Forms.TextBox();
@@ -113,15 +114,14 @@
             this.label35 = new System.Windows.Forms.Label();
             this.txtAdviserOperationsInfoStudentNo = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.chckListBoxAdviserOperationsFinalCourseList = new System.Windows.Forms.CheckedListBox();
+            this.btnAdviserOperationsAddToFinalList = new System.Windows.Forms.Button();
             this.chckListBoxAdviserOperationsAvailableCourseList = new System.Windows.Forms.CheckedListBox();
+            this.btnAdviserOperationsDeleteFromFinalList = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.btnAdviserOperationsSubmitFinalList = new System.Windows.Forms.Button();
-            this.btnAdviserOperationsDeleteFromFinalList = new System.Windows.Forms.Button();
-            this.btnAdviserOperationsAddToFinalList = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.listBoxAdviserOperationsStudentList = new System.Windows.Forms.ListBox();
+            this.lblAdviserThereIsNoStudentYouAreAdviser = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -132,6 +132,7 @@
             this.pnlGlobalGradeOperations.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.pnlGlobalAdviserOperations.SuspendLayout();
+            this.grbxAdviserOperationsShowOperations.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -872,16 +873,8 @@
             // pnlGlobalAdviserOperations
             // 
             this.pnlGlobalAdviserOperations.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlGlobalAdviserOperations.Controls.Add(this.groupBox5);
-            this.pnlGlobalAdviserOperations.Controls.Add(this.chckListBoxAdviserOperationsFinalCourseList);
-            this.pnlGlobalAdviserOperations.Controls.Add(this.chckListBoxAdviserOperationsAvailableCourseList);
-            this.pnlGlobalAdviserOperations.Controls.Add(this.label20);
-            this.pnlGlobalAdviserOperations.Controls.Add(this.btnAdviserOperationsSubmitFinalList);
-            this.pnlGlobalAdviserOperations.Controls.Add(this.btnAdviserOperationsDeleteFromFinalList);
-            this.pnlGlobalAdviserOperations.Controls.Add(this.btnAdviserOperationsAddToFinalList);
-            this.pnlGlobalAdviserOperations.Controls.Add(this.label16);
-            this.pnlGlobalAdviserOperations.Controls.Add(this.label6);
-            this.pnlGlobalAdviserOperations.Controls.Add(this.listBoxAdviserOperationsStudentList);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.grbxAdviserOperationsShowOperations);
+            this.pnlGlobalAdviserOperations.Controls.Add(this.lblAdviserThereIsNoStudentYouAreAdviser);
             this.pnlGlobalAdviserOperations.Controls.Add(this.label4);
             this.pnlGlobalAdviserOperations.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.pnlGlobalAdviserOperations.Location = new System.Drawing.Point(210, 0);
@@ -890,181 +883,29 @@
             this.pnlGlobalAdviserOperations.TabIndex = 4;
             this.pnlGlobalAdviserOperations.Visible = false;
             // 
-            // groupBox5
+            // grbxAdviserOperationsShowOperations
             // 
-            this.groupBox5.Controls.Add(this.txtAdviserOperationsInfoApprovalSendDate);
-            this.groupBox5.Controls.Add(this.label40);
-            this.groupBox5.Controls.Add(this.txtAdviserOperationsInfoSemester);
-            this.groupBox5.Controls.Add(this.label39);
-            this.groupBox5.Controls.Add(this.txtAdviserOperationsInfoDepartment);
-            this.groupBox5.Controls.Add(this.label37);
-            this.groupBox5.Controls.Add(this.txtAdviserOperationsInfoStudentFullName);
-            this.groupBox5.Controls.Add(this.label35);
-            this.groupBox5.Controls.Add(this.txtAdviserOperationsInfoStudentNo);
-            this.groupBox5.Controls.Add(this.label34);
-            this.groupBox5.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox5.Location = new System.Drawing.Point(194, 54);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(191, 420);
-            this.groupBox5.TabIndex = 12;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Öğrenci Bilgileri";
-            // 
-            // txtAdviserOperationsInfoApprovalSendDate
-            // 
-            this.txtAdviserOperationsInfoApprovalSendDate.Location = new System.Drawing.Point(29, 351);
-            this.txtAdviserOperationsInfoApprovalSendDate.Name = "txtAdviserOperationsInfoApprovalSendDate";
-            this.txtAdviserOperationsInfoApprovalSendDate.ReadOnly = true;
-            this.txtAdviserOperationsInfoApprovalSendDate.Size = new System.Drawing.Size(127, 26);
-            this.txtAdviserOperationsInfoApprovalSendDate.TabIndex = 9;
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(13, 323);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(158, 18);
-            this.label40.TabIndex = 8;
-            this.label40.Text = "Onaya gönderme tarihi";
-            // 
-            // txtAdviserOperationsInfoSemester
-            // 
-            this.txtAdviserOperationsInfoSemester.Location = new System.Drawing.Point(29, 287);
-            this.txtAdviserOperationsInfoSemester.Name = "txtAdviserOperationsInfoSemester";
-            this.txtAdviserOperationsInfoSemester.ReadOnly = true;
-            this.txtAdviserOperationsInfoSemester.Size = new System.Drawing.Size(127, 26);
-            this.txtAdviserOperationsInfoSemester.TabIndex = 7;
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(53, 131);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(78, 18);
-            this.label39.TabIndex = 6;
-            this.label39.Text = "Adı soyadı";
-            // 
-            // txtAdviserOperationsInfoDepartment
-            // 
-            this.txtAdviserOperationsInfoDepartment.Location = new System.Drawing.Point(29, 223);
-            this.txtAdviserOperationsInfoDepartment.Name = "txtAdviserOperationsInfoDepartment";
-            this.txtAdviserOperationsInfoDepartment.ReadOnly = true;
-            this.txtAdviserOperationsInfoDepartment.Size = new System.Drawing.Size(127, 26);
-            this.txtAdviserOperationsInfoDepartment.TabIndex = 5;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(62, 259);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(60, 18);
-            this.label37.TabIndex = 4;
-            this.label37.Text = "Dönemi";
-            // 
-            // txtAdviserOperationsInfoStudentFullName
-            // 
-            this.txtAdviserOperationsInfoStudentFullName.Location = new System.Drawing.Point(29, 159);
-            this.txtAdviserOperationsInfoStudentFullName.Name = "txtAdviserOperationsInfoStudentFullName";
-            this.txtAdviserOperationsInfoStudentFullName.ReadOnly = true;
-            this.txtAdviserOperationsInfoStudentFullName.Size = new System.Drawing.Size(127, 26);
-            this.txtAdviserOperationsInfoStudentFullName.TabIndex = 3;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(63, 195);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(59, 18);
-            this.label35.TabIndex = 2;
-            this.label35.Text = "Bölümü";
-            // 
-            // txtAdviserOperationsInfoStudentNo
-            // 
-            this.txtAdviserOperationsInfoStudentNo.Enabled = false;
-            this.txtAdviserOperationsInfoStudentNo.Location = new System.Drawing.Point(29, 95);
-            this.txtAdviserOperationsInfoStudentNo.Name = "txtAdviserOperationsInfoStudentNo";
-            this.txtAdviserOperationsInfoStudentNo.ReadOnly = true;
-            this.txtAdviserOperationsInfoStudentNo.Size = new System.Drawing.Size(127, 26);
-            this.txtAdviserOperationsInfoStudentNo.TabIndex = 1;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(52, 67);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(80, 18);
-            this.label34.TabIndex = 0;
-            this.label34.Text = "Öğrenci no";
-            // 
-            // chckListBoxAdviserOperationsFinalCourseList
-            // 
-            this.chckListBoxAdviserOperationsFinalCourseList.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.chckListBoxAdviserOperationsFinalCourseList.FormattingEnabled = true;
-            this.chckListBoxAdviserOperationsFinalCourseList.Location = new System.Drawing.Point(632, 74);
-            this.chckListBoxAdviserOperationsFinalCourseList.Name = "chckListBoxAdviserOperationsFinalCourseList";
-            this.chckListBoxAdviserOperationsFinalCourseList.Size = new System.Drawing.Size(228, 319);
-            this.chckListBoxAdviserOperationsFinalCourseList.TabIndex = 11;
-            // 
-            // chckListBoxAdviserOperationsAvailableCourseList
-            // 
-            this.chckListBoxAdviserOperationsAvailableCourseList.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.chckListBoxAdviserOperationsAvailableCourseList.FormattingEnabled = true;
-            this.chckListBoxAdviserOperationsAvailableCourseList.Location = new System.Drawing.Point(395, 74);
-            this.chckListBoxAdviserOperationsAvailableCourseList.Name = "chckListBoxAdviserOperationsAvailableCourseList";
-            this.chckListBoxAdviserOperationsAvailableCourseList.Size = new System.Drawing.Size(223, 319);
-            this.chckListBoxAdviserOperationsAvailableCourseList.TabIndex = 10;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(391, 52);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(103, 19);
-            this.label20.TabIndex = 9;
-            this.label20.Text = "Ders Havuzu:";
-            // 
-            // btnAdviserOperationsSubmitFinalList
-            // 
-            this.btnAdviserOperationsSubmitFinalList.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAdviserOperationsSubmitFinalList.Location = new System.Drawing.Point(780, 423);
-            this.btnAdviserOperationsSubmitFinalList.Name = "btnAdviserOperationsSubmitFinalList";
-            this.btnAdviserOperationsSubmitFinalList.Size = new System.Drawing.Size(80, 54);
-            this.btnAdviserOperationsSubmitFinalList.TabIndex = 7;
-            this.btnAdviserOperationsSubmitFinalList.Text = "Onayla";
-            this.btnAdviserOperationsSubmitFinalList.UseVisualStyleBackColor = true;
-            // 
-            // btnAdviserOperationsDeleteFromFinalList
-            // 
-            this.btnAdviserOperationsDeleteFromFinalList.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnAdviserOperationsDeleteFromFinalList.Location = new System.Drawing.Point(632, 423);
-            this.btnAdviserOperationsDeleteFromFinalList.Name = "btnAdviserOperationsDeleteFromFinalList";
-            this.btnAdviserOperationsDeleteFromFinalList.Size = new System.Drawing.Size(142, 54);
-            this.btnAdviserOperationsDeleteFromFinalList.TabIndex = 6;
-            this.btnAdviserOperationsDeleteFromFinalList.Text = "Seçilen dersleri sil";
-            this.btnAdviserOperationsDeleteFromFinalList.UseVisualStyleBackColor = true;
-            // 
-            // btnAdviserOperationsAddToFinalList
-            // 
-            this.btnAdviserOperationsAddToFinalList.Location = new System.Drawing.Point(395, 423);
-            this.btnAdviserOperationsAddToFinalList.Name = "btnAdviserOperationsAddToFinalList";
-            this.btnAdviserOperationsAddToFinalList.Size = new System.Drawing.Size(223, 54);
-            this.btnAdviserOperationsAddToFinalList.TabIndex = 5;
-            this.btnAdviserOperationsAddToFinalList.Text = "Seçilen dersleri onay listesine ekle";
-            this.btnAdviserOperationsAddToFinalList.UseVisualStyleBackColor = true;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(628, 52);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(157, 19);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Onaylanacak dersler:";
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.label6);
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.listBoxAdviserOperationsStudentList);
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.groupBox5);
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.label16);
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.chckListBoxAdviserOperationsFinalCourseList);
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.btnAdviserOperationsAddToFinalList);
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.chckListBoxAdviserOperationsAvailableCourseList);
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.btnAdviserOperationsDeleteFromFinalList);
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.label20);
+            this.grbxAdviserOperationsShowOperations.Controls.Add(this.btnAdviserOperationsSubmitFinalList);
+            this.grbxAdviserOperationsShowOperations.Location = new System.Drawing.Point(5, 34);
+            this.grbxAdviserOperationsShowOperations.Name = "grbxAdviserOperationsShowOperations";
+            this.grbxAdviserOperationsShowOperations.Size = new System.Drawing.Size(865, 446);
+            this.grbxAdviserOperationsShowOperations.TabIndex = 14;
+            this.grbxAdviserOperationsShowOperations.TabStop = false;
+            this.grbxAdviserOperationsShowOperations.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 52);
+            this.label6.Location = new System.Drawing.Point(6, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(122, 19);
             this.label6.TabIndex = 2;
@@ -1075,10 +916,183 @@
             this.listBoxAdviserOperationsStudentList.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.listBoxAdviserOperationsStudentList.FormattingEnabled = true;
             this.listBoxAdviserOperationsStudentList.ItemHeight = 18;
-            this.listBoxAdviserOperationsStudentList.Location = new System.Drawing.Point(10, 74);
+            this.listBoxAdviserOperationsStudentList.Location = new System.Drawing.Point(10, 37);
             this.listBoxAdviserOperationsStudentList.Name = "listBoxAdviserOperationsStudentList";
             this.listBoxAdviserOperationsStudentList.Size = new System.Drawing.Size(178, 400);
             this.listBoxAdviserOperationsStudentList.TabIndex = 1;
+            this.listBoxAdviserOperationsStudentList.SelectedIndexChanged += new System.EventHandler(this.listBoxAdviserOperationsStudentList_SelectedIndexChanged);
+            this.listBoxAdviserOperationsStudentList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxAdviserOperationsStudentList_Format);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.txtAdviserOperationsInfoSemester);
+            this.groupBox5.Controls.Add(this.label39);
+            this.groupBox5.Controls.Add(this.txtAdviserOperationsInfoDepartment);
+            this.groupBox5.Controls.Add(this.label37);
+            this.groupBox5.Controls.Add(this.txtAdviserOperationsInfoStudentFullName);
+            this.groupBox5.Controls.Add(this.label35);
+            this.groupBox5.Controls.Add(this.txtAdviserOperationsInfoStudentNo);
+            this.groupBox5.Controls.Add(this.label34);
+            this.groupBox5.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox5.Location = new System.Drawing.Point(194, 17);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(191, 420);
+            this.groupBox5.TabIndex = 12;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Öğrenci Bilgileri";
+            // 
+            // txtAdviserOperationsInfoSemester
+            // 
+            this.txtAdviserOperationsInfoSemester.Location = new System.Drawing.Point(17, 364);
+            this.txtAdviserOperationsInfoSemester.Name = "txtAdviserOperationsInfoSemester";
+            this.txtAdviserOperationsInfoSemester.ReadOnly = true;
+            this.txtAdviserOperationsInfoSemester.Size = new System.Drawing.Size(159, 26);
+            this.txtAdviserOperationsInfoSemester.TabIndex = 7;
+            this.txtAdviserOperationsInfoSemester.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(57, 148);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(78, 18);
+            this.label39.TabIndex = 6;
+            this.label39.Text = "Adı soyadı";
+            // 
+            // txtAdviserOperationsInfoDepartment
+            // 
+            this.txtAdviserOperationsInfoDepartment.Location = new System.Drawing.Point(17, 272);
+            this.txtAdviserOperationsInfoDepartment.Name = "txtAdviserOperationsInfoDepartment";
+            this.txtAdviserOperationsInfoDepartment.ReadOnly = true;
+            this.txtAdviserOperationsInfoDepartment.Size = new System.Drawing.Size(159, 26);
+            this.txtAdviserOperationsInfoDepartment.TabIndex = 5;
+            this.txtAdviserOperationsInfoDepartment.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(66, 333);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(60, 18);
+            this.label37.TabIndex = 4;
+            this.label37.Text = "Dönemi";
+            // 
+            // txtAdviserOperationsInfoStudentFullName
+            // 
+            this.txtAdviserOperationsInfoStudentFullName.Location = new System.Drawing.Point(17, 180);
+            this.txtAdviserOperationsInfoStudentFullName.Name = "txtAdviserOperationsInfoStudentFullName";
+            this.txtAdviserOperationsInfoStudentFullName.ReadOnly = true;
+            this.txtAdviserOperationsInfoStudentFullName.Size = new System.Drawing.Size(159, 26);
+            this.txtAdviserOperationsInfoStudentFullName.TabIndex = 3;
+            this.txtAdviserOperationsInfoStudentFullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(67, 243);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(59, 18);
+            this.label35.TabIndex = 2;
+            this.label35.Text = "Bölümü";
+            // 
+            // txtAdviserOperationsInfoStudentNo
+            // 
+            this.txtAdviserOperationsInfoStudentNo.Enabled = false;
+            this.txtAdviserOperationsInfoStudentNo.Location = new System.Drawing.Point(17, 88);
+            this.txtAdviserOperationsInfoStudentNo.Name = "txtAdviserOperationsInfoStudentNo";
+            this.txtAdviserOperationsInfoStudentNo.ReadOnly = true;
+            this.txtAdviserOperationsInfoStudentNo.Size = new System.Drawing.Size(159, 26);
+            this.txtAdviserOperationsInfoStudentNo.TabIndex = 1;
+            this.txtAdviserOperationsInfoStudentNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(56, 57);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(80, 18);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Öğrenci no";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(628, 15);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(170, 19);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Onay Bekleyen Dersler:";
+            // 
+            // chckListBoxAdviserOperationsFinalCourseList
+            // 
+            this.chckListBoxAdviserOperationsFinalCourseList.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.chckListBoxAdviserOperationsFinalCourseList.FormattingEnabled = true;
+            this.chckListBoxAdviserOperationsFinalCourseList.Location = new System.Drawing.Point(632, 37);
+            this.chckListBoxAdviserOperationsFinalCourseList.Name = "chckListBoxAdviserOperationsFinalCourseList";
+            this.chckListBoxAdviserOperationsFinalCourseList.Size = new System.Drawing.Size(228, 319);
+            this.chckListBoxAdviserOperationsFinalCourseList.TabIndex = 11;
+            this.chckListBoxAdviserOperationsFinalCourseList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.chckListBoxAdviserOperationsFinalCourseList_Format);
+            // 
+            // btnAdviserOperationsAddToFinalList
+            // 
+            this.btnAdviserOperationsAddToFinalList.Location = new System.Drawing.Point(395, 386);
+            this.btnAdviserOperationsAddToFinalList.Name = "btnAdviserOperationsAddToFinalList";
+            this.btnAdviserOperationsAddToFinalList.Size = new System.Drawing.Size(223, 54);
+            this.btnAdviserOperationsAddToFinalList.TabIndex = 5;
+            this.btnAdviserOperationsAddToFinalList.Text = "Seçilen dersleri onay listesine ekle";
+            this.btnAdviserOperationsAddToFinalList.UseVisualStyleBackColor = true;
+            this.btnAdviserOperationsAddToFinalList.Click += new System.EventHandler(this.btnAdviserOperationsAddToFinalList_Click);
+            // 
+            // chckListBoxAdviserOperationsAvailableCourseList
+            // 
+            this.chckListBoxAdviserOperationsAvailableCourseList.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.chckListBoxAdviserOperationsAvailableCourseList.FormattingEnabled = true;
+            this.chckListBoxAdviserOperationsAvailableCourseList.Location = new System.Drawing.Point(395, 37);
+            this.chckListBoxAdviserOperationsAvailableCourseList.Name = "chckListBoxAdviserOperationsAvailableCourseList";
+            this.chckListBoxAdviserOperationsAvailableCourseList.Size = new System.Drawing.Size(223, 319);
+            this.chckListBoxAdviserOperationsAvailableCourseList.TabIndex = 10;
+            // 
+            // btnAdviserOperationsDeleteFromFinalList
+            // 
+            this.btnAdviserOperationsDeleteFromFinalList.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAdviserOperationsDeleteFromFinalList.Location = new System.Drawing.Point(632, 386);
+            this.btnAdviserOperationsDeleteFromFinalList.Name = "btnAdviserOperationsDeleteFromFinalList";
+            this.btnAdviserOperationsDeleteFromFinalList.Size = new System.Drawing.Size(142, 54);
+            this.btnAdviserOperationsDeleteFromFinalList.TabIndex = 6;
+            this.btnAdviserOperationsDeleteFromFinalList.Text = "Seçilen dersleri sil";
+            this.btnAdviserOperationsDeleteFromFinalList.UseVisualStyleBackColor = true;
+            this.btnAdviserOperationsDeleteFromFinalList.Click += new System.EventHandler(this.btnAdviserOperationsDeleteFromFinalList_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(391, 15);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(179, 19);
+            this.label20.TabIndex = 9;
+            this.label20.Text = "Eklenebilir Ders Havuzu:";
+            // 
+            // btnAdviserOperationsSubmitFinalList
+            // 
+            this.btnAdviserOperationsSubmitFinalList.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAdviserOperationsSubmitFinalList.Location = new System.Drawing.Point(780, 386);
+            this.btnAdviserOperationsSubmitFinalList.Name = "btnAdviserOperationsSubmitFinalList";
+            this.btnAdviserOperationsSubmitFinalList.Size = new System.Drawing.Size(80, 54);
+            this.btnAdviserOperationsSubmitFinalList.TabIndex = 7;
+            this.btnAdviserOperationsSubmitFinalList.Text = "Onayla";
+            this.btnAdviserOperationsSubmitFinalList.UseVisualStyleBackColor = true;
+            this.btnAdviserOperationsSubmitFinalList.Click += new System.EventHandler(this.btnAdviserOperationsSubmitFinalList_Click);
+            // 
+            // lblAdviserThereIsNoStudentYouAreAdviser
+            // 
+            this.lblAdviserThereIsNoStudentYouAreAdviser.AutoSize = true;
+            this.lblAdviserThereIsNoStudentYouAreAdviser.Font = new System.Drawing.Font("Roboto", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblAdviserThereIsNoStudentYouAreAdviser.Location = new System.Drawing.Point(144, 230);
+            this.lblAdviserThereIsNoStudentYouAreAdviser.Name = "lblAdviserThereIsNoStudentYouAreAdviser";
+            this.lblAdviserThereIsNoStudentYouAreAdviser.Size = new System.Drawing.Size(560, 33);
+            this.lblAdviserThereIsNoStudentYouAreAdviser.TabIndex = 13;
+            this.lblAdviserThereIsNoStudentYouAreAdviser.Text = "DANIŞMANI OLDUĞUNUZ BİR ÖĞRENCİ YOK";
+            this.lblAdviserThereIsNoStudentYouAreAdviser.Visible = false;
             // 
             // label4
             // 
@@ -1098,14 +1112,15 @@
             this.ClientSize = new System.Drawing.Size(1087, 518);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
-            this.Controls.Add(this.pnlGlobalGradeOperations);
             this.Controls.Add(this.pnlGlobalAdviserOperations);
             this.Controls.Add(this.pnlGlobalProfile);
+            this.Controls.Add(this.pnlGlobalGradeOperations);
             this.MaximumSize = new System.Drawing.Size(1103, 557);
             this.MinimumSize = new System.Drawing.Size(1078, 557);
             this.Name = "InstructorForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Öğretim Görevlisi Paneli";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InstructorForm_FormClosing);
             this.pnlLeftBar.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.pnlGlobalProfile.ResumeLayout(false);
@@ -1122,6 +1137,8 @@
             this.groupBox4.PerformLayout();
             this.pnlGlobalAdviserOperations.ResumeLayout(false);
             this.pnlGlobalAdviserOperations.PerformLayout();
+            this.grbxAdviserOperationsShowOperations.ResumeLayout(false);
+            this.grbxAdviserOperationsShowOperations.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
@@ -1212,8 +1229,6 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox txtAdviserOperationsInfoApprovalSendDate;
-        private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TextBox txtAdviserOperationsInfoSemester;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TextBox txtAdviserOperationsInfoDepartment;
@@ -1225,5 +1240,7 @@
         private System.Windows.Forms.CheckedListBox chckListBoxAdviserOperationsFinalCourseList;
         private System.Windows.Forms.CheckedListBox chckListBoxAdviserOperationsAvailableCourseList;
         private System.Windows.Forms.Button btnGlobalLogOut;
+        private System.Windows.Forms.GroupBox grbxAdviserOperationsShowOperations;
+        private System.Windows.Forms.Label lblAdviserThereIsNoStudentYouAreAdviser;
     }
 }

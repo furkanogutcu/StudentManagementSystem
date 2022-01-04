@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using StudentManagementSystem.Application.Utilities;
 using StudentManagementSystem.Business.Abstract;
@@ -12,15 +14,18 @@ namespace StudentManagementSystem.Application
     public partial class InstructorForm : Form
     {
         private Instructor _instructor;
+        private List<CatalogCourse> _availableCourses = new List<CatalogCourse>();
+        private List<AdviserApproval> _coursesPendingApproval = new List<AdviserApproval>();
         private readonly IDepartmentService _departmentService;
         private readonly IInstructorService _instructorService;
         private readonly ICatalogCourseService _catalogCourseService;
         private readonly IStudentService _studentService;
         private readonly IEnrolledCourseService _enrolledCourseService;
+        private readonly IAdviserApprovalService _adviserApprovalService;
         private readonly List<Panel> _panels = new List<Panel>();
         private readonly LoginForm _application;
 
-        public InstructorForm(Instructor instructor, LoginForm application, IDepartmentService departmentService, IInstructorService instructorService, ICatalogCourseService catalogCourseService, IStudentService studentService, IEnrolledCourseService enrolledCourseService)
+        public InstructorForm(Instructor instructor, LoginForm application, IDepartmentService departmentService, IInstructorService instructorService, ICatalogCourseService catalogCourseService, IStudentService studentService, IEnrolledCourseService enrolledCourseService, IAdviserApprovalService adviserApprovalService)
         {
             _instructor = instructor;
             _application = application;
@@ -29,6 +34,7 @@ namespace StudentManagementSystem.Application
             _catalogCourseService = catalogCourseService;
             _studentService = studentService;
             _enrolledCourseService = enrolledCourseService;
+            _adviserApprovalService = adviserApprovalService;
             InitializeComponent();
             _panels.Add(pnlGlobalProfile);
             _panels.Add(pnlGlobalGradeOperations);
@@ -37,7 +43,7 @@ namespace StudentManagementSystem.Application
 
         // Other Methods
 
-        private void StudentForm_FormClosing(object sender, FormClosingEventArgs e)
+        private void InstructorForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
@@ -63,7 +69,7 @@ namespace StudentManagementSystem.Application
             if (dialogResult == DialogResult.Yes)
             {
                 // https://stackoverflow.com/questions/10626396/how-to-bypass-formclosing-event
-                this.FormClosing -= StudentForm_FormClosing;
+                this.FormClosing -= InstructorForm_FormClosing;
                 this.Close();
                 _application.Show();
             }
@@ -144,7 +150,34 @@ namespace StudentManagementSystem.Application
 
         private void btnGlobalAdviserOperations_Click(object sender, EventArgs e)
         {
+            PanelSwitcher.ShowPanel(pnlGlobalAdviserOperations, _panels);
+            ReBuildAdviserOperationsPanel();
 
+        }
+
+        private void ReBuildAdviserOperationsPanel()
+        {
+            PanelCleaner.Clean(pnlGlobalAdviserOperations);
+            var studentList = _studentService.GetAllByAdvisorNo(_instructor.InstructorNo);
+
+            if (studentList.Success)
+            {
+                if (studentList.Data.Count > 0)
+                {
+                    grbxAdviserOperationsShowOperations.Visible = true;
+                    lblAdviserThereIsNoStudentYouAreAdviser.Visible = false;
+                    DataSetterToBoxes.SetDataToListBox<Student>(listBoxAdviserOperationsStudentList, studentList.Data);
+                }
+                else
+                {
+                    lblAdviserThereIsNoStudentYouAreAdviser.Visible = true;
+                    grbxAdviserOperationsShowOperations.Visible = false;
+                }
+            }
+            else
+            {
+                MessageBox.Show(Messages.SomethingWentWrongWhileGettingCurrentStudents, Messages.ServerError);
+            }
         }
 
         // Profile Methods
@@ -534,6 +567,206 @@ namespace StudentManagementSystem.Application
             else
             {
                 MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+            }
+        }
+
+        // Adviser Operations
+
+        private void listBoxAdviserOperationsStudentList_Format(object sender, ListControlConvertEventArgs e)
+        {
+            e.Value = $@"{((Student)e.ListItem).FirstName} {((Student)e.ListItem).LastName}";
+        }
+
+        private void listBoxAdviserOperationsStudentList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxAdviserOperationsStudentList.SelectedItem == null)
+            {
+                chckListBoxAdviserOperationsAvailableCourseList.DataSource = null;
+                chckListBoxAdviserOperationsAvailableCourseList.Items.Clear();
+                chckListBoxAdviserOperationsFinalCourseList.DataSource = null;
+                chckListBoxAdviserOperationsFinalCourseList.Items.Clear();
+                txtAdviserOperationsInfoStudentNo.Clear();
+                txtAdviserOperationsInfoStudentFullName.Clear();
+                txtAdviserOperationsInfoDepartment.Clear();
+                txtAdviserOperationsInfoSemester.Clear();
+                return;
+            }
+
+            var selectedStudent = (Student)listBoxAdviserOperationsStudentList.SelectedItem;
+
+            var departmentResult = _departmentService.GetByDepartmentNo(selectedStudent.DepartmentNo);
+
+            if (departmentResult.Success)
+            {
+                txtAdviserOperationsInfoStudentNo.Text = selectedStudent.StudentNo.ToString();
+                txtAdviserOperationsInfoStudentFullName.Text = $"{selectedStudent.FirstName} {selectedStudent.LastName}";
+                txtAdviserOperationsInfoDepartment.Text = departmentResult.Data.DepartmentName;
+                txtAdviserOperationsInfoSemester.Text = selectedStudent.Semester.ToString();
+
+                var approvalCourseList = _adviserApprovalService.GetAllByStudentNo(selectedStudent.StudentNo);
+                var availableCourseList =
+                    _catalogCourseService.GetAllByDepartmentNoAndSemesterNo(selectedStudent.DepartmentNo,
+                        selectedStudent.Semester);
+
+                var currentEnrolledCourses = _enrolledCourseService.GetAllByStudentNo(selectedStudent.StudentNo);
+
+                if (approvalCourseList.Success && availableCourseList.Success && currentEnrolledCourses.Success)
+                {
+                    _availableCourses.Clear();
+                    _coursesPendingApproval.Clear();
+
+                    // Export availableCourseList to a tempList list to be able to check it
+                    var tempList = new List<CatalogCourse>();
+                    foreach (var catalogCourse in availableCourseList.Data)
+                    {
+                        tempList.Add(catalogCourse);
+                    }
+
+                    // If there is a course pending approval among the accessible courses, remove it from the list.
+                    foreach (var availableCatalogCourse in tempList)
+                    {
+                        if (approvalCourseList.Data.Any(a => a.CatalogCourseCode == availableCatalogCourse.CourseNo))
+                        {
+                            availableCourseList.Data.Remove(availableCatalogCourse);
+                        }
+                    }
+
+                    foreach (var enrolledCourse in currentEnrolledCourses.Data)
+                    {
+                        if (availableCourseList.Data.Any(a => a.CourseNo == enrolledCourse.CourseNo))
+                        {
+                            var deletedCourse = availableCourseList.Data.Find(a => a.CourseNo == enrolledCourse.CourseNo);
+                            availableCourseList.Data.Remove(deletedCourse);
+                        }
+                    }
+
+                    // Lists are now available. Export them to global lists
+
+                    foreach (var catalogCourse in availableCourseList.Data)
+                    {
+                        _availableCourses.Add(catalogCourse);
+                    }
+
+                    foreach (var adviserApproval in approvalCourseList.Data)
+                    {
+                        _coursesPendingApproval.Add(adviserApproval);
+                    }
+
+                    // Show global listings on screen
+
+                    DataSetterToBoxes.SetDataToCheckedListBox<CatalogCourse>(chckListBoxAdviserOperationsAvailableCourseList, _availableCourses);
+
+                    DataSetterToBoxes.SetDataToCheckedListBox<AdviserApproval>(chckListBoxAdviserOperationsFinalCourseList, _coursesPendingApproval);
+                }
+                else
+                {
+                    MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
+                }
+            }
+            else
+            {
+                MessageBox.Show(Messages.SomethingWentWrongWhileGettingDepartmentDetails, Messages.ServerError);
+            }
+        }
+
+        private void chckListBoxAdviserOperationsFinalCourseList_Format(object sender, ListControlConvertEventArgs e)
+        {
+            var adviserApproval = ((AdviserApproval)e.ListItem);
+            var course = _catalogCourseService.GetByCourseNo(adviserApproval.CatalogCourseCode);
+            e.Value = $"{(course.Success ? course.Data.CourseName : "SUNUCU_HATASI")}";
+        }
+
+        private void btnAdviserOperationsAddToFinalList_Click(object sender, EventArgs e)
+        {
+            if (chckListBoxAdviserOperationsAvailableCourseList.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("En az bir ders seçmelisiniz", Messages.Warning);
+                return;
+            }
+
+            var dialogResult =
+                MessageBox.Show(
+                    $"Havuzdaki {chckListBoxAdviserOperationsAvailableCourseList.CheckedItems.Count} ders Onay Bekleyen Dersler listesine eklenecek. Onaylıyor musunuz?",
+                    "Aktarım Onayı", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                var selectedStudent = (Student)listBoxAdviserOperationsStudentList.SelectedItem;
+
+                foreach (var checkedItem in chckListBoxAdviserOperationsAvailableCourseList.CheckedItems)
+                {
+                    var newAdviserApproval = new AdviserApproval
+                    {
+                        StudentNo = selectedStudent.StudentNo,
+                        Id = 1,
+                        CatalogCourseCode = ((CatalogCourse)checkedItem).CourseNo
+                    };
+                    var addedResult = _adviserApprovalService.Add(newAdviserApproval);
+                    if (addedResult.Success)
+                    {
+                        _availableCourses.Remove((CatalogCourse)checkedItem);
+                        _coursesPendingApproval.Add(newAdviserApproval);
+                    }
+                }
+                ReBuildAdviserOperationsPanel();
+            }
+        }
+
+        private void btnAdviserOperationsDeleteFromFinalList_Click(object sender, EventArgs e)
+        {
+            if (chckListBoxAdviserOperationsFinalCourseList.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("En az bir ders seçmelisiniz", Messages.Warning);
+                return;
+            }
+
+            var dialogResult =
+                MessageBox.Show(
+                    $"Onay Bekleyen Dersler listesindeki {chckListBoxAdviserOperationsFinalCourseList.CheckedItems.Count} ders tekrar Eklenebilir Havuz Listesi'ne eklenecek. Onaylıyor musunuz?",
+                    "Aktarım Onayı", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                var selectedStudent = (Student)listBoxAdviserOperationsStudentList.SelectedItem;
+
+                foreach (var checkedItem in chckListBoxAdviserOperationsFinalCourseList.CheckedItems)
+                {
+                    _adviserApprovalService.Delete((AdviserApproval)checkedItem);
+                }
+                ReBuildAdviserOperationsPanel();
+            }
+        }
+
+        private void btnAdviserOperationsSubmitFinalList_Click(object sender, EventArgs e)
+        {
+            var dialogResult =
+                MessageBox.Show(
+                    $"Onay Bekleyen Dersler listesindeki {_coursesPendingApproval.Count} ders onaylanacak. Onaylıyor musunuz?",
+                    "Onay Verme Onayı", MessageBoxButtons.YesNo);
+
+            if (dialogResult == DialogResult.Yes)
+            {
+                foreach (var adviserApproval in _coursesPendingApproval)
+                {
+                    var enrolledCourse = new EnrolledCourse
+                    {
+                        Id = 1,
+                        StudentNo = adviserApproval.StudentNo,
+                        CourseNo = adviserApproval.CatalogCourseCode,
+                        VizeResult = null,
+                        FinalResult = null,
+                        ButunlemeResult = null,
+                        EnrolledDate = DateTime.Now,
+                    };
+
+                    var result = _enrolledCourseService.Add(enrolledCourse);
+
+                    if (result.Success)
+                    {
+                        _adviserApprovalService.Delete(adviserApproval);
+                    }
+                }
+                ReBuildAdviserOperationsPanel();
             }
         }
     }

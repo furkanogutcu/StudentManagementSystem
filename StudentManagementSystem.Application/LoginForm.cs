@@ -48,7 +48,8 @@ namespace StudentManagementSystem.Application
                         new InstructorManager(new SqlInstructorDal(), new CatalogCourseManager(new SqlCatalogCourseDal())),
                         new CatalogCourseManager(new SqlCatalogCourseDal()),
                         new StudentManager(new SqlStudentDal(), new EnrolledCourseManager(new SqlEnrolledCourseDal())),
-                        new EnrolledCourseManager(new SqlEnrolledCourseDal())
+                        new EnrolledCourseManager(new SqlEnrolledCourseDal()),
+                        new AdviserApprovalManager(new SqlAdviserApprovalDal())
                     );
                     this.Hide();
                     instructorForm.Show();

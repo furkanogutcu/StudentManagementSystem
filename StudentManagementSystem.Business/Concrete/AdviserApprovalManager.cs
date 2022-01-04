@@ -62,7 +62,13 @@ namespace StudentManagementSystem.Business.Concrete
 
         public IResult Delete(AdviserApproval entity)
         {
-            throw new System.NotImplementedException();
+            var validatorResult = ValidationTool.Validate(_adviserApprovalValidator, entity);
+            if (validatorResult.Success)
+            {
+                return _adviserApprovalDal.Delete(entity);
+            }
+
+            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
         }
     }
 }

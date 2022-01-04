@@ -120,6 +120,10 @@ namespace StudentManagementSystem.Application.Utilities
                     checkedListBox.DisplayMember = nameof(CatalogCourse.CourseName);
                     checkedListBox.ValueMember = nameof(CatalogCourse.CourseNo);
                     break;
+                case nameof(AdviserApproval):
+                    checkedListBox.DisplayMember = nameof(AdviserApproval.CatalogCourseCode);
+                    checkedListBox.ValueMember = nameof(AdviserApproval.CatalogCourseCode);
+                    break;
                 default:
                     throw new Exception("Tip eşleme hatası");
             }
