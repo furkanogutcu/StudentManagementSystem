@@ -109,9 +109,9 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtProfileUpdateFirstName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalGradeView.SuspendLayout();
@@ -161,7 +161,7 @@
             this.btnGlobalLogOut.Location = new System.Drawing.Point(12, 444);
             this.btnGlobalLogOut.Name = "btnGlobalLogOut";
             this.btnGlobalLogOut.Size = new System.Drawing.Size(186, 44);
-            this.btnGlobalLogOut.TabIndex = 7;
+            this.btnGlobalLogOut.TabIndex = 5;
             this.btnGlobalLogOut.Text = "Hesabımdan çıkış yap";
             this.btnGlobalLogOut.UseVisualStyleBackColor = false;
             this.btnGlobalLogOut.Click += new System.EventHandler(this.btnGlobalLogOut_Click);
@@ -172,7 +172,7 @@
             this.btnGlobalProfile.Location = new System.Drawing.Point(12, 256);
             this.btnGlobalProfile.Name = "btnGlobalProfile";
             this.btnGlobalProfile.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalProfile.TabIndex = 6;
+            this.btnGlobalProfile.TabIndex = 1;
             this.btnGlobalProfile.Text = "Profil bilgilerim";
             this.btnGlobalProfile.UseVisualStyleBackColor = true;
             this.btnGlobalProfile.Click += new System.EventHandler(this.btnGlobalProfile_Click);
@@ -207,7 +207,7 @@
             this.btnGlobalCourseRegister.Location = new System.Drawing.Point(12, 350);
             this.btnGlobalCourseRegister.Name = "btnGlobalCourseRegister";
             this.btnGlobalCourseRegister.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalCourseRegister.TabIndex = 2;
+            this.btnGlobalCourseRegister.TabIndex = 3;
             this.btnGlobalCourseRegister.Text = "Ders kayıt işlemleri";
             this.btnGlobalCourseRegister.UseVisualStyleBackColor = true;
             this.btnGlobalCourseRegister.Click += new System.EventHandler(this.btnGlobalCourseRegister_Click);
@@ -218,7 +218,7 @@
             this.btnGlobalGradeView.Location = new System.Drawing.Point(12, 303);
             this.btnGlobalGradeView.Name = "btnGlobalGradeView";
             this.btnGlobalGradeView.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalGradeView.TabIndex = 1;
+            this.btnGlobalGradeView.TabIndex = 2;
             this.btnGlobalGradeView.Text = "Not görüntüleme";
             this.btnGlobalGradeView.UseVisualStyleBackColor = true;
             this.btnGlobalGradeView.Click += new System.EventHandler(this.btnGlobalGradeView_Click);
@@ -268,7 +268,7 @@
             this.dataGridViewGradeViewGrades.RowTemplate.Height = 80;
             this.dataGridViewGradeViewGrades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewGradeViewGrades.Size = new System.Drawing.Size(855, 422);
-            this.dataGridViewGradeViewGrades.TabIndex = 4;
+            this.dataGridViewGradeViewGrades.TabIndex = 2;
             // 
             // cmbGradeViewSelectSemester
             // 
@@ -278,7 +278,7 @@
             this.cmbGradeViewSelectSemester.Location = new System.Drawing.Point(507, 12);
             this.cmbGradeViewSelectSemester.Name = "cmbGradeViewSelectSemester";
             this.cmbGradeViewSelectSemester.Size = new System.Drawing.Size(358, 27);
-            this.cmbGradeViewSelectSemester.TabIndex = 3;
+            this.cmbGradeViewSelectSemester.TabIndex = 1;
             this.cmbGradeViewSelectSemester.SelectedIndexChanged += new System.EventHandler(this.cmbGradeViewSelectSemester_SelectedIndexChanged);
             // 
             // label16
@@ -373,7 +373,7 @@
             this.dataGridViewCourseRegisterAvailableCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterAvailableCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourseRegisterAvailableCourses.Size = new System.Drawing.Size(730, 385);
-            this.dataGridViewCourseRegisterAvailableCourses.TabIndex = 7;
+            this.dataGridViewCourseRegisterAvailableCourses.TabIndex = 2;
             this.dataGridViewCourseRegisterAvailableCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCourseRegisterAvailableCourses_CellClick);
             // 
             // label26
@@ -392,7 +392,7 @@
             this.btnCourseRegisterSendToDraft.Location = new System.Drawing.Point(754, 348);
             this.btnCourseRegisterSendToDraft.Name = "btnCourseRegisterSendToDraft";
             this.btnCourseRegisterSendToDraft.Size = new System.Drawing.Size(87, 75);
-            this.btnCourseRegisterSendToDraft.TabIndex = 0;
+            this.btnCourseRegisterSendToDraft.TabIndex = 3;
             this.btnCourseRegisterSendToDraft.Text = "Seçilenleri taslağa gönder";
             this.btnCourseRegisterSendToDraft.UseVisualStyleBackColor = true;
             this.btnCourseRegisterSendToDraft.Click += new System.EventHandler(this.btnCourseRegisterSendToDraft_Click);
@@ -443,7 +443,7 @@
             this.dataGridViewCourseRegisterSelectedCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterSelectedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourseRegisterSelectedCourses.Size = new System.Drawing.Size(728, 385);
-            this.dataGridViewCourseRegisterSelectedCourses.TabIndex = 11;
+            this.dataGridViewCourseRegisterSelectedCourses.TabIndex = 4;
             this.dataGridViewCourseRegisterSelectedCourses.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCourseRegisterSelectedCourses_CellClick);
             // 
             // label7
@@ -462,7 +462,7 @@
             this.btnCourseRegisterSubmitForAdviserApproval.Location = new System.Drawing.Point(752, 346);
             this.btnCourseRegisterSubmitForAdviserApproval.Name = "btnCourseRegisterSubmitForAdviserApproval";
             this.btnCourseRegisterSubmitForAdviserApproval.Size = new System.Drawing.Size(89, 75);
-            this.btnCourseRegisterSubmitForAdviserApproval.TabIndex = 7;
+            this.btnCourseRegisterSubmitForAdviserApproval.TabIndex = 6;
             this.btnCourseRegisterSubmitForAdviserApproval.Text = "Onaya Gönder";
             this.btnCourseRegisterSubmitForAdviserApproval.UseVisualStyleBackColor = true;
             this.btnCourseRegisterSubmitForAdviserApproval.Click += new System.EventHandler(this.btnCourseRegisterSubmitForAdviserApproval_Click);
@@ -473,7 +473,7 @@
             this.btnCourseRegisterDeleteToDraft.Location = new System.Drawing.Point(752, 34);
             this.btnCourseRegisterDeleteToDraft.Name = "btnCourseRegisterDeleteToDraft";
             this.btnCourseRegisterDeleteToDraft.Size = new System.Drawing.Size(89, 75);
-            this.btnCourseRegisterDeleteToDraft.TabIndex = 6;
+            this.btnCourseRegisterDeleteToDraft.TabIndex = 5;
             this.btnCourseRegisterDeleteToDraft.Text = "Seçilenleri taslaktan çıkar";
             this.btnCourseRegisterDeleteToDraft.UseVisualStyleBackColor = true;
             this.btnCourseRegisterDeleteToDraft.Click += new System.EventHandler(this.btnCourseRegisterDeleteToDraft_Click);
@@ -514,7 +514,7 @@
             this.dataGridViewCourseRegisterApprovedCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterApprovedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourseRegisterApprovedCourses.Size = new System.Drawing.Size(823, 389);
-            this.dataGridViewCourseRegisterApprovedCourses.TabIndex = 12;
+            this.dataGridViewCourseRegisterApprovedCourses.TabIndex = 7;
             // 
             // label23
             // 
@@ -640,7 +640,7 @@
             this.txtProfileInfoAdviser.Name = "txtProfileInfoAdviser";
             this.txtProfileInfoAdviser.ReadOnly = true;
             this.txtProfileInfoAdviser.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoAdviser.TabIndex = 15;
+            this.txtProfileInfoAdviser.TabIndex = 9;
             // 
             // label22
             // 
@@ -657,7 +657,7 @@
             this.txtProfileInfoDepartment.Name = "txtProfileInfoDepartment";
             this.txtProfileInfoDepartment.ReadOnly = true;
             this.txtProfileInfoDepartment.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoDepartment.TabIndex = 13;
+            this.txtProfileInfoDepartment.TabIndex = 8;
             // 
             // label25
             // 
@@ -674,7 +674,7 @@
             this.txtProfileInfoSemester.Name = "txtProfileInfoSemester";
             this.txtProfileInfoSemester.ReadOnly = true;
             this.txtProfileInfoSemester.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoSemester.TabIndex = 11;
+            this.txtProfileInfoSemester.TabIndex = 7;
             // 
             // label20
             // 
@@ -691,7 +691,7 @@
             this.txtProfileInfoEnrollmentDate.Name = "txtProfileInfoEnrollmentDate";
             this.txtProfileInfoEnrollmentDate.ReadOnly = true;
             this.txtProfileInfoEnrollmentDate.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoEnrollmentDate.TabIndex = 9;
+            this.txtProfileInfoEnrollmentDate.TabIndex = 6;
             // 
             // label21
             // 
@@ -708,7 +708,7 @@
             this.txtProfileInfoPhone.Name = "txtProfileInfoPhone";
             this.txtProfileInfoPhone.ReadOnly = true;
             this.txtProfileInfoPhone.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoPhone.TabIndex = 7;
+            this.txtProfileInfoPhone.TabIndex = 5;
             // 
             // label13
             // 
@@ -725,7 +725,7 @@
             this.txtProfileInfoLastName.Name = "txtProfileInfoLastName";
             this.txtProfileInfoLastName.ReadOnly = true;
             this.txtProfileInfoLastName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoLastName.TabIndex = 5;
+            this.txtProfileInfoLastName.TabIndex = 3;
             // 
             // label17
             // 
@@ -742,7 +742,7 @@
             this.txtProfileInfoFirstName.Name = "txtProfileInfoFirstName";
             this.txtProfileInfoFirstName.ReadOnly = true;
             this.txtProfileInfoFirstName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoFirstName.TabIndex = 3;
+            this.txtProfileInfoFirstName.TabIndex = 2;
             // 
             // label18
             // 
@@ -759,7 +759,7 @@
             this.txtProfileInfoEmail.Name = "txtProfileInfoEmail";
             this.txtProfileInfoEmail.ReadOnly = true;
             this.txtProfileInfoEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoEmail.TabIndex = 1;
+            this.txtProfileInfoEmail.TabIndex = 4;
             // 
             // label19
             // 
@@ -788,7 +788,7 @@
             this.txtProfileStudentNo.Name = "txtProfileStudentNo";
             this.txtProfileStudentNo.ReadOnly = true;
             this.txtProfileStudentNo.Size = new System.Drawing.Size(101, 23);
-            this.txtProfileStudentNo.TabIndex = 14;
+            this.txtProfileStudentNo.TabIndex = 1;
             // 
             // label8
             // 
@@ -834,7 +834,7 @@
             this.txtProfileOldPassword.Name = "txtProfileOldPassword";
             this.txtProfileOldPassword.PasswordChar = '*';
             this.txtProfileOldPassword.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileOldPassword.TabIndex = 11;
+            this.txtProfileOldPassword.TabIndex = 15;
             // 
             // label5
             // 
@@ -860,7 +860,7 @@
             this.txtProfileReNewPassword.Name = "txtProfileReNewPassword";
             this.txtProfileReNewPassword.PasswordChar = '*';
             this.txtProfileReNewPassword.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileReNewPassword.TabIndex = 15;
+            this.txtProfileReNewPassword.TabIndex = 17;
             // 
             // txtProfileNewPassword
             // 
@@ -868,7 +868,7 @@
             this.txtProfileNewPassword.Name = "txtProfileNewPassword";
             this.txtProfileNewPassword.PasswordChar = '*';
             this.txtProfileNewPassword.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileNewPassword.TabIndex = 13;
+            this.txtProfileNewPassword.TabIndex = 16;
             // 
             // label14
             // 
@@ -881,6 +881,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtProfileUpdateEmail);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btnProfileUpdate);
             this.groupBox1.Controls.Add(this.txtProfileUpdatePhone);
             this.groupBox1.Controls.Add(this.label12);
@@ -888,8 +890,6 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtProfileUpdateFirstName);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtProfileUpdateEmail);
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(46, 222);
             this.groupBox1.Name = "groupBox1";
@@ -904,7 +904,7 @@
             this.btnProfileUpdate.Location = new System.Drawing.Point(103, 173);
             this.btnProfileUpdate.Name = "btnProfileUpdate";
             this.btnProfileUpdate.Size = new System.Drawing.Size(235, 43);
-            this.btnProfileUpdate.TabIndex = 8;
+            this.btnProfileUpdate.TabIndex = 14;
             this.btnProfileUpdate.Text = "Güncelle";
             this.btnProfileUpdate.UseVisualStyleBackColor = true;
             this.btnProfileUpdate.Click += new System.EventHandler(this.btnProfileUpdate_Click);
@@ -914,7 +914,7 @@
             this.txtProfileUpdatePhone.Location = new System.Drawing.Point(103, 140);
             this.txtProfileUpdatePhone.Name = "txtProfileUpdatePhone";
             this.txtProfileUpdatePhone.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdatePhone.TabIndex = 7;
+            this.txtProfileUpdatePhone.TabIndex = 13;
             // 
             // label12
             // 
@@ -927,15 +927,15 @@
             // 
             // txtProfileUpdateLastName
             // 
-            this.txtProfileUpdateLastName.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateLastName.Location = new System.Drawing.Point(103, 74);
             this.txtProfileUpdateLastName.Name = "txtProfileUpdateLastName";
             this.txtProfileUpdateLastName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdateLastName.TabIndex = 5;
+            this.txtProfileUpdateLastName.TabIndex = 11;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(39, 110);
+            this.label11.Location = new System.Drawing.Point(39, 77);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 19);
             this.label11.TabIndex = 4;
@@ -943,35 +943,19 @@
             // 
             // txtProfileUpdateFirstName
             // 
-            this.txtProfileUpdateFirstName.Location = new System.Drawing.Point(103, 74);
+            this.txtProfileUpdateFirstName.Location = new System.Drawing.Point(103, 41);
             this.txtProfileUpdateFirstName.Name = "txtProfileUpdateFirstName";
             this.txtProfileUpdateFirstName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdateFirstName.TabIndex = 3;
+            this.txtProfileUpdateFirstName.TabIndex = 10;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(65, 77);
+            this.label10.Location = new System.Drawing.Point(65, 44);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 19);
             this.label10.TabIndex = 2;
             this.label10.Text = "Ad:";
-            // 
-            // txtProfileUpdateEmail
-            // 
-            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 41);
-            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
-            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdateEmail.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(44, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 19);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Email:";
             // 
             // label6
             // 
@@ -982,6 +966,22 @@
             this.label6.Size = new System.Drawing.Size(180, 23);
             this.label6.TabIndex = 10;
             this.label6.Text = "PROFİL BİLGİLERİM";
+            // 
+            // txtProfileUpdateEmail
+            // 
+            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
+            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateEmail.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(44, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 19);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Email:";
             // 
             // StudentForm
             // 
@@ -1077,8 +1077,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtProfileUpdateFirstName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtProfileUpdateEmail;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbGradeViewSelectSemester;
         private System.Windows.Forms.Label label16;
@@ -1110,5 +1108,7 @@
         private System.Windows.Forms.Button btnTranscriptGetTranscriptPDF;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label lblTranscriptPdfOutputFileName;
+        private System.Windows.Forms.TextBox txtProfileUpdateEmail;
+        private System.Windows.Forms.Label label9;
     }
 }

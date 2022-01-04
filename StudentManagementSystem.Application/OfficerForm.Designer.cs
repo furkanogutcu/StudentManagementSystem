@@ -68,8 +68,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.txtProfileUpdateFirstName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlGlobalDepartmentOperations = new System.Windows.Forms.Panel();
             this.grbxDepartmentOperationsCurrentDepartments = new System.Windows.Forms.GroupBox();
@@ -315,6 +313,8 @@
             this.chckListBoxAssignAdviserBatchCourses = new System.Windows.Forms.CheckedListBox();
             this.chckListBoxAssignAdviserBatchDepartments = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalProfile.SuspendLayout();
@@ -385,7 +385,7 @@
             this.btnGlobalLogOut.Location = new System.Drawing.Point(15, 498);
             this.btnGlobalLogOut.Name = "btnGlobalLogOut";
             this.btnGlobalLogOut.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalLogOut.TabIndex = 9;
+            this.btnGlobalLogOut.TabIndex = 7;
             this.btnGlobalLogOut.Text = "Hesabımdan Çıkış Yap";
             this.btnGlobalLogOut.UseVisualStyleBackColor = false;
             this.btnGlobalLogOut.Click += new System.EventHandler(this.btnGlobalLogOut_Click);
@@ -396,7 +396,7 @@
             this.btnGlobalStudentOperations.Location = new System.Drawing.Point(15, 404);
             this.btnGlobalStudentOperations.Name = "btnGlobalStudentOperations";
             this.btnGlobalStudentOperations.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalStudentOperations.TabIndex = 8;
+            this.btnGlobalStudentOperations.TabIndex = 5;
             this.btnGlobalStudentOperations.Text = "Öğrenci işlemleri";
             this.btnGlobalStudentOperations.UseVisualStyleBackColor = true;
             this.btnGlobalStudentOperations.Click += new System.EventHandler(this.btnGlobalStudentOperations_Click);
@@ -407,7 +407,7 @@
             this.btnGlobalInstructorOperations.Location = new System.Drawing.Point(15, 357);
             this.btnGlobalInstructorOperations.Name = "btnGlobalInstructorOperations";
             this.btnGlobalInstructorOperations.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalInstructorOperations.TabIndex = 7;
+            this.btnGlobalInstructorOperations.TabIndex = 4;
             this.btnGlobalInstructorOperations.Text = "Öğretim görevlisi işlemleri";
             this.btnGlobalInstructorOperations.UseVisualStyleBackColor = true;
             this.btnGlobalInstructorOperations.Click += new System.EventHandler(this.btnGlobalInstructorOperations_Click);
@@ -442,7 +442,7 @@
             this.btnGlobalCourseOperations.Location = new System.Drawing.Point(15, 310);
             this.btnGlobalCourseOperations.Name = "btnGlobalCourseOperations";
             this.btnGlobalCourseOperations.Size = new System.Drawing.Size(186, 41);
-            this.btnGlobalCourseOperations.TabIndex = 4;
+            this.btnGlobalCourseOperations.TabIndex = 3;
             this.btnGlobalCourseOperations.Text = "Ders işlemleri";
             this.btnGlobalCourseOperations.UseVisualStyleBackColor = true;
             this.btnGlobalCourseOperations.Click += new System.EventHandler(this.btnGlobalCourseOperations_Click);
@@ -517,7 +517,7 @@
             this.txtProfileInfoPhone.Name = "txtProfileInfoPhone";
             this.txtProfileInfoPhone.ReadOnly = true;
             this.txtProfileInfoPhone.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoPhone.TabIndex = 7;
+            this.txtProfileInfoPhone.TabIndex = 5;
             // 
             // label100
             // 
@@ -534,7 +534,7 @@
             this.txtProfileInfoLastName.Name = "txtProfileInfoLastName";
             this.txtProfileInfoLastName.ReadOnly = true;
             this.txtProfileInfoLastName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoLastName.TabIndex = 5;
+            this.txtProfileInfoLastName.TabIndex = 3;
             // 
             // label101
             // 
@@ -551,7 +551,7 @@
             this.txtProfileInfoFirstName.Name = "txtProfileInfoFirstName";
             this.txtProfileInfoFirstName.ReadOnly = true;
             this.txtProfileInfoFirstName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoFirstName.TabIndex = 3;
+            this.txtProfileInfoFirstName.TabIndex = 2;
             // 
             // label102
             // 
@@ -568,7 +568,7 @@
             this.txtProfileInfoEmail.Name = "txtProfileInfoEmail";
             this.txtProfileInfoEmail.ReadOnly = true;
             this.txtProfileInfoEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileInfoEmail.TabIndex = 1;
+            this.txtProfileInfoEmail.TabIndex = 4;
             // 
             // label103
             // 
@@ -595,7 +595,7 @@
             this.txtProfileOfficerNo.Location = new System.Drawing.Point(764, 12);
             this.txtProfileOfficerNo.Name = "txtProfileOfficerNo";
             this.txtProfileOfficerNo.Size = new System.Drawing.Size(101, 23);
-            this.txtProfileOfficerNo.TabIndex = 4;
+            this.txtProfileOfficerNo.TabIndex = 1;
             this.txtProfileOfficerNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
@@ -631,7 +631,7 @@
             this.btnProfileChangePassword.Location = new System.Drawing.Point(149, 155);
             this.btnProfileChangePassword.Name = "btnProfileChangePassword";
             this.btnProfileChangePassword.Size = new System.Drawing.Size(235, 43);
-            this.btnProfileChangePassword.TabIndex = 18;
+            this.btnProfileChangePassword.TabIndex = 14;
             this.btnProfileChangePassword.Text = "Şifremi değiştir";
             this.btnProfileChangePassword.UseVisualStyleBackColor = true;
             this.btnProfileChangePassword.Click += new System.EventHandler(this.btnProfileChangePassword_Click);
@@ -668,7 +668,7 @@
             this.txtProfileReNewPassword.Name = "txtProfileReNewPassword";
             this.txtProfileReNewPassword.PasswordChar = '*';
             this.txtProfileReNewPassword.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileReNewPassword.TabIndex = 15;
+            this.txtProfileReNewPassword.TabIndex = 13;
             // 
             // txtProfileNewPassword
             // 
@@ -676,7 +676,7 @@
             this.txtProfileNewPassword.Name = "txtProfileNewPassword";
             this.txtProfileNewPassword.PasswordChar = '*';
             this.txtProfileNewPassword.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileNewPassword.TabIndex = 13;
+            this.txtProfileNewPassword.TabIndex = 12;
             // 
             // label14
             // 
@@ -689,6 +689,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtProfileUpdateEmail);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.btnProfileUpdate);
             this.groupBox1.Controls.Add(this.txtProfileUpdatePhone);
             this.groupBox1.Controls.Add(this.label12);
@@ -696,8 +698,6 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.txtProfileUpdateFirstName);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.txtProfileUpdateEmail);
-            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(42, 267);
             this.groupBox1.Name = "groupBox1";
@@ -712,7 +712,7 @@
             this.btnProfileUpdate.Location = new System.Drawing.Point(103, 173);
             this.btnProfileUpdate.Name = "btnProfileUpdate";
             this.btnProfileUpdate.Size = new System.Drawing.Size(235, 43);
-            this.btnProfileUpdate.TabIndex = 8;
+            this.btnProfileUpdate.TabIndex = 10;
             this.btnProfileUpdate.Text = "Güncelle";
             this.btnProfileUpdate.UseVisualStyleBackColor = true;
             this.btnProfileUpdate.Click += new System.EventHandler(this.btnProfileUpdate_Click);
@@ -722,7 +722,7 @@
             this.txtProfileUpdatePhone.Location = new System.Drawing.Point(103, 140);
             this.txtProfileUpdatePhone.Name = "txtProfileUpdatePhone";
             this.txtProfileUpdatePhone.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdatePhone.TabIndex = 7;
+            this.txtProfileUpdatePhone.TabIndex = 9;
             // 
             // label12
             // 
@@ -735,15 +735,15 @@
             // 
             // txtProfileUpdateLastName
             // 
-            this.txtProfileUpdateLastName.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateLastName.Location = new System.Drawing.Point(103, 74);
             this.txtProfileUpdateLastName.Name = "txtProfileUpdateLastName";
             this.txtProfileUpdateLastName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdateLastName.TabIndex = 5;
+            this.txtProfileUpdateLastName.TabIndex = 7;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(39, 110);
+            this.label11.Location = new System.Drawing.Point(39, 77);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(58, 19);
             this.label11.TabIndex = 4;
@@ -751,35 +751,19 @@
             // 
             // txtProfileUpdateFirstName
             // 
-            this.txtProfileUpdateFirstName.Location = new System.Drawing.Point(103, 74);
+            this.txtProfileUpdateFirstName.Location = new System.Drawing.Point(103, 41);
             this.txtProfileUpdateFirstName.Name = "txtProfileUpdateFirstName";
             this.txtProfileUpdateFirstName.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdateFirstName.TabIndex = 3;
+            this.txtProfileUpdateFirstName.TabIndex = 6;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(65, 77);
+            this.label10.Location = new System.Drawing.Point(65, 44);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(32, 19);
             this.label10.TabIndex = 2;
             this.label10.Text = "Ad:";
-            // 
-            // txtProfileUpdateEmail
-            // 
-            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 41);
-            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
-            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdateEmail.TabIndex = 1;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(44, 44);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 19);
-            this.label9.TabIndex = 0;
-            this.label9.Text = "Email:";
             // 
             // label2
             // 
@@ -839,7 +823,7 @@
             this.btnDepartmentOperationsSearchReset.Location = new System.Drawing.Point(111, 110);
             this.btnDepartmentOperationsSearchReset.Name = "btnDepartmentOperationsSearchReset";
             this.btnDepartmentOperationsSearchReset.Size = new System.Drawing.Size(142, 26);
-            this.btnDepartmentOperationsSearchReset.TabIndex = 23;
+            this.btnDepartmentOperationsSearchReset.TabIndex = 16;
             this.btnDepartmentOperationsSearchReset.Text = "Sıfırla";
             this.btnDepartmentOperationsSearchReset.UseVisualStyleBackColor = true;
             this.btnDepartmentOperationsSearchReset.Click += new System.EventHandler(this.btnDepartmentOperationsSearchReset_Click);
@@ -859,7 +843,7 @@
             this.btnDepartmentOperationsSearch.Location = new System.Drawing.Point(254, 109);
             this.btnDepartmentOperationsSearch.Name = "btnDepartmentOperationsSearch";
             this.btnDepartmentOperationsSearch.Size = new System.Drawing.Size(142, 26);
-            this.btnDepartmentOperationsSearch.TabIndex = 20;
+            this.btnDepartmentOperationsSearch.TabIndex = 17;
             this.btnDepartmentOperationsSearch.Text = "Ara";
             this.btnDepartmentOperationsSearch.UseVisualStyleBackColor = true;
             this.btnDepartmentOperationsSearch.Click += new System.EventHandler(this.btnDepartmentOperationsSearch_Click);
@@ -869,14 +853,14 @@
             this.txtDepartmentOperationsSearchByDepartmentName.Location = new System.Drawing.Point(111, 77);
             this.txtDepartmentOperationsSearchByDepartmentName.Name = "txtDepartmentOperationsSearchByDepartmentName";
             this.txtDepartmentOperationsSearchByDepartmentName.Size = new System.Drawing.Size(285, 26);
-            this.txtDepartmentOperationsSearchByDepartmentName.TabIndex = 21;
+            this.txtDepartmentOperationsSearchByDepartmentName.TabIndex = 15;
             // 
             // txtDepartmentOperationsSearchByDepartmentNo
             // 
             this.txtDepartmentOperationsSearchByDepartmentNo.Location = new System.Drawing.Point(111, 31);
             this.txtDepartmentOperationsSearchByDepartmentNo.Name = "txtDepartmentOperationsSearchByDepartmentNo";
             this.txtDepartmentOperationsSearchByDepartmentNo.Size = new System.Drawing.Size(285, 26);
-            this.txtDepartmentOperationsSearchByDepartmentNo.TabIndex = 19;
+            this.txtDepartmentOperationsSearchByDepartmentNo.TabIndex = 14;
             // 
             // label40
             // 
@@ -918,7 +902,7 @@
             this.txtDepartmentOperationsAddNumberOfSemester.Location = new System.Drawing.Point(130, 68);
             this.txtDepartmentOperationsAddNumberOfSemester.Name = "txtDepartmentOperationsAddNumberOfSemester";
             this.txtDepartmentOperationsAddNumberOfSemester.Size = new System.Drawing.Size(165, 26);
-            this.txtDepartmentOperationsAddNumberOfSemester.TabIndex = 23;
+            this.txtDepartmentOperationsAddNumberOfSemester.TabIndex = 12;
             // 
             // label98
             // 
@@ -936,7 +920,7 @@
             this.btnDepartmentOperationsAddDepartment.Location = new System.Drawing.Point(301, 48);
             this.btnDepartmentOperationsAddDepartment.Name = "btnDepartmentOperationsAddDepartment";
             this.btnDepartmentOperationsAddDepartment.Size = new System.Drawing.Size(86, 26);
-            this.btnDepartmentOperationsAddDepartment.TabIndex = 19;
+            this.btnDepartmentOperationsAddDepartment.TabIndex = 13;
             this.btnDepartmentOperationsAddDepartment.Text = "Ekle";
             this.btnDepartmentOperationsAddDepartment.UseVisualStyleBackColor = true;
             this.btnDepartmentOperationsAddDepartment.Click += new System.EventHandler(this.btnDepartmentOperationsAddDepartment_Click);
@@ -946,7 +930,7 @@
             this.txtDepartmentOperationsAddDepartmentName.Location = new System.Drawing.Point(130, 35);
             this.txtDepartmentOperationsAddDepartmentName.Name = "txtDepartmentOperationsAddDepartmentName";
             this.txtDepartmentOperationsAddDepartmentName.Size = new System.Drawing.Size(163, 26);
-            this.txtDepartmentOperationsAddDepartmentName.TabIndex = 18;
+            this.txtDepartmentOperationsAddDepartmentName.TabIndex = 11;
             // 
             // label20
             // 
@@ -978,7 +962,7 @@
             this.txtDepartmentOperationsUpdateNumberOfSemester.Location = new System.Drawing.Point(130, 63);
             this.txtDepartmentOperationsUpdateNumberOfSemester.Name = "txtDepartmentOperationsUpdateNumberOfSemester";
             this.txtDepartmentOperationsUpdateNumberOfSemester.Size = new System.Drawing.Size(165, 26);
-            this.txtDepartmentOperationsUpdateNumberOfSemester.TabIndex = 21;
+            this.txtDepartmentOperationsUpdateNumberOfSemester.TabIndex = 9;
             // 
             // label97
             // 
@@ -996,7 +980,7 @@
             this.btnDepartmentOperationsUpdate.Location = new System.Drawing.Point(301, 64);
             this.btnDepartmentOperationsUpdate.Name = "btnDepartmentOperationsUpdate";
             this.btnDepartmentOperationsUpdate.Size = new System.Drawing.Size(86, 26);
-            this.btnDepartmentOperationsUpdate.TabIndex = 19;
+            this.btnDepartmentOperationsUpdate.TabIndex = 10;
             this.btnDepartmentOperationsUpdate.Text = "Güncelle";
             this.btnDepartmentOperationsUpdate.UseVisualStyleBackColor = true;
             this.btnDepartmentOperationsUpdate.Click += new System.EventHandler(this.btnDepartmentOperationsUpdate_Click);
@@ -1006,7 +990,7 @@
             this.txtDepartmentOperationsUpdateDepartmentName.Location = new System.Drawing.Point(130, 34);
             this.txtDepartmentOperationsUpdateDepartmentName.Name = "txtDepartmentOperationsUpdateDepartmentName";
             this.txtDepartmentOperationsUpdateDepartmentName.Size = new System.Drawing.Size(165, 26);
-            this.txtDepartmentOperationsUpdateDepartmentName.TabIndex = 18;
+            this.txtDepartmentOperationsUpdateDepartmentName.TabIndex = 8;
             // 
             // label21
             // 
@@ -1055,7 +1039,7 @@
             this.txtDepartmentOperationsNumberOfSemester.Name = "txtDepartmentOperationsNumberOfSemester";
             this.txtDepartmentOperationsNumberOfSemester.ReadOnly = true;
             this.txtDepartmentOperationsNumberOfSemester.Size = new System.Drawing.Size(70, 26);
-            this.txtDepartmentOperationsNumberOfSemester.TabIndex = 21;
+            this.txtDepartmentOperationsNumberOfSemester.TabIndex = 3;
             // 
             // btnDepartmentOperationsDeleteDepartment
             // 
@@ -1063,7 +1047,7 @@
             this.btnDepartmentOperationsDeleteDepartment.Location = new System.Drawing.Point(168, 156);
             this.btnDepartmentOperationsDeleteDepartment.Name = "btnDepartmentOperationsDeleteDepartment";
             this.btnDepartmentOperationsDeleteDepartment.Size = new System.Drawing.Size(219, 26);
-            this.btnDepartmentOperationsDeleteDepartment.TabIndex = 20;
+            this.btnDepartmentOperationsDeleteDepartment.TabIndex = 7;
             this.btnDepartmentOperationsDeleteDepartment.Text = "Bölümü sil";
             this.btnDepartmentOperationsDeleteDepartment.UseVisualStyleBackColor = true;
             this.btnDepartmentOperationsDeleteDepartment.Click += new System.EventHandler(this.btnDepartmentOperationsDeleteDepartment_Click);
@@ -1074,7 +1058,7 @@
             this.txtDepartmentOperationsTotalInstructor.Name = "txtDepartmentOperationsTotalInstructor";
             this.txtDepartmentOperationsTotalInstructor.ReadOnly = true;
             this.txtDepartmentOperationsTotalInstructor.Size = new System.Drawing.Size(219, 26);
-            this.txtDepartmentOperationsTotalInstructor.TabIndex = 16;
+            this.txtDepartmentOperationsTotalInstructor.TabIndex = 5;
             // 
             // label19
             // 
@@ -1092,7 +1076,7 @@
             this.txtDepartmentOperationsTotalStudents.Name = "txtDepartmentOperationsTotalStudents";
             this.txtDepartmentOperationsTotalStudents.ReadOnly = true;
             this.txtDepartmentOperationsTotalStudents.Size = new System.Drawing.Size(219, 26);
-            this.txtDepartmentOperationsTotalStudents.TabIndex = 14;
+            this.txtDepartmentOperationsTotalStudents.TabIndex = 6;
             // 
             // label18
             // 
@@ -1111,7 +1095,7 @@
             this.txtDepartmentOperationsDepartmentName.Name = "txtDepartmentOperationsDepartmentName";
             this.txtDepartmentOperationsDepartmentName.ReadOnly = true;
             this.txtDepartmentOperationsDepartmentName.Size = new System.Drawing.Size(285, 26);
-            this.txtDepartmentOperationsDepartmentName.TabIndex = 12;
+            this.txtDepartmentOperationsDepartmentName.TabIndex = 4;
             // 
             // label17
             // 
@@ -1130,7 +1114,7 @@
             this.txtDepartmentOperationsDepartmentNo.Name = "txtDepartmentOperationsDepartmentNo";
             this.txtDepartmentOperationsDepartmentNo.ReadOnly = true;
             this.txtDepartmentOperationsDepartmentNo.Size = new System.Drawing.Size(101, 26);
-            this.txtDepartmentOperationsDepartmentNo.TabIndex = 10;
+            this.txtDepartmentOperationsDepartmentNo.TabIndex = 2;
             // 
             // label13
             // 
@@ -1209,7 +1193,7 @@
             this.btnCourseOperationsDelete.Location = new System.Drawing.Point(116, 206);
             this.btnCourseOperationsDelete.Name = "btnCourseOperationsDelete";
             this.btnCourseOperationsDelete.Size = new System.Drawing.Size(99, 26);
-            this.btnCourseOperationsDelete.TabIndex = 23;
+            this.btnCourseOperationsDelete.TabIndex = 13;
             this.btnCourseOperationsDelete.Text = "Sil";
             this.btnCourseOperationsDelete.UseVisualStyleBackColor = true;
             this.btnCourseOperationsDelete.Click += new System.EventHandler(this.btnCourseOperationsDelete_Click);
@@ -1231,7 +1215,7 @@
             this.txtCourseOperationsCourseInfoCourseNo.Name = "txtCourseOperationsCourseInfoCourseNo";
             this.txtCourseOperationsCourseInfoCourseNo.ReadOnly = true;
             this.txtCourseOperationsCourseInfoCourseNo.Size = new System.Drawing.Size(212, 26);
-            this.txtCourseOperationsCourseInfoCourseNo.TabIndex = 21;
+            this.txtCourseOperationsCourseInfoCourseNo.TabIndex = 2;
             // 
             // chbxCourseOperationsCourseInfoSemesterEnabled
             // 
@@ -1239,7 +1223,7 @@
             this.chbxCourseOperationsCourseInfoSemesterEnabled.Location = new System.Drawing.Point(334, 181);
             this.chbxCourseOperationsCourseInfoSemesterEnabled.Name = "chbxCourseOperationsCourseInfoSemesterEnabled";
             this.chbxCourseOperationsCourseInfoSemesterEnabled.Size = new System.Drawing.Size(15, 14);
-            this.chbxCourseOperationsCourseInfoSemesterEnabled.TabIndex = 20;
+            this.chbxCourseOperationsCourseInfoSemesterEnabled.TabIndex = 12;
             this.chbxCourseOperationsCourseInfoSemesterEnabled.UseVisualStyleBackColor = true;
             this.chbxCourseOperationsCourseInfoSemesterEnabled.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsCourseInfoSemesterEnabled_CheckedChanged);
             // 
@@ -1249,37 +1233,37 @@
             this.chbxCourseOperationsCourseInfoCreditEnabled.Location = new System.Drawing.Point(167, 181);
             this.chbxCourseOperationsCourseInfoCreditEnabled.Name = "chbxCourseOperationsCourseInfoCreditEnabled";
             this.chbxCourseOperationsCourseInfoCreditEnabled.Size = new System.Drawing.Size(15, 14);
-            this.chbxCourseOperationsCourseInfoCreditEnabled.TabIndex = 19;
+            this.chbxCourseOperationsCourseInfoCreditEnabled.TabIndex = 10;
             this.chbxCourseOperationsCourseInfoCreditEnabled.UseVisualStyleBackColor = true;
             this.chbxCourseOperationsCourseInfoCreditEnabled.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsCourseInfoCreditEnabled_CheckedChanged);
             // 
             // chbxCourseOperationsCourseInfoInstructorEnabled
             // 
             this.chbxCourseOperationsCourseInfoInstructorEnabled.AutoSize = true;
-            this.chbxCourseOperationsCourseInfoInstructorEnabled.Location = new System.Drawing.Point(334, 147);
+            this.chbxCourseOperationsCourseInfoInstructorEnabled.Location = new System.Drawing.Point(334, 148);
             this.chbxCourseOperationsCourseInfoInstructorEnabled.Name = "chbxCourseOperationsCourseInfoInstructorEnabled";
             this.chbxCourseOperationsCourseInfoInstructorEnabled.Size = new System.Drawing.Size(15, 14);
-            this.chbxCourseOperationsCourseInfoInstructorEnabled.TabIndex = 17;
+            this.chbxCourseOperationsCourseInfoInstructorEnabled.TabIndex = 8;
             this.chbxCourseOperationsCourseInfoInstructorEnabled.UseVisualStyleBackColor = true;
             this.chbxCourseOperationsCourseInfoInstructorEnabled.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsCourseInfoInstructorEnabled_CheckedChanged);
             // 
             // chbxCourseOperationsCourseInfoDepartmentEnabled
             // 
             this.chbxCourseOperationsCourseInfoDepartmentEnabled.AutoSize = true;
-            this.chbxCourseOperationsCourseInfoDepartmentEnabled.Location = new System.Drawing.Point(334, 113);
+            this.chbxCourseOperationsCourseInfoDepartmentEnabled.Location = new System.Drawing.Point(334, 114);
             this.chbxCourseOperationsCourseInfoDepartmentEnabled.Name = "chbxCourseOperationsCourseInfoDepartmentEnabled";
             this.chbxCourseOperationsCourseInfoDepartmentEnabled.Size = new System.Drawing.Size(15, 14);
-            this.chbxCourseOperationsCourseInfoDepartmentEnabled.TabIndex = 16;
+            this.chbxCourseOperationsCourseInfoDepartmentEnabled.TabIndex = 6;
             this.chbxCourseOperationsCourseInfoDepartmentEnabled.UseVisualStyleBackColor = true;
             this.chbxCourseOperationsCourseInfoDepartmentEnabled.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsCourseInfoDepartmentEnabled_CheckedChanged);
             // 
             // chbxCourseOperationsCourseInfoCourseNameEnabled
             // 
             this.chbxCourseOperationsCourseInfoCourseNameEnabled.AutoSize = true;
-            this.chbxCourseOperationsCourseInfoCourseNameEnabled.Location = new System.Drawing.Point(334, 82);
+            this.chbxCourseOperationsCourseInfoCourseNameEnabled.Location = new System.Drawing.Point(334, 84);
             this.chbxCourseOperationsCourseInfoCourseNameEnabled.Name = "chbxCourseOperationsCourseInfoCourseNameEnabled";
             this.chbxCourseOperationsCourseInfoCourseNameEnabled.Size = new System.Drawing.Size(15, 14);
-            this.chbxCourseOperationsCourseInfoCourseNameEnabled.TabIndex = 15;
+            this.chbxCourseOperationsCourseInfoCourseNameEnabled.TabIndex = 4;
             this.chbxCourseOperationsCourseInfoCourseNameEnabled.UseVisualStyleBackColor = true;
             this.chbxCourseOperationsCourseInfoCourseNameEnabled.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsCourseInfoCourseNameEnabled_CheckedChanged);
             // 
@@ -1292,7 +1276,7 @@
             this.cmbCourseOperationsCourseInfoInstructor.Location = new System.Drawing.Point(116, 141);
             this.cmbCourseOperationsCourseInfoInstructor.Name = "cmbCourseOperationsCourseInfoInstructor";
             this.cmbCourseOperationsCourseInfoInstructor.Size = new System.Drawing.Size(212, 26);
-            this.cmbCourseOperationsCourseInfoInstructor.TabIndex = 14;
+            this.cmbCourseOperationsCourseInfoInstructor.TabIndex = 7;
             this.cmbCourseOperationsCourseInfoInstructor.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbCourseOperationsCourseInfoInstructor_Format);
             // 
             // cmbCourseOperationsCourseInfoDepartment
@@ -1304,7 +1288,7 @@
             this.cmbCourseOperationsCourseInfoDepartment.Location = new System.Drawing.Point(116, 108);
             this.cmbCourseOperationsCourseInfoDepartment.Name = "cmbCourseOperationsCourseInfoDepartment";
             this.cmbCourseOperationsCourseInfoDepartment.Size = new System.Drawing.Size(212, 26);
-            this.cmbCourseOperationsCourseInfoDepartment.TabIndex = 13;
+            this.cmbCourseOperationsCourseInfoDepartment.TabIndex = 5;
             this.cmbCourseOperationsCourseInfoDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbCourseOperationsCourseInfoDepartment_SelectedIndexChanged);
             // 
             // btnCourseOperationsUpdate
@@ -1312,7 +1296,7 @@
             this.btnCourseOperationsUpdate.Location = new System.Drawing.Point(233, 206);
             this.btnCourseOperationsUpdate.Name = "btnCourseOperationsUpdate";
             this.btnCourseOperationsUpdate.Size = new System.Drawing.Size(95, 26);
-            this.btnCourseOperationsUpdate.TabIndex = 12;
+            this.btnCourseOperationsUpdate.TabIndex = 14;
             this.btnCourseOperationsUpdate.Text = "Güncelle";
             this.btnCourseOperationsUpdate.UseVisualStyleBackColor = true;
             this.btnCourseOperationsUpdate.Click += new System.EventHandler(this.btnCourseOperationsUpdate_Click);
@@ -1333,7 +1317,7 @@
             this.txtCourseOperationsCourseInfoSemester.Name = "txtCourseOperationsCourseInfoSemester";
             this.txtCourseOperationsCourseInfoSemester.ReadOnly = true;
             this.txtCourseOperationsCourseInfoSemester.Size = new System.Drawing.Size(58, 26);
-            this.txtCourseOperationsCourseInfoSemester.TabIndex = 10;
+            this.txtCourseOperationsCourseInfoSemester.TabIndex = 11;
             // 
             // label30
             // 
@@ -1351,7 +1335,7 @@
             this.txtCourseOperationsCourseInfoCredit.Name = "txtCourseOperationsCourseInfoCredit";
             this.txtCourseOperationsCourseInfoCredit.ReadOnly = true;
             this.txtCourseOperationsCourseInfoCredit.Size = new System.Drawing.Size(45, 26);
-            this.txtCourseOperationsCourseInfoCredit.TabIndex = 6;
+            this.txtCourseOperationsCourseInfoCredit.TabIndex = 9;
             // 
             // label31
             // 
@@ -1369,7 +1353,7 @@
             this.txtCourseOperationsCourseInfoCourseName.Name = "txtCourseOperationsCourseInfoCourseName";
             this.txtCourseOperationsCourseInfoCourseName.ReadOnly = true;
             this.txtCourseOperationsCourseInfoCourseName.Size = new System.Drawing.Size(212, 26);
-            this.txtCourseOperationsCourseInfoCourseName.TabIndex = 4;
+            this.txtCourseOperationsCourseInfoCourseName.TabIndex = 3;
             // 
             // label32
             // 
@@ -1423,7 +1407,7 @@
             this.btnCourseOperationsSearchReset.Location = new System.Drawing.Point(288, 16);
             this.btnCourseOperationsSearchReset.Name = "btnCourseOperationsSearchReset";
             this.btnCourseOperationsSearchReset.Size = new System.Drawing.Size(123, 32);
-            this.btnCourseOperationsSearchReset.TabIndex = 26;
+            this.btnCourseOperationsSearchReset.TabIndex = 29;
             this.btnCourseOperationsSearchReset.Text = "Sıfırla";
             this.btnCourseOperationsSearchReset.UseVisualStyleBackColor = true;
             this.btnCourseOperationsSearchReset.Click += new System.EventHandler(this.btnCourseOperationsSearchReset_Click);
@@ -1434,7 +1418,7 @@
             this.txtCourseOperationsCourseInfoSearchByCourseName.Location = new System.Drawing.Point(112, 61);
             this.txtCourseOperationsCourseInfoSearchByCourseName.Name = "txtCourseOperationsCourseInfoSearchByCourseName";
             this.txtCourseOperationsCourseInfoSearchByCourseName.Size = new System.Drawing.Size(170, 26);
-            this.txtCourseOperationsCourseInfoSearchByCourseName.TabIndex = 24;
+            this.txtCourseOperationsCourseInfoSearchByCourseName.TabIndex = 28;
             // 
             // txtCourseOperationsCourseInfoSearchByCourseNo
             // 
@@ -1442,7 +1426,7 @@
             this.txtCourseOperationsCourseInfoSearchByCourseNo.Location = new System.Drawing.Point(112, 18);
             this.txtCourseOperationsCourseInfoSearchByCourseNo.Name = "txtCourseOperationsCourseInfoSearchByCourseNo";
             this.txtCourseOperationsCourseInfoSearchByCourseNo.Size = new System.Drawing.Size(170, 26);
-            this.txtCourseOperationsCourseInfoSearchByCourseNo.TabIndex = 22;
+            this.txtCourseOperationsCourseInfoSearchByCourseNo.TabIndex = 27;
             // 
             // label94
             // 
@@ -1458,7 +1442,7 @@
             this.btnCourseOperationsSearch.Location = new System.Drawing.Point(288, 57);
             this.btnCourseOperationsSearch.Name = "btnCourseOperationsSearch";
             this.btnCourseOperationsSearch.Size = new System.Drawing.Size(123, 32);
-            this.btnCourseOperationsSearch.TabIndex = 25;
+            this.btnCourseOperationsSearch.TabIndex = 30;
             this.btnCourseOperationsSearch.Text = "Ara";
             this.btnCourseOperationsSearch.UseVisualStyleBackColor = true;
             this.btnCourseOperationsSearch.Click += new System.EventHandler(this.btnCourseOperationsSearch_Click);
@@ -1501,7 +1485,7 @@
             this.btnCourseOperationsFilterReset.Location = new System.Drawing.Point(313, 16);
             this.btnCourseOperationsFilterReset.Name = "btnCourseOperationsFilterReset";
             this.btnCourseOperationsFilterReset.Size = new System.Drawing.Size(98, 30);
-            this.btnCourseOperationsFilterReset.TabIndex = 8;
+            this.btnCourseOperationsFilterReset.TabIndex = 25;
             this.btnCourseOperationsFilterReset.Text = "Sıfırla";
             this.btnCourseOperationsFilterReset.UseVisualStyleBackColor = true;
             this.btnCourseOperationsFilterReset.Click += new System.EventHandler(this.btnCourseOperationsFilterReset_Click);
@@ -1512,7 +1496,7 @@
             this.chbxCourseOperationsFilterBySemester.Location = new System.Drawing.Point(168, 29);
             this.chbxCourseOperationsFilterBySemester.Name = "chbxCourseOperationsFilterBySemester";
             this.chbxCourseOperationsFilterBySemester.Size = new System.Drawing.Size(139, 19);
-            this.chbxCourseOperationsFilterBySemester.TabIndex = 7;
+            this.chbxCourseOperationsFilterBySemester.TabIndex = 23;
             this.chbxCourseOperationsFilterBySemester.Text = "Döneme göre listele";
             this.chbxCourseOperationsFilterBySemester.UseVisualStyleBackColor = true;
             this.chbxCourseOperationsFilterBySemester.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsFilterBySemester_CheckedChanged);
@@ -1523,7 +1507,7 @@
             this.chbxCourseOperationsFilterByDepartment.Location = new System.Drawing.Point(17, 29);
             this.chbxCourseOperationsFilterByDepartment.Name = "chbxCourseOperationsFilterByDepartment";
             this.chbxCourseOperationsFilterByDepartment.Size = new System.Drawing.Size(134, 19);
-            this.chbxCourseOperationsFilterByDepartment.TabIndex = 6;
+            this.chbxCourseOperationsFilterByDepartment.TabIndex = 21;
             this.chbxCourseOperationsFilterByDepartment.Text = "Bölüme göre listele";
             this.chbxCourseOperationsFilterByDepartment.UseVisualStyleBackColor = true;
             this.chbxCourseOperationsFilterByDepartment.CheckedChanged += new System.EventHandler(this.chbxCourseOperationsFilterByDepartment_CheckedChanged);
@@ -1533,7 +1517,7 @@
             this.btnCourseOperationsFilter.Location = new System.Drawing.Point(313, 48);
             this.btnCourseOperationsFilter.Name = "btnCourseOperationsFilter";
             this.btnCourseOperationsFilter.Size = new System.Drawing.Size(98, 30);
-            this.btnCourseOperationsFilter.TabIndex = 5;
+            this.btnCourseOperationsFilter.TabIndex = 26;
             this.btnCourseOperationsFilter.Text = "Filtrele";
             this.btnCourseOperationsFilter.UseVisualStyleBackColor = true;
             this.btnCourseOperationsFilter.Click += new System.EventHandler(this.btnCourseOperationsFilter_Click);
@@ -1546,7 +1530,7 @@
             this.cmbCourseOperationsFilterCourseDepartment.Location = new System.Drawing.Point(17, 55);
             this.cmbCourseOperationsFilterCourseDepartment.Name = "cmbCourseOperationsFilterCourseDepartment";
             this.cmbCourseOperationsFilterCourseDepartment.Size = new System.Drawing.Size(133, 23);
-            this.cmbCourseOperationsFilterCourseDepartment.TabIndex = 1;
+            this.cmbCourseOperationsFilterCourseDepartment.TabIndex = 22;
             // 
             // cmbCourseOperationsFilterCourseSemester
             // 
@@ -1556,7 +1540,7 @@
             this.cmbCourseOperationsFilterCourseSemester.Location = new System.Drawing.Point(169, 55);
             this.cmbCourseOperationsFilterCourseSemester.Name = "cmbCourseOperationsFilterCourseSemester";
             this.cmbCourseOperationsFilterCourseSemester.Size = new System.Drawing.Size(138, 23);
-            this.cmbCourseOperationsFilterCourseSemester.TabIndex = 3;
+            this.cmbCourseOperationsFilterCourseSemester.TabIndex = 24;
             // 
             // listBoxCourseOperationsListCourses
             // 
@@ -1565,7 +1549,7 @@
             this.listBoxCourseOperationsListCourses.Location = new System.Drawing.Point(15, 27);
             this.listBoxCourseOperationsListCourses.Name = "listBoxCourseOperationsListCourses";
             this.listBoxCourseOperationsListCourses.Size = new System.Drawing.Size(420, 244);
-            this.listBoxCourseOperationsListCourses.TabIndex = 0;
+            this.listBoxCourseOperationsListCourses.TabIndex = 1;
             this.listBoxCourseOperationsListCourses.SelectedIndexChanged += new System.EventHandler(this.listBoxCourseOperationsListCourses_SelectedIndexChanged);
             // 
             // groupBox7
@@ -1597,7 +1581,7 @@
             this.cmbCourseOperationsAddCourseInstructor.Location = new System.Drawing.Point(145, 88);
             this.cmbCourseOperationsAddCourseInstructor.Name = "cmbCourseOperationsAddCourseInstructor";
             this.cmbCourseOperationsAddCourseInstructor.Size = new System.Drawing.Size(213, 26);
-            this.cmbCourseOperationsAddCourseInstructor.TabIndex = 14;
+            this.cmbCourseOperationsAddCourseInstructor.TabIndex = 17;
             this.cmbCourseOperationsAddCourseInstructor.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbCourseOperationsAddCourseInstructor_Format);
             // 
             // cmbCourseOperationsAddCourseDepartment
@@ -1608,7 +1592,7 @@
             this.cmbCourseOperationsAddCourseDepartment.Location = new System.Drawing.Point(145, 55);
             this.cmbCourseOperationsAddCourseDepartment.Name = "cmbCourseOperationsAddCourseDepartment";
             this.cmbCourseOperationsAddCourseDepartment.Size = new System.Drawing.Size(213, 26);
-            this.cmbCourseOperationsAddCourseDepartment.TabIndex = 13;
+            this.cmbCourseOperationsAddCourseDepartment.TabIndex = 16;
             this.cmbCourseOperationsAddCourseDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbCourseOperationsAddCourseDepartment_SelectedIndexChanged);
             // 
             // btnCourseOperationsAdd
@@ -1616,7 +1600,7 @@
             this.btnCourseOperationsAdd.Location = new System.Drawing.Point(146, 153);
             this.btnCourseOperationsAdd.Name = "btnCourseOperationsAdd";
             this.btnCourseOperationsAdd.Size = new System.Drawing.Size(212, 26);
-            this.btnCourseOperationsAdd.TabIndex = 12;
+            this.btnCourseOperationsAdd.TabIndex = 20;
             this.btnCourseOperationsAdd.Text = "Ekle";
             this.btnCourseOperationsAdd.UseVisualStyleBackColor = true;
             this.btnCourseOperationsAdd.Click += new System.EventHandler(this.btnCourseOperationsAdd_Click);
@@ -1636,7 +1620,7 @@
             this.txtCourseOperationsAddCourseCourseSemester.Location = new System.Drawing.Point(300, 121);
             this.txtCourseOperationsAddCourseCourseSemester.Name = "txtCourseOperationsAddCourseCourseSemester";
             this.txtCourseOperationsAddCourseCourseSemester.Size = new System.Drawing.Size(58, 26);
-            this.txtCourseOperationsAddCourseCourseSemester.TabIndex = 10;
+            this.txtCourseOperationsAddCourseCourseSemester.TabIndex = 19;
             // 
             // label25
             // 
@@ -1653,7 +1637,7 @@
             this.txtCourseOperationsAddCourseCredit.Location = new System.Drawing.Point(145, 121);
             this.txtCourseOperationsAddCourseCredit.Name = "txtCourseOperationsAddCourseCredit";
             this.txtCourseOperationsAddCourseCredit.Size = new System.Drawing.Size(58, 26);
-            this.txtCourseOperationsAddCourseCredit.TabIndex = 6;
+            this.txtCourseOperationsAddCourseCredit.TabIndex = 18;
             // 
             // label24
             // 
@@ -1670,7 +1654,7 @@
             this.txtCourseOperationsAddCourseCourseName.Location = new System.Drawing.Point(145, 23);
             this.txtCourseOperationsAddCourseCourseName.Name = "txtCourseOperationsAddCourseCourseName";
             this.txtCourseOperationsAddCourseCourseName.Size = new System.Drawing.Size(213, 26);
-            this.txtCourseOperationsAddCourseCourseName.TabIndex = 4;
+            this.txtCourseOperationsAddCourseCourseName.TabIndex = 15;
             // 
             // label23
             // 
@@ -1741,7 +1725,7 @@
             this.txtInstructorOperationsAddLastName.Location = new System.Drawing.Point(308, 26);
             this.txtInstructorOperationsAddLastName.Name = "txtInstructorOperationsAddLastName";
             this.txtInstructorOperationsAddLastName.Size = new System.Drawing.Size(87, 26);
-            this.txtInstructorOperationsAddLastName.TabIndex = 16;
+            this.txtInstructorOperationsAddLastName.TabIndex = 11;
             // 
             // label52
             // 
@@ -1758,7 +1742,7 @@
             this.txtInstructorOperationsAddFirstName.Location = new System.Drawing.Point(135, 24);
             this.txtInstructorOperationsAddFirstName.Name = "txtInstructorOperationsAddFirstName";
             this.txtInstructorOperationsAddFirstName.Size = new System.Drawing.Size(87, 26);
-            this.txtInstructorOperationsAddFirstName.TabIndex = 14;
+            this.txtInstructorOperationsAddFirstName.TabIndex = 10;
             // 
             // label53
             // 
@@ -1776,14 +1760,14 @@
             this.cmbInstructorOperationsAddAvailableDepartmentNames.Location = new System.Drawing.Point(134, 90);
             this.cmbInstructorOperationsAddAvailableDepartmentNames.Name = "cmbInstructorOperationsAddAvailableDepartmentNames";
             this.cmbInstructorOperationsAddAvailableDepartmentNames.Size = new System.Drawing.Size(162, 23);
-            this.cmbInstructorOperationsAddAvailableDepartmentNames.TabIndex = 12;
+            this.cmbInstructorOperationsAddAvailableDepartmentNames.TabIndex = 14;
             // 
             // btnInstructorOperationsSave
             // 
             this.btnInstructorOperationsSave.Location = new System.Drawing.Point(310, 90);
             this.btnInstructorOperationsSave.Name = "btnInstructorOperationsSave";
             this.btnInstructorOperationsSave.Size = new System.Drawing.Size(85, 26);
-            this.btnInstructorOperationsSave.TabIndex = 6;
+            this.btnInstructorOperationsSave.TabIndex = 15;
             this.btnInstructorOperationsSave.Text = "Kaydet";
             this.btnInstructorOperationsSave.UseVisualStyleBackColor = true;
             this.btnInstructorOperationsSave.Click += new System.EventHandler(this.btnInstructorOperationsSave_Click);
@@ -1794,7 +1778,7 @@
             this.txtInstructorOperationsAddPhone.Location = new System.Drawing.Point(308, 58);
             this.txtInstructorOperationsAddPhone.Name = "txtInstructorOperationsAddPhone";
             this.txtInstructorOperationsAddPhone.Size = new System.Drawing.Size(87, 26);
-            this.txtInstructorOperationsAddPhone.TabIndex = 11;
+            this.txtInstructorOperationsAddPhone.TabIndex = 13;
             // 
             // label51
             // 
@@ -1811,7 +1795,7 @@
             this.txtInstructorOperationsAddEmail.Location = new System.Drawing.Point(134, 58);
             this.txtInstructorOperationsAddEmail.Name = "txtInstructorOperationsAddEmail";
             this.txtInstructorOperationsAddEmail.Size = new System.Drawing.Size(88, 26);
-            this.txtInstructorOperationsAddEmail.TabIndex = 5;
+            this.txtInstructorOperationsAddEmail.TabIndex = 12;
             // 
             // label54
             // 
@@ -1860,7 +1844,7 @@
             this.btnInstructorOperationsResetPassword.Location = new System.Drawing.Point(137, 158);
             this.btnInstructorOperationsResetPassword.Name = "btnInstructorOperationsResetPassword";
             this.btnInstructorOperationsResetPassword.Size = new System.Drawing.Size(107, 28);
-            this.btnInstructorOperationsResetPassword.TabIndex = 47;
+            this.btnInstructorOperationsResetPassword.TabIndex = 8;
             this.btnInstructorOperationsResetPassword.Text = "Şifreyi sıfırla";
             this.btnInstructorOperationsResetPassword.UseVisualStyleBackColor = true;
             this.btnInstructorOperationsResetPassword.Click += new System.EventHandler(this.btnInstructorOperationsResetPassword_Click);
@@ -1870,7 +1854,7 @@
             this.btnInstructorOperationsDelete.Location = new System.Drawing.Point(248, 158);
             this.btnInstructorOperationsDelete.Name = "btnInstructorOperationsDelete";
             this.btnInstructorOperationsDelete.Size = new System.Drawing.Size(150, 28);
-            this.btnInstructorOperationsDelete.TabIndex = 6;
+            this.btnInstructorOperationsDelete.TabIndex = 9;
             this.btnInstructorOperationsDelete.Text = "Öğretim görevlisini sil";
             this.btnInstructorOperationsDelete.UseVisualStyleBackColor = true;
             this.btnInstructorOperationsDelete.Click += new System.EventHandler(this.btnInstructorOperationsDelete_Click);
@@ -1882,7 +1866,7 @@
             this.txtInstructorOperationsInfoPhone.Name = "txtInstructorOperationsInfoPhone";
             this.txtInstructorOperationsInfoPhone.ReadOnly = true;
             this.txtInstructorOperationsInfoPhone.Size = new System.Drawing.Size(87, 26);
-            this.txtInstructorOperationsInfoPhone.TabIndex = 11;
+            this.txtInstructorOperationsInfoPhone.TabIndex = 5;
             // 
             // label48
             // 
@@ -1900,7 +1884,7 @@
             this.txtInstructorOperationsInfoLastName.Name = "txtInstructorOperationsInfoLastName";
             this.txtInstructorOperationsInfoLastName.ReadOnly = true;
             this.txtInstructorOperationsInfoLastName.Size = new System.Drawing.Size(87, 26);
-            this.txtInstructorOperationsInfoLastName.TabIndex = 9;
+            this.txtInstructorOperationsInfoLastName.TabIndex = 7;
             // 
             // label47
             // 
@@ -1918,7 +1902,7 @@
             this.txtInstructorOperationsInfoFirstName.Name = "txtInstructorOperationsInfoFirstName";
             this.txtInstructorOperationsInfoFirstName.ReadOnly = true;
             this.txtInstructorOperationsInfoFirstName.Size = new System.Drawing.Size(86, 26);
-            this.txtInstructorOperationsInfoFirstName.TabIndex = 7;
+            this.txtInstructorOperationsInfoFirstName.TabIndex = 6;
             // 
             // label46
             // 
@@ -1936,7 +1920,7 @@
             this.txtInstructorOperationsInfoEmail.Name = "txtInstructorOperationsInfoEmail";
             this.txtInstructorOperationsInfoEmail.ReadOnly = true;
             this.txtInstructorOperationsInfoEmail.Size = new System.Drawing.Size(87, 26);
-            this.txtInstructorOperationsInfoEmail.TabIndex = 5;
+            this.txtInstructorOperationsInfoEmail.TabIndex = 4;
             // 
             // label45
             // 
@@ -1973,7 +1957,7 @@
             this.txtInstructorOperationsInfoInstructorNo.Name = "txtInstructorOperationsInfoInstructorNo";
             this.txtInstructorOperationsInfoInstructorNo.ReadOnly = true;
             this.txtInstructorOperationsInfoInstructorNo.Size = new System.Drawing.Size(260, 26);
-            this.txtInstructorOperationsInfoInstructorNo.TabIndex = 1;
+            this.txtInstructorOperationsInfoInstructorNo.TabIndex = 2;
             // 
             // label42
             // 
@@ -2018,7 +2002,7 @@
             this.btnInstructorOperationsSearchReset.Location = new System.Drawing.Point(146, 101);
             this.btnInstructorOperationsSearchReset.Name = "btnInstructorOperationsSearchReset";
             this.btnInstructorOperationsSearchReset.Size = new System.Drawing.Size(103, 27);
-            this.btnInstructorOperationsSearchReset.TabIndex = 7;
+            this.btnInstructorOperationsSearchReset.TabIndex = 24;
             this.btnInstructorOperationsSearchReset.Text = "Sıfırla";
             this.btnInstructorOperationsSearchReset.UseVisualStyleBackColor = true;
             this.btnInstructorOperationsSearchReset.Click += new System.EventHandler(this.btnInstructorOperationsSearchReset_Click);
@@ -2029,7 +2013,7 @@
             this.txtInstructorOperationsSearchByInstructorName.Location = new System.Drawing.Point(146, 70);
             this.txtInstructorOperationsSearchByInstructorName.Name = "txtInstructorOperationsSearchByInstructorName";
             this.txtInstructorOperationsSearchByInstructorName.Size = new System.Drawing.Size(236, 26);
-            this.txtInstructorOperationsSearchByInstructorName.TabIndex = 3;
+            this.txtInstructorOperationsSearchByInstructorName.TabIndex = 23;
             // 
             // txtInstructorOperationsSearchByInstructorNo
             // 
@@ -2037,7 +2021,7 @@
             this.txtInstructorOperationsSearchByInstructorNo.Location = new System.Drawing.Point(146, 29);
             this.txtInstructorOperationsSearchByInstructorNo.Name = "txtInstructorOperationsSearchByInstructorNo";
             this.txtInstructorOperationsSearchByInstructorNo.Size = new System.Drawing.Size(236, 26);
-            this.txtInstructorOperationsSearchByInstructorNo.TabIndex = 0;
+            this.txtInstructorOperationsSearchByInstructorNo.TabIndex = 22;
             // 
             // label93
             // 
@@ -2062,7 +2046,7 @@
             this.btnInstructorOperationsSearch.Location = new System.Drawing.Point(279, 102);
             this.btnInstructorOperationsSearch.Name = "btnInstructorOperationsSearch";
             this.btnInstructorOperationsSearch.Size = new System.Drawing.Size(103, 27);
-            this.btnInstructorOperationsSearch.TabIndex = 2;
+            this.btnInstructorOperationsSearch.TabIndex = 25;
             this.btnInstructorOperationsSearch.Text = "Ara";
             this.btnInstructorOperationsSearch.UseVisualStyleBackColor = true;
             this.btnInstructorOperationsSearch.Click += new System.EventHandler(this.btnInstructorOperationsSearch_Click);
@@ -2103,7 +2087,7 @@
             this.btnInstructorOperationsFilterReset.Location = new System.Drawing.Point(263, 23);
             this.btnInstructorOperationsFilterReset.Name = "btnInstructorOperationsFilterReset";
             this.btnInstructorOperationsFilterReset.Size = new System.Drawing.Size(119, 25);
-            this.btnInstructorOperationsFilterReset.TabIndex = 11;
+            this.btnInstructorOperationsFilterReset.TabIndex = 20;
             this.btnInstructorOperationsFilterReset.Text = "Sıfırla";
             this.btnInstructorOperationsFilterReset.UseVisualStyleBackColor = true;
             this.btnInstructorOperationsFilterReset.Click += new System.EventHandler(this.btnInstructorOperationsFilterReset_Click);
@@ -2113,7 +2097,7 @@
             this.btnInstructorOperationsFilter.Location = new System.Drawing.Point(263, 52);
             this.btnInstructorOperationsFilter.Name = "btnInstructorOperationsFilter";
             this.btnInstructorOperationsFilter.Size = new System.Drawing.Size(119, 25);
-            this.btnInstructorOperationsFilter.TabIndex = 10;
+            this.btnInstructorOperationsFilter.TabIndex = 21;
             this.btnInstructorOperationsFilter.Text = "Filtrele";
             this.btnInstructorOperationsFilter.UseVisualStyleBackColor = true;
             this.btnInstructorOperationsFilter.Click += new System.EventHandler(this.btnInstructorOperationsFilter_Click);
@@ -2126,7 +2110,7 @@
             this.cmbInstructorOperationsFilterByDepartment.Location = new System.Drawing.Point(12, 49);
             this.cmbInstructorOperationsFilterByDepartment.Name = "cmbInstructorOperationsFilterByDepartment";
             this.cmbInstructorOperationsFilterByDepartment.Size = new System.Drawing.Size(225, 26);
-            this.cmbInstructorOperationsFilterByDepartment.TabIndex = 6;
+            this.cmbInstructorOperationsFilterByDepartment.TabIndex = 19;
             // 
             // listBoxInstructorOperationsInstructorList
             // 
@@ -2135,7 +2119,7 @@
             this.listBoxInstructorOperationsInstructorList.Location = new System.Drawing.Point(15, 27);
             this.listBoxInstructorOperationsInstructorList.Name = "listBoxInstructorOperationsInstructorList";
             this.listBoxInstructorOperationsInstructorList.Size = new System.Drawing.Size(402, 199);
-            this.listBoxInstructorOperationsInstructorList.TabIndex = 0;
+            this.listBoxInstructorOperationsInstructorList.TabIndex = 1;
             this.listBoxInstructorOperationsInstructorList.SelectedIndexChanged += new System.EventHandler(this.listBoxInstructorOperationsInstructorList_SelectedIndexChanged);
             this.listBoxInstructorOperationsInstructorList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxInstructorOperationsInstructorList_Format);
             // 
@@ -2162,7 +2146,7 @@
             this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.Location = new System.Drawing.Point(148, 28);
             this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.Name = "cmbInstructorOperationsAssignInstructorToDepartmentInstructors";
             this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.Size = new System.Drawing.Size(249, 26);
-            this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.TabIndex = 6;
+            this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.TabIndex = 16;
             this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbInstructorOperationsAssignInstructorToDepartmentInstructors_Format);
             // 
             // label35
@@ -2179,7 +2163,7 @@
             this.btnInstructorOperationsCompleteAssignment.Location = new System.Drawing.Point(148, 98);
             this.btnInstructorOperationsCompleteAssignment.Name = "btnInstructorOperationsCompleteAssignment";
             this.btnInstructorOperationsCompleteAssignment.Size = new System.Drawing.Size(247, 26);
-            this.btnInstructorOperationsCompleteAssignment.TabIndex = 4;
+            this.btnInstructorOperationsCompleteAssignment.TabIndex = 18;
             this.btnInstructorOperationsCompleteAssignment.Text = "Atama işlemini tamamla";
             this.btnInstructorOperationsCompleteAssignment.UseVisualStyleBackColor = true;
             this.btnInstructorOperationsCompleteAssignment.Click += new System.EventHandler(this.btnInstructorOperationsCompleteAssignment_Click);
@@ -2192,7 +2176,7 @@
             this.cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames.Location = new System.Drawing.Point(148, 62);
             this.cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames.Name = "cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames";
             this.cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames.Size = new System.Drawing.Size(249, 26);
-            this.cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames.TabIndex = 2;
+            this.cmbInstructorOperationsAssignInstructorToDepartmentDepartmentsNames.TabIndex = 17;
             // 
             // label34
             // 
@@ -2255,7 +2239,7 @@
             this.txtStudentOperationsAddLastName.Location = new System.Drawing.Point(284, 24);
             this.txtStudentOperationsAddLastName.Name = "txtStudentOperationsAddLastName";
             this.txtStudentOperationsAddLastName.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsAddLastName.TabIndex = 39;
+            this.txtStudentOperationsAddLastName.TabIndex = 16;
             // 
             // label67
             // 
@@ -2272,7 +2256,7 @@
             this.txtStudentOperationsAddFirstName.Location = new System.Drawing.Point(131, 24);
             this.txtStudentOperationsAddFirstName.Name = "txtStudentOperationsAddFirstName";
             this.txtStudentOperationsAddFirstName.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsAddFirstName.TabIndex = 37;
+            this.txtStudentOperationsAddFirstName.TabIndex = 15;
             // 
             // label68
             // 
@@ -2289,7 +2273,7 @@
             this.txtStudentOperationsAddPhone.Location = new System.Drawing.Point(284, 56);
             this.txtStudentOperationsAddPhone.Name = "txtStudentOperationsAddPhone";
             this.txtStudentOperationsAddPhone.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsAddPhone.TabIndex = 35;
+            this.txtStudentOperationsAddPhone.TabIndex = 18;
             // 
             // label69
             // 
@@ -2306,7 +2290,7 @@
             this.txtStudentOperationsAddEmail.Location = new System.Drawing.Point(131, 56);
             this.txtStudentOperationsAddEmail.Name = "txtStudentOperationsAddEmail";
             this.txtStudentOperationsAddEmail.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsAddEmail.TabIndex = 33;
+            this.txtStudentOperationsAddEmail.TabIndex = 17;
             // 
             // label70
             // 
@@ -2324,7 +2308,7 @@
             this.cmbStudentOperationsAddAdviser.Location = new System.Drawing.Point(132, 121);
             this.cmbStudentOperationsAddAdviser.Name = "cmbStudentOperationsAddAdviser";
             this.cmbStudentOperationsAddAdviser.Size = new System.Drawing.Size(240, 23);
-            this.cmbStudentOperationsAddAdviser.TabIndex = 31;
+            this.cmbStudentOperationsAddAdviser.TabIndex = 20;
             this.cmbStudentOperationsAddAdviser.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbStudentOperationsAddAdviser_Format);
             // 
             // cmbStudentOperationsAddDepartment
@@ -2334,7 +2318,7 @@
             this.cmbStudentOperationsAddDepartment.Location = new System.Drawing.Point(132, 89);
             this.cmbStudentOperationsAddDepartment.Name = "cmbStudentOperationsAddDepartment";
             this.cmbStudentOperationsAddDepartment.Size = new System.Drawing.Size(240, 23);
-            this.cmbStudentOperationsAddDepartment.TabIndex = 30;
+            this.cmbStudentOperationsAddDepartment.TabIndex = 19;
             this.cmbStudentOperationsAddDepartment.SelectedIndexChanged += new System.EventHandler(this.cmbStudentOperationsAddDepartment_SelectedIndexChanged);
             // 
             // btnStudentOperationsAdd
@@ -2342,7 +2326,7 @@
             this.btnStudentOperationsAdd.Location = new System.Drawing.Point(131, 152);
             this.btnStudentOperationsAdd.Name = "btnStudentOperationsAdd";
             this.btnStudentOperationsAdd.Size = new System.Drawing.Size(240, 30);
-            this.btnStudentOperationsAdd.TabIndex = 29;
+            this.btnStudentOperationsAdd.TabIndex = 21;
             this.btnStudentOperationsAdd.Text = "Ekle";
             this.btnStudentOperationsAdd.UseVisualStyleBackColor = true;
             this.btnStudentOperationsAdd.Click += new System.EventHandler(this.btnStudentOperationsAdd_Click);
@@ -2402,7 +2386,7 @@
             this.btnStudentOperationsResetPassword.Location = new System.Drawing.Point(19, 233);
             this.btnStudentOperationsResetPassword.Name = "btnStudentOperationsResetPassword";
             this.btnStudentOperationsResetPassword.Size = new System.Drawing.Size(107, 33);
-            this.btnStudentOperationsResetPassword.TabIndex = 46;
+            this.btnStudentOperationsResetPassword.TabIndex = 12;
             this.btnStudentOperationsResetPassword.Text = "Şifreyi sıfırla";
             this.btnStudentOperationsResetPassword.UseVisualStyleBackColor = true;
             this.btnStudentOperationsResetPassword.Click += new System.EventHandler(this.btnStudentOperationsResetPassword_Click);
@@ -2413,7 +2397,7 @@
             this.chbxStudentOperationsInfoStudentDepartmentEnabled.Location = new System.Drawing.Point(356, 165);
             this.chbxStudentOperationsInfoStudentDepartmentEnabled.Name = "chbxStudentOperationsInfoStudentDepartmentEnabled";
             this.chbxStudentOperationsInfoStudentDepartmentEnabled.Size = new System.Drawing.Size(15, 14);
-            this.chbxStudentOperationsInfoStudentDepartmentEnabled.TabIndex = 45;
+            this.chbxStudentOperationsInfoStudentDepartmentEnabled.TabIndex = 10;
             this.chbxStudentOperationsInfoStudentDepartmentEnabled.UseVisualStyleBackColor = true;
             this.chbxStudentOperationsInfoStudentDepartmentEnabled.CheckedChanged += new System.EventHandler(this.chbxStudentOperationsInfoStudentDepartmentEnabled_CheckedChanged);
             // 
@@ -2425,14 +2409,14 @@
             this.cmbStudentOperationsInfoDepartment.Location = new System.Drawing.Point(131, 160);
             this.cmbStudentOperationsInfoDepartment.Name = "cmbStudentOperationsInfoDepartment";
             this.cmbStudentOperationsInfoDepartment.Size = new System.Drawing.Size(219, 23);
-            this.cmbStudentOperationsInfoDepartment.TabIndex = 44;
+            this.cmbStudentOperationsInfoDepartment.TabIndex = 9;
             // 
             // btnStudentOperationsChangeStudentDepartment
             // 
             this.btnStudentOperationsChangeStudentDepartment.Location = new System.Drawing.Point(132, 233);
             this.btnStudentOperationsChangeStudentDepartment.Name = "btnStudentOperationsChangeStudentDepartment";
             this.btnStudentOperationsChangeStudentDepartment.Size = new System.Drawing.Size(127, 33);
-            this.btnStudentOperationsChangeStudentDepartment.TabIndex = 42;
+            this.btnStudentOperationsChangeStudentDepartment.TabIndex = 13;
             this.btnStudentOperationsChangeStudentDepartment.Text = "Bölümünü değiştir";
             this.btnStudentOperationsChangeStudentDepartment.UseVisualStyleBackColor = true;
             this.btnStudentOperationsChangeStudentDepartment.Click += new System.EventHandler(this.btnStudentOperationsChangeStudentDepartment_Click);
@@ -2444,7 +2428,7 @@
             this.txtStudentOperationsInfoEnrollmentDate.Name = "txtStudentOperationsInfoEnrollmentDate";
             this.txtStudentOperationsInfoEnrollmentDate.ReadOnly = true;
             this.txtStudentOperationsInfoEnrollmentDate.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsInfoEnrollmentDate.TabIndex = 41;
+            this.txtStudentOperationsInfoEnrollmentDate.TabIndex = 8;
             // 
             // label63
             // 
@@ -2462,7 +2446,7 @@
             this.txtStudentOperationsInfoSemester.Name = "txtStudentOperationsInfoSemester";
             this.txtStudentOperationsInfoSemester.ReadOnly = true;
             this.txtStudentOperationsInfoSemester.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsInfoSemester.TabIndex = 39;
+            this.txtStudentOperationsInfoSemester.TabIndex = 7;
             // 
             // label64
             // 
@@ -2480,7 +2464,7 @@
             this.txtStudentOperationsInfoLastName.Name = "txtStudentOperationsInfoLastName";
             this.txtStudentOperationsInfoLastName.ReadOnly = true;
             this.txtStudentOperationsInfoLastName.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsInfoLastName.TabIndex = 37;
+            this.txtStudentOperationsInfoLastName.TabIndex = 4;
             // 
             // label59
             // 
@@ -2498,7 +2482,7 @@
             this.txtStudentOperationsInfoFirstName.Name = "txtStudentOperationsInfoFirstName";
             this.txtStudentOperationsInfoFirstName.ReadOnly = true;
             this.txtStudentOperationsInfoFirstName.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsInfoFirstName.TabIndex = 35;
+            this.txtStudentOperationsInfoFirstName.TabIndex = 3;
             // 
             // label60
             // 
@@ -2516,7 +2500,7 @@
             this.txtStudentOperationsInfoPhone.Name = "txtStudentOperationsInfoPhone";
             this.txtStudentOperationsInfoPhone.ReadOnly = true;
             this.txtStudentOperationsInfoPhone.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsInfoPhone.TabIndex = 33;
+            this.txtStudentOperationsInfoPhone.TabIndex = 6;
             // 
             // label61
             // 
@@ -2534,7 +2518,7 @@
             this.txtStudentOperationsInfoEmail.Name = "txtStudentOperationsInfoEmail";
             this.txtStudentOperationsInfoEmail.ReadOnly = true;
             this.txtStudentOperationsInfoEmail.Size = new System.Drawing.Size(87, 26);
-            this.txtStudentOperationsInfoEmail.TabIndex = 31;
+            this.txtStudentOperationsInfoEmail.TabIndex = 5;
             // 
             // label62
             // 
@@ -2550,7 +2534,7 @@
             this.btnStudentOperationsDelete.Location = new System.Drawing.Point(264, 233);
             this.btnStudentOperationsDelete.Name = "btnStudentOperationsDelete";
             this.btnStudentOperationsDelete.Size = new System.Drawing.Size(107, 33);
-            this.btnStudentOperationsDelete.TabIndex = 29;
+            this.btnStudentOperationsDelete.TabIndex = 14;
             this.btnStudentOperationsDelete.Text = "Öğrenciyi Sil";
             this.btnStudentOperationsDelete.UseVisualStyleBackColor = true;
             this.btnStudentOperationsDelete.Click += new System.EventHandler(this.btnStudentOperationsDelete_Click);
@@ -2571,7 +2555,7 @@
             this.txtStudentOperationsInfoAdviserName.Name = "txtStudentOperationsInfoAdviserName";
             this.txtStudentOperationsInfoAdviserName.ReadOnly = true;
             this.txtStudentOperationsInfoAdviserName.Size = new System.Drawing.Size(240, 26);
-            this.txtStudentOperationsInfoAdviserName.TabIndex = 6;
+            this.txtStudentOperationsInfoAdviserName.TabIndex = 11;
             // 
             // label57
             // 
@@ -2635,7 +2619,7 @@
             this.btnStudentOperationsSearchReset.Location = new System.Drawing.Point(121, 102);
             this.btnStudentOperationsSearchReset.Name = "btnStudentOperationsSearchReset";
             this.btnStudentOperationsSearchReset.Size = new System.Drawing.Size(125, 28);
-            this.btnStudentOperationsSearchReset.TabIndex = 6;
+            this.btnStudentOperationsSearchReset.TabIndex = 30;
             this.btnStudentOperationsSearchReset.Text = "Sıfırla";
             this.btnStudentOperationsSearchReset.UseVisualStyleBackColor = true;
             this.btnStudentOperationsSearchReset.Click += new System.EventHandler(this.btnStudentOperationsSearchReset_Click);
@@ -2646,7 +2630,7 @@
             this.txtStudentOperationsSearchByStudentName.Location = new System.Drawing.Point(121, 70);
             this.txtStudentOperationsSearchByStudentName.Name = "txtStudentOperationsSearchByStudentName";
             this.txtStudentOperationsSearchByStudentName.Size = new System.Drawing.Size(261, 26);
-            this.txtStudentOperationsSearchByStudentName.TabIndex = 3;
+            this.txtStudentOperationsSearchByStudentName.TabIndex = 29;
             // 
             // txtStudentOperationsSearchByStudentNo
             // 
@@ -2654,7 +2638,7 @@
             this.txtStudentOperationsSearchByStudentNo.Location = new System.Drawing.Point(121, 29);
             this.txtStudentOperationsSearchByStudentNo.Name = "txtStudentOperationsSearchByStudentNo";
             this.txtStudentOperationsSearchByStudentNo.Size = new System.Drawing.Size(261, 26);
-            this.txtStudentOperationsSearchByStudentNo.TabIndex = 0;
+            this.txtStudentOperationsSearchByStudentNo.TabIndex = 28;
             // 
             // label92
             // 
@@ -2679,7 +2663,7 @@
             this.btnStudentOperationsSearch.Location = new System.Drawing.Point(257, 101);
             this.btnStudentOperationsSearch.Name = "btnStudentOperationsSearch";
             this.btnStudentOperationsSearch.Size = new System.Drawing.Size(125, 28);
-            this.btnStudentOperationsSearch.TabIndex = 2;
+            this.btnStudentOperationsSearch.TabIndex = 31;
             this.btnStudentOperationsSearch.Text = "Ara";
             this.btnStudentOperationsSearch.UseVisualStyleBackColor = true;
             this.btnStudentOperationsSearch.Click += new System.EventHandler(this.btnStudentOperationsSearch_Click);
@@ -2713,7 +2697,7 @@
             this.btnStudentOperationsFilterReset.Location = new System.Drawing.Point(309, 22);
             this.btnStudentOperationsFilterReset.Name = "btnStudentOperationsFilterReset";
             this.btnStudentOperationsFilterReset.Size = new System.Drawing.Size(87, 26);
-            this.btnStudentOperationsFilterReset.TabIndex = 13;
+            this.btnStudentOperationsFilterReset.TabIndex = 26;
             this.btnStudentOperationsFilterReset.Text = "Sıfırla";
             this.btnStudentOperationsFilterReset.UseVisualStyleBackColor = true;
             this.btnStudentOperationsFilterReset.Click += new System.EventHandler(this.btnStudentOperationsFilterReset_Click);
@@ -2723,7 +2707,7 @@
             this.btnStudentOperationsFilter.Location = new System.Drawing.Point(309, 51);
             this.btnStudentOperationsFilter.Name = "btnStudentOperationsFilter";
             this.btnStudentOperationsFilter.Size = new System.Drawing.Size(87, 26);
-            this.btnStudentOperationsFilter.TabIndex = 10;
+            this.btnStudentOperationsFilter.TabIndex = 27;
             this.btnStudentOperationsFilter.Text = "Filtrele";
             this.btnStudentOperationsFilter.UseVisualStyleBackColor = true;
             this.btnStudentOperationsFilter.Click += new System.EventHandler(this.btnStudentOperationsFilter_Click);
@@ -2734,7 +2718,7 @@
             this.radBtnStudentOperationsFilterByAdviser.Location = new System.Drawing.Point(156, 22);
             this.radBtnStudentOperationsFilterByAdviser.Name = "radBtnStudentOperationsFilterByAdviser";
             this.radBtnStudentOperationsFilterByAdviser.Size = new System.Drawing.Size(155, 19);
-            this.radBtnStudentOperationsFilterByAdviser.TabIndex = 12;
+            this.radBtnStudentOperationsFilterByAdviser.TabIndex = 24;
             this.radBtnStudentOperationsFilterByAdviser.TabStop = true;
             this.radBtnStudentOperationsFilterByAdviser.Text = "Danışmana göre listele";
             this.radBtnStudentOperationsFilterByAdviser.UseVisualStyleBackColor = true;
@@ -2749,7 +2733,7 @@
             this.cmbStudentOperationsFilterAdviserList.Location = new System.Drawing.Point(156, 44);
             this.cmbStudentOperationsFilterAdviserList.Name = "cmbStudentOperationsFilterAdviserList";
             this.cmbStudentOperationsFilterAdviserList.Size = new System.Drawing.Size(133, 26);
-            this.cmbStudentOperationsFilterAdviserList.TabIndex = 11;
+            this.cmbStudentOperationsFilterAdviserList.TabIndex = 25;
             this.cmbStudentOperationsFilterAdviserList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbStudentOperationsFilterAdviserList_Format);
             // 
             // radBtnStudentOperationsFilterByDepartment
@@ -2758,7 +2742,7 @@
             this.radBtnStudentOperationsFilterByDepartment.Location = new System.Drawing.Point(17, 23);
             this.radBtnStudentOperationsFilterByDepartment.Name = "radBtnStudentOperationsFilterByDepartment";
             this.radBtnStudentOperationsFilterByDepartment.Size = new System.Drawing.Size(133, 19);
-            this.radBtnStudentOperationsFilterByDepartment.TabIndex = 7;
+            this.radBtnStudentOperationsFilterByDepartment.TabIndex = 22;
             this.radBtnStudentOperationsFilterByDepartment.TabStop = true;
             this.radBtnStudentOperationsFilterByDepartment.Text = "Bölüme göre listele";
             this.radBtnStudentOperationsFilterByDepartment.UseVisualStyleBackColor = true;
@@ -2773,7 +2757,7 @@
             this.cmbStudentOperationsFilterDepartmentList.Location = new System.Drawing.Point(17, 45);
             this.cmbStudentOperationsFilterDepartmentList.Name = "cmbStudentOperationsFilterDepartmentList";
             this.cmbStudentOperationsFilterDepartmentList.Size = new System.Drawing.Size(133, 26);
-            this.cmbStudentOperationsFilterDepartmentList.TabIndex = 6;
+            this.cmbStudentOperationsFilterDepartmentList.TabIndex = 23;
             // 
             // listBoxStudentOperationsStudentList
             // 
@@ -2782,7 +2766,7 @@
             this.listBoxStudentOperationsStudentList.Location = new System.Drawing.Point(21, 22);
             this.listBoxStudentOperationsStudentList.Name = "listBoxStudentOperationsStudentList";
             this.listBoxStudentOperationsStudentList.Size = new System.Drawing.Size(402, 214);
-            this.listBoxStudentOperationsStudentList.TabIndex = 0;
+            this.listBoxStudentOperationsStudentList.TabIndex = 1;
             this.listBoxStudentOperationsStudentList.SelectedIndexChanged += new System.EventHandler(this.listBoxStudentOperationsStudentList_SelectedIndexChanged);
             this.listBoxStudentOperationsStudentList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxStudentOperationsStudentList_Format);
             // 
@@ -2830,7 +2814,7 @@
             this.btnAssignAdviserChangeSave.Location = new System.Drawing.Point(26, 198);
             this.btnAssignAdviserChangeSave.Name = "btnAssignAdviserChangeSave";
             this.btnAssignAdviserChangeSave.Size = new System.Drawing.Size(159, 32);
-            this.btnAssignAdviserChangeSave.TabIndex = 5;
+            this.btnAssignAdviserChangeSave.TabIndex = 26;
             this.btnAssignAdviserChangeSave.Text = "Atamayı tamamla";
             this.btnAssignAdviserChangeSave.UseVisualStyleBackColor = true;
             this.btnAssignAdviserChangeSave.Click += new System.EventHandler(this.btnAssignAdviserChangeSave_Click);
@@ -2842,7 +2826,7 @@
             this.cmbAssignAdviserChangeNewAdviser.Location = new System.Drawing.Point(26, 169);
             this.cmbAssignAdviserChangeNewAdviser.Name = "cmbAssignAdviserChangeNewAdviser";
             this.cmbAssignAdviserChangeNewAdviser.Size = new System.Drawing.Size(159, 23);
-            this.cmbAssignAdviserChangeNewAdviser.TabIndex = 4;
+            this.cmbAssignAdviserChangeNewAdviser.TabIndex = 25;
             this.cmbAssignAdviserChangeNewAdviser.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbAssignAdviserChangeNewAdviser_Format);
             // 
             // label91
@@ -2871,7 +2855,7 @@
             this.cmbAssignAdviserChangeOldAdviser.Location = new System.Drawing.Point(26, 58);
             this.cmbAssignAdviserChangeOldAdviser.Name = "cmbAssignAdviserChangeOldAdviser";
             this.cmbAssignAdviserChangeOldAdviser.Size = new System.Drawing.Size(159, 23);
-            this.cmbAssignAdviserChangeOldAdviser.TabIndex = 1;
+            this.cmbAssignAdviserChangeOldAdviser.TabIndex = 24;
             this.cmbAssignAdviserChangeOldAdviser.SelectedIndexChanged += new System.EventHandler(this.cmbAssignAdviserChangeOldAdviser_SelectedIndexChanged);
             this.cmbAssignAdviserChangeOldAdviser.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbAssignAdviserChangeOldAdviser_Format);
             // 
@@ -2907,7 +2891,7 @@
             this.btnAssignAdviserSingleSearchClear.Location = new System.Drawing.Point(282, 54);
             this.btnAssignAdviserSingleSearchClear.Name = "btnAssignAdviserSingleSearchClear";
             this.btnAssignAdviserSingleSearchClear.Size = new System.Drawing.Size(103, 29);
-            this.btnAssignAdviserSingleSearchClear.TabIndex = 18;
+            this.btnAssignAdviserSingleSearchClear.TabIndex = 12;
             this.btnAssignAdviserSingleSearchClear.Text = "Temizle";
             this.btnAssignAdviserSingleSearchClear.UseVisualStyleBackColor = true;
             this.btnAssignAdviserSingleSearchClear.Click += new System.EventHandler(this.btnAssignAdviserSingleSearchClear_Click);
@@ -2917,7 +2901,7 @@
             this.txtAssignAdviserSingleSearchStudentNo.Location = new System.Drawing.Point(136, 26);
             this.txtAssignAdviserSingleSearchStudentNo.Name = "txtAssignAdviserSingleSearchStudentNo";
             this.txtAssignAdviserSingleSearchStudentNo.Size = new System.Drawing.Size(140, 23);
-            this.txtAssignAdviserSingleSearchStudentNo.TabIndex = 1;
+            this.txtAssignAdviserSingleSearchStudentNo.TabIndex = 10;
             // 
             // groupBox26
             // 
@@ -2953,7 +2937,7 @@
             this.txtAssignAdviserSingleInfoEnrollmentDate.Name = "txtAssignAdviserSingleInfoEnrollmentDate";
             this.txtAssignAdviserSingleInfoEnrollmentDate.ReadOnly = true;
             this.txtAssignAdviserSingleInfoEnrollmentDate.Size = new System.Drawing.Size(108, 26);
-            this.txtAssignAdviserSingleInfoEnrollmentDate.TabIndex = 50;
+            this.txtAssignAdviserSingleInfoEnrollmentDate.TabIndex = 22;
             // 
             // label77
             // 
@@ -2971,7 +2955,7 @@
             this.txtAssignAdviserSingleInfoSemester.Name = "txtAssignAdviserSingleInfoSemester";
             this.txtAssignAdviserSingleInfoSemester.ReadOnly = true;
             this.txtAssignAdviserSingleInfoSemester.Size = new System.Drawing.Size(108, 26);
-            this.txtAssignAdviserSingleInfoSemester.TabIndex = 48;
+            this.txtAssignAdviserSingleInfoSemester.TabIndex = 23;
             // 
             // label78
             // 
@@ -2989,7 +2973,7 @@
             this.txtAssignAdviserSingleInfoLastName.Name = "txtAssignAdviserSingleInfoLastName";
             this.txtAssignAdviserSingleInfoLastName.ReadOnly = true;
             this.txtAssignAdviserSingleInfoLastName.Size = new System.Drawing.Size(108, 26);
-            this.txtAssignAdviserSingleInfoLastName.TabIndex = 42;
+            this.txtAssignAdviserSingleInfoLastName.TabIndex = 17;
             // 
             // label79
             // 
@@ -3007,7 +2991,7 @@
             this.txtAssignAdviserSingleInfoFirstName.Name = "txtAssignAdviserSingleInfoFirstName";
             this.txtAssignAdviserSingleInfoFirstName.ReadOnly = true;
             this.txtAssignAdviserSingleInfoFirstName.Size = new System.Drawing.Size(108, 26);
-            this.txtAssignAdviserSingleInfoFirstName.TabIndex = 40;
+            this.txtAssignAdviserSingleInfoFirstName.TabIndex = 16;
             // 
             // label80
             // 
@@ -3025,7 +3009,7 @@
             this.txtAssignAdviserSingleInfoPhone.Name = "txtAssignAdviserSingleInfoPhone";
             this.txtAssignAdviserSingleInfoPhone.ReadOnly = true;
             this.txtAssignAdviserSingleInfoPhone.Size = new System.Drawing.Size(108, 26);
-            this.txtAssignAdviserSingleInfoPhone.TabIndex = 38;
+            this.txtAssignAdviserSingleInfoPhone.TabIndex = 20;
             // 
             // label81
             // 
@@ -3043,7 +3027,7 @@
             this.txtAssignAdviserSingleInfoEmail.Name = "txtAssignAdviserSingleInfoEmail";
             this.txtAssignAdviserSingleInfoEmail.ReadOnly = true;
             this.txtAssignAdviserSingleInfoEmail.Size = new System.Drawing.Size(108, 26);
-            this.txtAssignAdviserSingleInfoEmail.TabIndex = 36;
+            this.txtAssignAdviserSingleInfoEmail.TabIndex = 19;
             // 
             // label82
             // 
@@ -3070,7 +3054,7 @@
             this.txtAssignAdviserSingleInfoAdviser.Name = "txtAssignAdviserSingleInfoAdviser";
             this.txtAssignAdviserSingleInfoAdviser.ReadOnly = true;
             this.txtAssignAdviserSingleInfoAdviser.Size = new System.Drawing.Size(131, 26);
-            this.txtAssignAdviserSingleInfoAdviser.TabIndex = 33;
+            this.txtAssignAdviserSingleInfoAdviser.TabIndex = 21;
             // 
             // label84
             // 
@@ -3088,7 +3072,7 @@
             this.txtAssignAdviserSingleInfoDepartment.Name = "txtAssignAdviserSingleInfoDepartment";
             this.txtAssignAdviserSingleInfoDepartment.ReadOnly = true;
             this.txtAssignAdviserSingleInfoDepartment.Size = new System.Drawing.Size(131, 26);
-            this.txtAssignAdviserSingleInfoDepartment.TabIndex = 31;
+            this.txtAssignAdviserSingleInfoDepartment.TabIndex = 18;
             // 
             // label85
             // 
@@ -3107,7 +3091,7 @@
             this.txtAssignAdviserSingleInfoStudentNo.Name = "txtAssignAdviserSingleInfoStudentNo";
             this.txtAssignAdviserSingleInfoStudentNo.ReadOnly = true;
             this.txtAssignAdviserSingleInfoStudentNo.Size = new System.Drawing.Size(131, 26);
-            this.txtAssignAdviserSingleInfoStudentNo.TabIndex = 29;
+            this.txtAssignAdviserSingleInfoStudentNo.TabIndex = 15;
             // 
             // label86
             // 
@@ -3123,7 +3107,7 @@
             this.btnAssignAdviserSingleSave.Location = new System.Drawing.Point(528, 21);
             this.btnAssignAdviserSingleSave.Name = "btnAssignAdviserSingleSave";
             this.btnAssignAdviserSingleSave.Size = new System.Drawing.Size(75, 51);
-            this.btnAssignAdviserSingleSave.TabIndex = 12;
+            this.btnAssignAdviserSingleSave.TabIndex = 14;
             this.btnAssignAdviserSingleSave.Text = "Atamayı tamamla";
             this.btnAssignAdviserSingleSave.UseVisualStyleBackColor = true;
             this.btnAssignAdviserSingleSave.Click += new System.EventHandler(this.btnAssignAdviserSingleSave_Click);
@@ -3135,7 +3119,7 @@
             this.cmbAssignAdviserSingleAdviserList.Location = new System.Drawing.Point(401, 46);
             this.cmbAssignAdviserSingleAdviserList.Name = "cmbAssignAdviserSingleAdviserList";
             this.cmbAssignAdviserSingleAdviserList.Size = new System.Drawing.Size(121, 23);
-            this.cmbAssignAdviserSingleAdviserList.TabIndex = 11;
+            this.cmbAssignAdviserSingleAdviserList.TabIndex = 13;
             this.cmbAssignAdviserSingleAdviserList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbAssignAdviserSingleAdviserList_Format);
             // 
             // btnAssignAdviserSingleSearch
@@ -3143,7 +3127,7 @@
             this.btnAssignAdviserSingleSearch.Location = new System.Drawing.Point(282, 22);
             this.btnAssignAdviserSingleSearch.Name = "btnAssignAdviserSingleSearch";
             this.btnAssignAdviserSingleSearch.Size = new System.Drawing.Size(103, 29);
-            this.btnAssignAdviserSingleSearch.TabIndex = 2;
+            this.btnAssignAdviserSingleSearch.TabIndex = 11;
             this.btnAssignAdviserSingleSearch.Text = "Öğrenciyi getir";
             this.btnAssignAdviserSingleSearch.UseVisualStyleBackColor = true;
             this.btnAssignAdviserSingleSearch.Click += new System.EventHandler(this.btnAssignAdviserSingleSearch_Click);
@@ -3186,7 +3170,7 @@
             this.btnAssignAdvisorGetkAllCheckedStudents.Location = new System.Drawing.Point(347, 180);
             this.btnAssignAdvisorGetkAllCheckedStudents.Name = "btnAssignAdvisorGetkAllCheckedStudents";
             this.btnAssignAdvisorGetkAllCheckedStudents.Size = new System.Drawing.Size(160, 57);
-            this.btnAssignAdvisorGetkAllCheckedStudents.TabIndex = 13;
+            this.btnAssignAdvisorGetkAllCheckedStudents.TabIndex = 6;
             this.btnAssignAdvisorGetkAllCheckedStudents.Text = "Seçilen öğrencileri atama listesine ekle";
             this.btnAssignAdvisorGetkAllCheckedStudents.UseVisualStyleBackColor = true;
             this.btnAssignAdvisorGetkAllCheckedStudents.Click += new System.EventHandler(this.btnAssignAdvisorGetAllCheckedStudents_Click);
@@ -3196,7 +3180,7 @@
             this.btnAssignAdvisorGetAllCheckedCourses.Location = new System.Drawing.Point(181, 180);
             this.btnAssignAdvisorGetAllCheckedCourses.Name = "btnAssignAdvisorGetAllCheckedCourses";
             this.btnAssignAdvisorGetAllCheckedCourses.Size = new System.Drawing.Size(160, 57);
-            this.btnAssignAdvisorGetAllCheckedCourses.TabIndex = 12;
+            this.btnAssignAdvisorGetAllCheckedCourses.TabIndex = 4;
             this.btnAssignAdvisorGetAllCheckedCourses.Text = "Seçilen dersleri alan öğrencileri atama listesine ekle";
             this.btnAssignAdvisorGetAllCheckedCourses.UseVisualStyleBackColor = true;
             this.btnAssignAdvisorGetAllCheckedCourses.Click += new System.EventHandler(this.btnAssignAdvisorGetAllCheckedCourses_Click);
@@ -3206,7 +3190,7 @@
             this.btnAssignAdvisorGetAllCheckedDepartment.Location = new System.Drawing.Point(15, 180);
             this.btnAssignAdvisorGetAllCheckedDepartment.Name = "btnAssignAdvisorGetAllCheckedDepartment";
             this.btnAssignAdvisorGetAllCheckedDepartment.Size = new System.Drawing.Size(160, 57);
-            this.btnAssignAdvisorGetAllCheckedDepartment.TabIndex = 11;
+            this.btnAssignAdvisorGetAllCheckedDepartment.TabIndex = 2;
             this.btnAssignAdvisorGetAllCheckedDepartment.Text = "Seçilen bölümlerdeki öğrencileri atama listesine ekle";
             this.btnAssignAdvisorGetAllCheckedDepartment.UseVisualStyleBackColor = true;
             this.btnAssignAdvisorGetAllCheckedDepartment.Click += new System.EventHandler(this.btnAssignAdvisorGetAllCheckedDepartment_Click);
@@ -3262,7 +3246,7 @@
             this.btnAssignAdviserBatchSave.Location = new System.Drawing.Point(696, 183);
             this.btnAssignAdviserBatchSave.Name = "btnAssignAdviserBatchSave";
             this.btnAssignAdviserBatchSave.Size = new System.Drawing.Size(107, 51);
-            this.btnAssignAdviserBatchSave.TabIndex = 5;
+            this.btnAssignAdviserBatchSave.TabIndex = 9;
             this.btnAssignAdviserBatchSave.Text = "Atamayı tamamla";
             this.btnAssignAdviserBatchSave.UseVisualStyleBackColor = true;
             this.btnAssignAdviserBatchSave.Click += new System.EventHandler(this.btnAssignAdviserBatchSave_Click);
@@ -3274,7 +3258,7 @@
             this.cmbAssignAdviserBatchAdviserList.Location = new System.Drawing.Point(566, 210);
             this.cmbAssignAdviserBatchAdviserList.Name = "cmbAssignAdviserBatchAdviserList";
             this.cmbAssignAdviserBatchAdviserList.Size = new System.Drawing.Size(124, 23);
-            this.cmbAssignAdviserBatchAdviserList.TabIndex = 4;
+            this.cmbAssignAdviserBatchAdviserList.TabIndex = 8;
             this.cmbAssignAdviserBatchAdviserList.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.cmbAssignAdviserBatchAdviserList_Format);
             // 
             // listBoxAssignAdviserBatchSelectedStudents
@@ -3284,7 +3268,7 @@
             this.listBoxAssignAdviserBatchSelectedStudents.Location = new System.Drawing.Point(567, 54);
             this.listBoxAssignAdviserBatchSelectedStudents.Name = "listBoxAssignAdviserBatchSelectedStudents";
             this.listBoxAssignAdviserBatchSelectedStudents.Size = new System.Drawing.Size(237, 124);
-            this.listBoxAssignAdviserBatchSelectedStudents.TabIndex = 3;
+            this.listBoxAssignAdviserBatchSelectedStudents.TabIndex = 7;
             this.listBoxAssignAdviserBatchSelectedStudents.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.listBoxAssignAdviserBatchSelectedStudents_Format);
             // 
             // chckListBoxAssignAdviserBatchStudents
@@ -3293,7 +3277,7 @@
             this.chckListBoxAssignAdviserBatchStudents.Location = new System.Drawing.Point(347, 46);
             this.chckListBoxAssignAdviserBatchStudents.Name = "chckListBoxAssignAdviserBatchStudents";
             this.chckListBoxAssignAdviserBatchStudents.Size = new System.Drawing.Size(160, 130);
-            this.chckListBoxAssignAdviserBatchStudents.TabIndex = 2;
+            this.chckListBoxAssignAdviserBatchStudents.TabIndex = 5;
             this.chckListBoxAssignAdviserBatchStudents.Format += new System.Windows.Forms.ListControlConvertEventHandler(this.chckListBoxAssignAdviserBatchStudents_Format);
             // 
             // chckListBoxAssignAdviserBatchCourses
@@ -3302,7 +3286,7 @@
             this.chckListBoxAssignAdviserBatchCourses.Location = new System.Drawing.Point(181, 46);
             this.chckListBoxAssignAdviserBatchCourses.Name = "chckListBoxAssignAdviserBatchCourses";
             this.chckListBoxAssignAdviserBatchCourses.Size = new System.Drawing.Size(160, 130);
-            this.chckListBoxAssignAdviserBatchCourses.TabIndex = 1;
+            this.chckListBoxAssignAdviserBatchCourses.TabIndex = 3;
             // 
             // chckListBoxAssignAdviserBatchDepartments
             // 
@@ -3310,7 +3294,7 @@
             this.chckListBoxAssignAdviserBatchDepartments.Location = new System.Drawing.Point(15, 46);
             this.chckListBoxAssignAdviserBatchDepartments.Name = "chckListBoxAssignAdviserBatchDepartments";
             this.chckListBoxAssignAdviserBatchDepartments.Size = new System.Drawing.Size(160, 130);
-            this.chckListBoxAssignAdviserBatchDepartments.TabIndex = 0;
+            this.chckListBoxAssignAdviserBatchDepartments.TabIndex = 1;
             // 
             // label7
             // 
@@ -3322,6 +3306,22 @@
             this.label7.TabIndex = 0;
             this.label7.Text = "DANIŞMAN ATA";
             // 
+            // txtProfileUpdateEmail
+            // 
+            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
+            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateEmail.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(44, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 19);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Email:";
+            // 
             // OfficerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3330,12 +3330,12 @@
             this.ClientSize = new System.Drawing.Size(1087, 572);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
-            this.Controls.Add(this.pnlGlobalCourseOperations);
-            this.Controls.Add(this.pnlGlobalProfile);
             this.Controls.Add(this.pnlGlobalDepartmentOperations);
             this.Controls.Add(this.pnlGlobalAssignAdviser);
             this.Controls.Add(this.pnlGlobalStudentOperations);
             this.Controls.Add(this.pnlGlobalInstructorOperations);
+            this.Controls.Add(this.pnlGlobalCourseOperations);
+            this.Controls.Add(this.pnlGlobalProfile);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
@@ -3443,8 +3443,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtProfileUpdateFirstName;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox txtProfileUpdateEmail;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblProfileLastProfileUpdate;
         private System.Windows.Forms.Button btnProfileChangePassword;
         private System.Windows.Forms.TextBox txtProfileOldPassword;
@@ -3702,5 +3700,7 @@
         private System.Windows.Forms.Button btnStudentOperationsResetPassword;
         private System.Windows.Forms.Button btnInstructorOperationsResetPassword;
         private System.Windows.Forms.Button btnGlobalLogOut;
+        private System.Windows.Forms.TextBox txtProfileUpdateEmail;
+        private System.Windows.Forms.Label label9;
     }
 }

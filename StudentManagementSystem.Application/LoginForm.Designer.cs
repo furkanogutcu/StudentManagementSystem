@@ -66,7 +66,7 @@
             this.txtGlobalUsername.Location = new System.Drawing.Point(12, 153);
             this.txtGlobalUsername.Name = "txtGlobalUsername";
             this.txtGlobalUsername.Size = new System.Drawing.Size(211, 27);
-            this.txtGlobalUsername.TabIndex = 2;
+            this.txtGlobalUsername.TabIndex = 1;
             // 
             // txtGlobalPassword
             // 
@@ -75,7 +75,7 @@
             this.txtGlobalPassword.Name = "txtGlobalPassword";
             this.txtGlobalPassword.PasswordChar = '*';
             this.txtGlobalPassword.Size = new System.Drawing.Size(211, 27);
-            this.txtGlobalPassword.TabIndex = 4;
+            this.txtGlobalPassword.TabIndex = 2;
             // 
             // label3
             // 
@@ -94,7 +94,7 @@
             this.btnLogin.Location = new System.Drawing.Point(11, 238);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(213, 54);
-            this.btnLogin.TabIndex = 5;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Giriş Yap";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
