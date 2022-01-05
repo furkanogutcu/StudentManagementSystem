@@ -64,6 +64,8 @@
             this.btnCourseRegisterSubmitForAdviserApproval = new System.Windows.Forms.Button();
             this.btnCourseRegisterDeleteToDraft = new System.Windows.Forms.Button();
             this.tabPageApprovedCourses = new System.Windows.Forms.TabPage();
+            this.label27 = new System.Windows.Forms.Label();
+            this.cmbCourseRegisterApprovedCoursesSelectSemester = new System.Windows.Forms.ComboBox();
             this.dataGridViewCourseRegisterApprovedCourses = new System.Windows.Forms.DataGridView();
             this.label23 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -102,6 +104,8 @@
             this.txtProfileNewPassword = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnProfileUpdate = new System.Windows.Forms.Button();
             this.txtProfileUpdatePhone = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -110,8 +114,6 @@
             this.txtProfileUpdateFirstName = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalGradeView.SuspendLayout();
@@ -481,6 +483,8 @@
             // tabPageApprovedCourses
             // 
             this.tabPageApprovedCourses.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPageApprovedCourses.Controls.Add(this.label27);
+            this.tabPageApprovedCourses.Controls.Add(this.cmbCourseRegisterApprovedCoursesSelectSemester);
             this.tabPageApprovedCourses.Controls.Add(this.dataGridViewCourseRegisterApprovedCourses);
             this.tabPageApprovedCourses.Controls.Add(this.label23);
             this.tabPageApprovedCourses.Location = new System.Drawing.Point(4, 25);
@@ -489,6 +493,25 @@
             this.tabPageApprovedCourses.Size = new System.Drawing.Size(847, 428);
             this.tabPageApprovedCourses.TabIndex = 2;
             this.tabPageApprovedCourses.Text = "Onaylanan Dersler";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(500, 20);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(98, 16);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "Dönem seçiniz:";
+            // 
+            // cmbCourseRegisterApprovedCoursesSelectSemester
+            // 
+            this.cmbCourseRegisterApprovedCoursesSelectSemester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourseRegisterApprovedCoursesSelectSemester.FormattingEnabled = true;
+            this.cmbCourseRegisterApprovedCoursesSelectSemester.Location = new System.Drawing.Point(604, 17);
+            this.cmbCourseRegisterApprovedCoursesSelectSemester.Name = "cmbCourseRegisterApprovedCoursesSelectSemester";
+            this.cmbCourseRegisterApprovedCoursesSelectSemester.Size = new System.Drawing.Size(237, 24);
+            this.cmbCourseRegisterApprovedCoursesSelectSemester.TabIndex = 8;
+            this.cmbCourseRegisterApprovedCoursesSelectSemester.SelectedIndexChanged += new System.EventHandler(this.cmbCourseRegisterApprovedCoursesSelectSemester_SelectedIndexChanged);
             // 
             // dataGridViewCourseRegisterApprovedCourses
             // 
@@ -503,7 +526,7 @@
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCourseRegisterApprovedCourses.Location = new System.Drawing.Point(18, 33);
+            this.dataGridViewCourseRegisterApprovedCourses.Location = new System.Drawing.Point(18, 50);
             this.dataGridViewCourseRegisterApprovedCourses.MultiSelect = false;
             this.dataGridViewCourseRegisterApprovedCourses.Name = "dataGridViewCourseRegisterApprovedCourses";
             this.dataGridViewCourseRegisterApprovedCourses.ReadOnly = true;
@@ -513,7 +536,7 @@
             this.dataGridViewCourseRegisterApprovedCourses.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewCourseRegisterApprovedCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterApprovedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewCourseRegisterApprovedCourses.Size = new System.Drawing.Size(823, 389);
+            this.dataGridViewCourseRegisterApprovedCourses.Size = new System.Drawing.Size(823, 372);
             this.dataGridViewCourseRegisterApprovedCourses.TabIndex = 7;
             // 
             // label23
@@ -898,6 +921,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profil Bilgisi Güncelleme";
             // 
+            // txtProfileUpdateEmail
+            // 
+            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
+            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateEmail.TabIndex = 12;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(44, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 19);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "Email:";
+            // 
             // btnProfileUpdate
             // 
             this.btnProfileUpdate.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -966,22 +1005,6 @@
             this.label6.Size = new System.Drawing.Size(180, 23);
             this.label6.TabIndex = 10;
             this.label6.Text = "PROFİL BİLGİLERİM";
-            // 
-            // txtProfileUpdateEmail
-            // 
-            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 107);
-            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
-            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdateEmail.TabIndex = 12;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(44, 110);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 19);
-            this.label9.TabIndex = 15;
-            this.label9.Text = "Email:";
             // 
             // StudentForm
             // 
@@ -1110,5 +1133,7 @@
         private System.Windows.Forms.Label lblTranscriptPdfOutputFileName;
         private System.Windows.Forms.TextBox txtProfileUpdateEmail;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.ComboBox cmbCourseRegisterApprovedCoursesSelectSemester;
     }
 }

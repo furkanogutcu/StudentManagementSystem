@@ -274,6 +274,8 @@ namespace StudentManagementSystem.Application
                     gradeViewComboBoxItems.Add($"{studentEnrollmentYear + addedYear} - {studentEnrollmentYear + addedYear + 1} {i + 1}. dönem ({(i % 2 == 0 ? first : second)})");
                 }
 
+                gradeViewComboBoxItems.Reverse();   // Reverse the list to show the current semester first
+
                 cmbGradeViewSelectSemester.DataSource = gradeViewComboBoxItems;
             }
             else
@@ -362,6 +364,24 @@ namespace StudentManagementSystem.Application
                 //Currently available course list (_openedCourses) and drafted course list (_coursesOnDraft) are available.
                 //Now it's time to show them on the screen
 
+                var gradeViewComboBoxItems = new List<string>();
+                var studentCurrentSemester = _student.Semester;
+                var studentEnrollmentYear = Convert.ToInt32(_student.EnrollmentDate);
+
+                for (int i = 0; i < studentCurrentSemester; i++)
+                {
+                    var addedYear = Convert.ToInt32(i / 2);
+                    var first = "GÜZ";
+                    var second = "BAHAR";
+                    gradeViewComboBoxItems.Add($"{studentEnrollmentYear + addedYear} - {studentEnrollmentYear + addedYear + 1} {i + 1}. dönem ({(i % 2 == 0 ? first : second)})");
+                }
+
+                gradeViewComboBoxItems.Reverse();   // Reverse the list to show the current semester first
+
+                cmbCourseRegisterApprovedCoursesSelectSemester.DataSource = gradeViewComboBoxItems;
+
+                // Available Courses
+
                 tabControlCourseRegister.TabPages["tabPageAvailableCourses"].Text =
                     $"Açılan Dersler ({_openedCourses.Count} ders)";
                 tabControlCourseRegister.TabPages["tabPageCoursesOnDraft"].Text =
@@ -400,6 +420,8 @@ namespace StudentManagementSystem.Application
 
                 SetDataToDataGridView<CatalogCourseView>(dataGridViewCourseRegisterAvailableCourses, columnNames, openedCourseFinalList.ToList<dynamic>());
 
+                // Courses on Draft
+
                 var coursesOnDraftFinalList = new List<CatalogCourseView>();
 
                 foreach (var courseOnDraft in _coursesOnDraft)
@@ -431,63 +453,7 @@ namespace StudentManagementSystem.Application
 
                 SetDataToDataGridView<CatalogCourseView>(dataGridViewCourseRegisterSelectedCourses, columnNames, coursesOnDraftFinalList.ToList<dynamic>());
 
-                var coursesAlreadyEnrolledList = new List<CatalogCourseView>();
 
-                var numberOfCoursesApprovedInTheCurrentSemester = coursesAlreadyEnrolled.Count;
-
-                foreach (var courseAlreadyEnrolled in coursesAlreadyEnrolled)
-                {
-                    var courseResult = _catalogCourseService.GetByCourseNo(courseAlreadyEnrolled.CourseNo);
-
-                    if (!courseResult.Success)
-                    {
-                        MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCourseDetails}\n\n{courseResult.Message}", Messages.ServerError);
-                        return;
-                    }
-
-                    if (courseResult.Data.CourseSemester != _student.Semester)
-                    {
-                        numberOfCoursesApprovedInTheCurrentSemester -= 1;
-                        continue;
-                    }
-
-                    var departmentResult = _departmentService.GetByDepartmentNo(courseResult.Data.DepartmentNo);
-                    var instructorResult = _instructorService.GetByInstructorNo(courseResult.Data.InstructorNo);
-
-                    if (departmentResult.Success && instructorResult.Success)
-                    {
-                        var catalogCourseView = new CatalogCourseView
-                        {
-                            CourseName = courseResult.Data.CourseName,
-                            CourseNo = courseResult.Data.CourseNo,
-                            InstructorFullName = $"{instructorResult.Data.FirstName} {instructorResult.Data.LastName}",
-                            DepartmentName = departmentResult.Data.DepartmentName,
-                            CourseSemester = courseResult.Data.CourseSemester,
-                            Credit = courseResult.Data.Credit,
-                        };
-
-                        coursesAlreadyEnrolledList.Add(catalogCourseView);
-                    }
-                    else
-                    {
-                        MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { departmentResult.Message, instructorResult.Message })}", Messages.ServerError);
-                        return;
-                    }
-                }
-
-                var newColumnNames = new List<string>();
-
-                foreach (var columnName in columnNames)
-                {
-                    newColumnNames.Add(columnName);
-                }
-
-                newColumnNames.RemoveAt(0); //Delete 'SECIM' column
-
-                SetDataToDataGridView<CatalogCourseView>(dataGridViewCourseRegisterApprovedCourses, newColumnNames, coursesAlreadyEnrolledList.ToList<dynamic>());
-
-                tabControlCourseRegister.TabPages["tabPageApprovedCourses"].Text =
-                    $"Onaylanan Dersler ({numberOfCoursesApprovedInTheCurrentSemester} ders)";
 
                 if (adviserApprovalResult.Data.Count > 0)
                 {
@@ -506,6 +472,74 @@ namespace StudentManagementSystem.Application
             {
                 MessageBox.Show(Messages.SomethingWentWrongWhileFetchingData, Messages.ServerError);
             }
+        }
+
+        private void cmbCourseRegisterApprovedCoursesSelectSemester_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var coursesAlreadyEnrolledResult = _enrolledCourseService.GetAllByStudentNo(_student.StudentNo);
+
+            if (!coursesAlreadyEnrolledResult.Success)
+            {
+                MessageBox.Show(
+                    $"{Messages.SomethingWentWrongWhileGettingStudentsEnrolledCourses}\n\n{coursesAlreadyEnrolledResult.Message}",
+                    Messages.ServerError);
+                return;
+            }
+
+            var coursesAlreadyEnrolled = coursesAlreadyEnrolledResult.Data;
+
+            var columnNames = new List<string>() { "Ders No", "Ders Adı", "Ders Öğretmeni", "Kredi", "Ders Dönemi", "Ders Bölümü" };
+
+            // Enrolled Courses
+
+            var coursesAlreadyEnrolledList = new List<CatalogCourseView>();
+
+            var numberOfCoursesApprovedInTheCurrentSemester = coursesAlreadyEnrolled.Count;
+
+            foreach (var courseAlreadyEnrolled in coursesAlreadyEnrolled)
+            {
+                var courseResult = _catalogCourseService.GetByCourseNo(courseAlreadyEnrolled.CourseNo);
+
+                if (!courseResult.Success)
+                {
+                    MessageBox.Show($"{Messages.SomethingWentWrongWhileGettingCourseDetails}\n\n{courseResult.Message}", Messages.ServerError);
+                    return;
+                }
+
+                if (courseResult.Data.CourseSemester != (_student.Semester - cmbCourseRegisterApprovedCoursesSelectSemester.SelectedIndex)) // Here checked the current semester as the list in the combobox is inverted.
+                {
+                    numberOfCoursesApprovedInTheCurrentSemester -= 1;
+                    continue;
+                }
+
+                var departmentResult = _departmentService.GetByDepartmentNo(courseResult.Data.DepartmentNo);
+                var instructorResult = _instructorService.GetByInstructorNo(courseResult.Data.InstructorNo);
+
+                if (departmentResult.Success && instructorResult.Success)
+                {
+                    var catalogCourseView = new CatalogCourseView
+                    {
+                        CourseName = courseResult.Data.CourseName,
+                        CourseNo = courseResult.Data.CourseNo,
+                        InstructorFullName = $"{instructorResult.Data.FirstName} {instructorResult.Data.LastName}",
+                        DepartmentName = departmentResult.Data.DepartmentName,
+                        CourseSemester = courseResult.Data.CourseSemester,
+                        Credit = courseResult.Data.Credit,
+                    };
+
+                    coursesAlreadyEnrolledList.Add(catalogCourseView);
+                }
+                else
+                {
+                    MessageBox.Show($"{Messages.SomethingWentWrongWhileFetchingData}\n\n{ErrorMessageBuilder.CreateErrorMessageFromStringList(new List<string> { departmentResult.Message, instructorResult.Message })}", Messages.ServerError);
+                    return;
+                }
+            }
+
+            SetDataToDataGridView<CatalogCourseView>(dataGridViewCourseRegisterApprovedCourses, columnNames, coursesAlreadyEnrolledList.ToList<dynamic>());
+
+            tabControlCourseRegister.TabPages["tabPageApprovedCourses"].Text =
+                $"Onaylanan Dersler ({numberOfCoursesApprovedInTheCurrentSemester} ders)";
         }
 
         private void btnGlobalTranscript_Click(object sender, EventArgs e)
@@ -651,7 +685,7 @@ namespace StudentManagementSystem.Application
 
         private void cmbGradeViewSelectSemester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedSemester = cmbGradeViewSelectSemester.SelectedIndex + 1;
+            var selectedSemester = _student.Semester - cmbGradeViewSelectSemester.SelectedIndex; // Here checked the current semester as the list in the combobox is inverted.
             var studentEnrolledCoursesResult = _enrolledCourseService.GetAllByStudentNo(_student.StudentNo);
 
             if (studentEnrolledCoursesResult.Success)
