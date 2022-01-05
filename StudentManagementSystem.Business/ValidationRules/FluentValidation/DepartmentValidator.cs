@@ -13,8 +13,12 @@ namespace StudentManagementSystem.Business.ValidationRules.FluentValidation
 
             RuleFor(d => d.DepartmentName).NotEmpty().WithName("Bölüm adı");
             RuleFor(d => d.DepartmentName).NotNull().WithName("Bölüm adı");
-            RuleFor(d => d.DepartmentName).MinimumLength(2).WithName("Bölüm adı");
+            RuleFor(d => d.DepartmentName).MinimumLength(5).WithName("Bölüm adı");
             RuleFor(d => d.DepartmentName).MaximumLength(200).WithName("Bölüm adı");
+
+            RuleFor(d => d.NumberOfSemester).NotEmpty().WithName("Dönem sayısı");
+            RuleFor(d => d.NumberOfSemester).NotNull().WithName("Dönem sayısı");
+            RuleFor(d => d.NumberOfSemester).GreaterThan(0).WithName("Dönem sayısı");
         }
     }
 }

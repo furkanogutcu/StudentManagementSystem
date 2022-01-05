@@ -1667,8 +1667,16 @@ namespace StudentManagementSystem.Application
                 foreach (var student in listBoxAssignAdviserBatchSelectedStudents.Items)
                 {
                     var updatedStudent = (Student)student;
+
+                    var departmentResult = _departmentService.GetByDepartmentNo(updatedStudent.DepartmentNo);
+                    if (!departmentResult.Success)
+                    {
+                        failedAssign++;
+                        continue;
+                    }
+
                     updatedStudent.AdviserNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserBatchAdviserList);
-                    var updateResult = _studentService.Update(updatedStudent);
+                    var updateResult = _studentService.UpdateWithDepartmentTotalSemester(updatedStudent, departmentResult.Data.NumberOfSemester);
 
                     if (updateResult.Success)
                     {
@@ -1770,7 +1778,16 @@ namespace StudentManagementSystem.Application
                 {
                     updatedStudentResult.Data.AdviserNo = UniqueValueTaker.GetUniqueValueOfSelectedItemInComboBox<Instructor>(cmbAssignAdviserSingleAdviserList);
 
-                    var updateResult = _studentService.Update(updatedStudentResult.Data);
+                    var departmentResult = _departmentService.GetByDepartmentNo(updatedStudentResult.Data.DepartmentNo);
+                    if (!departmentResult.Success)
+                    {
+                        MessageBox.Show(
+                            $"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}\n\n{departmentResult.Message}",
+                            Messages.ServerError);
+                        return;
+                    }
+
+                    var updateResult = _studentService.UpdateWithDepartmentTotalSemester(updatedStudentResult.Data, departmentResult.Data.NumberOfSemester);
 
                     if (updateResult.Success)
                     {
@@ -1842,14 +1859,21 @@ namespace StudentManagementSystem.Application
                     foreach (var student in studentListResult.Data)
                     {
                         student.AdviserNo = newInstructorNo;
-                        var updateResult = _studentService.Update(student);
+                        var departmentResult = _departmentService.GetByDepartmentNo(student.DepartmentNo);
+                        if (!departmentResult.Success)
+                        {
+                            failedAssign++;
+                            continue;
+                        }
+
+                        var updateResult = _studentService.UpdateWithDepartmentTotalSemester(student, departmentResult.Data.NumberOfSemester);
                         if (updateResult.Success)
                         {
-                            successfulAssign += 1;
+                            successfulAssign++;
                         }
                         else
                         {
-                            failedAssign += 1;
+                            failedAssign++;
                         }
                     }
 

@@ -572,7 +572,6 @@ namespace StudentManagementSystem.Application
                         CreatedAt = enrolledCourseResult.Data.CreatedAt,
                         DeletedAt = enrolledCourseResult.Data.DeletedAt,
                         ModifiedAt = DateTime.Now,
-                        EnrolledDate = enrolledCourseResult.Data.EnrolledDate,
                         VizeResult = enrolledCourseView.VizeResult,
                         FinalResult = enrolledCourseView.FinalResult,
                         ButunlemeResult = enrolledCourseView.ButunlemeResult
@@ -779,8 +778,7 @@ namespace StudentManagementSystem.Application
                         CourseNo = adviserApproval.CatalogCourseCode,
                         VizeResult = null,
                         FinalResult = null,
-                        ButunlemeResult = null,
-                        EnrolledDate = DateTime.Now,
+                        ButunlemeResult = null
                     };
 
                     var result = _enrolledCourseService.Add(enrolledCourse);

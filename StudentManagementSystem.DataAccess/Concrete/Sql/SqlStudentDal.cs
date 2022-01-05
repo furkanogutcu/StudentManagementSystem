@@ -28,8 +28,8 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@ad", entity.FirstName);
                 command.Parameters.AddWithValue("@soyad", entity.LastName);
                 command.Parameters.AddWithValue("@telefon", entity.Phone);
-                command.Parameters.AddWithValue("@donem", entity.Semester);
-                command.Parameters.AddWithValue("@kayit_yili", entity.EnrollmentDate);
+                command.Parameters.AddWithValue("@donem", 1);
+                command.Parameters.AddWithValue("@kayit_yili", short.Parse(DateTime.Now.Year.ToString()));
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
                 return new SuccessResult();

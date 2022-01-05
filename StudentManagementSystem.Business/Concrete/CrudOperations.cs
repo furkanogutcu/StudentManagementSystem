@@ -10,33 +10,31 @@ using StudentManagementSystem.Core.Utilities.Validation;
 
 namespace StudentManagementSystem.Business.Concrete
 {
-    public class CrudOperations<T> : IEntityCrudService<T>
+    public abstract class CrudOperation<T> : IEntityCrudService<T>
         where T : class, IEntity, new()
     {
         private readonly IValidator _validator;
         private readonly IEntityRepository<T> _dal;
-        public CrudOperations(Type validatorType, IEntityRepository<T> dal)
+
+        protected CrudOperation(Type validatorType, IEntityRepository<T> dal)
         {
             _validator = (IValidator)Activator.CreateInstance(validatorType);
             _dal = dal;
         }
 
-        public IDataResult<List<T>> GetAll()
-        {
-            throw new System.NotImplementedException();
-        }
+        public abstract IDataResult<List<T>> GetAll();
 
-        public IResult Add(T entity)
+        public virtual IResult Add(T entity)
         {
             return Process(0, entity);
         }
 
-        public IResult Update(T entity)
+        public virtual IResult Update(T entity)
         {
             return Process(1, entity);
         }
 
-        public IResult Delete(T entity)
+        public virtual IResult Delete(T entity)
         {
             return Process(2, entity);
         }

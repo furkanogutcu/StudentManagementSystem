@@ -61,6 +61,8 @@
             this.txtProfileNewPassword = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnProfileUpdate = new System.Windows.Forms.Button();
             this.txtProfileUpdatePhone = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -313,8 +315,6 @@
             this.chckListBoxAssignAdviserBatchCourses = new System.Windows.Forms.CheckedListBox();
             this.chckListBoxAssignAdviserBatchDepartments = new System.Windows.Forms.CheckedListBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalProfile.SuspendLayout();
@@ -705,6 +705,22 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profil Bilgisi Güncelleme";
+            // 
+            // txtProfileUpdateEmail
+            // 
+            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
+            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateEmail.TabIndex = 8;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(44, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 19);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Email:";
             // 
             // btnProfileUpdate
             // 
@@ -3305,22 +3321,6 @@
             this.label7.Size = new System.Drawing.Size(164, 24);
             this.label7.TabIndex = 0;
             this.label7.Text = "DANIŞMAN ATA";
-            // 
-            // txtProfileUpdateEmail
-            // 
-            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 107);
-            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
-            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdateEmail.TabIndex = 8;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(44, 110);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 19);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Email:";
             // 
             // OfficerForm
             // 

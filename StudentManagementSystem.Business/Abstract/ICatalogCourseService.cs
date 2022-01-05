@@ -12,5 +12,7 @@ namespace StudentManagementSystem.Business.Abstract
         IDataResult<List<CatalogCourse>> GetAllContainCourseName(string courseName);
         IDataResult<List<CatalogCourse>> GetAllByDepartmentNoAndSemesterNo(int departmentNo, int semesterNo);
         IDataResult<CatalogCourse> GetByCourseNo(int courseNo);
+        IResult AddWithDepartmentTotalSemester(CatalogCourse catalogCourse, int departmentTotalSemester);
+        IResult UpdateWithDepartmentTotalSemester(CatalogCourse catalogCourse, int departmentTotalSemester);
     }
 }

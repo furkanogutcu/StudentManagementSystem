@@ -12,5 +12,6 @@ namespace StudentManagementSystem.Business.Abstract
         IDataResult<List<Student>> GetAllContainStudentName(string studentName);
         IDataResult<List<Student>> GetAllByCourseNo(int courseNo);
         IDataResult<Student> GetByStudentNo(int studentNo);
+        IResult UpdateWithDepartmentTotalSemester(Student student, int departmentTotalSemester);
     }
 }

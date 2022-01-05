@@ -1,25 +1,28 @@
 ﻿using System.Collections.Generic;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.ValidationRules.FluentValidation;
+using StudentManagementSystem.Core.CrossCuttingConcerns.Validation.FluentValidation;
 using StudentManagementSystem.Core.Utilities.Results;
+using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.DataAccess.Abstract;
+using StudentManagementSystem.DataAccess.Concrete.Sql;
 using StudentManagementSystem.Entities.Concrete;
 
 namespace StudentManagementSystem.Business.Concrete
 {
-    public class InstructorManager : CrudOperations<Instructor>, IInstructorService
+    public class InstructorManager : CrudOperation<Instructor>, IInstructorService
     {
         private readonly IInstructorDal _instructorDal;
-        private readonly ICatalogCourseService _catalogCourseService;
         private readonly InstructorValidator _instructorValidator = new InstructorValidator();
+        private readonly ICatalogCourseService _catalogCourseService = new CatalogCourseManager(new SqlCatalogCourseDal());
+        private readonly IStudentService _studentService = new StudentManager(new SqlStudentDal());
 
-        public InstructorManager(IInstructorDal instructorDal, ICatalogCourseService catalogCourseService) : base(typeof(InstructorValidator), instructorDal)
+        public InstructorManager(IInstructorDal instructorDal) : base(typeof(InstructorValidator), instructorDal)
         {
             _instructorDal = instructorDal;
-            _catalogCourseService = catalogCourseService;
         }
 
-        public new IDataResult<List<Instructor>> GetAll()
+        public override IDataResult<List<Instructor>> GetAll()
         {
             return _instructorDal.GetAll(null);
         }
@@ -82,6 +85,44 @@ namespace StudentManagementSystem.Business.Concrete
             }
 
             return new ErrorDataResult<Instructor>("Ders no 0'dan büyük olmalıdır");
+        }
+
+        public override IResult Delete(Instructor entity)
+        {
+            var validatorResult = ValidationTool.Validate(_instructorValidator, entity);
+            if (validatorResult.Success)
+            {
+                var coursesResult = _catalogCourseService.GetAllByInstructorNo(entity.InstructorNo);
+                if (!coursesResult.Success)
+                {
+                    return new ErrorResult(coursesResult.Message);
+                }
+
+                var numberOfCourses = coursesResult.Data.Count;
+                if (numberOfCourses != 0)
+                {
+                    return new ErrorResult(
+                        $"Öğretim görevlisi {numberOfCourses} dersin öğretim görevlisidir. Bu derslerin öğretim görevlilerini değiştirmeden öğretim görevlisini silemezsiniz");
+                }
+
+                var studentsResult = _studentService.GetAllByAdvisorNo(entity.InstructorNo);
+                if (!studentsResult.Success)
+                {
+                    return new ErrorResult(studentsResult.Message);
+                }
+
+                var adviserNumber = studentsResult.Data.Count;
+
+                if (adviserNumber != 0)
+                {
+                    return new ErrorResult(
+                        $"Öğretim görevlisi {adviserNumber} öğrencinin danışmanıdır. Bu öğrencilerin danışmanlarını değiştirmeden öğretim görevlisini silemezsiniz");
+                }
+
+                return _instructorDal.Delete(entity);
+            }
+
+            return new ErrorResult(ErrorMessageBuilder.CreateErrorMessageFromValidationFailure(validatorResult.Data));
         }
     }
 }

@@ -29,9 +29,9 @@ namespace StudentManagementSystem.Application
                         StudentForm studentForm = new StudentForm(
                             student,
                             this,
-                            new StudentManager(new SqlStudentDal(), new EnrolledCourseManager(new SqlEnrolledCourseDal())),
+                            new StudentManager(new SqlStudentDal()),
                             new DepartmentManager(new SqlDepartmentDal()),
-                            new InstructorManager(new SqlInstructorDal(), new CatalogCourseManager(new SqlCatalogCourseDal())),
+                            new InstructorManager(new SqlInstructorDal()),
                             new EnrolledCourseManager(new SqlEnrolledCourseDal()),
                             new CatalogCourseManager(new SqlCatalogCourseDal()),
                             new AdviserApprovalManager(new SqlAdviserApprovalDal())
@@ -47,9 +47,9 @@ namespace StudentManagementSystem.Application
                             instructor,
                             this,
                             new DepartmentManager(new SqlDepartmentDal()),
-                            new InstructorManager(new SqlInstructorDal(), new CatalogCourseManager(new SqlCatalogCourseDal())),
+                            new InstructorManager(new SqlInstructorDal()),
                             new CatalogCourseManager(new SqlCatalogCourseDal()),
-                            new StudentManager(new SqlStudentDal(), new EnrolledCourseManager(new SqlEnrolledCourseDal())),
+                            new StudentManager(new SqlStudentDal()),
                             new EnrolledCourseManager(new SqlEnrolledCourseDal()),
                             new AdviserApprovalManager(new SqlAdviserApprovalDal())
                         );
@@ -64,8 +64,8 @@ namespace StudentManagementSystem.Application
                             officer,
                             new OfficerManager(new SqlOfficerDal()),
                             new DepartmentManager(new SqlDepartmentDal()),
-                            new InstructorManager(new SqlInstructorDal(), new CatalogCourseManager(new SqlCatalogCourseDal())),
-                            new StudentManager(new SqlStudentDal(), new EnrolledCourseManager(new SqlEnrolledCourseDal())),
+                            new InstructorManager(new SqlInstructorDal()),
+                            new StudentManager(new SqlStudentDal()),
                             new CatalogCourseManager(new SqlCatalogCourseDal()),
                             this
                         );

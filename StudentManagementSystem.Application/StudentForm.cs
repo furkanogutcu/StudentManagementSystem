@@ -584,7 +584,16 @@ namespace StudentManagementSystem.Application
                         CreatedAt = _student.CreatedAt,
                         DeletedAt = _student.DeletedAt
                     };
-                    var updateResult = _studentService.Update(newStudent);
+                    var departmentResult = _departmentService.GetByDepartmentNo(newStudent.DepartmentNo);
+                    if (!departmentResult.Success)
+                    {
+                        MessageBox.Show(
+                            $"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}\n\n{departmentResult.Message}",
+                            Messages.ServerError);
+                        return;
+                    }
+
+                    var updateResult = _studentService.UpdateWithDepartmentTotalSemester(newStudent, departmentResult.Data.NumberOfSemester);
                     if (updateResult.Success)
                     {
                         MessageBox.Show(Messages.ProfileHasBeenUpdated, Messages.Successful);
@@ -637,7 +646,16 @@ namespace StudentManagementSystem.Application
 
                             if (selection == DialogResult.Yes)
                             {
-                                var updateResult = _studentService.Update(new Student
+                                var departmentResult = _departmentService.GetByDepartmentNo(_student.DepartmentNo);
+                                if (!departmentResult.Success)
+                                {
+                                    MessageBox.Show(
+                                        $"{Messages.SomethingWentWrongWhileGettingDepartmentDetails}\n\n{departmentResult.Message}",
+                                        Messages.ServerError);
+                                    return;
+                                }
+
+                                var updateResult = _studentService.UpdateWithDepartmentTotalSemester(new Student
                                 {
                                     Email = _student.Email,
                                     FirstName = _student.FirstName,
@@ -652,7 +670,8 @@ namespace StudentManagementSystem.Application
                                     ModifiedAt = DateTime.Now,
                                     CreatedAt = _student.CreatedAt,
                                     DeletedAt = _student.DeletedAt
-                                });
+                                }, departmentResult.Data.NumberOfSemester);
+
                                 if (updateResult.Success)
                                 {
                                     MessageBox.Show($"{Messages.PasswordHasBeenChanged}. {Messages.LoginAgainWithNewPassword}. {Messages.ApplicationIsRestarting}..", Messages.Successful);
