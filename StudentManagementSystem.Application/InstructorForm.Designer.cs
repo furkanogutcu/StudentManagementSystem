@@ -60,6 +60,8 @@
             this.txtProfileNewPassword = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.btnProfileUpdate = new System.Windows.Forms.Button();
             this.txtProfileUpdatePhone = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -121,8 +123,6 @@
             this.btnAdviserOperationsSubmitFinalList = new System.Windows.Forms.Button();
             this.lblAdviserThereIsNoStudentYouAreAdviser = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtProfileUpdateEmail = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.pnlLeftBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlGlobalProfile.SuspendLayout();
@@ -343,13 +343,13 @@
             // 
             // lblProfileLastProfileUpdate
             // 
-            this.lblProfileLastProfileUpdate.AutoSize = true;
             this.lblProfileLastProfileUpdate.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(629, 470);
+            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(575, 467);
             this.lblProfileLastProfileUpdate.Name = "lblProfileLastProfileUpdate";
-            this.lblProfileLastProfileUpdate.Size = new System.Drawing.Size(241, 15);
+            this.lblProfileLastProfileUpdate.Size = new System.Drawing.Size(290, 18);
             this.lblProfileLastProfileUpdate.TabIndex = 21;
             this.lblProfileLastProfileUpdate.Text = "Son profil güncellemesi: 29.12.2021 19:40";
+            this.lblProfileLastProfileUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtProfileInstructorNo
             // 
@@ -468,6 +468,22 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Profil Bilgisi Güncelleme";
+            // 
+            // txtProfileUpdateEmail
+            // 
+            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 107);
+            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
+            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
+            this.txtProfileUpdateEmail.TabIndex = 9;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(44, 110);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(53, 19);
+            this.label9.TabIndex = 9;
+            this.label9.Text = "Email:";
             // 
             // btnProfileUpdate
             // 
@@ -1088,22 +1104,6 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "DANIŞMAN İŞLEMLERİ";
             // 
-            // txtProfileUpdateEmail
-            // 
-            this.txtProfileUpdateEmail.Location = new System.Drawing.Point(103, 107);
-            this.txtProfileUpdateEmail.Name = "txtProfileUpdateEmail";
-            this.txtProfileUpdateEmail.Size = new System.Drawing.Size(235, 27);
-            this.txtProfileUpdateEmail.TabIndex = 9;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(44, 110);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(53, 19);
-            this.label9.TabIndex = 9;
-            this.label9.Text = "Email:";
-            // 
             // InstructorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1112,9 +1112,9 @@
             this.ClientSize = new System.Drawing.Size(1087, 518);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
-            this.Controls.Add(this.pnlGlobalAdviserOperations);
             this.Controls.Add(this.pnlGlobalProfile);
             this.Controls.Add(this.pnlGlobalGradeOperations);
+            this.Controls.Add(this.pnlGlobalAdviserOperations);
             this.MaximumSize = new System.Drawing.Size(1103, 557);
             this.MinimumSize = new System.Drawing.Size(1078, 557);
             this.Name = "InstructorForm";

@@ -796,12 +796,12 @@
             // lblProfileLastProfileUpdate
             // 
             this.lblProfileLastProfileUpdate.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(566, 463);
+            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(562, 465);
             this.lblProfileLastProfileUpdate.Name = "lblProfileLastProfileUpdate";
             this.lblProfileLastProfileUpdate.Size = new System.Drawing.Size(306, 23);
             this.lblProfileLastProfileUpdate.TabIndex = 15;
             this.lblProfileLastProfileUpdate.Text = "Son profil güncellemesi: 29.12.2021 19:40";
-            this.lblProfileLastProfileUpdate.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.lblProfileLastProfileUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtProfileStudentNo
             // 

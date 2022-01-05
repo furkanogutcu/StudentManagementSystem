@@ -582,7 +582,7 @@
             // lblProfileLastProfileUpdate
             // 
             this.lblProfileLastProfileUpdate.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(585, 529);
+            this.lblProfileLastProfileUpdate.Location = new System.Drawing.Point(575, 525);
             this.lblProfileLastProfileUpdate.Name = "lblProfileLastProfileUpdate";
             this.lblProfileLastProfileUpdate.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.lblProfileLastProfileUpdate.Size = new System.Drawing.Size(290, 14);
@@ -3330,12 +3330,12 @@
             this.ClientSize = new System.Drawing.Size(1087, 572);
             this.Controls.Add(this.pnlBottomBar);
             this.Controls.Add(this.pnlLeftBar);
+            this.Controls.Add(this.pnlGlobalProfile);
             this.Controls.Add(this.pnlGlobalDepartmentOperations);
             this.Controls.Add(this.pnlGlobalAssignAdviser);
             this.Controls.Add(this.pnlGlobalStudentOperations);
             this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Controls.Add(this.pnlGlobalCourseOperations);
-            this.Controls.Add(this.pnlGlobalProfile);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
