@@ -42,13 +42,12 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
             {
-                MySqlCommand command = new MySqlCommand($"UPDATE {GetTableName()} SET ders_no = @ders_no, ogrenci_no = @ogrenci_no, vize_sonuc = @vize_sonuc, final_sonuc = @final_sonuc, butunleme_sonuc = @butunleme_sonuc, modified_at = @modified_at WHERE id = @id", connection);
+                MySqlCommand command = new MySqlCommand($"UPDATE {GetTableName()} SET ders_no = @ders_no, ogrenci_no = @ogrenci_no, vize_sonuc = @vize_sonuc, final_sonuc = @final_sonuc, butunleme_sonuc = @butunleme_sonuc WHERE id = @id", connection);
                 command.Parameters.AddWithValue("@ders_no", entity.CourseNo);
                 command.Parameters.AddWithValue("@ogrenci_no", entity.StudentNo);
                 command.Parameters.AddWithValue("@vize_sonuc", entity.VizeResult);
                 command.Parameters.AddWithValue("@final_sonuc", entity.FinalResult);
                 command.Parameters.AddWithValue("@butunleme_sonuc", entity.ButunlemeResult);
-                command.Parameters.AddWithValue("@modified_at", DateTime.Now);
                 command.Parameters.AddWithValue("@id", entity.Id);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);

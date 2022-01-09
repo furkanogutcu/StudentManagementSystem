@@ -44,7 +44,7 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             try
             {
                 MySqlCommand command = new MySqlCommand(
-                    $"UPDATE {GetTableName()} SET bolum_no = @bolum_no, email = @email, sifre = @sifre, ad = @ad, soyad = @soyad, telefon = @telefon, modified_at = @modified_at WHERE ogretim_uye_no = @ogretim_uye_no",
+                    $"UPDATE {GetTableName()} SET bolum_no = @bolum_no, email = @email, sifre = @sifre, ad = @ad, soyad = @soyad, telefon = @telefon WHERE ogretim_uye_no = @ogretim_uye_no",
                     connection);
                 command.Parameters.AddWithValue("@bolum_no", entity.DepartmentNo);
                 command.Parameters.AddWithValue("@email", entity.Email);
@@ -52,7 +52,6 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
                 command.Parameters.AddWithValue("@ad", entity.FirstName);
                 command.Parameters.AddWithValue("@soyad", entity.LastName);
                 command.Parameters.AddWithValue("@telefon", entity.Phone);
-                command.Parameters.AddWithValue("@modified_at", DateTime.Now);
                 command.Parameters.AddWithValue("@ogretim_uye_no", entity.InstructorNo);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);

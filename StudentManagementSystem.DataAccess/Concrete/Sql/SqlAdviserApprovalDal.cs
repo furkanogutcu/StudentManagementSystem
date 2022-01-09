@@ -44,10 +44,9 @@ namespace StudentManagementSystem.DataAccess.Concrete.Sql
             MySqlConnection connection = ConnectionHelper.OpenConnection();
             try
             {
-                MySqlCommand command = new MySqlCommand($"UPDATE {GetTableName()} SET ogrenci_no = @ogrenci_no, katalog_ders_kodu = @katalog_ders_kodu, modified_at = @modified_at WHERE id = @id", connection);
+                MySqlCommand command = new MySqlCommand($"UPDATE {GetTableName()} SET ogrenci_no = @ogrenci_no, katalog_ders_kodu = @katalog_ders_kodu WHERE id = @id", connection);
                 command.Parameters.AddWithValue("@ogrenci_no", entity.StudentNo);
                 command.Parameters.AddWithValue("@katalog_ders_kodu", entity.CatalogCourseCode);
-                command.Parameters.AddWithValue("@modified_at", DateTime.Now);
                 command.Parameters.AddWithValue("@id", entity.Id);
                 command.ExecuteNonQuery();
                 ConnectionHelper.CloseConnection(connection);
