@@ -872,6 +872,12 @@ namespace StudentManagementSystem.Application
 
         private void btnCourseRegisterSubmitForAdviserApproval_Click(object sender, EventArgs e)
         {
+            if (_coursesOnDraft.Count == 0)
+            {
+                MessageBox.Show("Öncelikle taslağa ders eklemelisiniz", Messages.Warning);
+                return;
+            }
+
             var message = "";
             var totalCourseCredit = 0;
 
