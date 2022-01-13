@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtGlobalUsername = new System.Windows.Forms.TextBox();
             this.txtGlobalPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -42,7 +45,7 @@
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Font = new System.Drawing.Font("Segoe Script", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(363, 358);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(15);
             this.label1.Size = new System.Drawing.Size(211, 109);
@@ -54,7 +57,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(69, 131);
+            this.label2.Location = new System.Drawing.Point(177, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 19);
             this.label2.TabIndex = 1;
@@ -63,7 +66,7 @@
             // txtGlobalUsername
             // 
             this.txtGlobalUsername.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtGlobalUsername.Location = new System.Drawing.Point(12, 153);
+            this.txtGlobalUsername.Location = new System.Drawing.Point(177, 34);
             this.txtGlobalUsername.Name = "txtGlobalUsername";
             this.txtGlobalUsername.Size = new System.Drawing.Size(211, 27);
             this.txtGlobalUsername.TabIndex = 1;
@@ -71,7 +74,7 @@
             // txtGlobalPassword
             // 
             this.txtGlobalPassword.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtGlobalPassword.Location = new System.Drawing.Point(12, 205);
+            this.txtGlobalPassword.Location = new System.Drawing.Point(177, 96);
             this.txtGlobalPassword.Name = "txtGlobalPassword";
             this.txtGlobalPassword.PasswordChar = '*';
             this.txtGlobalPassword.Size = new System.Drawing.Size(211, 27);
@@ -81,7 +84,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(96, 183);
+            this.label3.Location = new System.Drawing.Point(177, 74);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(42, 19);
             this.label3.TabIndex = 3;
@@ -91,31 +94,42 @@
             // 
             this.btnLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnLogin.Font = new System.Drawing.Font("Roboto", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnLogin.Location = new System.Drawing.Point(11, 238);
+            this.btnLogin.Location = new System.Drawing.Point(177, 129);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(213, 54);
+            this.btnLogin.Size = new System.Drawing.Size(213, 42);
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Giriş Yap";
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::StudentManagementSystem.Application.Properties.Resources.student_management_system;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(159, 159);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(239, 301);
+            this.ClientSize = new System.Drawing.Size(410, 187);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtGlobalPassword);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtGlobalUsername);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.MaximumSize = new System.Drawing.Size(255, 340);
-            this.MinimumSize = new System.Drawing.Size(255, 340);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Öğrenci Otomasyonu";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -129,5 +143,6 @@
         private System.Windows.Forms.TextBox txtGlobalPassword;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnLogin;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

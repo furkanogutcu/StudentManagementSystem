@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(OfficerForm));
             this.pnlBottomBar = new System.Windows.Forms.Panel();
             this.pnlLeftBar = new System.Windows.Forms.Panel();
             this.btnGlobalLogOut = new System.Windows.Forms.Button();
             this.btnGlobalStudentOperations = new System.Windows.Forms.Button();
             this.btnGlobalInstructorOperations = new System.Windows.Forms.Button();
             this.btnGlobalProfileOperations = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnGlobalCourseOperations = new System.Windows.Forms.Button();
             this.btnGlobalDepartmentOperations = new System.Windows.Forms.Button();
             this.btnGlobalAssignAdvisor = new System.Windows.Forms.Button();
@@ -368,7 +368,6 @@
             this.pnlLeftBar.Controls.Add(this.btnGlobalStudentOperations);
             this.pnlLeftBar.Controls.Add(this.btnGlobalInstructorOperations);
             this.pnlLeftBar.Controls.Add(this.btnGlobalProfileOperations);
-            this.pnlLeftBar.Controls.Add(this.label1);
             this.pnlLeftBar.Controls.Add(this.btnGlobalCourseOperations);
             this.pnlLeftBar.Controls.Add(this.btnGlobalDepartmentOperations);
             this.pnlLeftBar.Controls.Add(this.btnGlobalAssignAdvisor);
@@ -382,7 +381,7 @@
             // 
             this.btnGlobalLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnGlobalLogOut.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGlobalLogOut.Location = new System.Drawing.Point(15, 498);
+            this.btnGlobalLogOut.Location = new System.Drawing.Point(12, 480);
             this.btnGlobalLogOut.Name = "btnGlobalLogOut";
             this.btnGlobalLogOut.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalLogOut.TabIndex = 7;
@@ -393,7 +392,7 @@
             // btnGlobalStudentOperations
             // 
             this.btnGlobalStudentOperations.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.btnGlobalStudentOperations.Location = new System.Drawing.Point(15, 404);
+            this.btnGlobalStudentOperations.Location = new System.Drawing.Point(12, 386);
             this.btnGlobalStudentOperations.Name = "btnGlobalStudentOperations";
             this.btnGlobalStudentOperations.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalStudentOperations.TabIndex = 5;
@@ -404,7 +403,7 @@
             // btnGlobalInstructorOperations
             // 
             this.btnGlobalInstructorOperations.Font = new System.Drawing.Font("Roboto", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGlobalInstructorOperations.Location = new System.Drawing.Point(15, 357);
+            this.btnGlobalInstructorOperations.Location = new System.Drawing.Point(12, 339);
             this.btnGlobalInstructorOperations.Name = "btnGlobalInstructorOperations";
             this.btnGlobalInstructorOperations.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalInstructorOperations.TabIndex = 4;
@@ -415,7 +414,7 @@
             // btnGlobalProfileOperations
             // 
             this.btnGlobalProfileOperations.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGlobalProfileOperations.Location = new System.Drawing.Point(15, 216);
+            this.btnGlobalProfileOperations.Location = new System.Drawing.Point(12, 198);
             this.btnGlobalProfileOperations.Name = "btnGlobalProfileOperations";
             this.btnGlobalProfileOperations.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalProfileOperations.TabIndex = 1;
@@ -423,23 +422,10 @@
             this.btnGlobalProfileOperations.UseVisualStyleBackColor = true;
             this.btnGlobalProfileOperations.Click += new System.EventHandler(this.btnGlobalProfileOperations_Click);
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe Script", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(6, 161);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(15);
-            this.label1.Size = new System.Drawing.Size(204, 52);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Öğrenci Otomasyonu";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnGlobalCourseOperations
             // 
             this.btnGlobalCourseOperations.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.btnGlobalCourseOperations.Location = new System.Drawing.Point(15, 310);
+            this.btnGlobalCourseOperations.Location = new System.Drawing.Point(12, 292);
             this.btnGlobalCourseOperations.Name = "btnGlobalCourseOperations";
             this.btnGlobalCourseOperations.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalCourseOperations.TabIndex = 3;
@@ -450,7 +436,7 @@
             // btnGlobalDepartmentOperations
             // 
             this.btnGlobalDepartmentOperations.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.btnGlobalDepartmentOperations.Location = new System.Drawing.Point(15, 263);
+            this.btnGlobalDepartmentOperations.Location = new System.Drawing.Point(12, 245);
             this.btnGlobalDepartmentOperations.Name = "btnGlobalDepartmentOperations";
             this.btnGlobalDepartmentOperations.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalDepartmentOperations.TabIndex = 2;
@@ -461,7 +447,7 @@
             // btnGlobalAssignAdvisor
             // 
             this.btnGlobalAssignAdvisor.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.btnGlobalAssignAdvisor.Location = new System.Drawing.Point(15, 451);
+            this.btnGlobalAssignAdvisor.Location = new System.Drawing.Point(12, 433);
             this.btnGlobalAssignAdvisor.Name = "btnGlobalAssignAdvisor";
             this.btnGlobalAssignAdvisor.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalAssignAdvisor.TabIndex = 6;
@@ -471,9 +457,11 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(31, 12);
+            this.pictureBox1.Image = global::StudentManagementSystem.Application.Properties.Resources.officer;
+            this.pictureBox1.Location = new System.Drawing.Point(25, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(146, 146);
+            this.pictureBox1.Size = new System.Drawing.Size(160, 160);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -3337,6 +3325,7 @@
             this.Controls.Add(this.pnlGlobalInstructorOperations);
             this.Controls.Add(this.pnlGlobalCourseOperations);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1103, 611);
             this.MinimumSize = new System.Drawing.Size(1053, 580);
             this.Name = "OfficerForm";
@@ -3421,7 +3410,6 @@
         private System.Windows.Forms.Button btnGlobalDepartmentOperations;
         private System.Windows.Forms.Button btnGlobalAssignAdvisor;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlGlobalProfile;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlGlobalDepartmentOperations;

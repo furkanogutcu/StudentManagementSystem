@@ -28,20 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentForm));
             this.pnlBottomBar = new System.Windows.Forms.Panel();
             this.pnlLeftBar = new System.Windows.Forms.Panel();
             this.btnGlobalLogOut = new System.Windows.Forms.Button();
             this.btnGlobalProfile = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnGlobalTranscript = new System.Windows.Forms.Button();
             this.btnGlobalCourseRegister = new System.Windows.Forms.Button();
             this.btnGlobalGradeView = new System.Windows.Forms.Button();
@@ -146,7 +146,6 @@
             this.pnlLeftBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.pnlLeftBar.Controls.Add(this.btnGlobalLogOut);
             this.pnlLeftBar.Controls.Add(this.btnGlobalProfile);
-            this.pnlLeftBar.Controls.Add(this.label1);
             this.pnlLeftBar.Controls.Add(this.btnGlobalTranscript);
             this.pnlLeftBar.Controls.Add(this.btnGlobalCourseRegister);
             this.pnlLeftBar.Controls.Add(this.btnGlobalGradeView);
@@ -160,7 +159,7 @@
             // 
             this.btnGlobalLogOut.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnGlobalLogOut.Font = new System.Drawing.Font("Roboto", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnGlobalLogOut.Location = new System.Drawing.Point(12, 444);
+            this.btnGlobalLogOut.Location = new System.Drawing.Point(12, 416);
             this.btnGlobalLogOut.Name = "btnGlobalLogOut";
             this.btnGlobalLogOut.Size = new System.Drawing.Size(186, 44);
             this.btnGlobalLogOut.TabIndex = 5;
@@ -171,7 +170,7 @@
             // btnGlobalProfile
             // 
             this.btnGlobalProfile.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.btnGlobalProfile.Location = new System.Drawing.Point(12, 256);
+            this.btnGlobalProfile.Location = new System.Drawing.Point(12, 228);
             this.btnGlobalProfile.Name = "btnGlobalProfile";
             this.btnGlobalProfile.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalProfile.TabIndex = 1;
@@ -179,23 +178,10 @@
             this.btnGlobalProfile.UseVisualStyleBackColor = true;
             this.btnGlobalProfile.Click += new System.EventHandler(this.btnGlobalProfile_Click);
             // 
-            // label1
-            // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Segoe Script", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(0, 201);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(15);
-            this.label1.Size = new System.Drawing.Size(207, 52);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Öğrenci Otomasyonu";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // btnGlobalTranscript
             // 
             this.btnGlobalTranscript.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.btnGlobalTranscript.Location = new System.Drawing.Point(12, 397);
+            this.btnGlobalTranscript.Location = new System.Drawing.Point(12, 369);
             this.btnGlobalTranscript.Name = "btnGlobalTranscript";
             this.btnGlobalTranscript.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalTranscript.TabIndex = 4;
@@ -206,7 +192,7 @@
             // btnGlobalCourseRegister
             // 
             this.btnGlobalCourseRegister.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.btnGlobalCourseRegister.Location = new System.Drawing.Point(12, 350);
+            this.btnGlobalCourseRegister.Location = new System.Drawing.Point(12, 322);
             this.btnGlobalCourseRegister.Name = "btnGlobalCourseRegister";
             this.btnGlobalCourseRegister.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalCourseRegister.TabIndex = 3;
@@ -217,7 +203,7 @@
             // btnGlobalGradeView
             // 
             this.btnGlobalGradeView.Font = new System.Drawing.Font("Roboto", 11.25F);
-            this.btnGlobalGradeView.Location = new System.Drawing.Point(12, 303);
+            this.btnGlobalGradeView.Location = new System.Drawing.Point(12, 275);
             this.btnGlobalGradeView.Name = "btnGlobalGradeView";
             this.btnGlobalGradeView.Size = new System.Drawing.Size(186, 41);
             this.btnGlobalGradeView.TabIndex = 2;
@@ -227,9 +213,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Image = global::StudentManagementSystem.Application.Properties.Resources.student;
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(186, 186);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -250,23 +238,23 @@
             // 
             this.dataGridViewGradeViewGrades.AllowUserToAddRows = false;
             this.dataGridViewGradeViewGrades.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGradeViewGrades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGradeViewGrades.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewGradeViewGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGradeViewGrades.Location = new System.Drawing.Point(10, 60);
             this.dataGridViewGradeViewGrades.MultiSelect = false;
             this.dataGridViewGradeViewGrades.Name = "dataGridViewGradeViewGrades";
             this.dataGridViewGradeViewGrades.ReadOnly = true;
             this.dataGridViewGradeViewGrades.RowHeadersVisible = false;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dataGridViewGradeViewGrades.RowsDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewGradeViewGrades.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewGradeViewGrades.RowTemplate.Height = 80;
             this.dataGridViewGradeViewGrades.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewGradeViewGrades.Size = new System.Drawing.Size(855, 422);
@@ -355,23 +343,23 @@
             // 
             this.dataGridViewCourseRegisterAvailableCourses.AllowUserToAddRows = false;
             this.dataGridViewCourseRegisterAvailableCourses.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCourseRegisterAvailableCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourseRegisterAvailableCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewCourseRegisterAvailableCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCourseRegisterAvailableCourses.Location = new System.Drawing.Point(18, 36);
             this.dataGridViewCourseRegisterAvailableCourses.MultiSelect = false;
             this.dataGridViewCourseRegisterAvailableCourses.Name = "dataGridViewCourseRegisterAvailableCourses";
             this.dataGridViewCourseRegisterAvailableCourses.ReadOnly = true;
             this.dataGridViewCourseRegisterAvailableCourses.RowHeadersVisible = false;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dataGridViewCourseRegisterAvailableCourses.RowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewCourseRegisterAvailableCourses.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewCourseRegisterAvailableCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterAvailableCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourseRegisterAvailableCourses.Size = new System.Drawing.Size(730, 385);
@@ -417,31 +405,31 @@
             // 
             this.dataGridViewCourseRegisterSelectedCourses.AllowUserToAddRows = false;
             this.dataGridViewCourseRegisterSelectedCourses.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCourseRegisterSelectedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourseRegisterSelectedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewCourseRegisterSelectedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewCourseRegisterSelectedCourses.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewCourseRegisterSelectedCourses.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewCourseRegisterSelectedCourses.Location = new System.Drawing.Point(18, 34);
             this.dataGridViewCourseRegisterSelectedCourses.MultiSelect = false;
             this.dataGridViewCourseRegisterSelectedCourses.Name = "dataGridViewCourseRegisterSelectedCourses";
             this.dataGridViewCourseRegisterSelectedCourses.ReadOnly = true;
             this.dataGridViewCourseRegisterSelectedCourses.RowHeadersVisible = false;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dataGridViewCourseRegisterSelectedCourses.RowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewCourseRegisterSelectedCourses.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewCourseRegisterSelectedCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterSelectedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourseRegisterSelectedCourses.Size = new System.Drawing.Size(728, 385);
@@ -517,23 +505,23 @@
             // 
             this.dataGridViewCourseRegisterApprovedCourses.AllowUserToAddRows = false;
             this.dataGridViewCourseRegisterApprovedCourses.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewCourseRegisterApprovedCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCourseRegisterApprovedCourses.Location = new System.Drawing.Point(18, 50);
             this.dataGridViewCourseRegisterApprovedCourses.MultiSelect = false;
             this.dataGridViewCourseRegisterApprovedCourses.Name = "dataGridViewCourseRegisterApprovedCourses";
             this.dataGridViewCourseRegisterApprovedCourses.ReadOnly = true;
             this.dataGridViewCourseRegisterApprovedCourses.RowHeadersVisible = false;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dataGridViewCourseRegisterApprovedCourses.RowsDefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Roboto", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dataGridViewCourseRegisterApprovedCourses.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewCourseRegisterApprovedCourses.RowTemplate.Height = 80;
             this.dataGridViewCourseRegisterApprovedCourses.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewCourseRegisterApprovedCourses.Size = new System.Drawing.Size(823, 372);
@@ -1019,6 +1007,7 @@
             this.Controls.Add(this.pnlGlobalCourseRegister);
             this.Controls.Add(this.pnlGlobalTranscript);
             this.Font = new System.Drawing.Font("Roboto", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1103, 557);
             this.MinimumSize = new System.Drawing.Size(1078, 557);
             this.Name = "StudentForm";
@@ -1064,7 +1053,6 @@
         private System.Windows.Forms.Button btnGlobalCourseRegister;
         private System.Windows.Forms.Button btnGlobalGradeView;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pnlGlobalGradeView;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel pnlGlobalCourseRegister;
