@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using StudentManagementSystem.Application.Utilities;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.Constants;
+using StudentManagementSystem.Business.DependencyResolvers.Autofac;
 using StudentManagementSystem.Core.Utilities.Others;
 using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.Entities.Concrete;
@@ -22,15 +23,15 @@ namespace StudentManagementSystem.Application
         private readonly ICatalogCourseService _catalogCourseService;
         private readonly LoginForm _application;
 
-        public OfficerForm(Officer officer, IOfficerService officerService, IDepartmentService departmentService, IInstructorService instructorService, IStudentService studentService, ICatalogCourseService catalogCourseService, LoginForm application)
+        public OfficerForm(Officer officer, LoginForm application)
         {
             _officer = officer;
             _application = application;
-            _officerService = officerService;
-            _departmentService = departmentService;
-            _instructorService = instructorService;
-            _studentService = studentService;
-            _catalogCourseService = catalogCourseService;
+            _officerService = InstanceFactory.GetInstance<IOfficerService>();
+            _departmentService = InstanceFactory.GetInstance<IDepartmentService>();
+            _instructorService = InstanceFactory.GetInstance<IInstructorService>();
+            _studentService = InstanceFactory.GetInstance<IStudentService>();
+            _catalogCourseService = InstanceFactory.GetInstance<ICatalogCourseService>();
             InitializeComponent();
             _panels.Add(pnlGlobalProfile);
             _panels.Add(pnlGlobalDepartmentOperations);

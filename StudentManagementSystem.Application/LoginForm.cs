@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using StudentManagementSystem.Business.Concrete;
+using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.Constants;
-using StudentManagementSystem.DataAccess.Concrete.Sql;
+using StudentManagementSystem.Business.DependencyResolvers.Autofac;
 using StudentManagementSystem.Entities.Concrete;
 
 namespace StudentManagementSystem.Application
@@ -18,24 +18,15 @@ namespace StudentManagementSystem.Application
         {
             try
             {
-                var manager = new AuthenticationManager();
-                var result = manager.Login(txtGlobalUsername.Text, txtGlobalPassword.Text);
+                var authManager = InstanceFactory.GetInstance<IAuthenticationService>();
+                var result = authManager.Login(txtGlobalUsername.Text, txtGlobalPassword.Text);
                 if (result.Success)
                 {
                     if (result.Data.GetType() == typeof(Student))
                     {
                         var student = (Student)result.Data;
                         MessageBox.Show($@"Hoşgeldiniz {student.FirstName} {student.LastName}.", Messages.StudentLogin);
-                        StudentForm studentForm = new StudentForm(
-                            student,
-                            this,
-                            new StudentManager(new SqlStudentDal()),
-                            new DepartmentManager(new SqlDepartmentDal()),
-                            new InstructorManager(new SqlInstructorDal()),
-                            new EnrolledCourseManager(new SqlEnrolledCourseDal()),
-                            new CatalogCourseManager(new SqlCatalogCourseDal()),
-                            new AdviserApprovalManager(new SqlAdviserApprovalDal())
-                            );
+                        StudentForm studentForm = new StudentForm(student, this);
                         this.Hide();
                         studentForm.Show();
                     }
@@ -43,16 +34,7 @@ namespace StudentManagementSystem.Application
                     {
                         var instructor = (Instructor)result.Data;
                         MessageBox.Show($@"Hoşgeldiniz {instructor.FirstName} {instructor.LastName}.", Messages.InstructorLogin);
-                        InstructorForm instructorForm = new InstructorForm(
-                            instructor,
-                            this,
-                            new DepartmentManager(new SqlDepartmentDal()),
-                            new InstructorManager(new SqlInstructorDal()),
-                            new CatalogCourseManager(new SqlCatalogCourseDal()),
-                            new StudentManager(new SqlStudentDal()),
-                            new EnrolledCourseManager(new SqlEnrolledCourseDal()),
-                            new AdviserApprovalManager(new SqlAdviserApprovalDal())
-                        );
+                        InstructorForm instructorForm = new InstructorForm(instructor, this);
                         this.Hide();
                         instructorForm.Show();
                     }
@@ -60,15 +42,7 @@ namespace StudentManagementSystem.Application
                     {
                         var officer = (Officer)result.Data;
                         MessageBox.Show($@"Hoşgeldiniz {officer.FirstName} {officer.LastName}.", Messages.OfficerLogin);
-                        OfficerForm officerForm = new OfficerForm(
-                            officer,
-                            new OfficerManager(new SqlOfficerDal()),
-                            new DepartmentManager(new SqlDepartmentDal()),
-                            new InstructorManager(new SqlInstructorDal()),
-                            new StudentManager(new SqlStudentDal()),
-                            new CatalogCourseManager(new SqlCatalogCourseDal()),
-                            this
-                        );
+                        OfficerForm officerForm = new OfficerForm(officer, this);
                         this.Hide();
                         officerForm.Show();
                     }

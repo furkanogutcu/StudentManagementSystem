@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using StudentManagementSystem.Application.Utilities;
 using StudentManagementSystem.Business.Abstract;
 using StudentManagementSystem.Business.Constants;
+using StudentManagementSystem.Business.DependencyResolvers.Autofac;
 using StudentManagementSystem.Core.Utilities.Validation;
 using StudentManagementSystem.Entities.Concrete;
 using StudentManagementSystem.Entities.Views;
@@ -25,16 +26,16 @@ namespace StudentManagementSystem.Application
         private readonly List<Panel> _panels = new List<Panel>();
         private readonly LoginForm _application;
 
-        public InstructorForm(Instructor instructor, LoginForm application, IDepartmentService departmentService, IInstructorService instructorService, ICatalogCourseService catalogCourseService, IStudentService studentService, IEnrolledCourseService enrolledCourseService, IAdviserApprovalService adviserApprovalService)
+        public InstructorForm(Instructor instructor, LoginForm application)
         {
             _instructor = instructor;
             _application = application;
-            _departmentService = departmentService;
-            _instructorService = instructorService;
-            _catalogCourseService = catalogCourseService;
-            _studentService = studentService;
-            _enrolledCourseService = enrolledCourseService;
-            _adviserApprovalService = adviserApprovalService;
+            _departmentService = InstanceFactory.GetInstance<IDepartmentService>();
+            _instructorService = InstanceFactory.GetInstance<IInstructorService>();
+            _catalogCourseService = InstanceFactory.GetInstance<ICatalogCourseService>();
+            _studentService = InstanceFactory.GetInstance<IStudentService>();
+            _enrolledCourseService = InstanceFactory.GetInstance<IEnrolledCourseService>();
+            _adviserApprovalService = InstanceFactory.GetInstance<IAdviserApprovalService>();
             InitializeComponent();
             _panels.Add(pnlGlobalProfile);
             _panels.Add(pnlGlobalGradeOperations);
