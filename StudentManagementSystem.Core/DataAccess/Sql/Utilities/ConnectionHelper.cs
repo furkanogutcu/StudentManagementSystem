@@ -7,7 +7,7 @@ namespace StudentManagementSystem.Core.DataAccess.Sql.Utilities
     {
         public static MySqlConnection OpenConnection()
         {
-            MySqlConnection connection = new MySqlConnection(DbContext.ConnectionString);
+            MySqlConnection connection = new MySqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["StudentManagementContext"].ConnectionString);
             try
             {
                 connection.Open();

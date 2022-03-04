@@ -91,7 +91,6 @@
   <ItemGroup>
     <Compile Include="CrossCuttingConcerns\Validation\FluentValidation\ValidationTool.cs" />
     <Compile Include="DataAccess\Sql\AbstractEntityRepositoryBase.cs" />
-    <Compile Include="DataAccess\Sql\DbContext.cs" />
     <Compile Include="DataAccess\Sql\IEntityRepository.cs" />
     <Compile Include="DataAccess\Sql\Utilities\ConnectionHelper.cs" />
     <Compile Include="DataAccess\Sql\Utilities\ModelHelper.cs" />
