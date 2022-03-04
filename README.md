@@ -1,5 +1,5 @@
 # Student Management System
-This project is a university student automation developed with ADO.NET.
+This project is a university student automation developed with .NET C# and ADO.NET.
 
 **NOTE: The data in the project images are fake data. The data in these pictures are sample data prepared to introduce the application.**
 
